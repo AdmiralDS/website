@@ -34,10 +34,17 @@ const navItems = [
   </head>
   <body>
     <Navigation navItems={navItems} />
-    <slot />
+    <slot />  
   </body>
 </html>
 <style is:global>
+  @font-face {
+    font-family: 'CoFo Kak';
+    src: url('../../public/fonts/CoFo Kak Black.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    /* font-display: swap; */
+  }
   :root {
     --Light_blue: #f5f9fd;
     --Blue: #0d42ff;
@@ -56,6 +63,7 @@ const navItems = [
     padding: 0;
     margin: 0;
     height: 100vh;
+    display: flex;
   }
   code {
     font-family:

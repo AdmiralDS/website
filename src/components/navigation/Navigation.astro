@@ -5,7 +5,7 @@ interface NavItem {
   href: string;
   label: string;
 }
-interface Props {
+interface Props { 
   navItems: NavItem[];
   class: string;
 }
@@ -18,16 +18,18 @@ const { navItems, class: className } = Astro.props;
 </nav>
 <style>
   .side-nav {
+    flex: 1 0 20.6%;
     box-sizing: border-box;
     position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 328px;
+    max-width: 328px;
     background: var(--Light_blue, #f5f9fd);
     padding-top: 98px;
-    padding-left: 60px;
+    padding-left: 40px;
+
   }
   .side-nav a {
     height: 30px;
