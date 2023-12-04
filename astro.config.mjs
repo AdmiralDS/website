@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
 
-import svelte from "@astrojs/svelte";
+import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://AdmiralDS.github.io',
-  base: '/website',
-  integrations: [svelte()]
+  base: '/website/',
+  integrations: [svelte()],
 });
