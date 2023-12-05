@@ -3,15 +3,15 @@
 
   export let href: string;
   export let label: string;
-  export let children: Array<NavItemProps> | undefined;
+  export let children: Array<NavItemProps> = [];
   export let currentActive: string;
-  export let indent: number | undefined = 0;
+  export let indent: number = 0;
 
   let opened: boolean;
   export let onClick: (key: string) => void;
 
   const handleClick = () => {
-    if (children?.length > 0) {
+    if (children.length > 0) {
       opened = !opened;
     }
     onClick(href);
