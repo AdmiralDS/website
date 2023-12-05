@@ -1,14 +1,17 @@
 ---
 import { Image } from 'astro:assets';
 import SvgAdmiral from './admiral.svg';
+
 interface NavItem {
   href: string;
   label: string;
 }
-interface Props { 
+
+interface Props {
   navItems: NavItem[];
   class: string;
 }
+
 const { navItems, class: className } = Astro.props;
 ---
 
@@ -29,7 +32,6 @@ const { navItems, class: className } = Astro.props;
     background: var(--Light_blue, #f5f9fd);
     padding-top: 98px;
     padding-left: 40px;
-
   }
   .side-nav a {
     height: 30px;

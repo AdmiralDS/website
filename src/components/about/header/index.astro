@@ -5,92 +5,88 @@ import Divider from '../../common/Divider.astro';
 import Card from './Card.astro';
 ---
 
-
 <div class="about-header" id="ds-info">
-    <img src={Cover.src} />
-    <div class="about-header__content">
-        <Contacts />
-        <Divider />
-        <span class='header-text'>
-            АДМИРАЛ — это дизайн система
-        </span>
-        <span class="header__subtext">
-            Цель дизайн-системы — создать единообразный и узнаваемый визуальный стиль, который будет 
-            использоваться во всех продуктах и сервисах компании. Это поможет клиентам 
-            и партнерам быстрее узнавать продукты компании, а также привлекать новых пользователей
-            и удерживать старых
-        </span>
-        <Divider />
-        <div class="cards-wrapper">
-            <Card icon="header-card-1" text='Ускоряет проектирование продуктов и упрощает разработку' />
-            <div class="vertical-divider" />
-            <Card icon="header-card-2" text='Создаёт консистентный пользовательский опыт цифровых продуктов' />
-            <div class="vertical-divider" />
-            <Card icon="header-card-3" text='Стандарты, которые задают высокую планку дизайна и разработки интерфейсов' />
-        </div>
+  <img src={Cover.src} />
+  <div class="about-header__content">
+    <Contacts />
+    <Divider />
+    <span class="header-text"> АДМИРАЛ — это дизайн система</span>
+    <span class="header__subtext">
+      Цель дизайн-системы — создать единообразный и узнаваемый визуальный стиль, который будет использоваться во всех
+      продуктах и сервисах компании. Это поможет клиентам и партнерам быстрее узнавать продукты компании, а также
+      привлекать новых пользователей и удерживать старых
+    </span>
+    <Divider />
+    <div class="cards-wrapper">
+      <Card icon="header-card-1" text="Ускоряет проектирование продуктов и упрощает разработку" />
+      <div class="vertical-divider"></div>
+      <Card icon="header-card-2" text="Создаёт консистентный пользовательский опыт цифровых продуктов" />
+      <div class="vertical-divider"></div>
+      <Card icon="header-card-3" text="Стандарты, которые задают высокую планку дизайна и разработки интерфейсов" />
     </div>
+  </div>
 </div>
 <style>
-    .about-header {
-        height: 812px;
-        position: relative;
-        overflow: hidden;
-    }
-    .about-header img{
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100%;
-        width: auto;
-        z-index: -1;
-    }
-    .about-header__content {
-        padding: 0 3.1%;
-        display: flex;
-        flex-direction: column;
-        /* grid-template-columns: repeat(12, 1fr); */
-        height: 100%;
-        /* grid-auto-rows: minmax(100px, auto); */
-    }
-    .header-text {
-        color: var(--White, #FFF);
-        font-variant-numeric: lining-nums tabular-nums;
-        /* 80/75 */
-        font-family: 'CoFo Kak';
-        font-size: 80px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: 75px; /* 93.75% */
-        text-transform: uppercase;
-        width: 871px;
-        /* grid-column: 1 / span 12; */
-        margin-top: 39px;
-        margin-bottom: 20px;
-    }
-    .header__subtext {
-        color: #FFF;
-        font-variant-numeric: lining-nums tabular-nums;
+  .about-header {
+    height: 812px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-header img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    z-index: -1;
+  }
+  .about-header__content {
+    padding: 0 3.1%;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(12, 1fr); */
+    height: 100%;
+    /* grid-auto-rows: minmax(100px, auto); */
+  }
+  .header-text {
+    color: var(--White, #fff);
+    font-variant-numeric: lining-nums tabular-nums;
+    /* 80/75 */
+    font-family: 'CoFo Kak';
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 75px; /* 93.75% */
+    text-transform: uppercase;
+    width: 871px;
+    /* grid-column: 1 / span 12; */
+    margin-top: 39px;
+    margin-bottom: 20px;
+  }
+  .header__subtext {
+    color: #fff;
+    font-variant-numeric: lining-nums tabular-nums;
 
-        /* 20/25 */
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 25px; /* 125% */
-        /* grid-column: 1 / span 8; */
-        width: 66.7%;
-        margin-bottom: auto;
-    }
-    .cards-wrapper {
-        height: 216px;
-        grid-column: 1 / span 12;
-        display: flex;
-        column-gap: 10px;
-    }
-    .vertical-divider {
-        width: 1px;
-        height: 100%;
-        background-color:  var(--White, #FFF);
-        opacity: 0.2;
-    }
+    /* 20/25 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
+    /* grid-column: 1 / span 8; */
+    width: 66.7%;
+    margin-bottom: auto;
+  }
+  .cards-wrapper {
+    height: 216px;
+    grid-column: 1 / span 12;
+    display: flex;
+    column-gap: 10px;
+  }
+  .vertical-divider {
+    width: 1px;
+    height: 100%;
+    background-color: var(--White, #fff);
+    opacity: 0.2;
+  }
 </style>
