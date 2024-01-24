@@ -1,0 +1,99 @@
+---
+import { Switcher } from "../../../ui-kit";
+import LightImage from "./light-image.png";
+import ThemeToggle from "./theme-toggle.svelte";
+import { Icon } from "astro-icon";
+
+const NamesArray = {
+  site: "ВТБ Онлайн сайт",
+  web: "Адаптивный веб",
+  style: "Геометрический стиль"
+} as const;
+---
+
+<div class="block-container">
+  <h2 class="block-title dark" id="products">наши продукты</h2>
+  <div class="products-text">
+    Ниже приведены несколько примеров проектов, в которых используется дизайн-система Адмирал
+  </div>
+  <ThemeToggle />
+  <Switcher items={NamesArray} activeItem="site" client:visible>
+    <img slot="info" src={LightImage.src} class="info-cover"/>
+    <div class="arrows" slot="ext-controls">
+      <button class="arrow-button" disabled>
+        <Icon name="arrow-left" />
+      </button>
+      <button class="arrow-button">
+        <Icon name="arrow-right" />
+      </button>
+    </div>
+  </Switcher>
+
+</div>
+
+<style>
+  .block-container {
+    padding-top: 20px;
+    width: 100%;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #e6eaf0;
+  }
+
+  .info-cover {
+    height: auto;
+    width: 100% ;
+  }
+
+  .employees {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 16px;
+    row-gap: 20px;
+  }
+
+  .products-text {
+    margin: 20px 0 40px;
+    width: 50%;
+
+    color: var(--Grey, #7A8190);
+    font-variant-numeric: lining-nums tabular-nums;
+
+    /* 20/25 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
+  }
+
+  .arrows {
+    display: flex;
+    gap: 5px;
+    padding-top: 40px;
+  }
+
+  .arrow-button {
+    min-width: 30px;
+    min-height: 30px;
+    outline: none;
+    cursor: pointer;
+    color: #35383A;
+    border: 2px solid #E6EAF0;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    background-color: white;
+    align-items: center;
+  }
+
+  .arrow-button:disabled {
+    color: #E6EAF0;
+    cursor: not-allowed;
+  }
+
+  .arrow-button svg {
+    width: 15px;
+    height: 15px;
+  }
+</style>

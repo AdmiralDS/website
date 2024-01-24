@@ -30,7 +30,6 @@
     cursor: pointer;
     height: 30px;
     padding: 20px 0;
-    border-bottom: 1px solid #e6eaf0;
 
     display: flex;
     justify-content: flex-start;
@@ -46,6 +45,9 @@
     font-style: normal;
     font-weight: 500;
     line-height: 25px; /* 125% */
+  }
+  .abilities-item:not(:last-child) {
+    border-bottom: 1px solid #e6eaf0;
   }
 
   .nav-item:hover:not(.active) {

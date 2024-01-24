@@ -24,17 +24,20 @@
 
 <style>
   .side-nav {
-    flex: 1 0 20.6%;
+    flex: 1 0 auto;
     box-sizing: border-box;
     position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 328px;
     background: var(--Light_blue, #f5f9fd);
     padding-top: 36px;
     padding-left: 40px;
+    width: 328px;
+    @media (max-width: 1280px) {
+      width: 264px;
+    }
   }
   .side-nav-items {
     margin-top: 20px;

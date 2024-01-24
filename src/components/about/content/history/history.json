@@ -1,0 +1,66 @@
+[
+  {
+    "size": "l",
+    "active": true,
+    "title": "2020",
+    "detail": "Первые шаги цифровой трансформации нашего бизнес партнера",
+    "textPosition": "bottom"
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "l",
+    "active": true,
+    "title": "2021",
+    "detail": "Запуск первых релизов с использованием web дизайн-системы Admiral",
+    "textPosition": "bottom"
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "l",
+    "active": true,
+    "title": "2022",
+    "detail": "Более 53% релизов партнёра запущены на web и mobile дизайн-системах Admiral",
+    "textPosition": "bottom"
+  },
+  {
+    "size": "s",
+    "active": true,
+    "detail": "Использование Admiral вне коммерческих целей партнёра",
+    "textPosition": "top",
+    "detailHasBorder": true
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "s",
+    "active": false
+  },
+  {
+    "size": "s",
+    "active": false
+  }
+]
