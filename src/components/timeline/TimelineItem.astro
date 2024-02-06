@@ -1,27 +1,35 @@
 ---
-const { item } = Astro.props;
+const { item, isLastEl } = Astro.props;
 const Grey = '#7A8190';
 const Dark_grey = '#35383A';
 const Light_grey = '#E6EAF0';
 ---
 
-<div class={item.active ? 'timeline-item active' : 'timeline-item'}>
+<div class={`timeline-item ${item.active ? 'active' : ''}`}>
   <div class="line"></div>
-  <div class={item.size === 's' ? 'point small' : 'point large'}>
-    {
-      (item.title || item.detail) && (
-        <div class={item.textPosition === 'bottom' ? 'point-text bottom' : 'point-text top'}>
+  <div class={`point ${item.size === 's' ? 'small' : 'large'}`}>
+    {item.active && (
+      <div class={'point-text bottom'}>
           {item.title && <div class="point-title">{item.title}</div>}
           {item.detail && (
-            <div class={item.detailHasBorder ? "point-detail with-border" : "point-detail"}>
-              {item.detail}
-            </div>
+            <div class={'point-detail'}>{item.detail}</div>
+          )}
+        </div>
+    )}
+    {!item.active && (
+        <div class={`point-text ${isLastEl ? 'top last' : 'top'}`}>
+          {item.detail && (
+            <div class={'point-detail with-border'}>{item.detail}</div>
           )}
         </div>
       )
     }
   </div>
 </div>
+
+<script>
+  import './timelineHover.js';
+</script>
 
 <style define:vars={{ Grey, Dark_grey, Light_grey }}>
   .timeline-item {
@@ -51,12 +59,17 @@ const Light_grey = '#E6EAF0';
     line-height: 1.2;
     position: relative;
     border-radius: 50%;
-    border: 2px solid #7a8190;
+    outline: 2px solid #7a8190;
+  }
+
+  .timeline-item .point:hover {
+    outline-color: #0d42ff;
   }
 
   .timeline-item .point.large {
     width: 20px;
     height: 20px;
+    outline-width: 3px;
   }
 
   .timeline-item .point.small {
@@ -75,7 +88,7 @@ const Light_grey = '#E6EAF0';
   }
 
   .timeline-item.active .point {
-    border-color: #0d42ff;
+    outline-color: #0d42ff;
   }
 
   .timeline-item .point-text {
@@ -97,6 +110,10 @@ const Light_grey = '#E6EAF0';
   }
   .timeline-item .point-text.top {
     bottom: 20px;
+  }
+
+  .timeline-item .point-text.top.last {
+    right: 0;
   }
 
   .timeline-item .point-title {
@@ -123,9 +140,10 @@ const Light_grey = '#E6EAF0';
   }
   .timeline-item .point-detail.with-border {
     border-radius: 4px;
-    border: 1px solid var(--Light_grey);
+    outline: 1px solid var(--Light_grey);
     background: #fff;
     padding: 10px;
     box-sizing: border-box;
+    opacity: 0;
   }
 </style>
