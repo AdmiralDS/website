@@ -6,7 +6,7 @@ const { items } = Astro.props;
 
 <div class="timeline">
   {items.map((item: TimelineItem, idx: number) => {
-    const isLastEl = idx === items.length - 1;
+    const isLastEl = idx > (items.length - 4);
       return <TimelineItemComponent item={item} isLastEl={isLastEl} />;
     })}
 </div>
