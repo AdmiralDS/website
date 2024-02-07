@@ -3,64 +3,68 @@
     "size": "l",
     "active": true,
     "title": "2020",
-    "detail": "Первые шаги цифровой трансформации нашего бизнес партнера",
-    "textPosition": "bottom"
+    "detail": "Первые шаги цифровой трансформации нашего бизнес партнера"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "1 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "2 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "l",
     "active": true,
     "title": "2021",
-    "detail": "Запуск первых релизов с использованием web дизайн-системы Admiral",
-    "textPosition": "bottom"
+    "detail": "Запуск первых релизов с использованием web дизайн-системы Admiral"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "3 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "4 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "5 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "6 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "l",
     "active": true,
     "title": "2022",
-    "detail": "Более 53% релизов партнёра запущены на web и mobile дизайн-системах Admiral",
-    "textPosition": "bottom"
+    "detail": "Более 53% релизов партнёра запущены на web и mobile дизайн-системах Admiral"
   },
   {
     "size": "s",
-    "active": true,
-    "detail": "Использование Admiral вне коммерческих целей партнёра",
-    "textPosition": "top",
-    "detailHasBorder": true
+    "active": false,
+    "detail": "7 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "8 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "9 Использование Admiral вне коммерческих целей партнёра"
   },
   {
     "size": "s",
-    "active": false
+    "active": false,
+    "detail": "10 Использование Admiral вне коммерческих целей партнёра"
   }
 ]
