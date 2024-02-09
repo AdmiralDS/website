@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import AboutPage from '../components/users/users-page.astro'
+import UsersPage from '../components/users/users-page.astro'
 ---
 
 <Layout title="Пользователи">
   <main>
-    <AboutPage />
+    <UsersPage />
   </main>
 </Layout>
 
@@ -64,7 +64,7 @@ import AboutPage from '../components/users/users-page.astro'
   .instructions strong {
     color: rgb(var(--accent-light));
   }
-  
+
   .link-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
