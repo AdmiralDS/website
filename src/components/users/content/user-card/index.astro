@@ -1,18 +1,19 @@
 ---
 import { Icon } from 'astro-icon';
+const {index, groupName, title, info, iconName} = Astro.props;
 ---
 
 <div class="user-card">
     <div class="user-card__first-row">
-        1 Дизайнеры
+        {`${index + 1} ${groupName}`}
     </div>
     <div class="user-card__last-row">
         <div class="user-card__info-column">
-            <div class="user-card__info-main">ускоряем работу с макетами</div>
-            <div class="user-card__info-sub">На 45% снижаем время на отрисовку макета</div>
+            <div class="user-card__info-main">{title}</div>
+            <div class="user-card__info-sub">{info}</div>
         </div>
         <div class="user-card__icon-wrapper">
-            <Icon name="rocket" />
+            <Icon name={iconName} />
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@ import UserCard from '../user-card/index.astro';
 ---
 
 <div class="users-list">
-    <UserCard />
+    {users.map((user, idx) => <UserCard index={idx} groupName={user.groupName} title={user.title} info={user.info} iconName={user.icon} />)}
 </div>
 
 <style>
