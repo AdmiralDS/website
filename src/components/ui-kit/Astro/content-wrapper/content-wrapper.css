@@ -1,0 +1,17 @@
+.content-wrapper {
+    position: relative;
+    min-height: 500px;
+    padding: 0 60px 20px;
+    background: var(--White, #fff);
+}
+.content-wrapper::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: -12px;
+    left: 0;
+    height: 12px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background: var(--White, #fff);
+}

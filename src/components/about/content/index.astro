@@ -1,36 +1,19 @@
 ---
-import Abilities from './abilities/switcher.svelte';
-import Team from './team/index.astro';
-import Products from './products/index.astro';
-import Platforms from './platforms/index.astro';
-import History from './history/index.astro';
+import { ContentWrapper } from '@components/ui-kit/Astro';
+import { Abilities } from './abilities';
+import { Team } from './team';
+import { Products } from './products';
+import { Platforms } from './platforms';
+import { History } from './history';
 import Footer from "../../footer/index.astro";
 ---
 
-<div class="about-content">
-  <Abilities client:visible />
+<ContentWrapper class="about-content">
+  <Abilities />
   <Team />
   <Products />
   <Platforms />
   <History />
   <Footer />
-</div>
-<style>
-  .about-content {
-    position: relative;
-    min-height: 500px;
-    padding: 20px 3.1%;
-    background: var(--White, #fff);
-  }
-  .about-content::before{
-    content: "";
-    position: absolute;
-    width: 100%;
-    top: -12px;
-    left: 0;
-    height: 12px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    background: var(--White, #fff);
-  }
-</style>
+</ContentWrapper>
+

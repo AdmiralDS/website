@@ -16,8 +16,11 @@
     "svelte": "^4.2.8"
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "^1.5.1",
     "@esbuild/darwin-arm64": "^0.19.8",
+    "@sveltejs/adapter-auto": "^3.1.1",
     "prettier": "^3.1.0",
-    "prettier-plugin-astro": "^0.12.2"
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-svelte": "^3.2.0"
   }
 }

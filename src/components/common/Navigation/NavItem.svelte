@@ -1,17 +1,19 @@
 <script lang="ts">
-  import type { NavItemProps } from '../../../@types/common.ts';
+  import type { NavItemProps } from '@types';
 
   export let href: string;
   export let label: string;
   export let children: Array<NavItemProps> = [];
   export let currentActive: string;
+  export let onToggleOpen: (key: string) => void;
   export let indent: number = 0;
 
-  let opened: boolean;
+  export let opened: boolean;
   export let onClick: (key: string) => void;
 
   const handleClick = () => {
     if (children.length > 0) {
+      onToggleOpen?.(href);
       opened = !opened;
     }
     onClick(href);
@@ -33,36 +35,5 @@
 {/if}
 
 <style>
-  .nav-item {
-    height: 30px;
-    padding: 0 12px;
-    border-radius: 64px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-
-    color: var(--Dark_grey, #35383a);
-
-    text-decoration: none;
-    text-align: center;
-    /* 16/medium */
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 125% */
-    text-rendering: geometricPrecision;
-  }
-
-  .nav-item:hover:not(.active) {
-    color: var(--Blue, #0d42ff);
-  }
-
-  .active {
-    background: var(--Blue, #0d42ff);
-    color: #fff;
-  }
+    @import "./item.css";
 </style>

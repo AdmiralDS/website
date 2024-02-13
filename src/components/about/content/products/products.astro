@@ -1,0 +1,34 @@
+---
+import { ContentBlock } from '@components/ui-kit';
+import ProductsSwitcher from './products-switcher.svelte';
+
+const NamesArray = {
+  site: 'ВТБ Онлайн сайт',
+  web: 'Адаптивный веб',
+  style: 'Геометрический стиль',
+} as const;
+---
+
+<ContentBlock id="products" title="наши продукты">
+  <div class="products-text">
+    Ниже приведены несколько примеров проектов, в которых используется дизайн-система Адмирал
+  </div>
+  <ProductsSwitcher items={NamesArray} activeItem="site" client:visible />
+</ContentBlock>
+
+<style>
+  .products-text {
+    margin: 20px 0 40px;
+    width: 50%;
+
+    color: var(--Grey);
+    font-variant-numeric: lining-nums tabular-nums;
+
+    /* 20/25 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
+  }
+</style>
