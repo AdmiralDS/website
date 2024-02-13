@@ -4,14 +4,19 @@ import UserCard from '../user-card/index.astro';
 ---
 
 <div class="users-list">
-    {users.map((user, idx) => <UserCard index={idx} groupName={user.groupName} title={user.title} info={user.info} iconName={user.icon} />)}
+  {
+    users.map((user, idx) => {
+      const { icon: iconName, ...props } = user;
+      return <UserCard index={idx} {...props} {iconName} />;
+    })
+  }
 </div>
 
 <style>
-    .users-list {
-        display: flex;
-        flex-direction: column;
-        padding-top: 20px;
-        gap: 10px;
-    }
+  .users-list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 10px;
+  }
 </style>

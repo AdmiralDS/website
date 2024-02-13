@@ -1,17 +1,20 @@
 [
     {
+        "id": "designers",
         "groupName": "Дизайнеры",
         "title": "Ускоряем работу с макетами",
         "info": "На 45% снижаем время на отрисовку макета",
         "icon": "rocket"
     },
     {
+        "id": "developers",
         "groupName": "Разработчики",
         "title": "поддержка всех стандартов",
         "info": "Единая логика компонентов для iOS и Andriod и Web",
         "icon": "display"
     },
     {
+        "id": "business",
         "groupName": "Бизнес",
         "title": "25% сокращение time-to-market",
         "info": "Проверка гипотез, без траты времени на разработку",

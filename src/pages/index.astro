@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import AboutPage from '@components/about/about-page.astro';
+// import AboutPage from '@components/about/about-page.astro';
 import SubLayout from '../layouts/SubLayout.astro';
 import Header from '../components/about/header/index.astro';
 import Content from '../components/about/content/index.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Дизайн система Admiral." activeMenuItem="ds-info">
   <SubLayout>
-    <Header slot='header' />
-    <Content slot='content' />
+    <Header slot="header" />
+    <Content slot="content" />
   </SubLayout>
 </Layout>

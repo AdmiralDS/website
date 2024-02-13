@@ -1,5 +1,6 @@
 export interface NavItemProps {
   href: string;
+  anchor?: string;
   label: string;
   children?: Array<NavItemProps>;
 }
