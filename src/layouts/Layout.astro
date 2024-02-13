@@ -1,134 +1,82 @@
 ---
-import { type NavItemProps } from "../@types/common";
-import "../app.css";
+import { type NavItemProps } from '@types';
+import globalStyles from './global.css?raw';
+
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
 
-import Navigation from "../components/common/Navigation/index.svelte";
+import { Navigation } from '@components/common/Navigation';
 const navItems: Array<NavItemProps> = [
   {
     href: `ds-info`,
-    label: "Дизайн-система",
+    label: 'Дизайн-система',
     children: [
       {
-        href: "abilities",
-        label: "Возможности"
+        href: 'abilities',
+        label: 'Возможности',
       },
       {
-        href: "team",
-        label: "Команда"
+        href: 'team',
+        label: 'Команда',
       },
       {
-        href: "products",
-        label: "Наши продукты"
+        href: 'products',
+        label: 'Наши продукты',
       },
       {
-        href: "platforms",
-        label: "Платформы"
-      }
-    ]
+        href: 'platforms',
+        label: 'Платформы',
+      },
+    ],
   },
   {
     href: `users`,
-    label: "Пользователи",
+    label: 'Пользователи',
     children: [
       {
-        href: "designers",
-        label: "Дизайнеры"
+        href: 'designers',
+        label: 'Дизайнеры',
       },
       {
-        href: "developers",
-        label: "Разработчики"
+        href: 'developers',
+        label: 'Разработчики',
       },
       {
-        href: "business",
-        label: "Бизнес"
-      }
-    ]
+        href: 'business',
+        label: 'Бизнес',
+      },
+    ],
   },
   {
     href: `library`,
-    label: "Библиотека"
-  }
+    label: 'Библиотека',
+  },
 ];
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-  <base href={import.meta.env.BASE_URL} />
-  <meta charset="UTF-8" />
-  <meta name="description" content="Astro description" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="generator" content={Astro.generator} />
-  <title>{title}</title>
-</head>
-<body>
-<Navigation navItems={navItems} client:visible />
-<slot />
-</body>
+  <head>
+    <base href={import.meta.env.BASE_URL} />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Navigation navItems={navItems} defaultActive="ds-info" client:visible />
+    <slot />
+  </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: CoFo Kak;
-    src: url(fonts/CoFo Kak Black.otf) format('opentype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  :root {
-    --Light_blue: #f5f9fd;
-    --Blue: #0d42ff;
-    --White: #fff;
-    --Dark_grey: #35383A;
-    --Light_grey: #E6EAF0;
-    --Grey: #7A8190;
-
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-
-    --Dark_blue_gradient: radial-gradient(
-            336.44% 141.22% at 99% 100%,
-            rgba(0, 0, 255, 0.35) 0%,
-            rgba(6, 6, 114, 0.35) 29.74%,
-            rgba(6, 6, 114, 0) 64.24%
-    ),
-    #030125
-  }
-
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-
-  body {
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-  }
-
-  code {
-    font-family: Menlo,
-    Monaco,
-    Lucida Console,
-    Liberation Mono,
-    DejaVu Sans Mono,
-    Bitstream Vera Sans Mono,
-    Courier New,
-    monospace;
-  }
-</style>
+<style is:global set:html={globalStyles}></style>

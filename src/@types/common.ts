@@ -14,3 +14,5 @@ export interface TimelineItem {
 }
 
 export type TimelineData = Array<TimelineItem>;
+
+export type Theme = 'light' | 'dark';
