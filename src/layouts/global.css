@@ -1,0 +1,62 @@
+@font-face {
+  font-family: CoFo Kak;
+  src: url('fonts/CoFo Kak Black.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /*<editor-fold desc="Theme colors">*/
+  --Light_blue: #f5f9fd;
+  --Blue: #0d42ff;
+  --White: #fff;
+  --Dark_grey: #35383a;
+  --Light_grey: #e6eaf0;
+  --Grey: #7a8190;
+  /*</editor-fold>*/
+
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+
+  --Dark_blue_gradient: radial-gradient(
+      1399.99% 141.42% at 99% 100%,
+      rgba(0, 0, 255, 0.35),
+      rgba(6, 6, 114, 0.35) 29.735%,
+      rgba(6, 6, 114, 0) 64.241%
+    ),
+    rgb(3, 1, 37);
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  background: #13151a;
+  background-size: 224px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+}
+
+code {
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+}

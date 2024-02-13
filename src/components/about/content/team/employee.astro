@@ -9,39 +9,39 @@ const { name, role, avatar } = Astro.props;
 ---
 
 <div class="stream-employee">
-  <img class="avatar" src={`/website/images/${avatar}`} alt={name}/>
+  <img class="avatar" src={`/website/images/employee/${avatar}`} alt={name} />
   <div class="name">{name}</div>
   <div class="role">{role}</div>
 </div>
 
 <style>
   .stream-employee {
-      max-width: 135px;
+    max-width: 135px;
   }
   .stream-employee .avatar {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 10px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
   }
   .stream-employee .name {
-      color: var(--Dark_grey, #35383A);
-      /* 16/medium */
-      font-family: Inter;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 20px; /* 125% */
-      margin-bottom: 4px;
-      width: 10px;
+    color: var(--Dark_grey, #35383a);
+    /* 16/medium */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 125% */
+    margin-bottom: 4px;
+    width: 10px;
   }
   .stream-employee .role {
-      color: var(--Grey, #7A8190);
+    color: var(--Grey, #7a8190);
 
-      /* 16/20/regular */
-      font-family: Inter;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 20px; /* 125% */
+    /* 16/20/regular */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
   }
 </style>

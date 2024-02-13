@@ -13,7 +13,14 @@
   };
 </script>
 
-<div class="abilities-item" class:active on:click={handleClick}>
+<div
+  role="button"
+  tabindex={number}
+  class="abilities-item"
+  class:active
+  on:keypress={handleClick}
+  on:click={handleClick}
+>
   <span>
     {number}
   </span>
@@ -29,7 +36,7 @@
   .abilities-item {
     cursor: pointer;
     height: 30px;
-    padding: 20px 0;
+    padding: 0 0 20px 0;
 
     display: flex;
     justify-content: flex-start;
@@ -46,12 +53,12 @@
     font-weight: 500;
     line-height: 25px; /* 125% */
   }
-  .abilities-item:not(:last-child) {
-    border-bottom: 1px solid #e6eaf0;
+  .abilities-item:not(:first-child) {
+      padding-top: 20px;
   }
 
-  .nav-item:hover:not(.active) {
-    color: var(--Blue, #0d42ff);
+  .abilities-item:not(:last-child) {
+    border-bottom: 1px solid #e6eaf0;
   }
 
   .active {

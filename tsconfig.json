@@ -1,3 +1,21 @@
 {
-  "extends": "astro/tsconfigs/strict"
+  "extends": "astro/tsconfigs/strict",
+  "exclude": [
+    "node_modules", "public"
+  ],
+  "compilerOptions": {
+    "jsx": "react",
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": [
+        "./components/*"
+      ],
+      "@types/*": ["./@types/**"]
+    }
+  }
 }

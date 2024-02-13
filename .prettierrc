@@ -4,5 +4,23 @@
   "singleQuote": true,
   "printWidth": 120,
   "tabWidth": 2,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "plugins": [
+    "prettier-plugin-svelte",
+    "prettier-plugin-astro"
+  ],
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    },
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }
