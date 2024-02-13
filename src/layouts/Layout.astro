@@ -1,51 +1,61 @@
 ---
-import { type NavItemProps } from '@types';
+import { type NavItemProps } from '@types/common';
 import globalStyles from './global.css?raw';
 
 interface Props {
   title: string;
+  activeMenuItem: string;
 }
 
-const { title } = Astro.props;
+const { title, activeMenuItem } = Astro.props;
 
 import { Navigation } from '@components/common/Navigation';
 const navItems: Array<NavItemProps> = [
   {
-    href: `ds-info`,
+    href: '',
+    anchor: 'ds-info',
     label: 'Дизайн-система',
     children: [
       {
-        href: 'abilities',
+        href: '',
+        anchor: 'abilities',
         label: 'Возможности',
       },
       {
-        href: 'team',
+        href: '',
+        anchor: 'team',
         label: 'Команда',
       },
       {
-        href: 'products',
+        href: '',
+        anchor: 'products',
         label: 'Наши продукты',
       },
       {
-        href: 'platforms',
+        href: '',
+        anchor: 'platforms',
         label: 'Платформы',
       },
     ],
   },
   {
     href: `users`,
+    anchor: `users`,
     label: 'Пользователи',
     children: [
       {
-        href: 'designers',
+        href: 'users',
+        anchor: 'designers',
         label: 'Дизайнеры',
       },
       {
-        href: 'developers',
+        href: 'users',
+        anchor: 'developers',
         label: 'Разработчики',
       },
       {
-        href: 'business',
+        href: 'users',
+        anchor: 'business',
         label: 'Бизнес',
       },
     ],
@@ -75,7 +85,7 @@ const navItems: Array<NavItemProps> = [
     <title>{title}</title>
   </head>
   <body>
-    <Navigation navItems={navItems} defaultActive="ds-info" client:visible />
+    <Navigation navItems={navItems} defaultActive={activeMenuItem} client:visible />
     <slot />
   </body>
 </html>

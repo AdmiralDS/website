@@ -1,7 +1,6 @@
 <script lang="ts">
   import NavItem from './NavItem.svelte';
   import Logo from './admiral.svelte';
-  import { onMount } from 'svelte';
   import type { NavItemProps } from '@types';
 
   export let navItems: Array<NavItemProps>;
@@ -11,7 +10,7 @@
   let opened: Array<string> = [];
 
   $: if (defaultActive) {
-    opened.push(defaultActive);
+    opened = [...opened, defaultActive];
   }
 
   const handleClick = (key: string) => {
@@ -23,13 +22,9 @@
     if (index > -1) {
       opened.splice(index, 1);
     } else {
-      console.log('add', key, opened);
       opened = [...opened, key];
-      console.log(opened);
     }
   };
-
-  console.log(opened, defaultActive);
 </script>
 
 <nav class="side-nav">
@@ -40,7 +35,7 @@
         <NavItem
           {...item}
           {currentActive}
-          opened={opened.includes(item.href)}
+          opened={opened.includes(item.href ? `${item.href}/#${item.anchor}` : `${item.anchor}`)}
           onClick={handleClick}
           onToggleOpen={handleToggleOpenItem}
         />

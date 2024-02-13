@@ -1,0 +1,22 @@
+---
+import users from './users.json';
+import UserCard from '../user-card/index.astro';
+---
+
+<div class="users-list">
+  {
+    users.map((user, idx) => {
+      const { icon: iconName, ...props } = user;
+      return <UserCard index={idx} {...props} {iconName} />;
+    })
+  }
+</div>
+
+<style>
+  .users-list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 10px;
+  }
+</style>

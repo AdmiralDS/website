@@ -1,0 +1,19 @@
+---
+import Footer from "../../footer/index.astro";
+import Description from './description/index.astro';
+import UsersList from './users-list/index.astro';
+---
+
+<div class="users-content">
+  <Description />
+  <UsersList />
+  <Footer />
+</div>
+
+<style>
+  .users-content {
+    min-height: 500px;
+    padding: 20px 3.9%;
+    background: var(--White, #fff);
+  }
+</style>

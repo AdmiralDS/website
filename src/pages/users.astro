@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubLayout from '../layouts/SubLayout.astro';
+import Header from '../components/users/header/index.astro';
+import Content from '../components/users/content/index.astro';
+---
+
+<Layout title="Пользователи" activeMenuItem="users/#users">
+  <SubLayout>
+    <Header slot="header" />
+    <Content slot="content" />
+  </SubLayout>
+</Layout>

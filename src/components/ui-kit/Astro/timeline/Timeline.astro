@@ -1,14 +1,16 @@
 ---
 import TimelineItemComponent from './TimelineItem.astro';
-import { type TimelineItem } from '../../@types/common.ts';
+import { type TimelineItem } from '@types';
 const { items } = Astro.props;
 ---
 
 <div class="timeline">
-  {items.map((item: TimelineItem, idx: number) => {
-    const isLastEl = idx > (items.length - 4);
+  {
+    items.map((item: TimelineItem, idx: number) => {
+      const isLastEl = idx > items.length - 4;
       return <TimelineItemComponent item={item} isLastEl={isLastEl} />;
-    })}
+    })
+  }
 </div>
 
 <style>

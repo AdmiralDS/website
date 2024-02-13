@@ -1,26 +1,22 @@
 ---
 const { item, isLastEl } = Astro.props;
-const Grey = '#7A8190';
-const Dark_grey = '#35383A';
-const Light_grey = '#E6EAF0';
 ---
 
 <div class={`timeline-item ${item.active ? 'active' : ''}`}>
   <div class="line"></div>
   <div class={`point ${item.size === 's' ? 'small' : 'large'}`}>
-    {item.active && (
-      <div class={'point-text bottom'}>
+    {
+      item.active && (
+        <div class={'point-text bottom'}>
           {item.title && <div class="point-title">{item.title}</div>}
-          {item.detail && (
-            <div class={'point-detail'}>{item.detail}</div>
-          )}
+          {item.detail && <div class={'point-detail'}>{item.detail}</div>}
         </div>
-    )}
-    {!item.active && (
+      )
+    }
+    {
+      !item.active && (
         <div class={`point-text ${isLastEl ? 'top last' : 'top'}`}>
-          {item.detail && (
-            <div class={'point-detail with-border'}>{item.detail}</div>
-          )}
+          {item.detail && <div class={'point-detail with-border'}>{item.detail}</div>}
         </div>
       )
     }
@@ -31,7 +27,7 @@ const Light_grey = '#E6EAF0';
   import './timelineHover.js';
 </script>
 
-<style define:vars={{ Grey, Dark_grey, Light_grey }}>
+<style>
   .timeline-item {
     display: flex;
     flex: 1 0 auto;
@@ -102,7 +98,7 @@ const Light_grey = '#E6EAF0';
   }
 
   .timeline-item .small .point-text {
-    width: 180px;
+    width: 194px;
   }
 
   .timeline-item .point-text.bottom {
