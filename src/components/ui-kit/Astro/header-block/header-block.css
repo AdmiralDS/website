@@ -1,0 +1,16 @@
+.header {
+    height: 352px;
+    padding: 0 60px;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 1600px) {
+      padding: 0 40px;
+    }
+  }
+
+  .header__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }

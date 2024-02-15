@@ -1,0 +1,18 @@
+---
+import Contacts from '../../../common/Contacts.astro';
+interface Props {
+  id: string;
+  class: string;
+}
+
+const { id, class: className } = Astro.props;
+
+import './header-block.css';
+---
+
+<div class:list={[className, 'header']} id={id}>
+  <div class="header__content">
+    <Contacts />
+    <slot />
+  </div>
+</div>
