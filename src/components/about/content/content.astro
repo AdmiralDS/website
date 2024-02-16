@@ -1,5 +1,4 @@
 ---
-import { ContentWrapper } from '@components/ui-kit/Astro';
 import { Abilities } from './abilities';
 import { Team } from './team';
 import { Products } from './products';
@@ -8,12 +7,12 @@ import { History } from './history';
 import Footer from "../../footer/index.astro";
 ---
 
-<ContentWrapper class="about-content">
+<Fragment>
   <Abilities />
   <Team />
   <Products />
   <Platforms />
   <History />
   <Footer />
-</ContentWrapper>
+</Fragment>
 
