@@ -9,6 +9,7 @@
 .subcontent-block__first-column {
     display: flex;
     flex-direction: column;
+    padding-right: 10px;
     border-right: 1px solid var(--Light_grey, #e6eaf0);
     flex: 50%;
 }
