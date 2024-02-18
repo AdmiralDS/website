@@ -1,0 +1,38 @@
+---
+import Divider from "../../common/Divider.astro";
+import HeaderBlock from "../../ui-kit/Astro/header-block";
+---
+
+<HeaderBlock id={"library"} class="library-header-image">
+  <Divider />
+  <div class="header__wrapper">
+    <span class="header-text">
+      Визуальный <br />
+      язык понятный <br />
+      каждому
+    </span>
+  </div>
+</HeaderBlock>
+
+<style is:inline>
+  .library-header-image {
+    height: 351px;
+    background: url("src/components/library/header/library.png");
+  }
+
+  .header__wrapper {
+    margin-top: 20px;
+  }
+
+  .header-text {
+    color: var(--White, #fff);
+    font-variant-numeric: lining-nums tabular-nums;
+    font-family: 'CoFo Kak';
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 60px;
+    letter-spacing: -0.1px;
+    text-transform: uppercase;
+  }
+</style>
