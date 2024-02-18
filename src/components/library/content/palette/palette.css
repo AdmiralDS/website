@@ -3,7 +3,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px 20px;
     width: 100%;
-    padding-top: 20px;
     padding-left: 10px;
 }
 
@@ -12,8 +11,6 @@
     flex-direction: column;
     border-radius: 12px;
     padding: 10px;
-    /* max-width: 229px;
-    min-width: 139px; */
 }
 
 .palette-tile__color-name {

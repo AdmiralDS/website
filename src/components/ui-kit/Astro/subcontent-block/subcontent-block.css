@@ -1,7 +1,6 @@
 .subcontent-block {
     display: grid;
     grid-template-columns: 50% 50%;
-    padding-top: 20px;
     padding-bottom: 100px;
     border-bottom: 1px solid var(--Light_grey, #e6eaf0);
 }
@@ -9,6 +8,7 @@
 .subcontent-block__first-column {
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
     padding-right: 10px;
     border-right: 1px solid var(--Light_grey, #e6eaf0);
     flex: 50%;
@@ -46,4 +46,5 @@
 .subcontent-block__last-column {
     display: flex;
     margin-left: 10px;
+    padding-top: 20px;
 }
