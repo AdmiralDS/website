@@ -1,20 +1,20 @@
 <main>
-    <Fragment>
-        <slot name="header"/>
-        <div class="content">
-            <slot name="content" />
-        </div>
-    </Fragment>
+  <Fragment>
+    <slot name="header" />
+    <div class="content">
+      <slot name="content" />
+    </div>
+  </Fragment>
 </main>
 
 <style>
-    .content {
+  .content {
     position: relative;
     background: var(--White, #fff);
-    }
+  }
 
-    .content::before {
-    content: "";
+  .content::before {
+    content: '';
     position: absolute;
     width: 100%;
     top: -12px;
@@ -23,13 +23,14 @@
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     background: var(--White, #fff);
-    }
-    
-    main {
-      color: white;
-      font-size: 20px;
-      line-height: 1.6;
-      flex: 1 1 auto;
-      overflow: auto;
-    }
-  </style>
+  }
+
+  main {
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    flex: 1 1 auto;
+    overflow: auto;
+    scroll-behavior: smooth;
+  }
+</style>

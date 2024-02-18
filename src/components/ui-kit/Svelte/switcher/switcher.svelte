@@ -5,13 +5,15 @@
   export let activeItem: string;
   export let showNumber: boolean = true;
   export let disabled: boolean = false;
+  let className = "";
+  export { className as class };
 
   const handleClick = (key: string) => {
     if (!disabled) activeItem = key;
   };
 </script>
 
-<div class="switcher-container">
+<div class="switcher-container {className}">
   <div class="switcher-items">
     {#each Object.entries(items) as [name, label], i}
       <Item {name} {showNumber} number={i + 1} {label} active={activeItem === name} onClick={handleClick} />
@@ -52,6 +54,6 @@
   }
 
   .switcher-info {
-    flex: 0 1 auto;
+    flex: 1 1 auto;
   }
 </style>
