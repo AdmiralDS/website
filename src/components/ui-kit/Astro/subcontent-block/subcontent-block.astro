@@ -1,9 +1,9 @@
 ---
 import "./subcontent-block.css";
-const { heading } = Astro.props;
+const { heading, id } = Astro.props;
 ---
 
-<div class="subcontent-block">
+<div class="subcontent-block" id={id}>
     <div class="subcontent-block__first-column">
         <div class="subcontent-block__info-wrapper">
             <div class="subcontent-block__heading">{heading}</div>
