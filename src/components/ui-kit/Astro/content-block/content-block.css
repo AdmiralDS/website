@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.block-container__no-bottom-padding {
+    padding-bottom: 40px;
+}
+
 .block-title {
     font-variant-numeric: lining-nums tabular-nums;
 

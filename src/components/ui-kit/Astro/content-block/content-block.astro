@@ -3,13 +3,14 @@ import stylesCSS from './content-block.css?raw';
 interface Props {
   id: string;
   title: string;
-  titleTheme: 'dark' | 'light',
-  class: string;
+  titleTheme?: 'dark' | 'light',
+  class?: string;
+  hasPaddingBottom?: boolean;
 }
 
-const { id, title, titleTheme = 'dark', class: className } = Astro.props;
+const { id, title, titleTheme = 'dark', class: className, hasPaddingBottom = true } = Astro.props;
 ---
-<div class:list={[className, 'block-container']}>
+<div class:list={[className, `block-container ${!hasPaddingBottom && 'block-container__no-bottom-padding'}`]}>
   <h2 class:list={['block-title', titleTheme]} id={id}>{title}</h2>
   <slot />
 </div>
