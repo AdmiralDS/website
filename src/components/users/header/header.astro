@@ -1,11 +1,9 @@
 ---
 import Divider from "../../common/Divider.astro";
-import Contacts from '../../common/Contacts.astro';
+import HeaderBlock from "../../ui-kit/Astro/header-block";
 ---
 
-<div class="users-header">
-  <div class="users-header__content">
-    <Contacts />
+<HeaderBlock id={"users"} class="users-header-image">
     <Divider />
     <div class="header__wrapper">
       <span class="header-text">
@@ -14,22 +12,12 @@ import Contacts from '../../common/Contacts.astro';
         на одном языке
       </span>
     </div>
-  </div>
-</div>
+</HeaderBlock>
 
-<style>
-  .users-header {
+<style is:inline>
+  .users-header-image {
     height: 352px;
-    padding: 0 3.9%;
-    position: relative;
-    overflow: hidden;
-    background: url('image.png');
-  }
-
-  .users-header__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    background: url("src/components/users/header/image.png");
   }
 
   .header__wrapper {

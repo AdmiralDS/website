@@ -1,0 +1,55 @@
+---
+import './palette.css';
+import SubcontentBlock from '../../../ui-kit/Astro/subcontent-block';
+const colorTypeList = ['Основные цвета', 'Дополнительные цвета'];
+const colorsList = [
+    {
+        name: 'Primary',
+        code: '0062FF'
+    },
+    {
+        name: 'Neutral',
+        code: '23262D'
+    },
+    {
+        name: 'Error',
+        code: 'D92020'
+    },
+    {
+        name: 'Success',
+        code: '1BA049'
+    },
+    {
+        name: 'Warning',
+        code: 'FF5C22'
+    },
+    {
+        name: 'Attention',
+        code: 'FFC400'
+    }
+];
+---
+
+<SubcontentBlock heading={"Палитра"}>
+    <Fragment slot='description'>
+        Для настройки цветовой палитры дизайн-системы Aдмирал 
+        используются токены. Это позволяет изменять цвета элементов 
+        в зависимости от требований продукта
+    </Fragment>
+    <Fragment slot='tags'>
+        {colorTypeList.map(item => <div class="lib-font-block__tag">{item}</div>)}
+    </Fragment>
+
+    <div class="lpalette-block__colors-wrapper" slot="subcontent">
+        {colorsList.map(item => (
+            <div class="palette-tile" style={{backgroundColor: `#${item.code}`}}>
+                <div class="palette-tile__color-name">
+                    {item.name}
+                </div>
+                <div class="palette-tile__color-code">
+                    {item.code}
+                </div>
+            </div>
+            ))}
+    </div>
+</SubcontentBlock>

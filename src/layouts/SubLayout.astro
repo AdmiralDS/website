@@ -1,9 +1,13 @@
+---
+import { ContentWrapper } from '@components/ui-kit/Astro'
+---
+
 <main>
     <Fragment>
         <slot name="header"/>
-        <div class="content">
+        <ContentWrapper class="content">
             <slot name="content" />
-        </div>
+        </ContentWrapper>
     </Fragment>
 </main>
 
@@ -31,5 +35,6 @@
       line-height: 1.6;
       flex: 1 1 auto;
       overflow: auto;
+      width: 100%;
     }
   </style>

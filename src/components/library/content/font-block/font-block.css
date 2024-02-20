@@ -1,0 +1,71 @@
+.lib-font-block__font-tile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+    background: var(--Light_grey);
+    padding: 20px;
+}
+
+.lib-font-block__font-example {
+    color: var(--Dark-grey, #35383a);
+    font-family: Inter;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 40px;
+    margin-bottom: 54px;
+}
+
+.lib-font-block__tag {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px 4px 12px;
+    border-radius: 64px;
+    background: var(--Light_grey);
+
+    color: var(--Dark-grey, #35383a);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.lib-font-block__font-tile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 12px;
+    background: var(--Light_blue);
+    padding: 20px;
+}
+
+.lib-font-block__font-example {
+    color: var(--Dark-grey, #35383a);
+    font-family: Inter;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 40px;
+    margin-bottom: 54px;
+}
+
+.lib-font-block__font-buttons-container {
+    display: flex;
+    gap: 5px;
+}
+
+.lib-font-block__font-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px;
+    border: 1px var(--Grey, #7a8190);
+    border-radius: 64px;
+
+    color: var(--Dark-grey, #35383a);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+}
