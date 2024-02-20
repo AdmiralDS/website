@@ -63,6 +63,33 @@ const navItems: Array<NavItemProps> = [
   {
     href: `library`,
     label: 'Библиотека',
+    children: [
+      {
+        href: 'library',
+        anchor: 'fonts',
+        label: 'Шрифт',
+      },
+      {
+        href: 'library',
+        anchor: 'palette',
+        label: 'Палитра',
+      },
+      {
+        href: 'library',
+        anchor: 'icons',
+        label: 'Иконки',
+      },
+      {
+        href: 'library',
+        anchor: 'accessibility',
+        label: 'Доступность',
+      },
+      {
+        href: 'library',
+        anchor: 'castomizing',
+        label: 'Кастомизация',
+      }
+    ]
   },
 ];
 ---

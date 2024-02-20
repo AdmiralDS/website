@@ -1,10 +1,14 @@
+---
+import { ContentWrapper } from '@components/ui-kit/Astro'
+---
+
 <main>
-  <Fragment>
-    <slot name="header" />
-    <div class="content">
-      <slot name="content" />
-    </div>
-  </Fragment>
+    <Fragment>
+        <slot name="header"/>
+        <ContentWrapper class="content">
+            <slot name="content" />
+        </ContentWrapper>
+    </Fragment>
 </main>
 
 <style>
@@ -23,14 +27,15 @@
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     background: var(--White, #fff);
-  }
+    }
 
-  main {
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-    flex: 1 1 auto;
-    overflow: auto;
-    scroll-behavior: smooth;
-  }
-</style>
+    main {
+      color: white;
+      font-size: 20px;
+      line-height: 1.6;
+      flex: 1 1 auto;
+      overflow: auto;
+      width: 100%;
+      scroll-behavior: smooth;
+    }
+  </style>

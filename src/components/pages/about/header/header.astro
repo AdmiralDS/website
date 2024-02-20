@@ -1,16 +1,15 @@
 ---
+import HeaderBlock from "../../ui-kit/Astro/header-block";
 import Cover from './image.png';
 import Contacts from '../../../common/Contacts.astro';
 import Divider from '../../../common/Divider.astro';
 import Card from './Card.astro';
 ---
 
-<div class="about-header" id="ds-info">
+<HeaderBlock id="ds-info" class="about-header">
   <video autoplay loop poster={Cover.src} id="cover">
     <source src="Admiral_animation_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
   </video>
-  <div class="about-header__content">
-    <Contacts />
     <Divider />
     <span class="header-text"> АДМИРАЛ — это дизайн система</span>
     <span class="header__subtext">
@@ -26,8 +25,8 @@ import Card from './Card.astro';
       <div class="vertical-divider"></div>
       <Card icon="header-card-3" text="Стандарты, которые задают высокую планку дизайна и разработки интерфейсов" />
     </div>
-  </div>
-</div>
+</HeaderBlock>
+
 <script>
   const video = document.getElementById('cover');
   video.oncanplay = () => {
@@ -40,11 +39,10 @@ import Card from './Card.astro';
     );
   };
 </script>
-<style>
+
+<style is:inline>
     .about-header {
         height: 812px;
-        position: relative;
-        overflow: hidden;
     }
 
     .about-header img,
@@ -55,13 +53,6 @@ import Card from './Card.astro';
         height: 100%;
         width: auto;
         z-index: -1;
-    }
-
-    .about-header__content {
-        padding: 0 60px;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
     }
 
     .header-text {

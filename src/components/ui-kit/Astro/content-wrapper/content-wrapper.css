@@ -3,6 +3,7 @@
     min-height: 500px;
     padding: 0 60px 20px;
     background: var(--White, #fff);
+
     @media (max-width: 1600px) {
         padding: 0 40px 20px;
     }
