@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Item from './item.svelte';
+  import Item from './Item.svelte';
 
   export let items: Record<string, string>;
   export let activeItem: string;
   export let showNumber: boolean = true;
   export let disabled: boolean = false;
-  let className = "";
+  let className = '';
   export { className as class };
 
   const handleClick = (key: string) => {
