@@ -1,6 +1,7 @@
 <script lang="ts">
   import ThemeToggle from './theme-toggle.svelte';
   import { IconArrowLeft, IconArrowRight, Switcher } from '@components/ui-kit';
+  import './products-switcher.css';
 
   export let items: Record<string, string>;
   export let activeItem: string;
@@ -11,7 +12,7 @@
 </script>
 
 <ThemeToggle bind:checked />
-<Switcher {items} showNumber={false} {activeItem} disabled>
+<Switcher class="product-switcher" {items} showNumber={false} {activeItem} disabled>
   <img slot="info" src={imgSrc} alt="image" class="info-cover" />
   <div class="arrows" slot="ext-controls">
     <button class="arrow-button" disabled>
@@ -22,7 +23,3 @@
     </button>
   </div>
 </Switcher>
-
-<style>
-  @import './products-switcher.css';
-</style>

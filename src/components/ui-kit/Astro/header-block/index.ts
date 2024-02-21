@@ -1,1 +1,1 @@
-export { default } from './header-block.astro';
+export { default as HeaderBlock } from './header-block.astro';

@@ -20,8 +20,6 @@
 
 	/** Obtains a bound DOM reference to the switch's outer container element. */
 	export let containerElement: HTMLLabelElement = null;
-
-	// const forwardEvents = createEventForwarder(get_current_component());
 </script>
 
 <svelte:element this={$$slots.default ? 'label' : 'div'} class="toggle-switch-container" bind:this={containerElement}>

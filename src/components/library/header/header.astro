@@ -1,9 +1,9 @@
 ---
-import Divider from "../../common/Divider.astro";
-import HeaderBlock from "../../ui-kit/Astro/header-block";
+import { HeaderBlock, Divider } from '@components/ui-kit';
+import Cover from './library.png';
 ---
 
-<HeaderBlock id={"library"} class="library-header-image">
+<HeaderBlock id={'library'} class="library-header-image" style={{ background: `url(${Cover.src})` }}>
   <Divider />
   <div class="header__wrapper">
     <span class="header-text">
@@ -17,7 +17,6 @@ import HeaderBlock from "../../ui-kit/Astro/header-block";
 <style is:inline>
   .library-header-image {
     height: 351px;
-    background: url("src/components/library/header/library.png");
   }
 
   .header__wrapper {

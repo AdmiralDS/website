@@ -1,6 +1,6 @@
 <script lang="ts">
   import Arrow from './arrow.svelte';
-  // import type {AbilitiyName} from './switcher.svelte'
+  // import type {AbilitiyName} from './Switcher.svelte'
 
   export let name: string;
   export let number: number;
@@ -54,7 +54,7 @@
     line-height: 25px; /* 125% */
   }
   .abilities-item:not(:first-child) {
-      padding-top: 20px;
+    padding-top: 20px;
   }
 
   .abilities-item:not(:last-child) {

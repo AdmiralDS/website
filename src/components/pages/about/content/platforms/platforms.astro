@@ -1,24 +1,24 @@
 ---
-import Cover from "./cover.png";
-import { ContentBlock, Button } from "@components/ui-kit";
+import Cover from './cover.png';
+import { ContentBlock, Button } from '@components/ui-kit';
 ---
+
 <ContentBlock>
   <div class="platforms-wrapper">
     <div class="platforms-container">
       <h2 class="block-title light" id="platforms">наши Платформы</h2>
       <div class="content">
         Дизайн-система является комплексным решением для создания пользовательского интерфейса. Она включает в себя
-        работу
-        с контентом, аналитику и настройки, которые могут быть использованы для любого устройства или продукта
+        работу с контентом, аналитику и настройки, которые могут быть использованы для любого устройства или продукта
       </div>
       <Button variant="primary" class="bottom-button">Хочу попробовать</Button>
     </div>
-    <img class="platforms-cover" src={Cover.src} />
+    <img class="platforms-cover" src={Cover.src} alt="cover" />
   </div>
 </ContentBlock>
 
 <style>
-  .platforms-wrapper{
+  .platforms-wrapper {
     height: 340px;
     position: relative;
     border-radius: 12px;
@@ -35,7 +35,7 @@ import { ContentBlock, Button } from "@components/ui-kit";
   .platforms-container .content {
     margin-top: 10px;
     max-width: 50%;
-    color: var(--White, #FFF);
+    color: var(--White, #fff);
     font-variant-numeric: lining-nums tabular-nums;
 
     /* 20/25 */

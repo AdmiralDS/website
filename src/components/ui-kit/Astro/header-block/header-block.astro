@@ -1,16 +1,17 @@
 ---
-import Contacts from '../../../common/Contacts.astro';
-interface Props {
+import Contacts from '../Contacts.astro';
+interface Props extends HTMLAttributes<HTMLDivElement> {
   id: string;
   class: string;
 }
 
-const { id, class: className } = Astro.props;
+const { id, class: className, ...htmlProps } = Astro.props;
 
 import './header-block.css';
+import type { HTMLAttributes } from 'astro/types';
 ---
 
-<div class:list={[className, 'header']} id={id}>
+<div class:list={[className, 'header']} id={id} {...htmlProps}>
   <div class="header__content">
     <Contacts />
     <slot />

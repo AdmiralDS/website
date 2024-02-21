@@ -1,0 +1,101 @@
+---
+import { HeaderBlock } from '@components/ui-kit/Astro/header-block';
+import Cover from './image.png';
+import Divider from '@components/ui-kit/Astro/Divider.astro';
+import Card from './Card.astro';
+---
+
+<HeaderBlock id="ds-info" class="about-header">
+  <video autoplay loop poster={Cover.src} id="cover">
+    <source src="Admiral_animation_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+  </video>
+  <Divider />
+  <span class="header-text"> АДМИРАЛ — это дизайн система</span>
+  <span class="header__subtext">
+    Цель дизайн-системы — создать единообразный и узнаваемый визуальный стиль, который будет использоваться во всех
+    продуктах и сервисах компании. Это поможет клиентам и партнерам быстрее узнавать продукты компании, а также
+    привлекать новых пользователей и удерживать старых
+  </span>
+  <Divider />
+  <div class="cards-wrapper">
+    <Card icon="header-card-1" text="Ускоряет проектирование продуктов и упрощает разработку" />
+    <div class="vertical-divider"></div>
+    <Card icon="header-card-2" text="Создаёт консистентный пользовательский опыт цифровых продуктов" />
+    <div class="vertical-divider"></div>
+    <Card icon="header-card-3" text="Стандарты, которые задают высокую планку дизайна и разработки интерфейсов" />
+  </div>
+</HeaderBlock>
+
+<script>
+  const video = document.getElementById('cover');
+  video.oncanplay = () => {
+    video.play();
+    console.log('Video can start, but not sure it will play through.');
+  };
+  video.onplay = (event) => {
+    console.log(
+      "The Boolean paused property is now 'false'. Either the play() method was called or the autoplay attribute was toggled.",
+    );
+  };
+</script>
+
+<style is:inline>
+  .about-header {
+    height: 812px;
+  }
+
+  .about-header img,
+  .about-header video {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+    z-index: -1;
+  }
+
+  .header-text {
+    color: var(--White, #fff);
+    font-variant-numeric: lining-nums tabular-nums;
+    /* 80/75 */
+    font-family: 'CoFo Kak';
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 75px; /* 93.75% */
+    text-transform: uppercase;
+    width: 871px;
+    /* grid-column: 1 / span 12; */
+    margin-top: 39px;
+    margin-bottom: 20px;
+  }
+
+  .header__subtext {
+    color: #fff;
+    font-variant-numeric: lining-nums tabular-nums;
+
+    /* 20/25 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
+    /* grid-column: 1 / span 8; */
+    width: 975px;
+    margin-bottom: auto;
+  }
+
+  .cards-wrapper {
+    height: 216px;
+    grid-column: 1 / span 12;
+    display: flex;
+    column-gap: 10px;
+  }
+
+  .vertical-divider {
+    width: 1px;
+    height: 100%;
+    background-color: var(--White, #fff);
+    opacity: 0.2;
+  }
+</style>

@@ -12,13 +12,13 @@ import { ContentWrapper } from '@components/ui-kit/Astro'
 </main>
 
 <style>
-    .content {
+  .content {
     position: relative;
     background: var(--White, #fff);
-    }
+  }
 
-    .content::before {
-    content: "";
+  .content::before {
+    content: '';
     position: absolute;
     width: 100%;
     top: -12px;
@@ -28,7 +28,7 @@ import { ContentWrapper } from '@components/ui-kit/Astro'
     border-top-right-radius: 12px;
     background: var(--White, #fff);
     }
-    
+
     main {
       color: white;
       font-size: 20px;
@@ -36,5 +36,6 @@ import { ContentWrapper } from '@components/ui-kit/Astro'
       flex: 1 1 auto;
       overflow: auto;
       width: 100%;
+      scroll-behavior: smooth;
     }
   </style>

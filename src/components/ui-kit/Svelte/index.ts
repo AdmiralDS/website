@@ -1,5 +1,5 @@
-export { default as Button } from './button/button.svelte';
-export { default as Toggle } from './toggle/toggle.svelte';
-export { default as Switcher } from './switcher/switcher.svelte';
+export * from './Button';
+export { default as Toggle } from '@components/ui-kit/Svelte/Toggle/toggle.svelte';
+export * from './Switcher';
 export { default as TimelineSvelte } from './timeline/timeline.svelte';
 export * from './icons';

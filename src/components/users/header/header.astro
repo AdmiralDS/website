@@ -1,23 +1,22 @@
 ---
-import Divider from "../../common/Divider.astro";
-import HeaderBlock from "../../ui-kit/Astro/header-block";
+import { HeaderBlock, Divider } from '@components/ui-kit';
+import Cover from './image.png';
 ---
 
-<HeaderBlock id={"users"} class="users-header-image">
-    <Divider />
-    <div class="header__wrapper">
-      <span class="header-text">
-        С адмирал <br />
-        все говорят <br />
-        на одном языке
-      </span>
-    </div>
+<HeaderBlock id={'users'} class="users-header-image" style={{ background: `url(${Cover.src})` }}>
+  <Divider />
+  <div class="header__wrapper">
+    <span class="header-text">
+      С адмирал <br />
+      все говорят <br />
+      на одном языке
+    </span>
+  </div>
 </HeaderBlock>
 
 <style is:inline>
   .users-header-image {
     height: 352px;
-    background: url("src/components/users/header/image.png");
   }
 
   .header__wrapper {
