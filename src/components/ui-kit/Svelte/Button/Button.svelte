@@ -1,34 +1,35 @@
 <script lang="ts">
-	// import { get_current_component } from "svelte/internal";
-	// import { createEventForwarder } from "$lib/internal";
+  import { get_current_component } from 'svelte/internal';
+  import { createEventForwarder } from '../createEventForwarder.ts';
 
-	/** @restProps {button | a} */
-	/** Specifies the visual styling of the button. */
-	export let variant: "primary" | "secondary";
+  /** @restProps {button | a} */
+  /** Specifies the visual styling of the button. */
+  export let variant: 'primary' | 'secondary' | 'inactive';
 
-	/** Controls whether the button is intended for user interaction, and styles it accordingly. */
-	export let disabled = false;
+  /** Controls whether the button is intended for user interaction, and styles it accordingly. */
+  export let disabled = false;
 
-	/** Specifies a custom class name for the button. */
-	let className = "";
-	export { className as class };
+  /** Specifies a custom class name for the button. */
+  let className = '';
+  export { className as class };
 
-	/** Obtains a bound DOM reference to the button. */
-	export let element: HTMLElement = null;
+  /** Obtains a bound DOM reference to the button. */
+  export let element: HTMLElement = null;
 
-	// const forwardEvents = createEventForwarder(get_current_component());
+  const forwardEvents = createEventForwarder(get_current_component());
 </script>
 
 <button
-	bind:this={element}
-	role="button"
-	class="button style-{variant} {className}"
-	class:disabled
-	{...$$restProps}
+  bind:this={element}
+  use:forwardEvents
+  role="button"
+  class="button style-{variant} {className}"
+  class:disabled
+  {...$$restProps}
 >
-	<slot />
+  <slot />
 </button>
 
 <style lang="css">
-	@import 'button.css';
-</style	>
+  @import 'button.css';
+</style>
