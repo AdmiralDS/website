@@ -54,3 +54,15 @@
     display: flex;
     gap: 5px;
 }
+
+.lib-font-block__font-example--Subtitle {
+    color: red
+}
+
+.lib-font-block__font-example--Body {
+    color: green;
+}
+
+.lib-font-block__font-example--Caption {
+    color: blueviolet;
+}
