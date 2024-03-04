@@ -1,6 +1,6 @@
 <script>
     import Toggle from "@components/ui-kit/Svelte/Toggle/toggle.svelte";
-    import {IconArrowLeft, IconArrowRight} from "@components/ui-kit";
+    import {IconArrowLeft, IconArrowRight} from "@components/ui-kit/Svelte";
   //   let currentIndex = 0;
   // const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4']; // Add your items here
 
@@ -25,7 +25,7 @@
     <div class="icons-block__icons-wrapper"></div>
 
     <div class="icons-block__controls-wrapper">
-        <div class="icons-block__arrow-button">
+        <div class="icons-block__arrow-button" on:click={() => console.log(1111111)}>
             <IconArrowLeft width='16' height='16' />
         </div>
         <div class="icons-block__arrow-button">
