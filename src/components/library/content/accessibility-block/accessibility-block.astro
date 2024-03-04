@@ -2,24 +2,26 @@
 import { ContentBlock } from '@components/ui-kit';
 import './accessibility-block.css';
 import accessibilityList from './accessebility-list.json';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 ---
 
-<ContentBlock id='accessibility' title='ДоступноСТЬ'>
-    <div class="accessebility__info">
-        Все компоненты соответствуют стандарту доступности <br />
-        WCAG AA и отлично отрабатывают в режимах VoiceOver <br />
-        и Talkback для людей с нарушением зрения
-    </div>
-    <div class="accessebility__descr-wrapper">
-        {accessibilityList.map(item => (
-            <div class="accessebility__descr-container">
-                <div class="accessebility__icon-wrapper">
-                    <Icon name={item.icon} />
-                </div>
-                <div class="accessebility__header">{item.title}</div>
-                <div class="accessebility__description">{item.description}</div>
-            </div>
-        ))}
-    </div>
+<ContentBlock id="accessibility" title="ДоступноСТЬ">
+  <div class="accessebility__info">
+    Все компоненты соответствуют стандарту доступности <br />
+    WCAG AA и отлично отрабатывают в режимах VoiceOver <br />
+    и Talkback для людей с нарушением зрения
+  </div>
+  <div class="accessebility__descr-wrapper">
+    {
+      accessibilityList.map((item) => (
+        <div class="accessebility__descr-container">
+          <div class="accessebility__icon-wrapper">
+            <Icon name={item.icon} />
+          </div>
+          <div class="accessebility__header">{item.title}</div>
+          <div class="accessebility__description">{item.description}</div>
+        </div>
+      ))
+    }
+  </div>
 </ContentBlock>
