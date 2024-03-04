@@ -8,7 +8,7 @@
   }
 </script>
 
-<!-- HTML comment syntax is valid in .astro files -->
+<!-- добавить шрифты вместо цветов, подумать над названием классов для этого -->
 
 <div class="lib-font-block__font-tile">
   <div class={`lib-font-block__font-example

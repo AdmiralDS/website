@@ -26,6 +26,7 @@
 .icons-block__tile-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .icons-block__tile-heading {
@@ -66,4 +67,47 @@
     border-radius: 60px;
     color: var(--Dark_grey, #35383A);
     cursor: pointer;
+}
+
+.icons-block__arrow-button--disabled {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 60px;
+    color: var(--Light_grey, #E6EAF0);
+    border: 1px solid var(--Light_grey, #E6EAF0);
+    cursor: default;
+}
+
+.icons-block__icons-container {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.icons-block__icons-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 270px;
+}
+
+.icons-block__icon-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #0D42FF;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.1px;
+}
+
+.icons-block__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
 }

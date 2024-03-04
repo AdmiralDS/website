@@ -1,39 +1,126 @@
-<script>
-    import Toggle from "@components/ui-kit/Svelte/Toggle/toggle.svelte";
-    import {IconArrowLeft, IconArrowRight} from "@components/ui-kit/Svelte";
-  //   let currentIndex = 0;
-  // const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4']; // Add your items here
+<script lang="ts">
+  import Toggle from '@components/ui-kit/Svelte/Toggle/toggle.svelte';
+  import {
+    IconArrowLeft,
+    IconArrowRight,
+    DragOutline,
+    EquallyOutline,
+    ErrorOutline,
+    ErrorTriangleOutline,
+  } from '@components/ui-kit/Svelte';
 
-  // function slide(direction) {
-  //   if (direction === 'left') {
-  //     currentIndex = (currentIndex - 1 + items.length) % items.length;
-  //   } else {
-  //     currentIndex = (currentIndex + 1) % items.length;
-  //   }
-  // }
+  const dummyDataForSlider = [
+    {
+      name: 'Drag Out',
+      icon: DragOutline,
+    },
+    {
+      name: 'Equally',
+      icon: EquallyOutline,
+    },
+    {
+      name: 'Error Out',
+      icon: ErrorOutline,
+    },
+    {
+      name: 'Triangle',
+      icon: ErrorTriangleOutline,
+    },
+    {
+      name: 'Triangle',
+      icon: ErrorTriangleOutline,
+    },
+    {
+      name: 'Error Out',
+      icon: ErrorOutline,
+    },
+    {
+      name: 'Equally',
+      icon: EquallyOutline,
+    },
+    {
+      name: 'Error Out',
+      icon: ErrorOutline,
+    },
+    {
+      name: 'Drag Out',
+      icon: DragOutline,
+    },
+    {
+      name: 'Triangle',
+      icon: ErrorTriangleOutline,
+    },
+    {
+      name: 'Equally',
+      icon: EquallyOutline,
+    },
+  ];
+
+  // управление состоянием solid
+  $: isSolid = false;
+  const handleClickOnSolid = () => isSolid = !isSolid;
+
+  // управление промоткой иконок
+  const STEP = 4;
+  $: currentIndex = 0;
+  $: isLeftEnabled = false;
+  $: isRightEnabled = true;
+  $: elsToShow = dummyDataForSlider.slice(currentIndex, currentIndex + STEP);
+
+  const checkButtonsEnable = () => {
+    isRightEnabled = currentIndex + STEP < dummyDataForSlider.length;
+    isLeftEnabled = currentIndex > 0;
+  }
+
+  const handleClickOnRightArrow = () => {
+    if (dummyDataForSlider.length - currentIndex > STEP) {
+      currentIndex = currentIndex + STEP;
+    }
+    checkButtonsEnable();
+  };
+
+  const handleClickOnLeftArrow = () => {
+    currentIndex = Math.max(currentIndex - STEP, 0);
+    checkButtonsEnable();
+  };
 </script>
 
 <div class="icons-block__icon-tile">
-    <div class="icons-block__tile-header">
-        <div class="icons-block__tile-heading">Actions</div>
-        <div class="icons-block__switcher-wrapper">
-            <Toggle />
-            <div class="icons-block__switcher-title">Solid</div>
-        </div>
+  <div class="icons-block__tile-header">
+    <div class="icons-block__tile-heading">Actions</div>
+    <div class="icons-block__switcher-wrapper">
+      <Toggle on:click={handleClickOnSolid} />
+      <div class="icons-block__switcher-title">Solid</div>
     </div>
-    
-    <div class="icons-block__icons-wrapper"></div>
+  </div>
 
-    <div class="icons-block__controls-wrapper">
-        <div class="icons-block__arrow-button" on:click={() => console.log(1111111)}>
-            <IconArrowLeft width='16' height='16' />
+  <div class="icons-block__icons-container">
+    <div class="icons-block__icons-wrapper">
+        {#each elsToShow as {name, icon}}
+        <div class="icons-block__icon-container">
+            <div class="icons-block__icon-wrapper">
+                <svelte:component this={icon}></svelte:component>
+            </div>
+            {name}
         </div>
-        <div class="icons-block__arrow-button">
-            <IconArrowRight width='16' height='16' />
-        </div>
+        {/each}
     </div>
+  </div>
+
+  <div class="icons-block__controls-wrapper">
+    <div
+      class={`icons-block__arrow-button ${!isLeftEnabled ? 'icons-block__arrow-button--disabled' : ''}`}
+      on:click={handleClickOnLeftArrow}
+    >
+      <IconArrowLeft width="16" height="16" />
+    </div>
+    <div
+      class={`icons-block__arrow-button ${!isRightEnabled ? 'icons-block__arrow-button--disabled' : ''}`}
+      on:click={handleClickOnRightArrow}
+    >
+      <IconArrowRight width="16" height="16" />
+    </div>
+  </div>
 </div>
 
-<style lang="css">
-	@import 'icons-block.css';
-</style	>
+<style lang="css"></style>
