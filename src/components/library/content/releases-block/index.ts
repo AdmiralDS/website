@@ -1,0 +1,1 @@
+export { default as ReleasesBlock } from './releases-block.astro';
