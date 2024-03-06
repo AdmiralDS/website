@@ -1,12 +1,25 @@
 ---
 import { ContentBlock } from '@components/ui-kit/Astro';
+import Switcher from './switcher.svelte';
 import './customizing-block.css';
 ---
 
-<ContentBlock id="castomizing" title="КАСТОМИЗАЦИЯ">
-  <div class="customizing__info">
-    Компоненты в библиотеке являются базовыми для системы <br />
-    и могут закрыть большинство потребностей при <br />
-    проектировании интерфейсов
-  </div>
+<ContentBlock id='castomizing' title='КАСТОМИЗАЦИЯ'>
+    <div class="customizing__info">
+        Компоненты в библиотеке являются базовыми для системы <br />
+        и могут закрыть большинство потребностей при <br />
+        проектировании интерфейсов
+    </div>
+    <div class="switcher-wrapper">
+        <Switcher client:visible />
+    </div>
 </ContentBlock>
+
+<style>
+    .switcher-wrapper {
+        display: grid;
+        grid-template-columns: 50% 5px 50%;
+        column-gap: 10px;
+        position: relative;
+    }
+</style>

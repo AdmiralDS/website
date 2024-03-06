@@ -1,8 +1,8 @@
 ---
 import './font-block.css';
 import SubcontentBlock from '../../../ui-kit/Astro/subcontent-block';
+import FontSwitcher from './font-switcher.svelte';
 const fontList = ['Book', 'Medium', 'Semibold'];
-const textTypeList = ['Header', 'Subtitle', 'Body', 'Caption'];
 ---
 
 <SubcontentBlock heading={"Шрифт"} id="fonts">
@@ -14,10 +14,5 @@ const textTypeList = ['Header', 'Subtitle', 'Body', 'Caption'];
         {fontList.map(item => <div class="lib-font-block__tag">{item}</div>)}
     </Fragment>
 
-    <div class="lib-font-block__font-tile" slot="subcontent">
-        <div class="lib-font-block__font-example">Admiral Semi Bold :)</div>
-        <div class="lib-font-block__font-buttons-container">
-            {textTypeList.map(item => <div class="lib-font-block__font-buttons">{item}</div>)}
-        </div>
-    </div>
+    <FontSwitcher slot="subcontent" client:visible />
 </SubcontentBlock>

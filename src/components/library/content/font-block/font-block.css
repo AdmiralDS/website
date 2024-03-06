@@ -55,17 +55,14 @@
     gap: 5px;
 }
 
-.lib-font-block__font-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 12px;
-    border: 1px var(--Grey, #7a8190);
-    border-radius: 64px;
+.lib-font-block__font-example--Subtitle {
+    color: red
+}
 
-    color: var(--Dark-grey, #35383a);
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
+.lib-font-block__font-example--Body {
+    color: green;
+}
+
+.lib-font-block__font-example--Caption {
+    color: blueviolet;
 }
