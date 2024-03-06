@@ -1,6 +1,6 @@
 <script lang="ts">
   import ThemeToggle from './theme-toggle.svelte';
-  import { IconArrowLeft, IconArrowRight, Switcher } from '@components/ui-kit';
+  import { IconArrowLeft, IconArrowRight, Switcher } from '@components/ui-kit/Svelte';
   import './products-switcher.css';
 
   export let items: Record<string, string>;

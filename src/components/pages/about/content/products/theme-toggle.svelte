@@ -1,6 +1,6 @@
 <script lang="ts">
   import Moon from './moon.svelte';
-  import { Toggle } from '@components/ui-kit/index.js';
+  import { Toggle } from '@components/ui-kit/Svelte';
 
   export let checked = false;
 </script>

@@ -43,48 +43,5 @@
 </svelte:element>
 
 <style lang="css">
-  div.toggle-switch-container {
-    display: flex;
-  }
-  .toggle-switch {
-    border: none;
-    cursor: pointer;
-
-    align-items: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    block-size: 20px;
-    border-radius: 20px;
-    display: inline-flex;
-    font-weight: 400;
-    inline-size: 35px;
-    line-height: 20px;
-    margin: 0;
-    outline: none;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  .toggle-switch::before {
-    background-color: white;
-    block-size: 15px;
-    border-radius: 7px;
-    content: '';
-    inline-size: 15px;
-    inset-inline-start: 3px;
-    position: absolute;
-    transition: 200ms ease-in-out transform;
-  }
-  .toggle-switch:checked {
-    background-color: #0d42ff;
-  }
-  .toggle-switch:not(:checked) {
-    background-color: #35383a;
-  }
-  .toggle-switch:checked:before {
-    transform: translate(14px);
-  }
+  @import 'toggle.css';
 </style>
