@@ -27,16 +27,18 @@ import Card from './Card.astro';
 </HeaderBlock>
 
 <script>
-  const video = document.getElementById('cover');
-  video.oncanplay = () => {
-    video.play();
-  };
-  video.onplay = (event) => {
-    console.log('play');
-  };
-  video.onerror = (e) => {
-    console.log(e);
-  };
+  const video = document.getElementById('cover') as HTMLVideoElement;
+  if (video) {
+    video.oncanplay = () => {
+      video.play();
+    };
+    video.onplay = (event) => {
+      console.log('play');
+    };
+    video.onerror = (e) => {
+      console.log(e);
+    };
+  }
 </script>
 
 <style is:inline>
@@ -50,7 +52,9 @@ import Card from './Card.astro';
     right: 0;
     top: 0;
     height: 100%;
-    width: auto;
+    width: 100%;
+    object-fit: cover;
+    pointer-events: none;
     z-index: -1;
   }
 
