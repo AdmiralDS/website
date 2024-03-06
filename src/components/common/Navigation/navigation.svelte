@@ -1,7 +1,7 @@
 <script lang="ts">
   import NavItem from './NavItem.svelte';
   import Logo from './admiral.svelte';
-  import type { NavItemProps } from '@types';
+  import type { NavItemProps } from 'common';
 
   export let navItems: Array<NavItemProps>;
   export let defaultActive: string;

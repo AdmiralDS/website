@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { NavItemProps } from '@types';
+  import type { NavItemProps } from 'common';
 
   export let href: string;
   export let anchor: string;
@@ -21,7 +21,7 @@
   };
 
   $: link = href ? `${href}/#${anchor}` : `${import.meta.env.BASE_URL}#${anchor}`;
-  $: id = href ? `${href}/#${anchor}` : `${anchor}`
+  $: id = href ? `${href}/#${anchor}` : `${anchor}`;
 </script>
 
 <a

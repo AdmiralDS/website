@@ -1,13 +1,13 @@
 <script lang="ts">
-  import type { TimelineData } from "../../../../@types/common.ts";
-  import Item from './item.svelte'
+  import type { TimelineData } from 'common';
+  import Item from './item.svelte';
 
   export let items: TimelineData;
 </script>
 
 <div class="timeline">
   {#each items as item}
-    <Item item={item}/>
+    <Item {item} />
   {/each}
 </div>
 

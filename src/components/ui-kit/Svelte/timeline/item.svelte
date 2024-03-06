@@ -1,11 +1,12 @@
 <script lang="ts">
-  import type { TimelineItem } from "../../../../@types/common.ts";
+  import type { TimelineItem } from 'common';
 
   export let item: TimelineItem;
 </script>
+
 <div class="timeline-item" class:active={!!item.active}>
   <div class="line" />
-  <div class="point" class:small={item.size === "s"} class:large={item.size === "l"}>
+  <div class="point" class:small={item.size === 's'} class:large={item.size === 'l'}>
     {#if item.title || item.detail}
       <div class="point-text" class:bottom={item.textPosition === 'bottom'} class:top={item.textPosition === 'top'}>
         {#if item.title}
@@ -65,7 +66,7 @@
   }
 
   .timeline-item .point.small .point-detail {
-    color: var(--Grey, #7A8190);
+    color: var(--Grey, #7a8190);
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
@@ -100,7 +101,7 @@
   }
 
   .timeline-item .point-title {
-    color: var(--Dark_grey, #35383A);
+    color: var(--Dark_grey, #35383a);
     font-variant-numeric: lining-nums tabular-nums;
 
     /* 20/25 */
@@ -112,7 +113,7 @@
   }
 
   .timeline-item .point-detail {
-    color: var(--Grey, #7A8190);
+    color: var(--Grey, #7a8190);
 
     /* 16/20/regular */
     font-family: Inter;
@@ -123,8 +124,8 @@
   }
   .timeline-item .point-detail.with-border {
     border-radius: 4px;
-    border: 1px solid var(--Light_grey, #E6EAF0);
-    background: var(--White, #FFF);
+    border: 1px solid var(--Light_grey, #e6eaf0);
+    background: var(--White, #fff);
     padding: 10px;
     box-sizing: border-box;
   }
