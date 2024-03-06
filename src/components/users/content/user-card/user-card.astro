@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon/components';
+const { index, id, groupName, title, info, iconName } = Astro.props;
+import './user-card.css';
+---
+
+<div class="user-card" id={id}>
+  <div class="user-card__first-row">
+    {`${index + 1} ${groupName}`}
+  </div>
+  <div class="user-card__last-row">
+    <div class="user-card__info-column">
+      <div class="user-card__info-main">{title}</div>
+      <div class="user-card__info-sub">{info}</div>
+    </div>
+    <div class="user-card__icon-wrapper">
+      <Icon name={iconName} />
+    </div>
+  </div>
+</div>

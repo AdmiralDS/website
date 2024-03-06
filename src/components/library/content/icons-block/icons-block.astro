@@ -1,20 +1,18 @@
 ---
 import './icons-block.css';
-import SubcontentBlock from '../../../ui-kit/Astro/subcontent-block';
+import { SubcontentBlock } from '@components/ui-kit/Astro';
+import IconsSwitcher from './icons-swither.svelte';
 const fontList = ['Outlined', 'Solid', '380+ иконок'];
 ---
 
-<SubcontentBlock heading={"Иконки"} id="icons">
-    <Fragment slot='description'>
-        В дизайн-системе используется два размера иконок:
-        в 20 px и 24 px, в зависимости от размера компонента. 
-        Все иконки выполнены в двух стилях — Outlined и Solid
-    </Fragment>
-    <Fragment slot='tags'>
-        {fontList.map(item => <div class="icons-block__tag">{item}</div>)}
-    </Fragment>
+<SubcontentBlock heading={'Иконки'} id="icons">
+  <Fragment slot="description">
+    В дизайн-системе используется два размера иконок: в 20 px и 24 px, в зависимости от размера компонента. Все иконки
+    выполнены в двух стилях — Outlined и Solid
+  </Fragment>
+  <Fragment slot="tags">
+    {fontList.map((item) => <div class="icons-block__tag">{item}</div>)}
+  </Fragment>
 
-    <div class="icons-block__font-tile" slot="subcontent">
-        ДОБАВИТЬ ДИМИЧЕСКИЙ КОНТЕНТ
-    </div>
+  <IconsSwitcher slot="subcontent" client:visible />
 </SubcontentBlock>

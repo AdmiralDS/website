@@ -6,7 +6,7 @@ import Card from './Card.astro';
 ---
 
 <HeaderBlock id="ds-info" class="about-header">
-  <video autoplay loop poster={Cover.src} id="cover">
+  <video autoplay loop poster={Cover.src} id="cover" muted="muted">
     <source src="Admiral_animation_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
   </video>
   <Divider />
@@ -30,12 +30,12 @@ import Card from './Card.astro';
   const video = document.getElementById('cover');
   video.oncanplay = () => {
     video.play();
-    console.log('Video can start, but not sure it will play through.');
   };
   video.onplay = (event) => {
-    console.log(
-      "The Boolean paused property is now 'false'. Either the play() method was called or the autoplay attribute was toggled.",
-    );
+    console.log('play');
+  };
+  video.onerror = (e) => {
+    console.log(e);
   };
 </script>
 

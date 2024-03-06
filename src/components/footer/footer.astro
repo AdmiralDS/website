@@ -1,0 +1,45 @@
+---
+import { IconArrowLeft, IconArrowRight } from '@components/ui-kit/Svelte';
+import "./footer.css";
+
+const currentYear = new Date().getFullYear();
+const currentPage = Astro.url.pathname.split("/")[2];
+let nextPage;
+let nextPageLink;
+let prevPageLink;
+
+switch (currentPage) {
+  case 'users':
+    nextPage = 'Библиотека';
+    nextPageLink = '/website/library/#library';
+    prevPageLink = '/website/#ds-info';
+    break;
+  case 'library':
+    nextPage = 'Дизайн-система';
+    nextPageLink = '/website/#ds-info';
+    prevPageLink = '/website/users/#users';
+    break;
+  default:
+    nextPage = 'Пользователи';
+    nextPageLink = '/website/users/#users';
+    prevPageLink = '/website/library/#library'
+    break;
+}
+---
+
+<div class="footer">
+  <div class="buttons-block">
+    <a href={prevPageLink}
+      class='footer-button__prev-page'
+    >
+      <IconArrowLeft />
+    </a>
+    <a href={nextPageLink}
+      class='footer-button__next-page'
+    >
+      <IconArrowRight />
+      <span class='footer-button__next-page-title'>{nextPage}</span>
+    </a>
+  </div>
+  <span class="copyright">{`© Группа компаний «Иннотех», 2020-${currentYear}`}</span>
+</div>

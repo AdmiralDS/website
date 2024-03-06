@@ -1,0 +1,14 @@
+---
+import users from "./users.json";
+import { UserCard } from "../user-card";
+import "./users-list.css";
+---
+
+<div class="users-list">
+  {
+    users.map((user, idx) => {
+      const { icon: iconName, ...props } = user;
+      return <UserCard index={idx} {...props} {iconName} />;
+    })
+  }
+</div>

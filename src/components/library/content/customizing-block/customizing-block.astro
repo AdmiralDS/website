@@ -1,5 +1,6 @@
 ---
-import { ContentBlock } from '@components/ui-kit';
+import { ContentBlock } from '@components/ui-kit/Astro';
+import Switcher from './switcher.svelte';
 import './customizing-block.css';
 ---
 
@@ -9,4 +10,16 @@ import './customizing-block.css';
         и могут закрыть большинство потребностей при <br />
         проектировании интерфейсов
     </div>
+    <div class="switcher-wrapper">
+        <Switcher client:visible />
+    </div>
 </ContentBlock>
+
+<style>
+    .switcher-wrapper {
+        display: grid;
+        grid-template-columns: 50% 5px 50%;
+        column-gap: 10px;
+        position: relative;
+    }
+</style>
