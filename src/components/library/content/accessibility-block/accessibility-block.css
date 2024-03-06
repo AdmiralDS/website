@@ -1,48 +1,53 @@
 .accessebility__info {
-    color: var(--Grey, #7a8190);
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 25px;
-    padding-top: 20px;
-    padding-bottom: 40px;
+  color: var(--Grey, #7a8190);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .accessebility__descr-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .accessebility__descr-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0 10px;
-    border-right: 1px solid var(--Light-grey, #E6EAF0);
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  border-right: 1px solid var(--Light_grey, #e6eaf0);
 }
 
 .accessebility__descr-container:last-of-type {
-    border-right: none;
+  border-right: none;
 }
 
 .accessebility__icon-wrapper {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.accessebility__icon-wrapper svg {
+  width: 100%;
+  height: 100%;
 }
 
 .accessebility__header {
-    color: var(--Dark-grey, #35383a);
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 25px;
-    margin-bottom: 10px;
+  color: var(--Dark_grey, #35383a);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  margin-bottom: 10px;
 }
 
 .accessebility__description {
-    color: var(--Light-grey, #7A8190);
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
+  color: var(--Grey, #7a8190);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
 }

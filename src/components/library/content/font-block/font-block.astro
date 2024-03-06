@@ -1,18 +1,18 @@
 ---
 import './font-block.css';
-import SubcontentBlock from '../../../ui-kit/Astro/subcontent-block';
+import { SubcontentBlock } from '@components/ui-kit/Astro';
 import FontSwitcher from './font-switcher.svelte';
 const fontList = ['Book', 'Medium', 'Semibold'];
 ---
 
-<SubcontentBlock heading={"Шрифт"} id="fonts">
-    <Fragment slot='description'>
-        Admiral — основной шрифт дизайн-системы для web. Используется три начертания — 
-        Book, Medium и Semibold. Book, как основной стиль системы
-    </Fragment>
-    <Fragment slot='tags'>
-        {fontList.map(item => <div class="lib-font-block__tag">{item}</div>)}
-    </Fragment>
+<SubcontentBlock heading={'Шрифт'} id="fonts">
+  <Fragment slot="description">
+    Admiral — основной шрифт дизайн-системы для web. Используется три начертания — Book, Medium и Semibold. Book, как
+    основной стиль системы
+  </Fragment>
+  <Fragment slot="tags">
+    {fontList.map((item) => <div class="lib-font-block__tag">{item}</div>)}
+  </Fragment>
 
-    <FontSwitcher slot="subcontent" client:visible />
+  <FontSwitcher slot="subcontent" client:visible />
 </SubcontentBlock>

@@ -1,1 +1,1 @@
-export { default } from './subcontent-block.astro';
+export { default as SubcontentBlock } from './subcontent-block.astro';

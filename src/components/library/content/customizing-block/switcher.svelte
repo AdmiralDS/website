@@ -1,13 +1,12 @@
 <script lang="ts">
   import Item from './item.svelte';
   import Info from './info.svelte';
-  import Toggle from '@components/ui-kit/Svelte/Toggle/toggle.svelte';
-  import Button from '@components/ui-kit/Svelte/Button/Button.svelte';
+  import { Toggle, Button } from '@components/ui-kit/Svelte';
 
   const NamesArray = {
     geometrical: '4 px  Геометрический стиль',
     rounded: '8 px  Скругленный стиль',
-    fullRounded: '12 px  Круглый стиль'
+    fullRounded: '12 px  Круглый стиль',
   } as const;
 
   type StyleName = keyof typeof NamesArray;
@@ -20,64 +19,64 @@
 
   // управление состоянием темы
   $: isDarkTheme = false;
-  const handleClickOnTheme = () => isDarkTheme = !isDarkTheme;
+  const handleClickOnTheme = () => (isDarkTheme = !isDarkTheme);
 
   // управление цветом
   // TODO: добавить разноцветный, в макете svg, не имепортировалась корректно
-  const colors = ['yellow', 'blue', 'orange', 'violet']
+  const colors = ['yellow', 'blue', 'orange', 'violet'];
   $: activeColor = 'yellow';
-  const handleClickOnColor = (colorName: string) => activeColor = colorName;
+  const handleClickOnColor = (colorName: string) => (activeColor = colorName);
 </script>
 
 <div>
-<div class="customization-items">
-  {#each Object.entries(NamesArray) as [name, label], i}
-    <Item {name} number={i} {label} active={activeItem === name} onClick={handleClick} />
-  {/each}
-  <div class="customization-item">
-    Тёмная тема
-    <Toggle on:click={handleClickOnTheme} />
-  </div>
-  <div class="customization-item">
-    Основной цвет
-    <div class="colors-container">
-      {#each colors as color}
-        <div class={`color-item ${color}`} on:click={() => handleClickOnColor(color)}></div>
-      {/each}
+  <div class="customization-items">
+    {#each Object.entries(NamesArray) as [name, label], i}
+      <Item {name} number={i} {label} active={activeItem === name} onClick={handleClick} />
+    {/each}
+    <div class="customization-item">
+      Тёмная тема
+      <Toggle on:click={handleClickOnTheme} />
+    </div>
+    <div class="customization-item">
+      Основной цвет
+      <div class="colors-container">
+        {#each colors as color}
+          <div class={`color-item ${color}`} on:click={() => handleClickOnColor(color)}></div>
+        {/each}
+      </div>
+    </div>
+    <div class="customization-links">
+      <Button variant="primary">Figma components</Button>
+      <Button variant="primary">Storybook</Button>
     </div>
   </div>
-  <div class="customization-links">
-    <Button variant='primary'>Figma components</Button>
-    <Button variant='primary'>Storybook</Button>
-  </div>
-</div>
 </div>
 <div class="divider">
   <div class="separator" />
 </div>
 <div class="customization-info">
-  <Info styleName={activeItem} isDarkTheme={isDarkTheme} color={activeColor} />
+  <Info styleName={activeItem} {isDarkTheme} color={activeColor} />
 </div>
 
 <style>
-    .customization-items{
-        display: flex;
-        flex-direction: column;
-    }
+  .customization-items {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .divider {
-      width: 1px;
-    }
-    .separator {
-        width: 1px;
-        position: absolute;
-        height: 100%;
-        background-color: #e6eaf0;
-    }
+  .divider {
+    width: 1px;
+  }
+  .separator {
+    width: 1px;
+    position: absolute;
+    height: 100%;
+    background-color: #e6eaf0;
+  }
 
-    .customization-info {
-        flex: 0 1 auto;
-    }
+  .customization-info {
+    flex: 0 1 auto;
+  }
 
   .customization-item {
     cursor: pointer;
@@ -102,7 +101,7 @@
     padding-top: 20px;
   }
 
-  .customization-item:not(:last-child){
+  .customization-item:not(:last-child) {
     border-bottom: 1px solid #e6eaf0;
   }
 

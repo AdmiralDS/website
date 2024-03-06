@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Toggle from '@components/ui-kit/Svelte/Toggle/toggle.svelte';
+  import { Toggle } from '@components/ui-kit/Svelte';
   import {
     IconArrowLeft,
     IconArrowRight,
@@ -58,7 +58,7 @@
 
   // управление состоянием solid
   $: isSolid = false;
-  const handleClickOnSolid = () => isSolid = !isSolid;
+  const handleClickOnSolid = () => (isSolid = !isSolid);
 
   // управление промоткой иконок
   const STEP = 4;
@@ -70,7 +70,7 @@
   const checkButtonsEnable = () => {
     isRightEnabled = currentIndex + STEP < dummyDataForSlider.length;
     isLeftEnabled = currentIndex > 0;
-  }
+  };
 
   const handleClickOnRightArrow = () => {
     if (dummyDataForSlider.length - currentIndex > STEP) {
@@ -96,14 +96,14 @@
 
   <div class="icons-block__icons-container">
     <div class="icons-block__icons-wrapper">
-        {#each elsToShow as {name, icon}}
+      {#each elsToShow as { name, icon }}
         <div class="icons-block__icon-container">
-            <div class="icons-block__icon-wrapper">
-                <svelte:component this={icon}></svelte:component>
-            </div>
-            {name}
+          <div class="icons-block__icon-wrapper">
+            <svelte:component this={icon}></svelte:component>
+          </div>
+          {name}
         </div>
-        {/each}
+      {/each}
     </div>
   </div>
 
