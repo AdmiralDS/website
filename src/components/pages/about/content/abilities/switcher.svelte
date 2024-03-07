@@ -18,7 +18,6 @@
   };
 </script>
 
-
 <div class="abilities-items">
   {#each Object.entries(NamesArray) as [name, label], i}
     <Item {name} number={i + 1} {label} active={activeItem === name} onClick={handleClick} />
@@ -32,24 +31,24 @@
 </div>
 
 <style>
-    .abilities-items {
-        display: flex;
-        flex: 0 1 33%;
-        flex-direction: column;
-        min-width: 33%;
-    }
+  .abilities-items {
+    display: flex;
+    flex: 0 1 33%;
+    flex-direction: column;
+    min-width: 33%;
+  }
 
-    .divider {
-      width: 1px;
-    }
-    .separator {
-        width: 1px;
-        position: absolute;
-        height: 100%;
-        background-color: #e6eaf0;
-    }
+  .divider {
+    width: 1px;
+  }
+  .separator {
+    width: 1px;
+    position: absolute;
+    height: 100%;
+    background-color: #e6eaf0;
+  }
 
-    .abilities-info {
-        flex: 0 1 auto;
-    }
+  .abilities-info {
+    flex: 1 1 auto;
+  }
 </style>
