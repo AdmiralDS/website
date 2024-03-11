@@ -1,0 +1,105 @@
+.slider {
+  align-items: center;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  min-block-size: 20px;
+  min-inline-size: 20px;
+  position: relative;
+}
+
+.slider-tick-bar {
+  height: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.slider-thumb {
+  box-sizing: border-box;
+  align-items: center;
+  background-color: var(--White, #ffffff);
+  border: 3px solid var(--Blue, #0d42ff);
+  block-size: 20px;
+  display: flex;
+  inline-size: 20px;
+  justify-content: center;
+  z-index: 10;
+
+  border-radius: 100%;
+  position: absolute;
+  cursor: pointer;
+
+  inset-inline-start: calc(var(--fds-slider-percentage) + var(--fds-slider-thumb-offset));
+  transform: translate(-50%);
+}
+
+.slider-rail {
+  align-items: center;
+  background-color: var(--Grey, #7a8190);
+  border-radius: 2px;
+  display: flex;
+  overflow: hidden;
+
+  block-size: 2px;
+  inline-size: 100%;
+  justify-content: flex-start;
+}
+
+.slider-track {
+  /*block-size: 100%;*/
+  inline-size: var(--fds-slider-percentage);
+  /*inline-size: 50%;*/
+  background-color: var(--Blue, #0d42ff);
+  block-size: 4px;
+  position: absolute;
+  border-radius: 4px;
+}
+
+.slider-tick-bar {
+  height: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.slider-tick {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  flex-direction: column;
+  height: 100%;
+  inset-inline-start: var(--fds-slider-tick-percentage);
+  padding: 6px 0;
+}
+.slider-tick.isFirst {
+  align-items: flex-start;
+}
+.slider-tick.isLast {
+  align-items: flex-end;
+}
+.slider-tick::before {
+  content: '';
+  position: absolute;
+  height: 8px;
+  width: 0;
+  /*border-inline-start: 1px solid var(--Dark_grey);*/
+  top: -15px;
+}
+.slider-tick::after {
+  position: absolute;
+  content: attr(data-value);
+  bottom: -20px;
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--Grey);
+}

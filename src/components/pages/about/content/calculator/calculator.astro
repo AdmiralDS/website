@@ -1,0 +1,23 @@
+---
+import { ContentBlock } from '@components/ui-kit/Astro';
+import Calculator from './Calculator.svelte';
+---
+
+<ContentBlock>
+  <Calculator client:visible />
+</ContentBlock>
+
+<style>
+  .calculator-text {
+    max-width: 726px;
+    margin-bottom: 40px;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    letter-spacing: 0;
+    text-align: left;
+    color: var(--Dark_grey);
+  }
+</style>
