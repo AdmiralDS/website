@@ -6,7 +6,7 @@ import { Icon } from 'astro-icon/components';
   <button class="header-button icon_button">
     <Icon name="telegram" />
   </button>
-  <button class="header-button">Связаться с нами</button>
+  <button class="header-button" id="email-button">Связаться с нами</button>
 </div>
 
 <style>
@@ -49,3 +49,9 @@ import { Icon } from 'astro-icon/components';
     top: 0;
   }
 </style>
+
+<script>
+  const button = document.getElementById('email-button');
+
+  button.addEventListener('click', () => window.open('mailto:Admiral@inno.tech'));
+</script>
