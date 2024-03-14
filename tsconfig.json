@@ -2,8 +2,12 @@
   "extends": "astro/tsconfigs/strict",
   "exclude": ["node_modules", "public"],
   "compilerOptions": {
-    "verbatimModuleSyntax": true,
-    "jsx": "react",
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"

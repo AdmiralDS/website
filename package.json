@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@admiral-ds/fonts": "^2.0.0",
     "@admiral-ds/icons": "^4.2.0",
     "@admiral-ds/react-ui": "^7.13.0",
     "@astrojs/react": "^3.0.10",
