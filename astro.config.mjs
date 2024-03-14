@@ -7,5 +7,9 @@ import icon from 'astro-icon';
 export default defineConfig({
   site: 'https://AdmiralDS.github.io',
   base: '/website/',
-  integrations: [svelte(), react(), icon()],
+  integrations: [
+    svelte(),
+    react(),
+    icon(),
+  ],
 });
