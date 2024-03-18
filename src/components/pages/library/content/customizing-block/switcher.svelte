@@ -4,9 +4,9 @@
   import { Toggle, Button } from '@components/ui-kit/Svelte';
 
   const NamesArray = {
-    geometrical: '4 px  Геометрический стиль',
-    rounded: '8 px  Скругленный стиль',
-    fullRounded: '12 px  Круглый стиль',
+    geometrical: { label: 'Геометрический стиль', radius: 4 },
+    rounded: { label: 'Скругленный стиль', radius: 8 },
+    fullRounded: { label: 'Круглый стиль', radius: 10 },
   } as const;
 
   type StyleName = keyof typeof NamesArray;
@@ -29,20 +29,22 @@
 </script>
 
 <div>
-  <div class="customization-items">
-    {#each Object.entries(NamesArray) as [name, label], i}
-      <Item {name} number={i} {label} active={activeItem === name} onClick={handleClick} />
-    {/each}
-    <div class="customization-item">
-      Тёмная тема
-      <Toggle on:click={handleClickOnTheme} />
-    </div>
-    <div class="customization-item">
-      Основной цвет
-      <div class="colors-container">
-        {#each colors as color}
-          <div class={`color-item ${color}`} on:click={() => handleClickOnColor(color)}></div>
-        {/each}
+  <div>
+    <div class="customization-items">
+      {#each Object.entries(NamesArray) as [name, entry], i}
+        <Item {name} number={i} {...entry} active={activeItem === name} onClick={handleClick} />
+      {/each}
+      <div class="customization-item">
+        Тёмная тема
+        <Toggle on:click={handleClickOnTheme} />
+      </div>
+      <div class="customization-item">
+        Основной цвет
+        <div class="colors-container">
+          {#each colors as color}
+            <div class={`color-item ${color}`} on:click={() => handleClickOnColor(color)}></div>
+          {/each}
+        </div>
       </div>
     </div>
     <div class="customization-links">
@@ -55,7 +57,7 @@
   <div class="separator" />
 </div>
 <div class="customization-info">
-  <Info styleName={activeItem} {isDarkTheme} color={activeColor} />
+  <Info styleName={activeItem} {isDarkTheme} color={activeColor} borderRadius={NamesArray[activeItem].radius} />
 </div>
 
 <style>
