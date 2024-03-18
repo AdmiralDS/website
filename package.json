@@ -15,11 +15,11 @@
     "@admiral-ds/fonts": "^2.0.0",
     "@admiral-ds/icons": "^4.2.0",
     "@admiral-ds/react-ui": "^7.13.0",
-    "@astrojs/react": "^3.0.10",
-    "@astrojs/svelte": "^5.0.0",
-    "astro": "^4.0.3",
+    "@astrojs/react": "^3.1.0",
+    "@astrojs/svelte": "^5.2.0",
+    "astro": "^4.5.4",
     "astro-icon": "^1.1.0",
-    "svelte": "^4.2.8"
+    "svelte": "^4.2.12"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.5.1",
@@ -28,16 +28,19 @@
     "@storybook/addon-interactions": "^7.6.16",
     "@storybook/addon-links": "^7.6.16",
     "@storybook/blocks": "^7.6.16",
-    "@storybook/svelte": "^7.6.16",
-    "@storybook/svelte-vite": "^7.6.16",
+    "@storybook/svelte": "^8.0.0",
+    "@storybook/svelte-vite": "^8.0.0",
     "@storybook/test": "^7.6.16",
     "@sveltejs/adapter-auto": "^3.1.1",
-    "prettier": "^3.1.0",
+    "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-svelte": "^3.2.0",
+    "prettier-plugin-svelte": "^3.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.6.16",
+    "storybook": "^8.0.0",
     "styled-components": "^6.1.8"
+  },
+  "volta": {
+    "node": "20.11.1"
   }
 }

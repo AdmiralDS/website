@@ -1,12 +1,15 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import React from 'react';
   import ReactDOM from 'react-dom';
   import { WrappedReactComponent } from './WrappedReactComponent';
 
   export let styleName: string;
   export let isDarkTheme: boolean;
+  let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
   export let color: string;
+  export let borderRadius: number = 4;
+  let prevBorderRadius = borderRadius;
 
   const components = ['Calendar', 'Alert view', 'Toast notification'];
   let activeComponent = 'Calendar';
@@ -24,11 +27,34 @@
   //   }
   // };
 
-  // Svelte mounting
   let container;
-  onMount(function () {
-    ReactDOM.render(React.createElement(WrappedReactComponent), container);
-  });
+
+  const mountReactComponent = () => {
+    if (container) ReactDOM.render(React.createElement(WrappedReactComponent, { theme, borderRadius }), container);
+  };
+
+  const unmountReactComponent = () => {
+    try {
+      if (container) ReactDOM.unmountComponentAtNode(container);
+    } catch (err) {
+      console.warn(`react-adapter failed to unmount.`, { err });
+    }
+  };
+
+  onMount(mountReactComponent);
+
+  onDestroy(unmountReactComponent);
+
+  $: {
+    const newTheme = isDarkTheme ? 'dark' : 'light';
+    if (theme !== newTheme || prevBorderRadius !== borderRadius) {
+      theme = newTheme;
+      prevBorderRadius = borderRadius;
+      console.log(newTheme);
+      unmountReactComponent();
+      mountReactComponent();
+    }
+  }
 </script>
 
 <div class="custom-info">
@@ -42,15 +68,14 @@
       </div>
     {/each}
   </div>
-  <!--  <div class="component-wrapper" bind:this={container}>{activeComponent}</div>-->
   <div class="component-wrapper" bind:this={container} />
-  <!-- <svelte:component this={getComponent()} /> -->
 </div>
 
 <style>
   .custom-info {
     width: 100%;
-    height: 380px;
+    height: fit-content;
+    min-height: 380px;
     border-radius: 12px;
     background: var(--Dark_blue_gradient);
     padding: 20px;

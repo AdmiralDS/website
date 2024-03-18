@@ -3,6 +3,7 @@
 
   export let name: string;
   export let number: number;
+  export let radius: number;
   export let label: string;
   export let active: boolean = false;
   export let onClick: (key: string) => void;
@@ -20,8 +21,12 @@
   on:keypress={handleClick}
   on:click={handleClick}
 >
-  <span style="margin-right: auto;">
-    {label}
+  <span
+    style="margin-right: auto;
+    display: flex;
+    column-gap: 26px;"
+  >
+    <span>{`${radius} px`}</span>{label}
   </span>
   {#if active}
     <Arrow />
