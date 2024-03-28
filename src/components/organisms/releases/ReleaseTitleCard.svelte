@@ -1,0 +1,27 @@
+<div class="release-title-card">
+  <div class="release-title-card__header">Релизы</div>
+  <div class="release-title-card__info">Анонсы и релизы дизайн-системы Admiral</div>
+</div>
+
+<style lang="css">
+  .release-title-card {
+    box-sizing: border-box;
+    height: 75px;
+    border: none;
+  }
+  .release-title-card__header {
+    color: var(--Dark_grey, #35383a);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    margin-bottom: 10px;
+  }
+  .release-title-card__info {
+    color: var(--Grey);
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+</style>
