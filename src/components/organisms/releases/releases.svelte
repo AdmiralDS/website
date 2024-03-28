@@ -2,14 +2,15 @@
   import { ArrowButtons } from '@components/ui-kit/Svelte';
   import ReleaseCard from '@components/organisms/releases/ReleaseCard.svelte';
   import ReleaseTitleCard from '@components/organisms/releases/ReleaseTitleCard.svelte';
+  import releasesList from './releases-list.json';
 </script>
 
 <div>
   <div class="releases-wrapper">
     <ReleaseTitleCard />
-    <ReleaseCard version="v 2.1.5" date="6 июля 2023" info="Анонс" />
-    <ReleaseCard version="v 2.0.0" date="6 июля 2023" info="Анонс" />
-    <ReleaseCard version="v 1.1.3" date="6 июля 2023" info="Анонс" />
+    {#each releasesList as release}
+      <ReleaseCard version={release.version} date={release.date} info={release.info} />
+    {/each}
   </div>
   <ArrowButtons />
 </div>
