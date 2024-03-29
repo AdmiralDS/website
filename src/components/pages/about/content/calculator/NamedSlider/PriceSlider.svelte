@@ -2,7 +2,7 @@
   import NamedSlider from './NamedSlider.svelte';
 
   export let value: number = 620000;
-  $: tagCaption = `${value} ₽`;
+  $: tagCaption = `${value.toLocaleString()} ₽`;
 </script>
 
 <NamedSlider
@@ -14,4 +14,5 @@
   max={1000000}
   step={1000}
   suffix=" ₽"
+  thousand
 />

@@ -18,6 +18,9 @@
   /** Determines the position of slider ticks along the min and max of the track. */
   export let ticks: number[] = [];
 
+  /** Determines if slider ticks should have separator between thousands. */
+  export let thousand = false;
+
   /** Determines the placement of slider ticks around the track. */
   export let tickPlacement: 'around' | 'before' | 'after' = 'around';
 
@@ -81,6 +84,13 @@
   // and multiplies by 100 to get a percentage.
   const valueToPercentage = (v: number): number => {
     return ((v - min) / (max - min)) * 100;
+  };
+
+  const numberToString = (n: number, thousand: boolean) => {
+    if (thousand) {
+      return n.toLocaleString();
+    }
+    return n.toString();
   };
 
   function cancelMove() {
@@ -243,7 +253,7 @@ A slider is a control that lets the user select from a range of values by moving
           class:isFirst={index === 0}
           class:isLast={index === ticks.length - 1}
           style="--fds-slider-tick-percentage: {valueToPercentage(tick)}%"
-          data-value="{prefix}{tick}{suffix}"
+          data-value="{prefix}{numberToString(tick, thousand)}{suffix}"
         ></div>
       {/each}
     </div>
