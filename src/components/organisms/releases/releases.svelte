@@ -12,7 +12,7 @@
       <ReleaseCard version={release.version} date={release.date} info={release.info} />
     {/each}
   </div>
-  <ArrowButtons />
+  <ArrowButtons prevDisabled />
 </div>
 
 <style lang="css">
