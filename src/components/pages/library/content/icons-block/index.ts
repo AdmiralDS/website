@@ -1,1 +1,1 @@
-export { default } from './icons-block.astro';
+export { default as IconsBlock } from './icons-block.astro';
