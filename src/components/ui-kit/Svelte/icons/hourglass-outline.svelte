@@ -1,7 +1,7 @@
 <script lang="ts">
   export let width: string = '22';
   export let height: string = '22';
-  export let viewBox: string = '0 0 22 22';
+  export let viewBox: string = `0 0 ${width} ${height}`;
   export let fill: string = 'none';
   export let stroke: string = 'none';
 </script>
