@@ -6,6 +6,7 @@
 
 .calculator_left-pane {
   display: flex;
+  gap: 40px;
   flex: 0 1 66%;
   flex-direction: column;
   min-width: 66%;
@@ -13,7 +14,6 @@
 
 .calculator-text {
   max-width: 85%;
-  margin-bottom: 40px;
 
   font-family: Inter;
   font-size: 20px;
@@ -37,7 +37,6 @@
 .calculator-multichannel-switcher {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
 
   font-family: Inter;
   font-size: 16px;
@@ -97,7 +96,10 @@
   color: var(--White, #ffffff);
   background-color: var(--Blue, #0d42ff);
   height: 40px;
-  width: 245px;
+  width: 332px;
+  @media (max-width: 1280px) {
+    width: 245px;
+  }
   border-radius: 64px;
   outline: none;
   border: none;

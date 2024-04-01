@@ -53,7 +53,7 @@
   inline-size: var(--fds-slider-percentage);
   /*inline-size: 50%;*/
   background-color: var(--Blue, #0d42ff);
-  block-size: 4px;
+  block-size: 3px;
   position: absolute;
   border-radius: 4px;
 }
