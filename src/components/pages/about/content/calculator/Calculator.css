@@ -96,7 +96,10 @@
   color: var(--White, #ffffff);
   background-color: var(--Blue, #0d42ff);
   height: 40px;
-  width: 245px;
+  width: 332px;
+  @media (max-width: 1280px) {
+    width: 245px;
+  }
   border-radius: 64px;
   outline: none;
   border: none;
