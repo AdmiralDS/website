@@ -18,7 +18,9 @@
     {#each Object.entries(items) as [name, label], i}
       <Item {name} {showNumber} number={i + 1} {label} active={activeItem === name} onClick={handleClick} />
     {/each}
-    <slot name="ext-controls" />
+    <div class="switcher-items-controls">
+      <slot name="ext-controls" />
+    </div>
   </div>
   <div class="divider">
     <div class="separator" />
@@ -41,6 +43,10 @@
     flex: 0 1 33%;
     flex-direction: column;
     min-width: 33%;
+  }
+
+  .switcher-items-controls {
+    margin-top: 40px;
   }
 
   .divider {
