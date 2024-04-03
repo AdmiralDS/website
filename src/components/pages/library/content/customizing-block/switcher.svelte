@@ -21,10 +21,24 @@
   $: isDarkTheme = false;
   const handleClickOnTheme = () => (isDarkTheme = !isDarkTheme);
 
+  function getColorValue(colorName: string) {
+    switch (colorName) {
+      case 'yellow':
+        return '#FFC400';
+      case 'orange':
+        return '#FF5C22';
+      case 'violet':
+        return '#9640CA';
+      case 'blue':
+      default:
+        return '#0D42FF';
+    }
+  }
+
   // управление цветом
   // TODO: добавить разноцветный, в макете svg, не имепортировалась корректно
   const colors = ['yellow', 'blue', 'orange', 'violet'];
-  $: activeColor = 'yellow';
+  $: activeColor = 'blue';
   const handleClickOnColor = (colorName: string) => (activeColor = colorName);
 </script>
 
@@ -42,7 +56,12 @@
         Основной цвет
         <div class="colors-container">
           {#each colors as color}
-            <div class={`color-item ${color}`} on:click={() => handleClickOnColor(color)}></div>
+            <div
+              class="color-item"
+              aria-current={activeColor === color}
+              style="border-color: {getColorValue(color)}"
+              on:click={() => handleClickOnColor(color)}
+            ></div>
           {/each}
         </div>
       </div>
@@ -57,7 +76,12 @@
   <div class="separator" />
 </div>
 <div class="customization-info">
-  <Info styleName={activeItem} {isDarkTheme} color={activeColor} borderRadius={NamesArray[activeItem].radius} />
+  <Info
+    styleName={activeItem}
+    {isDarkTheme}
+    color={getColorValue(activeColor)}
+    borderRadius={NamesArray[activeItem].radius}
+  />
 </div>
 
 <style>
@@ -120,24 +144,14 @@
   }
 
   .color-item {
+    box-sizing: border-box;
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
   }
-
-  .color-item.yellow {
-    outline: 3px solid rgb(255, 196, 0);
-  }
-
-  .color-item.blue {
-    outline: 3px solid rgb(13, 66, 255);
-  }
-
-  .color-item.orange {
-    outline: 3px solid rgb(255, 92, 34);
-  }
-
-  .color-item.violet {
-    outline: 3px solid rgb(150, 64, 202);
+  .color-item[aria-current='true'] {
+    border-width: 5px;
   }
 </style>

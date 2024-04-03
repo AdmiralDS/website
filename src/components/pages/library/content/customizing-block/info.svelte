@@ -8,6 +8,7 @@
   export let isDarkTheme: boolean;
   let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
   export let color: string;
+  let prevColor = color;
   export let borderRadius: number = 4;
   let prevBorderRadius = borderRadius;
 
@@ -30,7 +31,8 @@
   let container;
 
   const mountReactComponent = () => {
-    if (container) ReactDOM.render(React.createElement(WrappedReactComponent, { theme, borderRadius }), container);
+    if (container)
+      ReactDOM.render(React.createElement(WrappedReactComponent, { theme, borderRadius, color }), container);
   };
 
   const unmountReactComponent = () => {
@@ -47,9 +49,10 @@
 
   $: {
     const newTheme = isDarkTheme ? 'dark' : 'light';
-    if (theme !== newTheme || prevBorderRadius !== borderRadius) {
+    if (theme !== newTheme || prevBorderRadius !== borderRadius || prevColor !== color) {
       theme = newTheme;
       prevBorderRadius = borderRadius;
+      prevColor = color;
       console.log(newTheme);
       unmountReactComponent();
       mountReactComponent();
