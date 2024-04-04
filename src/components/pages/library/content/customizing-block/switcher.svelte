@@ -22,23 +22,9 @@
   $: isDarkTheme = false;
   const handleClickOnTheme = () => (isDarkTheme = !isDarkTheme);
 
-  function getColorValue(colorName: string) {
-    switch (colorName) {
-      case 'yellow':
-        return '#FFC400';
-      case 'orange':
-        return '#FF5C22';
-      case 'violet':
-        return '#9640CA';
-      case 'blue':
-      default:
-        return '#0D42FF';
-    }
-  }
-
   // управление цветом
   // TODO: добавить разноцветный, в макете svg, не импортировалась корректно
-  const colors = ['yellow', 'blue', 'orange', 'violet'];
+  const colors = ['custom', 'yellow', 'blue', 'orange', 'violet'];
   $: activeColor = 'blue';
   const handleClickOnColor = (colorName: string) => (activeColor = colorName);
 </script>
@@ -57,11 +43,7 @@
         Основной цвет
         <div class="colors-container">
           {#each colors as color}
-            <ColorItem
-              current={activeColor === color}
-              color={getColorValue(color)}
-              on:click={() => handleClickOnColor(color)}
-            />
+            <ColorItem current={activeColor === color} {color} on:click={() => handleClickOnColor(color)} />
           {/each}
         </div>
       </div>
