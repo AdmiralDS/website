@@ -7,7 +7,7 @@
   export let styleName: string;
   export let isDarkTheme: boolean;
   let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
-  export let color: string;
+  export let color: string = 'blue';
   let prevColor = color;
   export let borderRadius: number = 4;
   let prevBorderRadius = borderRadius;

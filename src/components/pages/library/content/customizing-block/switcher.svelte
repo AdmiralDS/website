@@ -40,10 +40,7 @@
   // TODO: добавить разноцветный, в макете svg, не импортировалась корректно
   const colors = ['yellow', 'blue', 'orange', 'violet'];
   $: activeColor = 'blue';
-  const handleClickOnColor = (colorName: string) => {
-    activeColor = colorName;
-    console.log(colorName);
-  };
+  const handleClickOnColor = (colorName: string) => (activeColor = colorName);
 </script>
 
 <div>
@@ -79,12 +76,7 @@
   <div class="separator" />
 </div>
 <div class="customization-info">
-  <Info
-    styleName={activeItem}
-    {isDarkTheme}
-    color={getColorValue(activeColor)}
-    borderRadius={NamesArray[activeItem].radius}
-  />
+  <Info styleName={activeItem} {isDarkTheme} color={activeColor} borderRadius={NamesArray[activeItem].radius} />
 </div>
 
 <style>
