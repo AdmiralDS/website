@@ -2,6 +2,7 @@
   import Item from './item.svelte';
   import Info from './info.svelte';
   import { Toggle, Button } from '@components/ui-kit/Svelte';
+  import ColorItem from '@components/pages/library/content/customizing-block/ColorItem.svelte';
 
   const NamesArray = {
     geometrical: { label: 'Геометрический стиль', radius: 4 },
@@ -36,10 +37,13 @@
   }
 
   // управление цветом
-  // TODO: добавить разноцветный, в макете svg, не имепортировалась корректно
+  // TODO: добавить разноцветный, в макете svg, не импортировалась корректно
   const colors = ['yellow', 'blue', 'orange', 'violet'];
   $: activeColor = 'blue';
-  const handleClickOnColor = (colorName: string) => (activeColor = colorName);
+  const handleClickOnColor = (colorName: string) => {
+    activeColor = colorName;
+    console.log(colorName);
+  };
 </script>
 
 <div>
@@ -56,12 +60,11 @@
         Основной цвет
         <div class="colors-container">
           {#each colors as color}
-            <div
-              class="color-item"
-              aria-current={activeColor === color}
-              style="border-color: {getColorValue(color)}"
+            <ColorItem
+              current={activeColor === color}
+              color={getColorValue(color)}
               on:click={() => handleClickOnColor(color)}
-            ></div>
+            />
           {/each}
         </div>
       </div>
@@ -141,17 +144,5 @@
   .colors-container {
     display: flex;
     gap: 10px;
-  }
-
-  .color-item {
-    box-sizing: border-box;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border-width: 3px;
-    border-style: solid;
-  }
-  .color-item[aria-current='true'] {
-    border-width: 5px;
   }
 </style>
