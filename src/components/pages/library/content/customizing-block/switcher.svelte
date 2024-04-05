@@ -3,6 +3,8 @@
   import Info from './info.svelte';
   import { Toggle, Button } from '@components/ui-kit/Svelte';
   import ColorItem from '@components/pages/library/content/customizing-block/ColorItem.svelte';
+  import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
+  import CustomColorItem from '@components/pages/library/content/customizing-block/CustomColorItem.svelte';
 
   const NamesArray = {
     geometrical: { label: 'Геометрический стиль', radius: 4 },
@@ -24,7 +26,7 @@
 
   // управление цветом
   // TODO: добавить разноцветный, в макете svg, не импортировалась корректно
-  const colors = ['custom', 'yellow', 'blue', 'orange', 'violet'];
+  const colors = ['yellow', 'blue', 'orange', 'violet'];
   $: activeColor = 'blue';
   const handleClickOnColor = (colorName: string) => (activeColor = colorName);
 </script>
@@ -42,6 +44,14 @@
       <div class="customization-item">
         Основной цвет
         <div class="colors-container">
+          <div style="margin-top: -1px">
+            <ColorPicker
+              isAlpha={false}
+              label=""
+              components={{ ...ChromeVariant, input: CustomColorItem }}
+              sliderDirection="horizontal"
+            />
+          </div>
           {#each colors as color}
             <ColorItem current={activeColor === color} {color} on:click={() => handleClickOnColor(color)} />
           {/each}

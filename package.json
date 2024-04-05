@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.5.1",
-    "@esbuild/darwin-arm64": "^0.20.1",
     "@storybook/addon-essentials": "^7.6.16",
     "@storybook/addon-interactions": "^7.6.16",
     "@storybook/addon-links": "^7.6.16",
@@ -38,7 +37,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^8.0.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "svelte-awesome-color-picker": "^3.0.6"
   },
   "volta": {
     "node": "20.11.1"
