@@ -5,6 +5,7 @@
   import ColorItem from '@components/pages/library/content/customizing-block/ColorItem.svelte';
   import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
   import CustomColorItem from '@components/pages/library/content/customizing-block/CustomColorItem.svelte';
+  import { activeColor } from './stores.js';
 
   const NamesArray = {
     geometrical: { label: 'Геометрический стиль', radius: 4 },
@@ -25,9 +26,7 @@
   const handleClickOnTheme = () => (isDarkTheme = !isDarkTheme);
 
   // управление цветом
-  // TODO: добавить разноцветный, в макете svg, не импортировалась корректно
   const colors = ['yellow', 'blue', 'orange', 'violet'];
-  $: activeColor = 'blue';
   const handleClickOnColor = (colorName: string) => (activeColor = colorName);
 </script>
 
@@ -44,7 +43,8 @@
       <div class="customization-item">
         Основной цвет
         <div class="colors-container">
-          <div style="margin-top: -1px">
+          <div style="margin-top: -1px" on:click={() => handleClickOnColor('custom')}>
+            <!--TODO: css focus var, store for picked color, gradation for primary block-->
             <ColorPicker
               isAlpha={false}
               label=""
@@ -53,7 +53,7 @@
             />
           </div>
           {#each colors as color}
-            <ColorItem current={activeColor === color} {color} on:click={() => handleClickOnColor(color)} />
+            <ColorItem current={$activeColor === color} {color} on:click={() => handleClickOnColor(color)} />
           {/each}
         </div>
       </div>
@@ -68,7 +68,7 @@
   <div class="separator" />
 </div>
 <div class="customization-info">
-  <Info styleName={activeItem} {isDarkTheme} color={activeColor} borderRadius={NamesArray[activeItem].radius} />
+  <Info styleName={activeItem} {isDarkTheme} color={$activeColor} borderRadius={NamesArray[activeItem].radius} />
 </div>
 
 <style>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import ColorItem from '@components/pages/library/content/customizing-block/ColorItem.svelte';
+  import { activeColor } from './stores.js';
 
   /** DOM element of the label wrapper */
   export let labelElement: HTMLLabelElement;
@@ -33,7 +34,7 @@
       aria-haspopup="dialog"
     />
     <div style="margin-top: -12px">
-      <ColorItem color="custom" on:click={onColorItemClick()} />
+      <ColorItem color="custom" current={$activeColor === 'custom'} />
     </div>
   </div>
   {label}
