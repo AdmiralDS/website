@@ -8,11 +8,15 @@ export interface Props {
   theme: 'light' | 'dark';
   borderRadius: 0 | 2 | 4 | 6 | 8 | 10;
   color: string;
+  colorPickerValue: string;
 }
 
-const setMainLightThemeColors = (mainColor: string) => {
+const setMainLightThemeColors = (mainColor: string, colorPickerValue: string) => {
   const colorTheme = LIGHT_THEME;
   switch (mainColor) {
+    case 'custom':
+      colorTheme.color['Primary/Primary 60 Main'] = colorPickerValue;
+      break;
     case 'yellow':
       colorTheme.color['Primary/Primary 10'] = '#FEF5D7';
       colorTheme.color['Primary/Primary 20'] = '#FEF5D7';
@@ -58,9 +62,12 @@ const setMainLightThemeColors = (mainColor: string) => {
   return colorTheme;
 };
 
-const setMainDarkThemeColors = (mainColor: string) => {
+const setMainDarkThemeColors = (mainColor: string, colorPickerValue: string) => {
   const colorTheme = DARK_THEME;
   switch (mainColor) {
+    case 'custom':
+      colorTheme.color['Primary/Primary 60 Main'] = colorPickerValue;
+      break;
     case 'yellow':
       colorTheme.color['Primary/Primary 10'] = '#1F2024';
       colorTheme.color['Primary/Primary 20'] = '#1F2024';
@@ -106,12 +113,14 @@ const setMainDarkThemeColors = (mainColor: string) => {
   return colorTheme;
 };
 
-const setMainThemeColors = (theme: 'light' | 'dark', mainColor: string) => {
-  return theme === 'light' ? setMainLightThemeColors(mainColor) : setMainDarkThemeColors(mainColor);
+const setMainThemeColors = (theme: 'light' | 'dark', mainColor: string, colorPickerValue: string) => {
+  return theme === 'light'
+    ? setMainLightThemeColors(mainColor, colorPickerValue)
+    : setMainDarkThemeColors(mainColor, colorPickerValue);
 };
 
-export const WrappedReactComponent = ({ theme, borderRadius = 4, color }: Props) => {
-  const colorTheme = setMainThemeColors(theme, color);
+export const WrappedReactComponent = ({ theme, borderRadius = 4, color, colorPickerValue }: Props) => {
+  const colorTheme = setMainThemeColors(theme, color, colorPickerValue);
   colorTheme.shape.borderRadiusKind = `Border radius ${borderRadius}` as BorderRadiusType;
 
   return (
