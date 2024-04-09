@@ -40,7 +40,6 @@
 .subcontent-block__tags-wrapper {
     display: flex;
     gap: 5px;
-    display: flex;
 }
 
 .subcontent-block__last-column {

@@ -1,4 +1,5 @@
 <script>
+  import './font-block.css';
   import { Button } from '@components/ui-kit/Svelte';
   const textTypeList = ['Header', 'Subtitle', 'Body', 'Caption'];
   let currentFontType = 'Header';

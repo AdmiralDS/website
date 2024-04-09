@@ -1,4 +1,4 @@
-.lpalette-block__colors-wrapper {
+.palette-block__colors-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px 20px;
@@ -28,4 +28,8 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 15px;
+}
+.tags-wrapper-colors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
