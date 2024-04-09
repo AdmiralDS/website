@@ -2,6 +2,11 @@
   import Item from './item.svelte';
   import Info from './info.svelte';
   import { Toggle, Button } from '@components/ui-kit/Svelte';
+  import ColorItem from '@components/pages/library/content/customizing-block/ColorItem.svelte';
+  import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
+  import ColorPickerInputItem from '@components/pages/library/content/customizing-block/ColorPickerInputItem.svelte';
+  import { activeColor, colorPickerValueHex, colorPickerValueHsv } from './stores.js';
+  import ColorPickerTextInputItem from '@components/pages/library/content/customizing-block/ColorPickerTextInputItem.svelte';
 
   const NamesArray = {
     geometrical: { label: 'Геометрический стиль', radius: 4 },
@@ -22,9 +27,7 @@
   const handleClickOnTheme = () => (isDarkTheme = !isDarkTheme);
 
   // управление цветом
-  // TODO: добавить разноцветный, в макете svg, не имепортировалась корректно
   const colors = ['yellow', 'blue', 'orange', 'violet'];
-  $: activeColor = 'yellow';
   const handleClickOnColor = (colorName: string) => (activeColor = colorName);
 </script>
 
@@ -41,8 +44,20 @@
       <div class="customization-item">
         Основной цвет
         <div class="colors-container">
+          <div style="margin-top: -1px" on:click={() => handleClickOnColor('custom')}>
+            <ColorPicker
+              isAlpha={false}
+              label=""
+              components={{ ...ChromeVariant, input: ColorPickerInputItem, textInput: ColorPickerTextInputItem }}
+              sliderDirection="horizontal"
+              bind:hex={$colorPickerValueHex}
+              bind:hsv={$colorPickerValueHsv}
+              --focus-color="#E6EAF0"
+              --cp-border-color="#E6EAF0"
+            />
+          </div>
           {#each colors as color}
-            <div class={`color-item ${color}`} on:click={() => handleClickOnColor(color)}></div>
+            <ColorItem current={$activeColor === color} {color} on:click={() => handleClickOnColor(color)} />
           {/each}
         </div>
       </div>
@@ -57,7 +72,14 @@
   <div class="separator" />
 </div>
 <div class="customization-info">
-  <Info styleName={activeItem} {isDarkTheme} color={activeColor} borderRadius={NamesArray[activeItem].radius} />
+  <Info
+    styleName={activeItem}
+    {isDarkTheme}
+    color={$activeColor}
+    colorPickerValueHex={$colorPickerValueHex}
+    colorPickerValueHsv={$colorPickerValueHsv}
+    borderRadius={NamesArray[activeItem].radius}
+  />
 </div>
 
 <style>
@@ -117,27 +139,5 @@
   .colors-container {
     display: flex;
     gap: 10px;
-  }
-
-  .color-item {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-  }
-
-  .color-item.yellow {
-    outline: 3px solid rgb(255, 196, 0);
-  }
-
-  .color-item.blue {
-    outline: 3px solid rgb(13, 66, 255);
-  }
-
-  .color-item.orange {
-    outline: 3px solid rgb(255, 92, 34);
-  }
-
-  .color-item.violet {
-    outline: 3px solid rgb(150, 64, 202);
   }
 </style>
