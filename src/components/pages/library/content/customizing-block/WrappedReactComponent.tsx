@@ -3,19 +3,59 @@ import { DropdownProvider, LIGHT_THEME, DARK_THEME } from '@admiral-ds/react-ui'
 import '@admiral-ds/fonts/VTBGroupUI.css';
 import { AdmiralCalendar } from './AdmiralCalendar';
 import type { BorderRadiusType } from '@admiral-ds/react-ui';
+import { hsvToHex } from '@components/pages/library/content/customizing-block/utils.ts';
 
 export interface Props {
   theme: 'light' | 'dark';
   borderRadius: 0 | 2 | 4 | 6 | 8 | 10;
   color: string;
-  colorPickerValue: string;
+  colorPickerValueHex: string;
+  colorPickerValueHsv: { h: number; s: number; v: number; a: number };
 }
 
-const setMainLightThemeColors = (mainColor: string, colorPickerValue: string) => {
+const setMainLightThemeColors = (
+  mainColor: string,
+  colorPickerValueHsv: { h: number; s: number; v: number; a: number },
+) => {
   const colorTheme = LIGHT_THEME;
   switch (mainColor) {
     case 'custom':
-      colorTheme.color['Primary/Primary 60 Main'] = colorPickerValue;
+      colorTheme.color['Primary/Primary 10'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.07,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 20'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.13,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 30'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.35,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 40'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.56,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 50'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.77,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 60 Main'] = hsvToHex(colorPickerValueHsv);
+      colorTheme.color['Primary/Primary 70'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s,
+        v: colorPickerValueHsv.v * 0.8,
+      });
+      colorTheme.color['Primary/Primary 80'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s,
+        v: colorPickerValueHsv.v * 0.6,
+      });
       break;
     case 'yellow':
       colorTheme.color['Primary/Primary 10'] = '#FEF5D7';
@@ -62,11 +102,49 @@ const setMainLightThemeColors = (mainColor: string, colorPickerValue: string) =>
   return colorTheme;
 };
 
-const setMainDarkThemeColors = (mainColor: string, colorPickerValue: string) => {
+const setMainDarkThemeColors = (
+  mainColor: string,
+  colorPickerValueHsv: { h: number; s: number; v: number; a: number },
+) => {
   const colorTheme = DARK_THEME;
   switch (mainColor) {
     case 'custom':
-      colorTheme.color['Primary/Primary 60 Main'] = colorPickerValue;
+      colorTheme.color['Primary/Primary 10'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.07,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 20'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.13,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 30'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.35,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 40'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.56,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 50'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.77,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 60 Main'] = hsvToHex(colorPickerValueHsv);
+      colorTheme.color['Primary/Primary 70'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.89,
+        v: colorPickerValueHsv.v,
+      });
+      colorTheme.color['Primary/Primary 80'] = hsvToHex({
+        h: colorPickerValueHsv.h,
+        s: colorPickerValueHsv.s * 0.7,
+        v: colorPickerValueHsv.v,
+      });
       break;
     case 'yellow':
       colorTheme.color['Primary/Primary 10'] = '#1F2024';
@@ -113,14 +191,18 @@ const setMainDarkThemeColors = (mainColor: string, colorPickerValue: string) => 
   return colorTheme;
 };
 
-const setMainThemeColors = (theme: 'light' | 'dark', mainColor: string, colorPickerValue: string) => {
+const setMainThemeColors = (
+  theme: 'light' | 'dark',
+  mainColor: string,
+  colorPickerValueHsv: { h: number; s: number; v: number; a: number },
+) => {
   return theme === 'light'
-    ? setMainLightThemeColors(mainColor, colorPickerValue)
-    : setMainDarkThemeColors(mainColor, colorPickerValue);
+    ? setMainLightThemeColors(mainColor, colorPickerValueHsv)
+    : setMainDarkThemeColors(mainColor, colorPickerValueHsv);
 };
 
-export const WrappedReactComponent = ({ theme, borderRadius = 4, color, colorPickerValue }: Props) => {
-  const colorTheme = setMainThemeColors(theme, color, colorPickerValue);
+export const WrappedReactComponent = ({ theme, borderRadius = 4, color, colorPickerValueHsv }: Props) => {
+  const colorTheme = setMainThemeColors(theme, color, colorPickerValueHsv);
   colorTheme.shape.borderRadiusKind = `Border radius ${borderRadius}` as BorderRadiusType;
 
   return (

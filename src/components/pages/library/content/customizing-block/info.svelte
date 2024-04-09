@@ -9,8 +9,10 @@
   let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
   export let color: string = 'blue';
   let prevColor = color;
-  export let colorPickerValue: string = '#ff00bb';
-  let prevColorPickerValue = colorPickerValue;
+  export let colorPickerValueHex: string = '#ff00bb';
+  let prevColorPickerValueHex = colorPickerValueHex;
+  export let colorPickerValueHsv: { h: number; s: number; v: number; a: number } = { h: 316, s: 100, v: 100, a: 1 };
+  let prevColorPickerValueHsv = colorPickerValueHsv;
   export let borderRadius: number = 4;
   let prevBorderRadius = borderRadius;
 
@@ -35,7 +37,13 @@
   const mountReactComponent = () => {
     if (container)
       ReactDOM.render(
-        React.createElement(WrappedReactComponent, { theme, borderRadius, color, colorPickerValue }),
+        React.createElement(WrappedReactComponent, {
+          theme,
+          borderRadius,
+          color,
+          colorPickerValueHex,
+          colorPickerValueHsv,
+        }),
         container,
       );
   };
@@ -58,14 +66,13 @@
       theme !== newTheme ||
       prevBorderRadius !== borderRadius ||
       prevColor !== color ||
-      prevColorPickerValue !== colorPickerValue
+      prevColorPickerValueHex !== colorPickerValueHex
     ) {
       theme = newTheme;
       prevBorderRadius = borderRadius;
       prevColor = color;
-      prevColorPickerValue = colorPickerValue;
-      console.log(`from Info - ${colorPickerValue}`);
-
+      prevColorPickerValueHex = colorPickerValueHex;
+      console.log(theme);
       unmountReactComponent();
       mountReactComponent();
     }

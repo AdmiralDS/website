@@ -5,7 +5,7 @@
   import ColorItem from '@components/pages/library/content/customizing-block/ColorItem.svelte';
   import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
   import CustomColorItem from '@components/pages/library/content/customizing-block/CustomColorItem.svelte';
-  import { activeColor, colorPickerValue } from './stores.js';
+  import { activeColor, colorPickerValueHex, colorPickerValueHsv } from './stores.js';
 
   const NamesArray = {
     geometrical: { label: 'Геометрический стиль', radius: 4 },
@@ -44,13 +44,14 @@
         Основной цвет
         <div class="colors-container">
           <div style="margin-top: -1px" on:click={() => handleClickOnColor('custom')}>
-            <!--TODO: css focus var, gradation for primary block-->
+            <!--TODO: css focus var-->
             <ColorPicker
               isAlpha={false}
               label=""
               components={{ ...ChromeVariant, input: CustomColorItem }}
               sliderDirection="horizontal"
-              bind:hex={$colorPickerValue}
+              bind:hex={$colorPickerValueHex}
+              bind:hsv={$colorPickerValueHsv}
             />
           </div>
           {#each colors as color}
@@ -73,7 +74,8 @@
     styleName={activeItem}
     {isDarkTheme}
     color={$activeColor}
-    colorPickerValue={$colorPickerValue}
+    colorPickerValueHex={$colorPickerValueHex}
+    colorPickerValueHsv={$colorPickerValueHsv}
     borderRadius={NamesArray[activeItem].radius}
   />
 </div>
