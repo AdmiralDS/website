@@ -4,8 +4,9 @@
   import { Toggle, Button } from '@components/ui-kit/Svelte';
   import ColorItem from '@components/pages/library/content/customizing-block/ColorItem.svelte';
   import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
-  import CustomColorItem from '@components/pages/library/content/customizing-block/CustomColorItem.svelte';
+  import ColorPickerInputItem from '@components/pages/library/content/customizing-block/ColorPickerInputItem.svelte';
   import { activeColor, colorPickerValueHex, colorPickerValueHsv } from './stores.js';
+  import ColorPickerTextInputItem from '@components/pages/library/content/customizing-block/ColorPickerTextInputItem.svelte';
 
   const NamesArray = {
     geometrical: { label: 'Геометрический стиль', radius: 4 },
@@ -44,14 +45,15 @@
         Основной цвет
         <div class="colors-container">
           <div style="margin-top: -1px" on:click={() => handleClickOnColor('custom')}>
-            <!--TODO: css focus var-->
             <ColorPicker
               isAlpha={false}
               label=""
-              components={{ ...ChromeVariant, input: CustomColorItem }}
+              components={{ ...ChromeVariant, input: ColorPickerInputItem, textInput: ColorPickerTextInputItem }}
               sliderDirection="horizontal"
               bind:hex={$colorPickerValueHex}
               bind:hsv={$colorPickerValueHsv}
+              --focus-color="#E6EAF0"
+              --cp-border-color="#E6EAF0"
             />
           </div>
           {#each colors as color}
