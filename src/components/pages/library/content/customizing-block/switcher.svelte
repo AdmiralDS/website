@@ -28,7 +28,7 @@
 
   // управление цветом
   const colors = ['yellow', 'blue', 'orange', 'violet'];
-  const handleClickOnColor = (colorName: string) => (activeColor = colorName);
+  const handleClickOnColor = (colorName: string) => activeColor.set(colorName);
 </script>
 
 <div>
