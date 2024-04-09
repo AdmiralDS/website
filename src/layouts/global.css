@@ -27,6 +27,9 @@
   --accent-dark: 49, 10, 101;
   --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
 
+  --transition-duration-base: 300ms;
+  --transition-easing-base: ease-in-out;
+
   --Dark_blue_gradient: radial-gradient(
       1399.99% 141.42% at 99% 100%,
       rgba(0, 0, 255, 0.35),
