@@ -19,6 +19,7 @@
   }
 
   .footer-button__prev-page {
+    box-sizing: border-box;
     border-radius: 64px;
     text-align: center;
 
@@ -45,6 +46,7 @@
   }
 
   .footer-button__next-page {
+    box-sizing: border-box;
     border-radius: 64px;
     text-align: center;
     text-decoration: none; 
