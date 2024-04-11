@@ -19,24 +19,24 @@
   }
 </script>
 
-<div class="color-item__outer" style="background: {getColorValue(color)}" on:click>
-  <div class="color-item__inner" aria-current={current} on:click></div>
+<div class="color-item color-item__outer" style="background: {getColorValue(color)}" on:click>
+  <div class="color-item color-item__inner" aria-current={current} on:click></div>
 </div>
 
 <style lang="css">
-  .color-item__outer {
+  .color-item {
     box-sizing: border-box;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .color-item__outer {
     width: 20px;
     height: 20px;
-    border-radius: 50%;
     padding: 3px;
   }
-
   .color-item__inner {
-    box-sizing: border-box;
     width: 14px;
     height: 14px;
-    border-radius: 50%;
     background: var(--White, #fff);
   }
   .color-item__inner[aria-current='true'] {

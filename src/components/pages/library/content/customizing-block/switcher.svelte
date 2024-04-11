@@ -103,7 +103,7 @@
   }
 
   .customization-item {
-    cursor: pointer;
+    cursor: default;
     height: 30px;
     padding: 0 0 20px 0;
 
