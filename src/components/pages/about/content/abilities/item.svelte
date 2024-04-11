@@ -52,6 +52,10 @@
     font-style: normal;
     font-weight: 500;
     line-height: 25px; /* 125% */
+
+    &:hover {
+      color: var(--Blue, #0d42ff);
+    }
   }
   .abilities-item:not(:first-child) {
     padding-top: 20px;
