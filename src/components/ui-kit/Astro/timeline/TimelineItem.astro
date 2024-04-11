@@ -55,17 +55,18 @@ const { item, isLastEl } = Astro.props;
     line-height: 1.2;
     position: relative;
     border-radius: 50%;
-    outline: 2px solid #7a8190;
+    border: 2px solid #7a8190;
+    box-sizing: border-box;
   }
 
   .timeline-item .point:hover {
-    outline-color: #0d42ff;
+    border-color: #0d42ff;
   }
 
   .timeline-item .point.large {
     width: 20px;
     height: 20px;
-    outline-width: 3px;
+    border-width: 3px;
   }
 
   .timeline-item .point.small {
@@ -84,7 +85,7 @@ const { item, isLastEl } = Astro.props;
   }
 
   .timeline-item.active .point {
-    outline-color: #0d42ff;
+    border-color: #0d42ff;
   }
 
   .timeline-item .point-text {
@@ -102,7 +103,7 @@ const { item, isLastEl } = Astro.props;
   }
 
   .timeline-item .point-text.bottom {
-    top: 40px;
+    top: 52px;
   }
   .timeline-item .point-text.top {
     bottom: 20px;
@@ -136,7 +137,7 @@ const { item, isLastEl } = Astro.props;
   }
   .timeline-item .point-detail.with-border {
     border-radius: 4px;
-    outline: 1px solid var(--Light_grey);
+    border: 1px solid var(--Light_grey);
     background: #fff;
     padding: 10px;
     box-sizing: border-box;

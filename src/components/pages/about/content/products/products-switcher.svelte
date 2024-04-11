@@ -1,5 +1,6 @@
 <script lang="ts">
   import ThemeToggle from './theme-toggle.svelte';
+  import { ArrowButtons } from '@components/ui-kit/Svelte';
   import { IconArrowLeft, IconArrowRight, Switcher } from '@components/ui-kit/Svelte';
   import './products-switcher.css';
 
@@ -14,12 +15,5 @@
 <ThemeToggle bind:checked />
 <Switcher class="product-switcher" {items} showNumber={false} {activeItem} disabled>
   <img slot="info" src={imgSrc} alt="image" class="info-cover" />
-  <div class="arrows" slot="ext-controls">
-    <button class="arrow-button" disabled>
-      <IconArrowLeft width="15" height="15" />
-    </button>
-    <button class="arrow-button">
-      <IconArrowRight width="15" height="15" />
-    </button>
-  </div>
+  <ArrowButtons prevDisabled slot="ext-controls" />
 </Switcher>
