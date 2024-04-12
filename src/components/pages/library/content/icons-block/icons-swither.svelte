@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Toggle } from '@components/ui-kit/Svelte';
+  import { ArrowButtons, Toggle } from '@components/ui-kit/Svelte';
   import {
     IconArrowLeft,
     IconArrowRight,
@@ -107,20 +107,12 @@
     </div>
   </div>
 
-  <div class="icons-block__controls-wrapper">
-    <div
-      class={`icons-block__arrow-button ${!isLeftEnabled ? 'icons-block__arrow-button--disabled' : ''}`}
-      on:click={handleClickOnLeftArrow}
-    >
-      <IconArrowLeft width="16" height="16" />
-    </div>
-    <div
-      class={`icons-block__arrow-button ${!isRightEnabled ? 'icons-block__arrow-button--disabled' : ''}`}
-      on:click={handleClickOnRightArrow}
-    >
-      <IconArrowRight width="16" height="16" />
-    </div>
-  </div>
+  <ArrowButtons
+    onPrevClick={handleClickOnLeftArrow}
+    onNextClick={handleClickOnRightArrow}
+    prevDisabled={!isLeftEnabled}
+    nextDisabled={!isRightEnabled}
+  />
 </div>
 
 <style lang="css"></style>

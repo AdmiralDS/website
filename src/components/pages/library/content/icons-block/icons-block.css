@@ -44,42 +44,11 @@
 }
 
 .icons-block__switcher-title {
-    color: var(--Dark-grey, #35383A);
+    color: var(--Dark_grey, #35383A);
     font-family: Inter;
     font-size: 12px;
     font-weight: 500;
     line-height: 15px;
-}
-
-.icons-block__controls-wrapper {
-    display: flex;
-    gap: 5px;
-}
-
-.icons-block__arrow-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    margin-top: 10px;
-    border: 1px solid var(--Light_grey, #E6EAF0);
-    border-radius: 60px;
-    color: var(--Dark_grey, #35383A);
-    cursor: pointer;
-}
-
-.icons-block__arrow-button--disabled {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    margin-top: 10px;
-    border-radius: 60px;
-    color: var(--Light_grey, #E6EAF0);
-    border: 1px solid var(--Light_grey, #E6EAF0);
-    cursor: default;
 }
 
 .icons-block__icons-container {
