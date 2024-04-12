@@ -1,6 +1,85 @@
 <script lang="ts">
   import { ArrowButtons, Toggle } from '@components/ui-kit/Svelte';
-  import { DragOutline, EquallyOutline, ErrorOutline, ErrorTriangleOutline } from '@components/ui-kit/Svelte';
+  import {
+    DragOutline,
+    EquallyOutline,
+    ErrorOutline,
+    ErrorTriangleOutline,
+    DragSolid,
+    EquallySolid,
+    ErrorSolid,
+    ErrorTriangleSolid,
+  } from '@components/ui-kit/Svelte';
+
+  const iconsOutline = [
+    {
+      name: 'Drag Out',
+      icon: DragOutline,
+    },
+    {
+      name: 'Equally',
+      icon: EquallyOutline,
+    },
+    {
+      name: 'Error Out',
+      icon: ErrorOutline,
+    },
+    {
+      name: 'Triangle',
+      icon: ErrorTriangleOutline,
+    },
+    {
+      name: 'Drag Out1',
+      icon: DragOutline,
+    },
+    {
+      name: 'Equally1',
+      icon: EquallyOutline,
+    },
+    {
+      name: 'Error Out1',
+      icon: ErrorOutline,
+    },
+    {
+      name: 'Triangle1',
+      icon: ErrorTriangleOutline,
+    },
+  ];
+
+  const iconsSolid = [
+    {
+      name: 'Drag',
+      icon: DragSolid,
+    },
+    {
+      name: 'Equally',
+      icon: EquallySolid,
+    },
+    {
+      name: 'Error',
+      icon: ErrorSolid,
+    },
+    {
+      name: 'Triangle',
+      icon: ErrorTriangleSolid,
+    },
+    {
+      name: 'Drag1',
+      icon: DragSolid,
+    },
+    {
+      name: 'Equally1',
+      icon: EquallySolid,
+    },
+    {
+      name: 'Error1',
+      icon: ErrorSolid,
+    },
+    {
+      name: 'Triangle1',
+      icon: ErrorTriangleSolid,
+    },
+  ];
 
   const dummyDataForSlider = [
     {
@@ -19,33 +98,22 @@
       name: 'Triangle',
       icon: ErrorTriangleOutline,
     },
-    {
-      name: 'Triangle',
-      icon: ErrorTriangleOutline,
-    },
-    {
-      name: 'Error Out',
-      icon: ErrorOutline,
-    },
-    {
-      name: 'Equally',
-      icon: EquallyOutline,
-    },
-    {
-      name: 'Error Out',
-      icon: ErrorOutline,
-    },
+
     {
       name: 'Drag Out',
-      icon: DragOutline,
-    },
-    {
-      name: 'Triangle',
-      icon: ErrorTriangleOutline,
+      icon: DragSolid,
     },
     {
       name: 'Equally',
-      icon: EquallyOutline,
+      icon: EquallySolid,
+    },
+    {
+      name: 'Error Out',
+      icon: ErrorSolid,
+    },
+    {
+      name: 'Triangle',
+      icon: ErrorTriangleSolid,
     },
   ];
 
@@ -58,15 +126,16 @@
   $: currentIndex = 0;
   $: isLeftEnabled = false;
   $: isRightEnabled = true;
-  $: elsToShow = dummyDataForSlider.slice(currentIndex, currentIndex + STEP);
+  $: iconsArray = isSolid ? iconsSolid : iconsOutline;
+  $: elsToShow = iconsArray.slice(currentIndex, currentIndex + STEP);
 
   const checkButtonsEnable = () => {
-    isRightEnabled = currentIndex + STEP < dummyDataForSlider.length;
+    isRightEnabled = currentIndex + STEP < iconsArray.length;
     isLeftEnabled = currentIndex > 0;
   };
 
   const handleClickOnRightArrow = () => {
-    if (dummyDataForSlider.length - currentIndex > STEP) {
+    if (iconsArray.length - currentIndex > STEP) {
       currentIndex = currentIndex + STEP;
     }
     checkButtonsEnable();
