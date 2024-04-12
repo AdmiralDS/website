@@ -40,6 +40,17 @@ import { Icon } from 'astro-icon/components';
     font-style: normal;
     font-weight: 500;
     line-height: 20px; /* 125% */
+
+    transition-property: color;
+    transition-duration: var(--transition-duration-base, 300ms);
+    transition-timing-function: var(--transition-easing-base, ease-in-out);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    &:active {
+      background: rgba(255, 255, 255, 0.4);
+    }
   }
   .header-button svg {
     width: 100%;
