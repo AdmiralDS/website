@@ -1,13 +1,6 @@
 <script lang="ts">
   import { ArrowButtons, Toggle } from '@components/ui-kit/Svelte';
-  import {
-    IconArrowLeft,
-    IconArrowRight,
-    DragOutline,
-    EquallyOutline,
-    ErrorOutline,
-    ErrorTriangleOutline,
-  } from '@components/ui-kit/Svelte';
+  import { DragOutline, EquallyOutline, ErrorOutline, ErrorTriangleOutline } from '@components/ui-kit/Svelte';
 
   const dummyDataForSlider = [
     {
