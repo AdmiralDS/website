@@ -16,7 +16,7 @@
     border-radius: 64px;
     background: var(--Light_grey);
 
-    color: var(--Dark-grey, #35383a);
+    color: var(--Dark_grey, #35383a);
     font-family: Inter;
     font-size: 16px;
     font-weight: 500;
@@ -30,7 +30,7 @@
 }
 
 .icons-block__tile-heading {
-    color: var(--Dark-grey, #35383A);
+    color: var(--Dark_grey, #35383A);
     font-family: Inter;
     font-size: 16px;
     font-weight: 500;
