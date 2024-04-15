@@ -1,120 +1,75 @@
 <script lang="ts">
   import { ArrowButtons, Toggle } from '@components/ui-kit/Svelte';
-  import {
-    DragOutline,
-    EquallyOutline,
-    ErrorOutline,
-    ErrorTriangleOutline,
-    DragSolid,
-    EquallySolid,
-    ErrorSolid,
-    ErrorTriangleSolid,
-  } from '@components/ui-kit/Svelte';
+  import * as Icons from '@components/ui-kit/Svelte';
 
   const iconsOutline = [
-    {
-      name: 'Drag Out',
-      icon: DragOutline,
-    },
-    {
-      name: 'Equally',
-      icon: EquallyOutline,
-    },
-    {
-      name: 'Error Out',
-      icon: ErrorOutline,
-    },
-    {
-      name: 'Triangle',
-      icon: ErrorTriangleOutline,
-    },
-    {
-      name: 'Drag Out1',
-      icon: DragOutline,
-    },
-    {
-      name: 'Equally1',
-      icon: EquallyOutline,
-    },
-    {
-      name: 'Error Out1',
-      icon: ErrorOutline,
-    },
-    {
-      name: 'Triangle1',
-      icon: ErrorTriangleOutline,
-    },
+    { name: 'Drag Out', icon: Icons.DragOutline },
+    { name: 'Equally', icon: Icons.EquallyOutline },
+    { name: 'Error Out', icon: Icons.ErrorOutline },
+    { name: 'Triangle', icon: Icons.ErrorTriangleOutline },
+    { name: 'Jpg', icon: Icons.JpgOutline },
+    { name: 'Archive', icon: Icons.ArchiveOutline },
+    { name: 'Bonus', icon: Icons.BonusOutline },
+    { name: 'Broker', icon: Icons.BrokerOutline },
+    { name: 'Cloud Done', icon: Icons.CloudDoneOutline },
+    { name: 'Cut', icon: Icons.CutOutline },
+    { name: 'Diamond', icon: Icons.DiamondOutline },
+    { name: 'Eraser', icon: Icons.EraserOutline },
+    { name: 'Eye Off', icon: Icons.EyeOffOutline },
+    { name: 'Finance', icon: Icons.FinanceOutline },
+    { name: 'Fingerprint', icon: Icons.FingerprintOutline },
+    { name: 'Format Paint', icon: Icons.FormatPaintOutline },
+    { name: 'Government', icon: Icons.GovernmentOutline },
+    { name: 'GPS', icon: Icons.GpsOutline },
+    { name: 'Help', icon: Icons.HelpOutline },
+    { name: 'Incognito', icon: Icons.IncognitoOutline },
+    { name: 'JPY', icon: Icons.JpyOutline },
+    { name: 'Location', icon: Icons.LocationOutline },
+    { name: 'Microphone', icon: Icons.MicrophoneOutline },
+    { name: 'Phone', icon: Icons.PhoneOutline },
+    { name: 'Safety', icon: Icons.SafetyOutline },
+    { name: 'Settings', icon: Icons.SettingsOutline },
+    { name: 'Share', icon: Icons.ShareOutline },
+    { name: 'Sign', icon: Icons.SignOutline },
+    { name: 'Treasury', icon: Icons.TreasuryOutline },
+    { name: 'Tune', icon: Icons.TuneOutline },
+    { name: 'Unlock', icon: Icons.UnlockOutline },
+    { name: 'WiFi', icon: Icons.WiFiOutline },
   ];
 
   const iconsSolid = [
-    {
-      name: 'Drag',
-      icon: DragSolid,
-    },
-    {
-      name: 'Equally',
-      icon: EquallySolid,
-    },
-    {
-      name: 'Error',
-      icon: ErrorSolid,
-    },
-    {
-      name: 'Triangle',
-      icon: ErrorTriangleSolid,
-    },
-    {
-      name: 'Drag1',
-      icon: DragSolid,
-    },
-    {
-      name: 'Equally1',
-      icon: EquallySolid,
-    },
-    {
-      name: 'Error1',
-      icon: ErrorSolid,
-    },
-    {
-      name: 'Triangle1',
-      icon: ErrorTriangleSolid,
-    },
-  ];
-
-  const dummyDataForSlider = [
-    {
-      name: 'Drag Out',
-      icon: DragOutline,
-    },
-    {
-      name: 'Equally',
-      icon: EquallyOutline,
-    },
-    {
-      name: 'Error Out',
-      icon: ErrorOutline,
-    },
-    {
-      name: 'Triangle',
-      icon: ErrorTriangleOutline,
-    },
-
-    {
-      name: 'Drag Out',
-      icon: DragSolid,
-    },
-    {
-      name: 'Equally',
-      icon: EquallySolid,
-    },
-    {
-      name: 'Error Out',
-      icon: ErrorSolid,
-    },
-    {
-      name: 'Triangle',
-      icon: ErrorTriangleSolid,
-    },
+    { name: 'Drag', icon: Icons.DragSolid },
+    { name: 'Equally', icon: Icons.EquallySolid },
+    { name: 'Error', icon: Icons.ErrorSolid },
+    { name: 'Triangle', icon: Icons.ErrorTriangleSolid },
+    { name: 'Jpg', icon: Icons.JpgSolid },
+    { name: 'Archive', icon: Icons.ArchiveSolid },
+    { name: 'Bonus', icon: Icons.BonusSolid },
+    { name: 'Broker', icon: Icons.BrokerSolid },
+    { name: 'Cloud Done', icon: Icons.CloudDoneSolid },
+    { name: 'Cut', icon: Icons.CutSolid },
+    { name: 'Diamond', icon: Icons.DiamondSolid },
+    { name: 'Eraser', icon: Icons.EraserSolid },
+    { name: 'Eye Off', icon: Icons.EyeOffSolid },
+    { name: 'Finance', icon: Icons.FinanceSolid },
+    { name: 'Fingerprint', icon: Icons.FingerprintSolid },
+    { name: 'Format Paint', icon: Icons.FormatPaintSolid },
+    { name: 'Government', icon: Icons.GovernmentSolid },
+    { name: 'GPS', icon: Icons.GpsSolid },
+    { name: 'Help', icon: Icons.HelpSolid },
+    { name: 'Incognito', icon: Icons.IncognitoSolid },
+    { name: 'JPY', icon: Icons.JpySolid },
+    { name: 'Location', icon: Icons.LocationSolid },
+    { name: 'Microphone', icon: Icons.MicrophoneSolid },
+    { name: 'Phone', icon: Icons.PhoneSolid },
+    { name: 'Safety', icon: Icons.SafetySolid },
+    { name: 'Settings', icon: Icons.SettingsSolid },
+    { name: 'Share', icon: Icons.ShareSolid },
+    { name: 'Sign', icon: Icons.SignSolid },
+    { name: 'Treasury', icon: Icons.TreasurySolid },
+    { name: 'Tune', icon: Icons.TuneSolid },
+    { name: 'Unlock', icon: Icons.UnlockSolid },
+    { name: 'WiFi', icon: Icons.WiFiSolid },
   ];
 
   // управление состоянием solid

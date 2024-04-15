@@ -1,6 +1,8 @@
 .icons-block__icon-tile {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    height: 164px;
     width: 100%;
     border-radius: 20px;
     background: var(--Light_blue, #F5F9FD);
@@ -64,6 +66,7 @@
 }
 
 .icons-block__icon-container {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,7 +77,7 @@
     font-weight: 400;
     line-height: 15px;
     letter-spacing: -0.1px;
-    width: 60px;
+    min-width: 60px;
 }
 
 .icons-block__icon-wrapper {
