@@ -1,7 +1,7 @@
 ---
 import Employee from './employee.astro';
 import { ContentBlock } from '@components/ui-kit/Astro';
-import { Button } from '@components/ui-kit/Svelte';
+import { Tag } from '@components/ui-kit/Svelte';
 
 const members = [
   { name: 'Андрей Иванов', role: 'Лидер стрима', avatar: 'AIvanov.png' },
@@ -22,8 +22,8 @@ const members = [
     {members.map((item) => <Employee {...item} />)}
   </div>
   <div class="buttons-container">
-    <Button variant="secondary">Улучшают сейчас</Button>
-    <Button variant="secondary">10+ участников</Button>
+    <Tag text='Улучшают сейчас' />
+    <Tag text='12+ участников' />
   </div>
 </ContentBlock>
 

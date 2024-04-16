@@ -1,6 +1,7 @@
 ---
 import './icons-block.css';
 import { SubcontentBlock } from '@components/ui-kit/Astro';
+import { Tag } from '@components/ui-kit/Svelte';
 import IconsSwitcher from './icons-swither.svelte';
 const fontList = ['Outlined', 'Solid', '380+ иконок'];
 ---
@@ -11,7 +12,7 @@ const fontList = ['Outlined', 'Solid', '380+ иконок'];
     выполнены в двух стилях — Outlined и Solid
   </Fragment>
   <Fragment slot="tags">
-    {fontList.map((item) => <div class="icons-block__tag">{item}</div>)}
+    {fontList.map((item) => <Tag text={item} />)}
   </Fragment>
 
   <IconsSwitcher slot="subcontent" client:visible />
