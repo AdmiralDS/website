@@ -1,6 +1,6 @@
 <script>
   import './font-block.css';
-  import { Button } from '@components/ui-kit/Svelte';
+  import Chips from '@components/ui-kit/Svelte/Chips/Chips.svelte';
   const textTypeList = ['Header', 'Subtitle', 'Body', 'Caption'];
   let currentFontType = 'Header';
 
@@ -23,9 +23,9 @@
   </div>
   <div class="lib-font-block__font-buttons-container">
     {#each textTypeList as item}
-      <Button on:click={() => handleTypeClick(item)} variant={`${item === currentFontType ? 'primary' : 'inactive'}`}
-        >{item}</Button
-      >
+      <Chips on:click={() => handleTypeClick(item)} appearance="primary" selected={item === currentFontType}>
+        {item}
+      </Chips>
     {/each}
   </div>
 </div>

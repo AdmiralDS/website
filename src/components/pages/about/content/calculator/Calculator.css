@@ -87,6 +87,7 @@
 }
 
 .result_try-button {
+  cursor: pointer;
   font-family: CoFo Kak;
   font-size: 13px;
   font-weight: 800;
@@ -103,4 +104,12 @@
   border-radius: 64px;
   outline: none;
   border: none;
+
+  transition-property: color;
+  transition-duration: var(--transition-duration-base, 300ms);
+  transition-timing-function: var(--transition-easing-base, ease-in-out);
+
+  &:hover {
+    background-color: var(--Dark_blue, #030125);
+  }
 }
