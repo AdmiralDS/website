@@ -1,0 +1,45 @@
+.chips {
+  box-sizing: border-box;
+  padding: 5px 12px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 64px;
+  cursor: pointer;
+
+  text-align: center;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.chips.style-primary {
+  border-color: var(--Light_grey, #e6eaf0);
+  background: transparent;
+  color: var(--Dark_grey, #35383a);
+
+  &:hover {
+    color: var(--Blue, #0d42ff);
+  }
+}
+.chips.style-primary-selected {
+  border-color: var(--Blue, #0d42ff);
+  background: var(--Blue, #0d42ff);
+  color: var(--White, #fff);
+}
+
+.chips.style-secondary {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--Light_grey, #e6eaf0);
+
+  &:hover {
+    color: var(--White, #fff);
+  }
+}
+.chips.style-secondary-selected {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--White, #fff);
+}
