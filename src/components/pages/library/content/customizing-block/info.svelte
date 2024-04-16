@@ -3,7 +3,7 @@
   import React from 'react';
   import ReactDOM from 'react-dom';
   import { WrappedReactComponent } from './WrappedReactComponent';
-  import Chips from '@components/ui-kit/Svelte/Chips/Chips.svelte';
+  import { Chips } from '@components/ui-kit/Svelte';
 
   export let styleName: string;
   export let isDarkTheme: boolean;

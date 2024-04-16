@@ -1,1 +1,1 @@
-export { default as Button } from './Chips.svelte';
+export { default as Chips } from './Chips.svelte';
