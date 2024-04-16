@@ -1,6 +1,7 @@
 ---
 import './palette.css';
 import { SubcontentBlock } from '@components//ui-kit/Astro';
+import { Tag } from '@components/ui-kit/Svelte';
 const colorTypeList = ['Основные цвета', 'Дополнительные цвета'];
 const colorsList = [
   {
@@ -36,10 +37,10 @@ const colorsList = [
     зависимости от требований продукта
   </Fragment>
   <Fragment slot="tags">
-    {colorTypeList.map((item) => <div class="lib-font-block__tag">{item}</div>)}
+    {colorTypeList.map((item) => <Tag text={item} />)}
   </Fragment>
 
-  <div class="lpalette-block__colors-wrapper" slot="subcontent">
+  <div class="palette-block__colors-wrapper" slot="subcontent">
     {
       colorsList.map((item) => (
         <div class="palette-tile" style={{ backgroundColor: `#${item.code}` }}>

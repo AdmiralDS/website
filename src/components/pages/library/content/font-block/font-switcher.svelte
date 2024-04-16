@@ -1,4 +1,5 @@
 <script>
+  import './font-block.css';
   import Chips from '@components/ui-kit/Svelte/Chips/Chips.svelte';
   const textTypeList = ['Header', 'Subtitle', 'Body', 'Caption'];
   let currentFontType = 'Header';
