@@ -19,17 +19,34 @@
     cursor: pointer;
     border: none;
     outline: none;
+
+    transition-property: color;
+    transition-duration: var(--transition-duration-base, 300ms);
+    transition-timing-function: var(--transition-easing-base, ease-in-out);
 }
 .button.style-primary {
     background: var(--Blue, #0D42FF);
     color: var(--White, #FFF);
+
+    &:hover {
+        background-color: var(--Dark_blue, #030125);
+    }
 }
 .button.style-secondary {
     background: var(--Light_grey, #E6EAF0);
     color: var(--Dark_grey, #35383A);
+
+    &:hover {
+        background-color: var(--Dark_blue, #030125);
+    }
 }
 .button.style-inactive {
     border: 1px solid var(--Light_grey, #E6EAF0);
     background: var(--Light_blue, #f5f9fd);
     color: var(--Dark_grey, #35383A);
+
+    &:hover {
+        background-color: var(--Dark_blue, #030125);
+    }
+}
 }
