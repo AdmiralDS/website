@@ -21,7 +21,7 @@
 }
 
 .subcontent-block__heading {
-    color: var(--Dark-grey, #35383a);
+    color: var(--Dark_grey, #35383a);
     font-family: Inter;
     font-size: 20px;
     font-weight: 500;
