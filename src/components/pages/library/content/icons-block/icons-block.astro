@@ -3,13 +3,13 @@ import './icons-block.css';
 import { SubcontentBlock } from '@components/ui-kit/Astro';
 import { Tag } from '@components/ui-kit/Svelte';
 import IconsSwitcher from './icons-swither.svelte';
-const fontList = ['Outlined', 'Solid', '380+ иконок'];
+const fontList = ['Outline', 'Solid', '380+ иконок'];
 ---
 
 <SubcontentBlock heading={'Иконки'} id="icons">
   <Fragment slot="description">
-    В дизайн-системе используется два размера иконок: в 20 px и 24 px, в зависимости от размера компонента. Все иконки
-    выполнены в двух стилях — Outlined и Solid
+    В дизайн-системе используется два размера иконок: в 20 px и 24 px, в зависимости от размера компонента. Все иконки
+    выполнены в двух стилях — Outline и Solid
   </Fragment>
   <Fragment slot="tags">
     {fontList.map((item) => <Tag text={item} />)}
