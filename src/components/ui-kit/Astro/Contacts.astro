@@ -1,12 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Button } from '@components/ui-kit/Svelte';
 ---
 
 <div class="about-header__contacts">
-  <button class="header-button icon_button">
-    <Icon name="telegram" />
-  </button>
-  <button class="header-button" id="email-button">Связаться с нами</button>
+  <Button variant="ghost" class="icon_button">
+    <Icon class="icon_style" name="telegram" />
+  </Button>
+  <Button variant="ghost" id="email-button">Связаться с нами</Button>
 </div>
 
 <style>
@@ -21,27 +22,7 @@ import { Icon } from 'astro-icon/components';
   .icon_button {
     width: 30px;
   }
-  .header-button {
-    position: relative;
-    height: 30px;
-    padding: 4px 12px;
-    border-radius: 64px;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    outline: none;
-    /* width: 30px; */
-    cursor: pointer;
-    color: var(--White, #fff);
-    text-align: center;
-
-    /* 16/medium */
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 125% */
-  }
-  .header-button svg {
+  .icon_style {
     width: 100%;
     height: 100%;
     position: absolute;

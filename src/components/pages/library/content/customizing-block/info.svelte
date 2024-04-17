@@ -3,6 +3,7 @@
   import React from 'react';
   import ReactDOM from 'react-dom';
   import { WrappedReactComponent } from './WrappedReactComponent';
+  import { Chips } from '@components/ui-kit/Svelte';
 
   export let styleName: string;
   export let isDarkTheme: boolean;
@@ -82,12 +83,13 @@
 <div class="custom-info">
   <div class="components-control-wrapper">
     {#each components as component}
-      <div
-        class={`custom-chip-control ${activeComponent === component ? 'custom-chip-control--active' : ''}`}
+      <Chips
+        appearance="secondary"
+        selected={activeComponent === component}
         on:click={() => handleCLickOnActiveComponent(component)}
       >
         {component}
-      </div>
+      </Chips>
     {/each}
   </div>
   <div class="component-wrapper" bind:this={container} />
