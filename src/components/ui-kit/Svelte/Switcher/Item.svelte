@@ -6,6 +6,7 @@
   export let label: string;
   export let active: boolean = false;
   export let showNumber: boolean = true;
+  export let disabled: boolean = false;
   export let onClick: (key: string) => void;
 
   const handleClick = () => {
@@ -13,7 +14,7 @@
   };
 </script>
 
-<div class="switcher-item" class:active on:click={handleClick}>
+<div class="switcher-item" class:active class:disabled on:click={handleClick}>
   {#if showNumber}
     <span>
       {number}
@@ -28,5 +29,5 @@
 </div>
 
 <style>
-  @import "./item.css";
+  @import './item.css';
 </style>

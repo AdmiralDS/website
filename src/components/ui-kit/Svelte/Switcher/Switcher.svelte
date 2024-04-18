@@ -16,7 +16,7 @@
 <div class="switcher-container {className}">
   <div class="switcher-items">
     {#each Object.entries(items) as [name, label], i}
-      <Item {name} {showNumber} number={i + 1} {label} active={activeItem === name} onClick={handleClick} />
+      <Item {name} {showNumber} number={i + 1} {label} active={activeItem === name} onClick={handleClick} {disabled} />
     {/each}
     <div class="switcher-items-controls">
       <slot name="ext-controls" />
