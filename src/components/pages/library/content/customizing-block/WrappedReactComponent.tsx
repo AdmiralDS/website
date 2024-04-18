@@ -207,7 +207,6 @@ export const WrappedReactComponent = ({ component, theme, borderRadius = 4, colo
   const colorTheme = setMainThemeColors(theme, color, colorPickerValueHsv);
   colorTheme.shape.borderRadiusKind = `Border radius ${borderRadius}` as BorderRadiusType;
   const getComponent = () => {
-    console.log(`getComponent-${component}`);
     switch (component) {
       case 'Notification':
         return <AdmiralNotifications />;
