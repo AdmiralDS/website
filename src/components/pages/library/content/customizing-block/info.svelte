@@ -17,21 +17,10 @@
   export let borderRadius: number = 4;
   let prevBorderRadius = borderRadius;
 
-  const components = ['Calendar', 'Alert view', 'Toast notification'];
+  const components = ['Calendar', 'Alert view', 'Notification'];
   let activeComponent = 'Calendar';
+  let prevActiveComponent = activeComponent;
   const handleCLickOnActiveComponent = (currentComponent: string) => (activeComponent = currentComponent);
-
-  // TODO: добавить react-компоненты
-  // const getComponent = () => {
-  //   switch (activeComponent) {
-  //     case 'Calendar':
-  //       return Calendar;
-  //     case 'Alert view':
-  //       return Alert;
-  //     case 'Toast notification':
-  //       return Notification;
-  //   }
-  // };
 
   let container;
 
@@ -39,6 +28,7 @@
     if (container)
       ReactDOM.render(
         React.createElement(WrappedReactComponent, {
+          component: activeComponent,
           theme,
           borderRadius,
           color,
@@ -64,11 +54,13 @@
   $: {
     const newTheme = isDarkTheme ? 'dark' : 'light';
     if (
+      activeComponent !== prevActiveComponent ||
       theme !== newTheme ||
       prevBorderRadius !== borderRadius ||
       prevColor !== color ||
       prevColorPickerValueHex !== colorPickerValueHex
     ) {
+      prevActiveComponent = activeComponent;
       theme = newTheme;
       prevBorderRadius = borderRadius;
       prevColor = color;
@@ -99,7 +91,8 @@
   .custom-info {
     width: 100%;
     height: fit-content;
-    min-height: 380px;
+    /*height: 445px;*/
+    min-height: 445px;
     border-radius: 12px;
     background: var(--Dark_blue_gradient);
     padding: 20px;
@@ -113,24 +106,6 @@
     display: flex;
     gap: 10px;
     margin-bottom: 40px;
-  }
-
-  .custom-chip-control {
-    padding: 4px 12px;
-    outline: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 64px;
-    cursor: pointer;
-
-    color: rgb(255, 255, 255);
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-  }
-
-  .custom-chip-control.custom-chip-control--active {
-    background: rgba(255, 255, 255, 0.2);
-    outline: none;
   }
 
   .component-wrapper {

@@ -4,8 +4,10 @@ import '@admiral-ds/fonts/VTBGroupUI.css';
 import { AdmiralCalendar } from './AdmiralCalendar';
 import type { BorderRadiusType } from '@admiral-ds/react-ui';
 import { hsvToHex } from '@components/pages/library/content/customizing-block/utils.ts';
+import { AdmiralNotifications } from '@components/pages/library/content/customizing-block/AdmiralNotification.tsx';
 
 export interface Props {
+  component: string;
   theme: 'light' | 'dark';
   borderRadius: 0 | 2 | 4 | 6 | 8 | 10;
   color: string;
@@ -201,15 +203,25 @@ const setMainThemeColors = (
     : setMainDarkThemeColors(mainColor, colorPickerValueHsv);
 };
 
-export const WrappedReactComponent = ({ theme, borderRadius = 4, color, colorPickerValueHsv }: Props) => {
+export const WrappedReactComponent = ({ component, theme, borderRadius = 4, color, colorPickerValueHsv }: Props) => {
   const colorTheme = setMainThemeColors(theme, color, colorPickerValueHsv);
   colorTheme.shape.borderRadiusKind = `Border radius ${borderRadius}` as BorderRadiusType;
+  const getComponent = () => {
+    console.log(`getComponent-${component}`);
+    switch (component) {
+      case 'Notification':
+        return <AdmiralNotifications />;
+      case 'Calendar':
+      default:
+        return <AdmiralCalendar />;
+      /*case 'Alert view':
+           return Alert;*/
+    }
+  };
 
   return (
     <ThemeProvider theme={colorTheme}>
-      <DropdownProvider>
-        <AdmiralCalendar />
-      </DropdownProvider>
+      <DropdownProvider>{getComponent()}</DropdownProvider>
     </ThemeProvider>
   );
 };
