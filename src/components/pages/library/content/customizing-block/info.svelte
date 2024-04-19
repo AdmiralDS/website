@@ -17,7 +17,7 @@
   export let borderRadius: number = 4;
   let prevBorderRadius = borderRadius;
 
-  const components = ['Calendar', 'Alert view', 'Notification'];
+  const components = ['Calendar', 'Tree', 'Notification'];
   let activeComponent = 'Calendar';
   let prevActiveComponent = activeComponent;
   const handleCLickOnActiveComponent = (currentComponent: string) => (activeComponent = currentComponent);
@@ -99,6 +99,7 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     box-sizing: border-box;
   }
 
@@ -110,6 +111,7 @@
 
   .component-wrapper {
     display: flex;
-    margin: auto;
+    justify-content: center;
+    /*margin: auto;*/
   }
 </style>
