@@ -2,10 +2,13 @@
   import { onMount } from 'svelte';
   import { ArrowButtons, Timeline, type TimelineData } from '@components/ui-kit/Svelte';
 
+  /** Точки для отображения в формате @TimelineData*/
   export let items: TimelineData;
+  /** Шаг прокрутки содержимого в пикселях */
   export let step = 200;
 
   let scrollingContainer: HTMLDivElement;
+  let container: HTMLDivElement;
   let prevDisabled = true;
 
   let nextDisabled = true;
@@ -37,20 +40,12 @@
     const maxValue = scrollingContainer.clientWidth - parent.clientWidth;
 
     left = newValue > maxValue ? maxValue : newValue;
-    nextDisabled = true;
-    setTimeout(() => {
-      calcButtonsDisabled();
-    }, 300);
   };
 
   const handlePrevClick = () => {
     if (scrolledToRight) scrolledToRight = false;
 
     left = left - step < 0 ? 0 : left - step;
-    prevDisabled = true;
-    setTimeout(() => {
-      calcButtonsDisabled();
-    }, 300);
   };
 
   $: {
@@ -62,9 +57,9 @@
 </script>
 
 <svelte:window on:resize={calcButtonsDisabled} />
-<div class="timeline-container">
-  <div class="scrolling-container" bind:this={scrollingContainer} {style}>
-    <Timeline {items} />
+<div class="timeline-container" bind:this={container}>
+  <div class="scrolling-container" bind:this={scrollingContainer} {style} on:transitionend={calcButtonsDisabled}>
+    <Timeline {items} {container} />
   </div>
 </div>
 <ArrowButtons {prevDisabled} {nextDisabled} onNextClick={handleNextClick} onPrevClick={handlePrevClick} />

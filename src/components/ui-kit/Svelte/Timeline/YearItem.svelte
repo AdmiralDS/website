@@ -3,6 +3,7 @@
   import EventItem from './EventItem.svelte';
 
   export let item: YearPoint;
+  export let container: HTMLElement = null;
 </script>
 
 <div class="year-item">
@@ -20,7 +21,7 @@
     {#if item.eventPoints}
       <div class="events-wrapper">
         {#each item.eventPoints as item}
-          <EventItem {item} />
+          <EventItem {item} {container} />
         {/each}
       </div>
     {/if}
