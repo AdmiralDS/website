@@ -44,9 +44,16 @@
 }
 
 .icons-block__icons-wrapper {
+    width: 268px;
+    overflow: hidden;
+}
+
+.icons-block__scrolling-container {
+    position: relative;
+    width: fit-content;
     display: flex;
     justify-content: space-between;
-    width: 270px;
+    transition: transform 300ms ease-in-out;
 }
 
 .icons-block__icon-container {
@@ -61,7 +68,7 @@
     font-weight: 400;
     line-height: 15px;
     letter-spacing: -0.1px;
-    min-width: 60px;
+    width: 67px;
 }
 
 .icons-block__icon-wrapper {

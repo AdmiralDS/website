@@ -1,6 +1,13 @@
 <script lang="ts">
   import { ArrowButtons, Toggle } from '@components/ui-kit/Svelte';
   import * as Icons from '@components/ui-kit/Svelte';
+  import { onMount } from 'svelte';
+
+  let scrollingContainer: HTMLDivElement;
+  let left: number = 0;
+  let step = 67 * 4;
+  let scrolledToRight: boolean = false;
+  let style: string = undefined;
 
   const iconsOutline = [
     { name: 'Drag Out', icon: Icons.DragOutline },
@@ -36,7 +43,6 @@
     { name: 'Unlock', icon: Icons.UnlockOutline },
     { name: 'WiFi', icon: Icons.WiFiOutline },
   ];
-
   const iconsSolid = [
     { name: 'Drag', icon: Icons.DragSolid },
     { name: 'Equally', icon: Icons.EquallySolid },
@@ -79,27 +85,48 @@
   // управление промоткой иконок
   const STEP = 4;
   $: currentIndex = 0;
-  $: isLeftEnabled = false;
-  $: isRightEnabled = true;
+  $: prevDisabled = true;
+  $: nextDisabled = false;
   $: iconsArray = isSolid ? iconsSolid : iconsOutline;
   $: elsToShow = iconsArray.slice(currentIndex, currentIndex + STEP);
 
   const checkButtonsEnable = () => {
-    isRightEnabled = currentIndex + STEP < iconsArray.length;
-    isLeftEnabled = currentIndex > 0;
+    if (!scrollingContainer) return;
+
+    const parent = scrollingContainer.parentElement as HTMLDivElement;
+
+    prevDisabled = left === 0;
+    nextDisabled = left + parent.clientWidth >= scrollingContainer.clientWidth;
+    scrolledToRight = nextDisabled;
   };
 
-  const handleClickOnRightArrow = () => {
-    if (iconsArray.length - currentIndex > STEP) {
-      currentIndex = currentIndex + STEP;
-    }
+  onMount(() => {
     checkButtonsEnable();
+  });
+
+  const handleNextClick = () => {
+    if (!scrollingContainer) return;
+    const parent = scrollingContainer.parentElement as HTMLDivElement;
+
+    const newValue = left + step;
+
+    const maxValue = scrollingContainer.clientWidth - parent.clientWidth;
+
+    left = newValue > maxValue ? maxValue : newValue;
   };
 
-  const handleClickOnLeftArrow = () => {
-    currentIndex = Math.max(currentIndex - STEP, 0);
-    checkButtonsEnable();
+  const handlePrevClick = () => {
+    if (scrolledToRight) scrolledToRight = false;
+
+    left = left - step < 0 ? 0 : left - step;
   };
+
+  $: {
+    const floatValue = scrolledToRight ? 'inline-end' : 'inline-start';
+    const translateXValue = `-${left}px`;
+    const leftValue = scrolledToRight ? `${left}px` : 0;
+    style = `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`;
+  }
 </script>
 
 <div class="icons-block__icon-tile">
@@ -113,23 +140,25 @@
 
   <div class="icons-block__icons-container">
     <div class="icons-block__icons-wrapper">
-      {#each elsToShow as { name, icon }}
-        <div class="icons-block__icon-container">
-          <div class="icons-block__icon-wrapper">
-            <svelte:component this={icon}></svelte:component>
+      <div
+        class="icons-block__scrolling-container"
+        bind:this={scrollingContainer}
+        {style}
+        on:transitionend={checkButtonsEnable}
+      >
+        {#each iconsArray as { name, icon }}
+          <div class="icons-block__icon-container">
+            <div class="icons-block__icon-wrapper">
+              <svelte:component this={icon}></svelte:component>
+            </div>
+            {name}
           </div>
-          {name}
-        </div>
-      {/each}
+        {/each}
+      </div>
     </div>
   </div>
 
-  <ArrowButtons
-    onPrevClick={handleClickOnLeftArrow}
-    onNextClick={handleClickOnRightArrow}
-    prevDisabled={!isLeftEnabled}
-    nextDisabled={!isRightEnabled}
-  />
+  <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
 </div>
 
 <style lang="css"></style>
