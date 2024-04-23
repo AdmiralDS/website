@@ -1,0 +1,63 @@
+.year-item {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+}
+
+.line {
+  flex: 1 0 auto;
+  height: 2px;
+  background-color: grey;
+}
+
+.point {
+  position: relative;
+  border-radius: 50%;
+  background: var(--White, #ffffff);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #0d42ff;
+}
+
+.text-block {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  align-items: baseline;
+  row-gap: 10px;
+  text-align: start;
+
+  top: 48px;
+  left: -2px;
+}
+
+.year {
+  color: var(--Dark_grey, #35383a);
+  font-variant-numeric: lining-nums tabular-nums;
+
+  /* 20/25 */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px; /* 125% */
+}
+
+.info {
+  color: var(--Grey, #7a8190);
+
+  /* 16/20/regular */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+}
+
+.events-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: -5px;
+}
