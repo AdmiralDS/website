@@ -7,47 +7,14 @@
     padding: 20px;
 }
 
-.lib-font-block__font-example {
-    color: var(--Dark-grey, #35383a);
-    font-family: Inter;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 40px;
-    margin-bottom: 54px;
-}
-
-.lib-font-block__tag {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 12px 4px 12px;
-    border-radius: 64px;
-    background: var(--Light_grey);
-
-    color: var(--Dark-grey, #35383a);
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-}
-
 .lib-font-block__font-tile {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     border-radius: 12px;
     background: var(--Light_blue);
     padding: 20px;
-}
-
-.lib-font-block__font-example {
-    color: var(--Dark-grey, #35383a);
-    font-family: Inter;
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 40px;
-    margin-bottom: 54px;
 }
 
 .lib-font-block__font-buttons-container {
@@ -55,14 +22,32 @@
     gap: 5px;
 }
 
+.lib-font-block__font-example {
+    color: var(--Dark_grey, #35383a);
+    font-family: var(--admiral-font-family, 'VTB Group UI', sans-serif);
+    font-style: normal;
+}
+
+.lib-font-block__font-example--Header {
+    font-weight: var(--admiral-font-weight-Header_H1, 550);
+    font-size: var(--admiral-font-size-Header_H1, 40px);
+    line-height: var(--admiral-line-height-Header_H1, 48px);
+}
+
 .lib-font-block__font-example--Subtitle {
-    color: red
+    font-weight: var(--admiral-font-weight-Subtitle_Subtitle1, 400);
+    font-size: var(--admiral-font-size-Subtitle_Subtitle1, 18px);
+    line-height: var(--admiral-line-height-Subtitle_Subtitle1, 24px);
 }
 
 .lib-font-block__font-example--Body {
-    color: green;
+    font-weight: var(--admiral-font-weight-Body_Body2Long, 400);
+    font-size: var(--admiral-font-size-Body_Body2Long, 14px);
+    line-height: var(--admiral-line-height-Body_Body2Long, 20px);
 }
 
 .lib-font-block__font-example--Caption {
-    color: blueviolet;
+    font-weight: var(--admiral-font-weight-Caption_Caption2, 400);
+    font-size: var(--admiral-font-size-Caption_Caption2, 10px);
+    line-height: var(--admiral-line-height-Caption_Caption2, 12px);
 }

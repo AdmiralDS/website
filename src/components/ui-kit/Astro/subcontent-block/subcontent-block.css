@@ -21,7 +21,7 @@
 }
 
 .subcontent-block__heading {
-    color: var(--Dark-grey, #35383a);
+    color: var(--Dark_grey, #35383a);
     font-family: Inter;
     font-size: 20px;
     font-weight: 500;
@@ -40,7 +40,6 @@
 .subcontent-block__tags-wrapper {
     display: flex;
     gap: 5px;
-    display: flex;
 }
 
 .subcontent-block__last-column {

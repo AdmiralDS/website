@@ -13,8 +13,18 @@
   border-radius: 50%;
   position: relative;
   display: flex;
-  background-color: white;
+  background-color: transparent;
   align-items: center;
+  transition-property: color;
+  transition-duration: var(--transition-duration-base, 300ms);
+  transition-timing-function: var(--transition-easing-base, ease-in-out);
+
+  &:hover {
+    color: var(--Blue, #0d42ff);
+  }
+  &:active {
+    background-color: var(--Light_blue, #f5f9fd);
+  }
 }
 
 .arrow-button:disabled {

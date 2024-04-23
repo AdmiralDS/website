@@ -16,6 +16,7 @@
   /*<editor-fold desc="Theme colors">*/
   --Light_blue: #f5f9fd;
   --Blue: #0d42ff;
+  --Dark_blue: #030125;
   --White: #fff;
   --Dark_grey: #35383a;
   --Light_grey: #e6eaf0;
@@ -30,13 +31,33 @@
   --transition-duration-base: 300ms;
   --transition-easing-base: ease-in-out;
 
-  --Dark_blue_gradient: radial-gradient(
-      1399.99% 141.42% at 99% 100%,
-      rgba(0, 0, 255, 0.35),
-      rgba(6, 6, 114, 0.35) 29.735%,
-      rgba(6, 6, 114, 0) 64.241%
+  --Dark_blue_gradient: linear-gradient(
+      135deg,
+      rgba(3, 1, 37, 1) 0%,
+      rgba(3, 1, 37, 1) 33%,
+      rgba(6, 6, 114, 1) 66%,
+      rgba(0, 0, 255, 1) 100%
     ),
     rgb(3, 1, 37);
+  /*
+  * Font-family
+  */
+  --admiral-font-family: 'VTB Group UI', sans-serif;
+
+  --admiral-font-weight-Header_H1: 550;
+  --admiral-font-weight-Subtitle_Subtitle1: 400;
+  --admiral-font-weight-Body_Body2Long: 400;
+  --admiral-font-weight-Caption_Caption2: 400;
+
+  --admiral-font-size-Header_H1: 40px;
+  --admiral-font-size-Subtitle_Subtitle1: 18px;
+  --admiral-font-size-Body_Body2Long: 14px;
+  --admiral-font-size-Caption_Caption2: 10px;
+
+  --admiral-line-height-Header_H1: 48px;
+  --admiral-line-height-Subtitle_Subtitle1: 24px;
+  --admiral-line-height-Body_Body2Long: 20px;
+  --admiral-line-height-Caption_Caption2: 12px;
 }
 
 html {

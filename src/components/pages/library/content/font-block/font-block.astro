@@ -1,6 +1,6 @@
 ---
-import './font-block.css';
 import { SubcontentBlock } from '@components/ui-kit/Astro';
+import { Tag } from '@components/ui-kit/Svelte';
 import FontSwitcher from './font-switcher.svelte';
 const fontList = ['Book', 'Medium', 'Semibold'];
 ---
@@ -11,7 +11,7 @@ const fontList = ['Book', 'Medium', 'Semibold'];
     основной стиль системы
   </Fragment>
   <Fragment slot="tags">
-    {fontList.map((item) => <div class="lib-font-block__tag">{item}</div>)}
+    {fontList.map((item) => <Tag text={item} />)}
   </Fragment>
 
   <FontSwitcher slot="subcontent" client:visible />

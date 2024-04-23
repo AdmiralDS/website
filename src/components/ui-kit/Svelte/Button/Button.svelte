@@ -4,7 +4,7 @@
 
   /** @restProps {button | a} */
   /** Specifies the visual styling of the button. */
-  export let variant: 'primary' | 'secondary' | 'inactive';
+  export let variant: 'primary' | 'secondary' | 'inactive' | 'ghost';
 
   /** Controls whether the button is intended for user interaction, and styles it accordingly. */
   export let disabled = false;

@@ -2,14 +2,17 @@
 import { ContentBlock } from '@components/ui-kit/Astro';
 ---
 
-<ContentBlock id="" title="Библиотека">
+<ContentBlock id="" title="Библиотека" class="library-block">
   <div class="library-description__info">
     На экране интерфейса играют роль все детали. Цвет, шрифт, форма <br />
     или картинка одинаково важны, потому что задают общий тон
   </div>
 </ContentBlock>
 
-<style>
+<style is:inline>
+  .block-container.library-block {
+    padding-top: 6px;
+  }
   .library-description__info {
     color: var(--Grey);
     font-family: Inter;
