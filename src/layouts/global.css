@@ -31,11 +31,12 @@
   --transition-duration-base: 300ms;
   --transition-easing-base: ease-in-out;
 
-  --Dark_blue_gradient: radial-gradient(
-      1399.99% 141.42% at 99% 100%,
-      rgba(0, 0, 255, 0.35),
-      rgba(6, 6, 114, 0.35) 29.735%,
-      rgba(6, 6, 114, 0) 64.241%
+  --Dark_blue_gradient: linear-gradient(
+      135deg,
+      rgba(3, 1, 37, 1) 0%,
+      rgba(3, 1, 37, 1) 33%,
+      rgba(6, 6, 114, 1) 66%,
+      rgba(0, 0, 255, 1) 100%
     ),
     rgb(3, 1, 37);
   /*

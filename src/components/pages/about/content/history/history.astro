@@ -1,11 +1,9 @@
 ---
 import history from './history.json';
-import { TimelineAstro } from '@components/ui-kit/Astro';
-import { ArrowButtons } from '@components/ui-kit/Svelte';
+import { ScrollableTimeline } from '@components/molecules';
 ---
 
 <div class="block-container">
   <h2 class="block-title dark">история развития</h2>
-  <TimelineAstro items={history} />
-  <ArrowButtons prevDisabled />
+  <ScrollableTimeline items={history} client:visible />
 </div>
