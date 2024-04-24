@@ -21,33 +21,3 @@
     display: flex;
     gap: 5px;
 }
-
-.lib-font-block__font-example {
-    color: var(--Dark_grey, #35383a);
-    font-family: var(--admiral-font-family, 'VTB Group UI', sans-serif);
-    font-style: normal;
-}
-
-.lib-font-block__font-example--Header {
-    font-weight: var(--admiral-font-weight-Header_H1, 550);
-    font-size: var(--admiral-font-size-Header_H1, 40px);
-    line-height: var(--admiral-line-height-Header_H1, 48px);
-}
-
-.lib-font-block__font-example--Subtitle {
-    font-weight: var(--admiral-font-weight-Subtitle_Subtitle1, 400);
-    font-size: var(--admiral-font-size-Subtitle_Subtitle1, 18px);
-    line-height: var(--admiral-line-height-Subtitle_Subtitle1, 24px);
-}
-
-.lib-font-block__font-example--Body {
-    font-weight: var(--admiral-font-weight-Body_Body2Long, 400);
-    font-size: var(--admiral-font-size-Body_Body2Long, 14px);
-    line-height: var(--admiral-line-height-Body_Body2Long, 20px);
-}
-
-.lib-font-block__font-example--Caption {
-    font-weight: var(--admiral-font-weight-Caption_Caption2, 400);
-    font-size: var(--admiral-font-size-Caption_Caption2, 10px);
-    line-height: var(--admiral-line-height-Caption_Caption2, 12px);
-}
