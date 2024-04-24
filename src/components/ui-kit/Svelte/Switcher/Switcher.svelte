@@ -14,10 +14,20 @@
 </script>
 
 <div class="switcher-container {className}">
-  <div class="switcher-items">
-    {#each Object.entries(items) as [name, label], i}
-      <Item {name} {showNumber} number={i + 1} {label} active={activeItem === name} onClick={handleClick} {disabled} />
-    {/each}
+  <div class="switcher-content">
+    <div class="switcher-items">
+      {#each Object.entries(items) as [name, label], i}
+        <Item
+          {name}
+          {showNumber}
+          number={i + 1}
+          {label}
+          active={activeItem === name}
+          onClick={handleClick}
+          {disabled}
+        />
+      {/each}
+    </div>
     <div class="switcher-items-controls">
       <slot name="ext-controls" />
     </div>
@@ -36,6 +46,13 @@
     display: flex;
     column-gap: 10px;
     margin-top: 40px;
+  }
+
+  .switcher-content {
+    display: flex;
+    flex: 0 1 33%;
+    flex-direction: column;
+    min-width: 33%;
   }
 
   .switcher-items {
