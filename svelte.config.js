@@ -11,7 +11,6 @@ export default {
       '@types': 'src/@types',
     },
     vite: {
-      // see https://github.com/svg/svgo for svgo plugin options.
       plugins: [svgr()],
     },
   },
