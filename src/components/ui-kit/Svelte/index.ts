@@ -5,5 +5,5 @@ export * from './Toggle';
 export * from './Slider';
 export * from './Chips';
 export * from './Switcher';
-export { default as TimelineSvelte } from './timeline/timeline.svelte';
 export * from './icons';
+export * from './Timeline';

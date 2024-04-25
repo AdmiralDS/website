@@ -12,7 +12,7 @@ import { Button } from '@components/ui-kit/Svelte';
         Дизайн-система является комплексным решением для создания пользовательского интерфейса. Она включает в себя
         работу с контентом, аналитику и настройки, которые могут быть использованы для любого устройства или продукта
       </div>
-      <Button variant="ghost" class="bottom-button">Хочу попробовать</Button>
+      <Button variant="ghost" class="bottom-button" id="platform-email-button">Хочу попробовать</Button>
     </div>
     <img class="platforms-cover" src={Cover.src} alt="cover" />
   </div>
@@ -62,3 +62,9 @@ import { Button } from '@components/ui-kit/Svelte';
     position: absolute;
   }
 </style>
+
+<script>
+  const button = document.getElementById('platform-email-button');
+
+  button.addEventListener('click', () => window.open('mailto:Admiral@inno.tech'));
+</script>

@@ -29,7 +29,9 @@
       <div class="arrow-wrapper">
         <Arrow />
       </div>
-      <button class="result_try-button">ХОЧУ ПОПРОБОВАТЬ</button>
+      <button class="result_try-button" on:click={() => window.open('mailto:Admiral@inno.tech')}
+        >ХОЧУ ПОПРОБОВАТЬ</button
+      >
     </div>
   </div>
 </div>

@@ -1,6 +1,8 @@
 .icons-block__icon-tile {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    height: 164px;
     width: 100%;
     border-radius: 12px;
     background: var(--Light_blue, #F5F9FD);
@@ -42,25 +44,37 @@
 }
 
 .icons-block__icons-wrapper {
+    width: 268px;
+    overflow: hidden;
+}
+
+.icons-block__scrolling-container {
+    position: relative;
+    width: fit-content;
     display: flex;
-    gap: 20px;
-    width: 270px;
+    justify-content: space-between;
+    transition: transform 300ms ease-in-out;
 }
 
 .icons-block__icon-container {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: #0D42FF;
     font-family: Inter;
     font-size: 12px;
     font-weight: 400;
     line-height: 15px;
     letter-spacing: -0.1px;
+    width: 67px;
 }
 
 .icons-block__icon-wrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
+    width: 24px;
+    height: 24px;
 }
