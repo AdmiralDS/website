@@ -10,10 +10,18 @@
   let checked: boolean;
 
   $: imgSrc = checked ? 'images/dark-image.png' : 'images/light-image.png';
+
+  const onArrowClick = () => undefined;
 </script>
 
 <ThemeToggle bind:checked />
 <Switcher class="product-switcher" {items} showNumber={false} {activeItem} disabled>
   <img slot="info" src={imgSrc} alt="image" class="info-cover" />
-  <ArrowButtons prevDisabled slot="ext-controls" />
+  <ArrowButtons
+    prevDisabled
+    nextDisabled={false}
+    onPrevClick={onArrowClick}
+    onNextClick={onArrowClick}
+    slot="ext-controls"
+  />
 </Switcher>

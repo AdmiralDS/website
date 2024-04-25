@@ -1,6 +1,6 @@
 <script lang="ts">
   import NavItem from './NavItem.svelte';
-  import Logo from './admiral.svelte';
+  import Logo from './admiral.svg';
   import type { NavItemProps } from 'common';
 
   export let navItems: Array<NavItemProps>;
@@ -28,7 +28,7 @@
 </script>
 
 <nav class="side-nav">
-  <Logo />
+  <Logo fill="var(--Dark_grey, rgb(53, 56, 58))" />
   {#if navItems}
     <div class="side-nav-items">
       {#each navItems as item}
