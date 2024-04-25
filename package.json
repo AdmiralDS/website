@@ -38,7 +38,8 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.6.17",
     "styled-components": "^6.1.8",
-    "svelte-awesome-color-picker": "^3.0.6"
+    "svelte-awesome-color-picker": "^3.0.6",
+    "vite-plugin-svelte-svgr": "^1.0.4"
   },
   "volta": {
     "node": "20.11.1"
