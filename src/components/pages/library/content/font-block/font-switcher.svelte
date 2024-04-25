@@ -1,6 +1,7 @@
 <script>
   import './font-block.css';
   import { Chips } from '@components/ui-kit/Svelte';
+  import AdmiralT from '@components/pages/library/content/font-block/AdmiralT.svelte';
 
   const textExamples = [
     'Привет, Адмирал!',
@@ -16,28 +17,10 @@
     currentFontType = textTypeList[type];
     currentText = textExamples[type];
   }
-
-  function getFontClassName(fontType) {
-    switch (fontType) {
-      case 'Subtitle':
-        return 'lib-font-block__font-example--Subtitle';
-      case 'Body':
-        return 'lib-font-block__font-example--Body';
-      case 'Caption':
-        return 'lib-font-block__font-example--Caption';
-      case 'Header':
-      default:
-        return 'lib-font-block__font-example--Header';
-    }
-  }
 </script>
 
-<!-- добавить шрифты вместо цветов, подумать над названием классов для этого -->
-
 <div class="lib-font-block__font-tile">
-  <div class={`lib-font-block__font-example ${getFontClassName(currentFontType)}`}>
-    {currentText}
-  </div>
+  <AdmiralT isDarkTheme={false} textType={currentFontType} text={currentText} />
   <div class="lib-font-block__font-buttons-container">
     {#each textTypeList as item, i}
       <Chips on:click={() => handleTypeClick(i)} appearance="primary" selected={item === currentFontType}>
