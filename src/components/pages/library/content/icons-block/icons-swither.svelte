@@ -1,7 +1,70 @@
 <script lang="ts">
   import { ArrowButtons, Toggle } from '@components/ui-kit/Svelte';
-  import * as Icons from '@components/ui-kit/Svelte';
   import { onMount } from 'svelte';
+  import DragOutline from '@admiral-ds/icons/build/service/DragOutline.svg';
+  import DragSolid from '@admiral-ds/icons/build/service/DragSolid.svg';
+  import EquallyOutline from '@admiral-ds/icons/build/service/EquallyOutline.svg';
+  import EquallySolid from '@admiral-ds/icons/build/service/EquallySolid.svg';
+  import ErrorOutline from '@admiral-ds/icons/build/service/ErrorOutline.svg';
+  import ErrorSolid from '@admiral-ds/icons/build/service/ErrorSolid.svg';
+  import ErrorTriangleOutline from '@admiral-ds/icons/build/service/ErrorTriangleOutline.svg';
+  import ErrorTriangleSolid from '@admiral-ds/icons/build/service/ErrorTriangleSolid.svg';
+  import JpgOutline from '@admiral-ds/icons/build/documents/JpgOutline.svg';
+  import JpgSolid from '@admiral-ds/icons/build/documents/JpgSolid.svg';
+  import ArchiveOutline from '@admiral-ds/icons/build/service/ArchiveOutline.svg';
+  import ArchiveSolid from '@admiral-ds/icons/build/service/ArchiveSolid.svg';
+  import BonusOutline from '@admiral-ds/icons/build/category/BonusOutline.svg';
+  import BonusSolid from '@admiral-ds/icons/build/category/BonusSolid.svg';
+  import BrokerOutline from '@admiral-ds/icons/build/finance/BrokerOutline.svg';
+  import BrokerSolid from '@admiral-ds/icons/build/finance/BrokerSolid.svg';
+  import CloudDoneOutline from '@admiral-ds/icons/build/system/CloudDoneOutline.svg';
+  import CloudDoneSolid from '@admiral-ds/icons/build/system/CloudDoneSolid.svg';
+  import CutOutline from '@admiral-ds/icons/build/service/CutOutline.svg';
+  import CutSolid from '@admiral-ds/icons/build/service/CutSolid.svg';
+  import DiamondOutline from '@admiral-ds/icons/build/category/DiamondOutline.svg';
+  import DiamondSolid from '@admiral-ds/icons/build/category/DiamondSolid.svg';
+  import EraserOutline from '@admiral-ds/icons/build/redact/EraserOutline.svg';
+  import EraserSolid from '@admiral-ds/icons/build/redact/EraserSolid.svg';
+  import EyeOffOutline from '@admiral-ds/icons/build/service/EyeOffOutline.svg';
+  import EyeOffSolid from '@admiral-ds/icons/build/service/EyeOffSolid.svg';
+  import FinanceOutline from '@admiral-ds/icons/build/finance/FinanceOutline.svg';
+  import FinanceSolid from '@admiral-ds/icons/build/finance/FinanceSolid.svg';
+  import FingerprintOutline from '@admiral-ds/icons/build/security/FingerprintOutline.svg';
+  import FingerprintSolid from '@admiral-ds/icons/build/security/FingerprintSolid.svg';
+  import FormatPaintOutline from '@admiral-ds/icons/build/redact/FormatPaintOutline.svg';
+  import FormatPaintSolid from '@admiral-ds/icons/build/redact/FormatPaintSolid.svg';
+  import GovernmentOutline from '@admiral-ds/icons/build/category/GovernmentOutline.svg';
+  import GovernmentSolid from '@admiral-ds/icons/build/category/GovernmentSolid.svg';
+  import GPSOutline from '@admiral-ds/icons/build/location/GPSOutline.svg';
+  import GPSSolid from '@admiral-ds/icons/build/location/GPSSolid.svg';
+  import HelpOutline from '@admiral-ds/icons/build/service/HelpOutline.svg';
+  import HelpSolid from '@admiral-ds/icons/build/service/HelpSolid.svg';
+  import IncognitoOutline from '@admiral-ds/icons/build/security/IncognitoOutline.svg';
+  import IncognitoSolid from '@admiral-ds/icons/build/security/IncognitoSolid.svg';
+  import JPYOutline from '@admiral-ds/icons/build/finance/JPYOutline.svg';
+  import JPYSolid from '@admiral-ds/icons/build/finance/JPYSolid.svg';
+  import LocationOutline from '@admiral-ds/icons/build/location/LocationOutline.svg';
+  import LocationSolid from '@admiral-ds/icons/build/location/LocationSolid.svg';
+  import MicrophoneOutline from '@admiral-ds/icons/build/system/MicrophoneOutline.svg';
+  import MicrophoneSolid from '@admiral-ds/icons/build/system/MicrophoneSolid.svg';
+  import PhoneOutline from '@admiral-ds/icons/build/communication/PhoneOutline.svg';
+  import PhoneSolid from '@admiral-ds/icons/build/communication/PhoneSolid.svg';
+  import SafetyOutline from '@admiral-ds/icons/build/security/SafetyOutline.svg';
+  import SafetySolid from '@admiral-ds/icons/build/security/SafetySolid.svg';
+  import SettingsOutline from '@admiral-ds/icons/build/system/SettingsOutline.svg';
+  import SettingsSolid from '@admiral-ds/icons/build/system/SettingsSolid.svg';
+  import ShareOutline from '@admiral-ds/icons/build/service/ShareOutline.svg';
+  import ShareSolid from '@admiral-ds/icons/build/service/ShareSolid.svg';
+  import SignOutline from '@admiral-ds/icons/build/documents/SignOutline.svg';
+  import SignSolid from '@admiral-ds/icons/build/documents/SignSolid.svg';
+  import TreasuryOutline from '@admiral-ds/icons/build/finance/TreasuryOutline.svg';
+  import TreasurySolid from '@admiral-ds/icons/build/finance/TreasurySolid.svg';
+  import TuneOutline from '@admiral-ds/icons/build/system/TuneOutline.svg';
+  import TuneSolid from '@admiral-ds/icons/build/system/TuneSolid.svg';
+  import UnlockOutline from '@admiral-ds/icons/build/security/UnlockOutline.svg';
+  import UnlockSolid from '@admiral-ds/icons/build/security/UnlockSolid.svg';
+  import WifiOutline from '@admiral-ds/icons/build/communication/WifiOutline.svg';
+  import WifiSolid from '@admiral-ds/icons/build/communication/WifiSolid.svg';
 
   let scrollingContainer: HTMLDivElement;
   let left: number = 0;
@@ -10,72 +73,72 @@
   let style: string = undefined;
 
   const iconsOutline = [
-    { name: 'Drag Out', icon: Icons.DragOutline },
-    { name: 'Equally', icon: Icons.EquallyOutline },
-    { name: 'Error Out', icon: Icons.ErrorOutline },
-    { name: 'Triangle', icon: Icons.ErrorTriangleOutline },
-    { name: 'Jpg', icon: Icons.JpgOutline },
-    { name: 'Archive', icon: Icons.ArchiveOutline },
-    { name: 'Bonus', icon: Icons.BonusOutline },
-    { name: 'Broker', icon: Icons.BrokerOutline },
-    { name: 'Cloud Done', icon: Icons.CloudDoneOutline },
-    { name: 'Cut', icon: Icons.CutOutline },
-    { name: 'Diamond', icon: Icons.DiamondOutline },
-    { name: 'Eraser', icon: Icons.EraserOutline },
-    { name: 'Eye Off', icon: Icons.EyeOffOutline },
-    { name: 'Finance', icon: Icons.FinanceOutline },
-    { name: 'Fingerprint', icon: Icons.FingerprintOutline },
-    { name: 'Format Paint', icon: Icons.FormatPaintOutline },
-    { name: 'Government', icon: Icons.GovernmentOutline },
-    { name: 'GPS', icon: Icons.GpsOutline },
-    { name: 'Help', icon: Icons.HelpOutline },
-    { name: 'Incognito', icon: Icons.IncognitoOutline },
-    { name: 'JPY', icon: Icons.JpyOutline },
-    { name: 'Location', icon: Icons.LocationOutline },
-    { name: 'Microphone', icon: Icons.MicrophoneOutline },
-    { name: 'Phone', icon: Icons.PhoneOutline },
-    { name: 'Safety', icon: Icons.SafetyOutline },
-    { name: 'Settings', icon: Icons.SettingsOutline },
-    { name: 'Share', icon: Icons.ShareOutline },
-    { name: 'Sign', icon: Icons.SignOutline },
-    { name: 'Treasury', icon: Icons.TreasuryOutline },
-    { name: 'Tune', icon: Icons.TuneOutline },
-    { name: 'Unlock', icon: Icons.UnlockOutline },
-    { name: 'WiFi', icon: Icons.WiFiOutline },
+    { name: 'Drag Out', icon: DragOutline },
+    { name: 'Equally', icon: EquallyOutline },
+    { name: 'Error Out', icon: ErrorOutline },
+    { name: 'Triangle', icon: ErrorTriangleOutline },
+    { name: 'Jpg', icon: JpgOutline },
+    { name: 'Archive', icon: ArchiveOutline },
+    { name: 'Bonus', icon: BonusOutline },
+    { name: 'Broker', icon: BrokerOutline },
+    { name: 'Cloud Done', icon: CloudDoneOutline },
+    { name: 'Cut', icon: CutOutline },
+    { name: 'Diamond', icon: DiamondOutline },
+    { name: 'Eraser', icon: EraserOutline },
+    { name: 'Eye Off', icon: EyeOffOutline },
+    { name: 'Finance', icon: FinanceOutline },
+    { name: 'Fingerprint', icon: FingerprintOutline },
+    { name: 'Format Paint', icon: FormatPaintOutline },
+    { name: 'Government', icon: GovernmentOutline },
+    { name: 'GPS', icon: GPSOutline },
+    { name: 'Help', icon: HelpOutline },
+    { name: 'Incognito', icon: IncognitoOutline },
+    { name: 'JPY', icon: JPYOutline },
+    { name: 'Location', icon: LocationOutline },
+    { name: 'Microphone', icon: MicrophoneOutline },
+    { name: 'Phone', icon: PhoneOutline },
+    { name: 'Safety', icon: SafetyOutline },
+    { name: 'Settings', icon: SettingsOutline },
+    { name: 'Share', icon: ShareOutline },
+    { name: 'Sign', icon: SignOutline },
+    { name: 'Treasury', icon: TreasuryOutline },
+    { name: 'Tune', icon: TuneOutline },
+    { name: 'Unlock', icon: UnlockOutline },
+    { name: 'WiFi', icon: WifiOutline },
   ];
   const iconsSolid = [
-    { name: 'Drag', icon: Icons.DragSolid },
-    { name: 'Equally', icon: Icons.EquallySolid },
-    { name: 'Error', icon: Icons.ErrorSolid },
-    { name: 'Triangle', icon: Icons.ErrorTriangleSolid },
-    { name: 'Jpg', icon: Icons.JpgSolid },
-    { name: 'Archive', icon: Icons.ArchiveSolid },
-    { name: 'Bonus', icon: Icons.BonusSolid },
-    { name: 'Broker', icon: Icons.BrokerSolid },
-    { name: 'Cloud Done', icon: Icons.CloudDoneSolid },
-    { name: 'Cut', icon: Icons.CutSolid },
-    { name: 'Diamond', icon: Icons.DiamondSolid },
-    { name: 'Eraser', icon: Icons.EraserSolid },
-    { name: 'Eye Off', icon: Icons.EyeOffSolid },
-    { name: 'Finance', icon: Icons.FinanceSolid },
-    { name: 'Fingerprint', icon: Icons.FingerprintSolid },
-    { name: 'Format Paint', icon: Icons.FormatPaintSolid },
-    { name: 'Government', icon: Icons.GovernmentSolid },
-    { name: 'GPS', icon: Icons.GpsSolid },
-    { name: 'Help', icon: Icons.HelpSolid },
-    { name: 'Incognito', icon: Icons.IncognitoSolid },
-    { name: 'JPY', icon: Icons.JpySolid },
-    { name: 'Location', icon: Icons.LocationSolid },
-    { name: 'Microphone', icon: Icons.MicrophoneSolid },
-    { name: 'Phone', icon: Icons.PhoneSolid },
-    { name: 'Safety', icon: Icons.SafetySolid },
-    { name: 'Settings', icon: Icons.SettingsSolid },
-    { name: 'Share', icon: Icons.ShareSolid },
-    { name: 'Sign', icon: Icons.SignSolid },
-    { name: 'Treasury', icon: Icons.TreasurySolid },
-    { name: 'Tune', icon: Icons.TuneSolid },
-    { name: 'Unlock', icon: Icons.UnlockSolid },
-    { name: 'WiFi', icon: Icons.WiFiSolid },
+    { name: 'Drag', icon: DragSolid },
+    { name: 'Equally', icon: EquallySolid },
+    { name: 'Error', icon: ErrorSolid },
+    { name: 'Triangle', icon: ErrorTriangleSolid },
+    { name: 'Jpg', icon: JpgSolid },
+    { name: 'Archive', icon: ArchiveSolid },
+    { name: 'Bonus', icon: BonusSolid },
+    { name: 'Broker', icon: BrokerSolid },
+    { name: 'Cloud Done', icon: CloudDoneSolid },
+    { name: 'Cut', icon: CutSolid },
+    { name: 'Diamond', icon: DiamondSolid },
+    { name: 'Eraser', icon: EraserSolid },
+    { name: 'Eye Off', icon: EyeOffSolid },
+    { name: 'Finance', icon: FinanceSolid },
+    { name: 'Fingerprint', icon: FingerprintSolid },
+    { name: 'Format Paint', icon: FormatPaintSolid },
+    { name: 'Government', icon: GovernmentSolid },
+    { name: 'GPS', icon: GPSSolid },
+    { name: 'Help', icon: HelpSolid },
+    { name: 'Incognito', icon: IncognitoSolid },
+    { name: 'JPY', icon: JPYSolid },
+    { name: 'Location', icon: LocationSolid },
+    { name: 'Microphone', icon: MicrophoneSolid },
+    { name: 'Phone', icon: PhoneSolid },
+    { name: 'Safety', icon: SafetySolid },
+    { name: 'Settings', icon: SettingsSolid },
+    { name: 'Share', icon: ShareSolid },
+    { name: 'Sign', icon: SignSolid },
+    { name: 'Treasury', icon: TreasurySolid },
+    { name: 'Tune', icon: TuneSolid },
+    { name: 'Unlock', icon: UnlockSolid },
+    { name: 'WiFi', icon: WifiSolid },
   ];
 
   // управление состоянием solid
