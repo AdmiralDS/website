@@ -17,7 +17,7 @@
   export let borderRadius: number = 4;
   let prevBorderRadius = borderRadius;
 
-  const components = ['Calendar', 'Menu', 'Notification'];
+  const components = ['Calendar', 'Dropdown Menu', 'Notifications'];
   let activeComponent = 'Calendar';
   let prevActiveComponent = activeComponent;
   const handleCLickOnActiveComponent = (currentComponent: string) => (activeComponent = currentComponent);

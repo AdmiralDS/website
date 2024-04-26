@@ -1,10 +1,10 @@
 import { ThemeProvider } from 'styled-components';
 import { DropdownProvider, LIGHT_THEME, DARK_THEME } from '@admiral-ds/react-ui';
 import '@admiral-ds/fonts/VTBGroupUI.css';
-import { AdmiralCalendar } from './AdmiralCalendar';
 import type { BorderRadiusType } from '@admiral-ds/react-ui';
 import { hsvToHex } from '@components/pages/library/content/customizing-block/utils.ts';
-import { AdmiralNotifications } from '@components/pages/library/content/customizing-block/AdmiralNotification.tsx';
+import { AdmiralCalendar } from './AdmiralCalendar';
+import { AdmiralNotifications } from '@components/pages/library/content/customizing-block/AdmiralNotifications.tsx';
 import { AdmiralMenu } from '@components/pages/library/content/customizing-block/AdmiralMenu.tsx';
 
 export interface Props {
@@ -209,9 +209,9 @@ export const WrappedReactComponent = ({ component, theme, borderRadius = 4, colo
   colorTheme.shape.borderRadiusKind = `Border radius ${borderRadius}` as BorderRadiusType;
   const getComponent = () => {
     switch (component) {
-      case 'Notification':
+      case 'Notifications':
         return <AdmiralNotifications />;
-      case 'Menu':
+      case 'Dropdown Menu':
         return <AdmiralMenu borderRadius={borderRadius} />;
       case 'Calendar':
       default:
