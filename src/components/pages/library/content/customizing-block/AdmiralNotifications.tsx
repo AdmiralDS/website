@@ -23,6 +23,7 @@ export const AdmiralNotifications = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
         gap: '5px',
+        width: '384px',
       }}
     >
       <NotificationItem status="info" displayStatusIcon={displayStatusIcon} isClosable={isClosable}>

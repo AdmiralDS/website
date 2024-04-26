@@ -91,8 +91,7 @@
   .custom-info {
     width: 100%;
     height: fit-content;
-    /*height: 445px;*/
-    min-height: 466px;
+    min-height: 497px;
     border-radius: 12px;
     background: var(--Dark_blue_gradient);
     padding: 20px;

@@ -11,6 +11,7 @@ import {
 } from '@admiral-ds/react-ui';
 import PlusOutline from '@admiral-ds/icons/build/service/PlusOutline.svg?component';
 import type { ChangeEvent } from 'react';
+import styled from 'styled-components';
 
 function uid(): string {
   return (performance.now().toString(36) + Math.random().toString(36)).replace(/\./g, '');
@@ -55,6 +56,17 @@ const STORY_ITEMS: Array<StoryItem> = [
 export interface AdmiralMenuProps {
   borderRadius: 0 | 2 | 4 | 6 | 8 | 10;
 }
+
+const StyledMenu = styled(Menu)<{ $borderRadius: 0 | 2 | 4 | 6 | 8 | 10 }>`
+  width: 320px;
+  overflow: hidden;
+  border-color: transparent;
+  box-shadow:
+    0 3.2px 9px 0 rgba(0, 0, 0, 0.16),
+    0 0.6px 1.8px 0 rgba(0, 0, 0, 0.1),
+    0 -1.5px 6px 0 rgba(0, 0, 0, 0.06);
+  border-radius: ${(p) => p.$borderRadius}px;
+`;
 
 export const AdmiralMenu = ({ borderRadius }: AdmiralMenuProps) => {
   const initialButtonText = 'Добавить';
@@ -105,50 +117,41 @@ export const AdmiralMenu = ({ borderRadius }: AdmiralMenuProps) => {
   const menuPanelContentDimension = 'm';
 
   return (
-    <div
-      style={{
-        width: 'fit-content',
-        overflow: 'hidden',
-        borderColor: 'transparent',
-        boxShadow:
-          '0px 3.2px 9px 0px rgba(0, 0, 0, 0.16), 0px 0.6px 1.8px 0px rgba(0, 0, 0, 0.10), 0px -1.5px 6px 0px rgba(0, 0, 0, 0.06);',
-        borderRadius: `${borderRadius}px`,
+    <StyledMenu
+      $borderRadius={borderRadius}
+      maxHeight="376px"
+      defaultIsActive={false}
+      model={model}
+      active={active}
+      onActivateItem={setActive}
+      onSelectItem={(id) => console.log(`Selected id: ${id}`)}
+      renderTopPanel={({ dimension = menuPanelContentDimension }) => {
+        return (
+          <MenuActionsPanel dimension={dimension}>
+            <TextInput
+              dimension={menuPanelContentDimension}
+              value={inputValue}
+              onChange={handleChange}
+              onKeyDown={(...p) => {
+                handleKeyDown(...p);
+              }}
+            />
+          </MenuActionsPanel>
+        );
       }}
-    >
-      <Menu
-        defaultIsActive={false}
-        model={model}
-        active={active}
-        onActivateItem={setActive}
-        onSelectItem={(id) => console.log(`Selected id: ${id}`)}
-        renderTopPanel={({ dimension = menuPanelContentDimension }) => {
-          return (
-            <MenuActionsPanel dimension={dimension}>
-              <TextInput
-                dimension={menuPanelContentDimension}
-                value={inputValue}
-                onChange={handleChange}
-                onKeyDown={(...p) => {
-                  handleKeyDown(...p);
-                }}
-              />
-            </MenuActionsPanel>
-          );
-        }}
-        renderBottomPanel={({ dimension = menuPanelContentDimension }) => {
-          return (
-            <MenuActionsPanel dimension={dimension}>
-              <TextButton
-                text={buttonText}
-                disabled={buttonDisabled}
-                //iconStart={<PlusOutline />}
-                dimension={menuPanelContentDimension}
-                onClick={handleTextButtonClick}
-              />
-            </MenuActionsPanel>
-          );
-        }}
-      />
-    </div>
+      renderBottomPanel={({ dimension = menuPanelContentDimension }) => {
+        return (
+          <MenuActionsPanel dimension={dimension}>
+            <TextButton
+              text={buttonText}
+              disabled={buttonDisabled}
+              //iconStart={<PlusOutline />}
+              dimension={menuPanelContentDimension}
+              onClick={handleTextButtonClick}
+            />
+          </MenuActionsPanel>
+        );
+      }}
+    />
   );
 };
