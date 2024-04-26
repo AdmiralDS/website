@@ -17,7 +17,7 @@
   export let borderRadius: number = 4;
   let prevBorderRadius = borderRadius;
 
-  const components = ['Calendar', 'Tree', 'Notification'];
+  const components = ['Calendar', 'Menu', 'Notification'];
   let activeComponent = 'Calendar';
   let prevActiveComponent = activeComponent;
   const handleCLickOnActiveComponent = (currentComponent: string) => (activeComponent = currentComponent);
@@ -92,7 +92,7 @@
     width: 100%;
     height: fit-content;
     /*height: 445px;*/
-    min-height: 445px;
+    min-height: 466px;
     border-radius: 12px;
     background: var(--Dark_blue_gradient);
     padding: 20px;

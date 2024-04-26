@@ -5,7 +5,7 @@ import { AdmiralCalendar } from './AdmiralCalendar';
 import type { BorderRadiusType } from '@admiral-ds/react-ui';
 import { hsvToHex } from '@components/pages/library/content/customizing-block/utils.ts';
 import { AdmiralNotifications } from '@components/pages/library/content/customizing-block/AdmiralNotification.tsx';
-import { AdmiralTree } from '@components/pages/library/content/customizing-block/AdmiralTree.tsx';
+import { AdmiralMenu } from '@components/pages/library/content/customizing-block/AdmiralMenu.tsx';
 
 export interface Props {
   component: string;
@@ -211,11 +211,11 @@ export const WrappedReactComponent = ({ component, theme, borderRadius = 4, colo
     switch (component) {
       case 'Notification':
         return <AdmiralNotifications />;
+      case 'Menu':
+        return <AdmiralMenu borderRadius={borderRadius} />;
       case 'Calendar':
       default:
         return <AdmiralCalendar />;
-      case 'Tree':
-        return <AdmiralTree />;
     }
   };
 
