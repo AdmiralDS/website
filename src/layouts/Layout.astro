@@ -1,6 +1,7 @@
 ---
 import { type NavItemProps } from 'common';
 import globalStyles from './global.css?raw';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -112,10 +113,19 @@ const navItems: Array<NavItemProps> = [
     <link rel="icon" type="mage/png" href="favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <ViewTransitions />
   </head>
   <body>
     <Navigation navItems={navItems} defaultActive={activeMenuItem} client:visible />
+    <!-- <div id="iddiv" /> -->
     <slot />
   </body>
 </html>
 <style is:global set:html={globalStyles}></style>
+<!-- <script>
+  const prevPage = window.history.state;
+  const div = document.getElementById("iddiv");
+  window.history.pushState({ name: "Example" }, "pushState example", "page3.html");
+  div.innerHTML = JSON.stringify(window.history.state);
+</script> -->
