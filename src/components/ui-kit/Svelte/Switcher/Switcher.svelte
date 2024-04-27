@@ -14,11 +14,23 @@
 </script>
 
 <div class="switcher-container {className}">
-  <div class="switcher-items">
-    {#each Object.entries(items) as [name, label], i}
-      <Item {name} {showNumber} number={i + 1} {label} active={activeItem === name} onClick={handleClick} />
-    {/each}
-    <slot name="ext-controls" />
+  <div class="switcher-content">
+    <div class="switcher-items">
+      {#each Object.entries(items) as [name, label], i}
+        <Item
+          {name}
+          {showNumber}
+          number={i + 1}
+          {label}
+          active={activeItem === name}
+          onClick={handleClick}
+          {disabled}
+        />
+      {/each}
+    </div>
+    <div class="switcher-items-controls">
+      <slot name="ext-controls" />
+    </div>
   </div>
   <div class="divider">
     <div class="separator" />
@@ -36,11 +48,22 @@
     margin-top: 40px;
   }
 
+  .switcher-content {
+    display: flex;
+    flex: 0 1 33%;
+    flex-direction: column;
+    min-width: 33%;
+  }
+
   .switcher-items {
     display: flex;
     flex: 0 1 33%;
     flex-direction: column;
     min-width: 33%;
+  }
+
+  .switcher-items-controls {
+    margin-top: 40px;
   }
 
   .divider {

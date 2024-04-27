@@ -1,6 +1,6 @@
 <div class="release-title-card">
   <div class="release-title-card__header">Релизы</div>
-  <div class="release-title-card__info">Анонсы и релизы дизайн-системы Admiral</div>
+  <div class="release-title-card__info">Анонсы и релизы <br /> дизайн-системы Admiral</div>
 </div>
 
 <style lang="css">
