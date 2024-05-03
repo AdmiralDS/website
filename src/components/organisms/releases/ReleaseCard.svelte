@@ -9,13 +9,8 @@
   let showModal = false;
 </script>
 
-<div
-  class="release-card"
-  on:click={() => {
-    showModal = true;
-    console.log(showModal);
-  }}
->
+<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
+<div class="release-card" on:click={() => (showModal = true)}>
   <div class="release-card__header">{version}</div>
   <div class="release-card__info">
     <InfoBlockIcon />

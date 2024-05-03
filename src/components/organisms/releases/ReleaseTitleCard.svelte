@@ -11,7 +11,7 @@
   }
   .release-title-card__header {
     color: var(--Dark_grey, #35383a);
-    font-family: Inter;
+    font-family: 'Inter', sans-serif;
     font-size: 20px;
     font-weight: 500;
     line-height: 25px;
@@ -19,7 +19,7 @@
   }
   .release-title-card__info {
     color: var(--Grey);
-    font-family: Inter;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
