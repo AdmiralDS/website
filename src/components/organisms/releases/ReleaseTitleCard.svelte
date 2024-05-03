@@ -8,6 +8,7 @@
     box-sizing: border-box;
     height: 75px;
     border: none;
+    cursor: default;
   }
   .release-title-card__header {
     color: var(--Dark_grey, #35383a);
