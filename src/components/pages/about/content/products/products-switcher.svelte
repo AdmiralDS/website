@@ -12,11 +12,16 @@
   $: imgSrc = checked ? 'images/sfera-dark.png' : 'images/sfera-light.png';
 
   const onArrowClick = () => undefined;
+  const handleItemClick = (name: string) => {
+    if (name === 'site') {
+      window.open('https://www.sferaplatform.ru/sfera-metodologiya', '_blank');
+    }
+  };
 </script>
 
 <ThemeToggle bind:checked />
-<Switcher class="product-switcher" {items} showNumber={false} {activeItem} disabled>
-  <img slot="info" src={imgSrc} alt="image" class="info-cover" />
+<Switcher class="product-switcher" {items} showNumber={false} {activeItem} disabled onItemClick={handleItemClick}>
+  <img slot="info" src={imgSrc} alt="Сфера" class="info-cover" />
   <ArrowButtons
     prevDisabled
     nextDisabled={false}
