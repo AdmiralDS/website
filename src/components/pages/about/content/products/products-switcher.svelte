@@ -9,7 +9,7 @@
 
   let checked: boolean;
 
-  $: imgSrc = checked ? 'images/dark-image.png' : 'images/light-image.png';
+  $: imgSrc = checked ? 'images/sfera-dark.png' : 'images/sfera-light.png';
 
   const onArrowClick = () => undefined;
 </script>
