@@ -14,14 +14,13 @@
   font-weight: 500;
   line-height: 20px;
   margin-bottom: 15px;
-
+}
+.release-card:hover .release-card__header {
   transition-property: color;
   transition-duration: var(--transition-duration-base, 300ms);
   transition-timing-function: var(--transition-easing-base, ease-in-out);
 
-  &:hover {
-    color: var(--Blue, #0d42ff);
-  }
+  color: var(--Blue, #0d42ff);
 }
 .release-card__info {
   color: var(--Grey, #7a8190);
@@ -32,6 +31,11 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.release-card__info-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .release-card__info-separator {
   background: var(--Light_grey, #e6eaf0);

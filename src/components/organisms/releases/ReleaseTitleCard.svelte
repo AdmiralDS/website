@@ -24,5 +24,9 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>
