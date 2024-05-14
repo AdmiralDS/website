@@ -70,7 +70,7 @@
   let left: number = 0;
   let step = 67 * 4;
   let scrolledToRight: boolean = false;
-  let style: string = undefined;
+  let style: string = '';
 
   const iconsOutline = [
     { name: 'Drag Out', icon: DragOutline },
@@ -146,12 +146,9 @@
   const handleClickOnSolid = () => (isSolid = !isSolid);
 
   // управление промоткой иконок
-  const STEP = 4;
-  $: currentIndex = 0;
   $: prevDisabled = true;
   $: nextDisabled = false;
   $: iconsArray = isSolid ? iconsSolid : iconsOutline;
-  $: elsToShow = iconsArray.slice(currentIndex, currentIndex + STEP);
 
   const checkButtonsEnable = () => {
     if (!scrollingContainer) return;
