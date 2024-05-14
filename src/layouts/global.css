@@ -12,6 +12,21 @@
   font-style: normal;
 }
 
+@keyframes skeletonAnimation {
+  0% {
+    background-color: #e5e7eb;
+    border-color: #e5e7eb;
+  }
+  50% {
+    background-color: #d5d8de;
+    border-color: #d5d8de;
+  }
+  100% {
+    background-color: #e5e7eb;
+    border-color: #e5e7eb;
+  }
+}
+
 :root {
   /*<editor-fold desc="Theme colors">*/
   --Light_blue: #f5f9fd;
@@ -39,6 +54,8 @@
       rgba(0, 0, 255, 1) 100%
     ),
     rgb(3, 1, 37);
+
+  --Skeleton_animation: skeletonAnimation 2s ease infinite;
 }
 
 html {
