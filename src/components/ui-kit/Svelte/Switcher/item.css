@@ -25,7 +25,7 @@
 .switcher-item:not(:last-child) {
     border-bottom: 1px solid #e6eaf0;
 }
-.disabled {
+.disabled:not(.active) {
     cursor: default;
 }
 
