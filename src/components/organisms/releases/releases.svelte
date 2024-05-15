@@ -4,6 +4,8 @@
   import ReleaseCard from '@components/organisms/releases/ReleaseCard.svelte';
   import ReleaseTitleCard from '@components/organisms/releases/ReleaseTitleCard.svelte';
 
+  let cardsWrapperWidth: number | undefined;
+
   let releasesInfo: any = [];
   let rrr = [
     { tag: '', date: '', link: '' },
@@ -12,9 +14,10 @@
   ];
   let loaded = false;
 
+  let cardsWrapper: HTMLDivElement;
   let scrollingContainer: HTMLDivElement;
   let left: number = 0;
-  let step = 67 * 4;
+  let step: number;
   let scrolledToRight: boolean = false;
   let style: string = '';
 
@@ -22,6 +25,7 @@
   $: prevDisabled = true;
   $: nextDisabled = false;
   $: releasesArray = loaded ? releasesInfo : rrr;
+  $: step = (cardsWrapperWidth || 0) + 20;
 
   const checkButtonsEnable = () => {
     if (!scrollingContainer) return;
@@ -51,6 +55,9 @@
   };
 
   onMount(() => {
+    if (cardsWrapper) {
+      cardsWrapperWidth = cardsWrapper.clientWidth;
+    }
     checkButtonsEnable();
     fetch('https://registry.npmjs.org/@admiral-ds/react-ui')
       .then((response) => {
@@ -73,7 +80,6 @@
             link: `https://github.com/AdmiralDS/react-ui/releases/tag/v${version}`,
           });
         });
-        //rrr = releasesArray.slice(0, 3);
         loaded = true;
       });
   });
@@ -83,28 +89,34 @@
     const translateXValue = `-${left}px`;
     const leftValue = scrolledToRight ? `${left}px` : 0;
     style = `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`;
+    if (cardsWrapperWidth) {
+      style = `${style}; grid-auto-columns: ${Math.round((cardsWrapperWidth - 40) / 3)}px`;
+    }
   }
 </script>
 
 <div class="releases-wrapper">
   <ReleaseTitleCard />
-  <div class="releases-block__cards-wrapper">
-    <div
-      class="releases-block__scrolling-container"
-      bind:this={scrollingContainer}
-      {style}
-      on:transitionend={checkButtonsEnable}
-    >
-      {#each releasesArray as release}
-        <ReleaseCard
-          version={`v ${release.tag}`}
-          date={release.date}
-          info="Релиз"
-          link={release.link}
-          loading={!loaded}
-        />
-      {/each}
-    </div>
+  <div class="releases-block__cards-wrapper" bind:this={cardsWrapper} bind:clientWidth={cardsWrapperWidth}>
+    {#if cardsWrapperWidth}
+      <div
+        class="releases-block__scrolling-container"
+        bind:this={scrollingContainer}
+        {style}
+        on:transitionend={checkButtonsEnable}
+      >
+        {#each releasesArray as release}
+          <ReleaseCard
+            version={`v ${release.tag}`}
+            date={release.date}
+            info="Релиз"
+            link={release.link}
+            loading={!loaded}
+            style="grid-row: 1"
+          />
+        {/each}
+      </div>
+    {/if}
   </div>
 </div>
 <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
@@ -118,12 +130,13 @@
 
   .releases-block__cards-wrapper {
     overflow: hidden;
+    flex: 1 0 75%;
   }
 
   .releases-block__scrolling-container {
     position: relative;
     width: fit-content;
-    display: flex;
+    display: grid;
     gap: 20px;
     justify-content: space-between;
     transition: transform 300ms ease-in-out;

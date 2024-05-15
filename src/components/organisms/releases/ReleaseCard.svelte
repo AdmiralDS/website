@@ -9,7 +9,7 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
-<div class="release-card" on:click={() => window.open(link, '_blanc')}>
+<div class="release-card" on:click={() => window.open(link, '_blank')} {...$$restProps}>
   <div class="release-card__header">{version}</div>
   <div class="release-card__info">
     <InfoBlockIcon />
