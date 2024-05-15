@@ -4,7 +4,7 @@
   export let version: string = '';
   export let date: string = '';
   export let info: string = '';
-  export let link: string = 'https://github.com/AdmiralDS/react-ui/releases/tag/v8.3.0';
+  export let link: string = 'https://github.com/AdmiralDS/react-ui/releases';
   export let loading: boolean = true;
 </script>
 
