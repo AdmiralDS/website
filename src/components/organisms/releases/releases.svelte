@@ -4,61 +4,54 @@
   import ReleaseCard from '@components/organisms/releases/ReleaseCard.svelte';
   import ReleaseTitleCard from '@components/organisms/releases/ReleaseTitleCard.svelte';
 
-  let cardsWrapperWidth: number | undefined;
+  const gapWidth = 20;
+  const maxVisibleCardsOnPage = 3;
+  let firstVisibleRelease: number = 0;
 
+  const blankRelease = { tag: '', date: '', link: '' };
+  const blankReleases = [blankRelease, blankRelease, blankRelease];
   let releasesInfo: any = [];
-  let rrr = [
-    { tag: '', date: '', link: '' },
-    { tag: '', date: '', link: '' },
-    { tag: '', date: '', link: '' },
-  ];
   let loaded = false;
 
   let cardsWrapper: HTMLDivElement;
+  let cardsWrapperWidth: number | undefined;
   let scrollingContainer: HTMLDivElement;
-  let left: number = 0;
-  let step: number;
   let scrolledToRight: boolean = false;
   let style: string = '';
 
   // управление промоткой карточек релизов
   $: prevDisabled = true;
   $: nextDisabled = false;
-  $: releasesArray = loaded ? releasesInfo : rrr;
-  $: step = (cardsWrapperWidth || 0) + 20;
+  $: releasesArray = loaded ? releasesInfo : blankReleases;
+  $: cardWidth = Math.floor(((cardsWrapperWidth || 0) - gapWidth * 2) / maxVisibleCardsOnPage);
+  $: step = cardWidth + gapWidth;
+  $: left = firstVisibleRelease * step;
 
   const checkButtonsEnable = () => {
     if (!scrollingContainer) return;
 
-    const parent = scrollingContainer.parentElement as HTMLDivElement;
-
-    prevDisabled = left === 0;
-    nextDisabled = left + parent.clientWidth >= scrollingContainer.clientWidth;
+    prevDisabled = firstVisibleRelease === 0;
+    nextDisabled = firstVisibleRelease + maxVisibleCardsOnPage >= releasesArray.length;
     scrolledToRight = nextDisabled;
   };
 
   const handleNextClick = () => {
     if (!scrollingContainer) return;
-    const parent = scrollingContainer.parentElement as HTMLDivElement;
-
-    const newValue = left + step;
-
-    const maxValue = scrollingContainer.clientWidth - parent.clientWidth;
-
-    left = newValue > maxValue ? maxValue : newValue;
+    const newValue = firstVisibleRelease + maxVisibleCardsOnPage;
+    const maxValue = releasesArray.length - maxVisibleCardsOnPage;
+    firstVisibleRelease = newValue > maxValue ? maxValue : newValue;
   };
 
   const handlePrevClick = () => {
     if (scrolledToRight) scrolledToRight = false;
-
-    left = left - step < 0 ? 0 : left - step;
+    const newValue = firstVisibleRelease - maxVisibleCardsOnPage;
+    firstVisibleRelease = newValue < 0 ? 0 : newValue;
   };
 
   onMount(() => {
     if (cardsWrapper) {
       cardsWrapperWidth = cardsWrapper.clientWidth;
     }
-    checkButtonsEnable();
     fetch('https://registry.npmjs.org/@admiral-ds/react-ui')
       .then((response) => {
         return response.json();
@@ -90,8 +83,9 @@
     const leftValue = scrolledToRight ? `${left}px` : 0;
     style = `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`;
     if (cardsWrapperWidth) {
-      style = `${style}; grid-auto-columns: ${Math.round((cardsWrapperWidth - 40) / 3)}px`;
+      style = `${style}; grid-auto-columns: ${cardWidth}px`;
     }
+    checkButtonsEnable();
   }
 </script>
 
@@ -131,6 +125,7 @@
   .releases-block__cards-wrapper {
     overflow: hidden;
     flex: 1 0 75%;
+    box-sizing: border-box;
   }
 
   .releases-block__scrolling-container {
