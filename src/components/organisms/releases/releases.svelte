@@ -4,6 +4,8 @@
   import ReleaseCard from '@components/organisms/releases/ReleaseCard.svelte';
   import ReleaseTitleCard from '@components/organisms/releases/ReleaseTitleCard.svelte';
 
+  let timer: NodeJS.Timeout;
+
   const gapWidth = 20;
   const maxVisibleCardsOnPage = 3;
   let firstVisibleRelease: number = 0;
@@ -87,11 +89,19 @@
     }
     checkButtonsEnable();
   }
+
+  const handleResize = () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      cardsWrapperWidth = cardsWrapper.clientWidth;
+    }, 300);
+  };
 </script>
 
+<svelte:window on:resize={handleResize} />
 <div class="releases-wrapper">
   <ReleaseTitleCard />
-  <div class="releases-block__cards-wrapper" bind:this={cardsWrapper} bind:clientWidth={cardsWrapperWidth}>
+  <div class="releases-block__cards-wrapper" bind:this={cardsWrapper}>
     {#if cardsWrapperWidth}
       <div
         class="releases-block__scrolling-container"
