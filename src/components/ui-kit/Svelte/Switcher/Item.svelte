@@ -14,6 +14,7 @@
   };
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
 <div class="switcher-item" class:active class:disabled on:click={handleClick}>
   {#if showNumber}
     <span>

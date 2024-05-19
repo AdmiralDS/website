@@ -5,11 +5,15 @@
   export let activeItem: string;
   export let showNumber: boolean = true;
   export let disabled: boolean = false;
+  export let onItemClick: (name: string) => void;
   let className = '';
   export { className as class };
 
   const handleClick = (key: string) => {
-    if (!disabled) activeItem = key;
+    if (!disabled) {
+      activeItem = key;
+    }
+    onItemClick?.(key);
   };
 </script>
 
