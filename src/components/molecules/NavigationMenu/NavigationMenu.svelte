@@ -11,7 +11,7 @@
 
   export let onItemClick: ((key: string, item: NavigationItem) => void) | undefined = undefined;
 
-  let animated: boolean = false;
+  export let animated: boolean = false;
 
   let prevItems: Array<NavigationItem>;
   let menuItems: Array<MenuItemProps> = [];

@@ -4,9 +4,24 @@ import SubLayout from '../layouts/SubLayout.astro';
 import { Header, Content } from '@components/pages/about';
 ---
 
-<Layout title="Дизайн система Admiral." activeMenuItem="#ds-info">
+<Layout title="Дизайн система Admiral." activeMenuItem="#ds-info" currentPage="about">
   <SubLayout>
     <Header slot="header" />
     <Content slot="content" />
   </SubLayout>
 </Layout>
+
+<script>
+  import { setCurrentPage, setPreviousPage } from '../store/page';
+
+  const url = new URL(window.location);
+  if (url.searchParams.has('prev')) {
+    const previousPage = url.searchParams.get('prev');
+    url.searchParams.delete('prev');
+
+    setPreviousPage(previousPage);
+    history.replaceState({}, '', url);
+  }
+
+  setCurrentPage('about');
+</script>
