@@ -10,10 +10,10 @@
   const maxVisibleCardsOnPage = 3;
   let firstVisibleRelease: number = 0;
 
-  const blankRelease = { tag: '', date: '', link: '' };
+  const blankRelease = { tag: '', date: '', link: 'https://github.com/AdmiralDS/react-ui/releases' };
   const blankReleases = [blankRelease, blankRelease, blankRelease];
   let releasesInfo: any = [];
-  let loaded = false;
+  let loading = true;
 
   let cardsWrapper: HTMLDivElement;
   let cardsWrapperWidth: number | undefined;
@@ -24,7 +24,7 @@
   // управление промоткой карточек релизов
   $: prevDisabled = true;
   $: nextDisabled = false;
-  $: releasesArray = loaded ? releasesInfo : blankReleases;
+  $: releasesArray = loading ? blankReleases : releasesInfo;
   $: cardWidth = Math.floor(((cardsWrapperWidth || 0) - gapWidth * 2) / maxVisibleCardsOnPage);
   $: step = cardWidth + gapWidth;
   $: left = firstVisibleRelease * step;
@@ -70,12 +70,12 @@
             })
             .slice(0, -3);
           releasesInfo.unshift({
-            tag: version,
+            tag: `v ${version}`,
             date: versionTime,
             link: `https://github.com/AdmiralDS/react-ui/releases/tag/v${version}`,
           });
         });
-        loaded = true;
+        loading = false;
       });
   });
 
@@ -111,11 +111,11 @@
       >
         {#each releasesArray as release}
           <ReleaseCard
-            version={`v ${release.tag}`}
+            {loading}
+            version={release.tag}
             date={release.date}
             info="Релиз"
             link={release.link}
-            loading={!loaded}
             style="grid-row: 1"
           />
         {/each}
