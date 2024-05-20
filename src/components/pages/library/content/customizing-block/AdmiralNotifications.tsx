@@ -33,7 +33,11 @@ export const AdmiralNotifications = () => {
           узнаваемость визуального стиля во всех продуктах и сервисах компании.
         </NotificationItemContent>
         <NotificationItemButtonPanel>
-          <TextButton dimension="s" text="Storybook" />
+          <TextButton
+            dimension="s"
+            text="Storybook"
+            onClick={() => window.open('https://admiralds.github.io/react-ui/', '_blank')}
+          />
         </NotificationItemButtonPanel>
       </NotificationItem>
       <NotificationItem status="info" displayStatusIcon={displayStatusIcon} isClosable={isClosable}>
