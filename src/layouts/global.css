@@ -36,6 +36,7 @@
   --Dark_grey: #35383a;
   --Light_grey: #e6eaf0;
   --Grey: #7a8190;
+  --Skeleton_background: #f3f4f6;
   /*</editor-fold>*/
 
   --accent: 136, 58, 234;
@@ -55,7 +56,7 @@
     ),
     rgb(3, 1, 37);
 
-  --Skeleton_animation: skeletonAnimation 2s ease infinite;
+  --skeleton_animation: skeletonAnimation 2s ease infinite;
 }
 
 html {
