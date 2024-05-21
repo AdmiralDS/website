@@ -13,9 +13,7 @@
 
 <style>
   .toggle-wrapper {
-    position: absolute;
-    right: 0;
-    top: 103px;
+    margin-top: 25px;
     display: flex;
     column-gap: 10px;
     align-items: center;
