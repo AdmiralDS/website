@@ -1,34 +1,18 @@
 ---
 import { ContentBlock } from '@components/ui-kit/Astro';
-import ProductsSwitcher from './products-switcher.svelte';
+import ProductsBlock from './products-block.svelte';
 
-const NamesArray = {
-  site: 'Платформа производства «Сфера»',
-  web: 'Адаптивный веб и мобильная версия',
-  style: 'Геометрический стиль',
-} as const;
+const products = [
+  {
+    title: 'Платформа производства «Сфера»',
+    link: 'https://www.sferaplatform.ru/sfera-metodologiya',
+    imgLight: 'images/sfera-light.png',
+    imgDark: 'images/sfera-dark.png',
+    description: ['Адаптивный веб и мобильная версия', 'Геометрический стиль'],
+  },
+] as const;
 ---
 
 <ContentBlock id="products" title="наши продукты">
-  <div class="products-text">
-    Ниже приведены несколько примеров проектов, в которых используется дизайн-система Адмирал
-  </div>
-  <ProductsSwitcher items={NamesArray} activeItem="site" client:idle />
+  <ProductsBlock products={products} client:idle />
 </ContentBlock>
-
-<style>
-  .products-text {
-    margin: 20px 0 40px;
-    width: 50%;
-
-    color: var(--Grey);
-    font-variant-numeric: lining-nums tabular-nums;
-
-    /* 20/25 */
-    font-family: Inter, sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 25px; /* 125% */
-  }
-</style>
