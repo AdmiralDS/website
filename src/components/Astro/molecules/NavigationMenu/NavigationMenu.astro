@@ -1,0 +1,33 @@
+---
+import MenuItem from './MenuItem.astro';
+import type { NavigationMenuItem } from './types.ts';
+
+interface Props {
+  items: Array<NavigationMenuItem>;
+  opened: Array<string>;
+  active: string;
+}
+
+const { items, active, opened = [] } = Astro.props;
+---
+
+<slot name="logo" />
+{
+  items && items.length > 0 && (
+    <div class="menu-items-container">
+      {items.map((item) => (
+        <MenuItem {...item} {active} opened={opened.includes(item.href)} />
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .menu-items-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: flex-start;
+  }
+</style>

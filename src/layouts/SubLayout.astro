@@ -1,13 +1,14 @@
 ---
 import { ContentWrapper } from '@components/ui-kit/Astro';
+import { fade } from 'astro:transitions';
 ---
 
-<main>
+<main transition:animate={fade({ duration: '500ms' })}>
   <Fragment>
     <slot name="header" />
     <ContentWrapper class="content">
       <slot name="content" />
-    </ContentWrapper>
+    </ContentWrapper>s
   </Fragment>
 </main>
 

@@ -4,24 +4,9 @@ import SubLayout from '../layouts/SubLayout.astro';
 import { Header, Content } from '@components/pages/users';
 ---
 
-<Layout title="Пользователи" activeMenuItem="users/#users" currentPage="users">
+<Layout title="Пользователи" activeMenuItem="users/#users">
   <SubLayout>
     <Header slot="header" />
     <Content slot="content" />
   </SubLayout>
 </Layout>
-
-<script>
-  import { setCurrentPage, setPreviousPage } from '../store/page';
-
-  const url = new URL(window.location);
-  if (url.searchParams.has('prev')) {
-    const previousPage = url.searchParams.get('prev');
-    url.searchParams.delete('prev');
-
-    setPreviousPage(previousPage);
-    history.replaceState({}, '', url);
-  }
-
-  setCurrentPage('users');
-</script>
