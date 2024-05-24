@@ -1,0 +1,43 @@
+---
+import { NavigationMenu, type NavigationMenuItem } from '@components/Astro/molecules';
+import admiral from './admiral.svg?raw';
+import './navigationPane.css';
+import type { NavigationPaneItem } from './types.ts';
+import { joinAbsoluteUrlPath } from '@components/tools';
+
+interface Props {
+  items: Array<NavigationPaneItem>;
+  activeMenuItem: string;
+}
+
+const { items, activeMenuItem } = Astro.props;
+
+const BASE_URL = import.meta.env.BASE_URL;
+
+const convertItem = (item: NavigationPaneItem, baseHref: string | undefined = undefined): NavigationMenuItem => {
+  const href = joinAbsoluteUrlPath(baseHref ?? '', item.href ?? '');
+
+  const menuItem: NavigationMenuItem = {
+    href: joinAbsoluteUrlPath(href, item.anchor ? `#${item.anchor}` : ''),
+    label: item.label,
+  };
+
+  if (item.children && item.children.length) {
+    menuItem.children = item.children.map((child) => convertItem(child, href));
+  }
+
+  return menuItem;
+};
+
+const menuItems = items.map((item) => convertItem(item));
+
+const opened: Array<string> = new Array<string>(1).fill(activeMenuItem);
+---
+
+<nav class="side-nav">
+  <NavigationMenu items={menuItems} active={activeMenuItem} {opened}>
+    <a href={BASE_URL} slot="logo" style={{ color: 'var(--Dark_grey, rgb(53, 56, 58))' }}>
+      <Fragment set:html={admiral} />
+    </a>
+  </NavigationMenu>
+</nav>

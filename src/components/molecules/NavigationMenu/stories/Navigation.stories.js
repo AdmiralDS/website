@@ -6,13 +6,7 @@ import { ControlledTemplate } from './templates';
 export default {
   title: 'Molecules/NavigationMenu',
   component: NavigationMenu,
-  argTypes: {
-    // backgroundColor: { control: 'color' },
-    // size: {
-    //   control: { type: 'select' },
-    //   options: ['small', 'medium', 'large'],
-    // },
-  },
+  argTypes: {},
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args

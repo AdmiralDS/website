@@ -7,9 +7,9 @@ interface Props {
   activeMenuItem: string;
 }
 
-const { title, activeMenuItem, currentPage } = Astro.props;
+const { title, activeMenuItem } = Astro.props;
 
-import { NavigationPane } from '@components/common/NavigationPane';
+import { NavigationPane } from '@components/Astro/molecules';
 import type { NavigationItem } from '@components/molecules';
 const navItems: Array<NavigationItem> = [
   {
@@ -112,7 +112,6 @@ const navItems: Array<NavigationItem> = [
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <!--<link rel="icon" type="image/svg+xml" href="favicon.svg" />-->
     <link rel="icon" type="mage/png" href="favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -120,7 +119,7 @@ const navItems: Array<NavigationItem> = [
     <ViewTransitions />
   </head>
   <body>
-    <NavigationPane items={navItems} active={activeMenuItem} client:visible />
+    <NavigationPane items={navItems} {activeMenuItem} />
     <slot />
     <style is:global set:html={globalStyles}></style>
   </body>

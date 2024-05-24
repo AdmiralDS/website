@@ -5,24 +5,9 @@ import { Header, Content } from '@components/pages/library';
 import '@admiral-ds/fonts/VTBGroupUI.css';
 ---
 
-<Layout title="Библиотека" activeMenuItem="library/#library" currentPage="library">
+<Layout title="Библиотека" activeMenuItem="library/#library">
   <SubLayout>
     <Header slot="header" />
     <Content slot="content" />
   </SubLayout>
 </Layout>
-
-<script>
-  import { setCurrentPage, setPreviousPage } from '../store/page';
-
-  const url = new URL(window.location);
-  if (url.searchParams.has('prev')) {
-    const previousPage = url.searchParams.get('prev');
-    url.searchParams.delete('prev');
-
-    setPreviousPage(previousPage);
-    history.replaceState({}, '', url);
-  }
-
-  setCurrentPage('library');
-</script>
