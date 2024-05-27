@@ -127,6 +127,7 @@
 <Button
   style="width: fit-content; margin-top: 40px"
   variant="primary"
+  on:click={() => window.open('https://github.com/AdmiralDS/react-ui/releases', '_blank')}
 >
   История обновлений
 </Button>
