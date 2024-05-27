@@ -1,22 +1,10 @@
 ---
 import './releases-block.css';
-import { Button } from '@components/ui-kit/Svelte';
 import { Releases } from 'components/organisms/releases';
 ---
 
 <div class="releases-block">
-  <div class="releases-block__first-row">
+  <div class="releases-block__content">
     <Releases client:visible />
   </div>
-  <div class="releases-block__last-row">
-    <Button variant="primary">История обновлений</Button>
-  </div>
 </div>
-
-<style lang="css">
-  .releases-block {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-</style>
