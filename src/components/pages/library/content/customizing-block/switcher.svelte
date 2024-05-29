@@ -64,7 +64,9 @@
     </div>
     <div class="customization-links">
       <Button variant="primary">Figma components</Button>
-      <Button variant="primary">Storybook</Button>
+      <Button variant="primary" on:click={() => window.open('https://admiralds.github.io/react-ui/', '_blank')}>
+        Storybook
+      </Button>
     </div>
   </div>
 </div>
