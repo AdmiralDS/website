@@ -2,7 +2,6 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    height: 164px;
     width: 100%;
     border-radius: 12px;
     background: var(--Light_blue, #F5F9FD);

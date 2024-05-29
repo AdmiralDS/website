@@ -221,4 +221,6 @@
   <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
 </div>
 
-<style lang="css"></style>
+<style lang="css">
+  @import './icons-switcher.css';
+</style>
