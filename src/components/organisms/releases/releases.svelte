@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { ArrowButtons } from '@components/ui-kit/Svelte';
+  import { ArrowButtons, Button } from '@components/ui-kit/Svelte';
   import ReleaseCard from '@components/organisms/releases/ReleaseCard.svelte';
   import ReleaseTitleCard from '@components/organisms/releases/ReleaseTitleCard.svelte';
 
@@ -124,6 +124,13 @@
   </div>
 </div>
 <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+<Button
+  style="width: fit-content; margin-top: 40px"
+  variant="primary"
+  on:click={() => window.open('https://github.com/AdmiralDS/react-ui/releases', '_blank')}
+>
+  История обновлений
+</Button>
 
 <style lang="css">
   .releases-wrapper {
