@@ -1,0 +1,25 @@
+.content-wrapper {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+    padding: 0 60px;
+    background: var(--White, #fff);
+
+    @media (max-width: 1600px) {
+        padding: 0 40px;
+    }
+}
+.content-wrapper::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: -12px;
+    left: 0;
+    height: 14px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background: var(--White, #fff);
+}
