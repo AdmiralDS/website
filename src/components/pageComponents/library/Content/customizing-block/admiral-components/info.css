@@ -1,0 +1,25 @@
+.custom-info {
+  width: 100%;
+  height: fit-content;
+  min-height: 497px;
+  border-radius: 12px;
+  background: var(--Dark_blue_gradient);
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.components-control-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.component-wrapper {
+  display: flex;
+  justify-content: center;
+  /*margin: auto;*/
+}

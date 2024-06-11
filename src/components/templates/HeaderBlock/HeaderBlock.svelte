@@ -1,10 +1,16 @@
 <script lang="ts">
-  // <!--import Contacts from '../Contacts.astro';-->
+  import { Contacts } from '@components/molecules'
+  const classes: Array<string> = ['header']
+  if ($$props.class) {
+    classes.push($$props.class);
+  }
+
+  const className = classes.join(' ')
 </script>
 
-<div  {...$$restProps} class='header'>
+<div  {...$$restProps} class={className}>
   <div class="header__content">
-<!--    <Contacts />-->
+    <Contacts />
     <slot />
   </div>
 </div>

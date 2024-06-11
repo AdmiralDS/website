@@ -45,7 +45,7 @@
       style="max-height: {opened ? maxHeight : 0}"
       bind:this={childrenWrapper}
     >
-      <div class="level-separator" />
+      <div class="level-separator"></div>
       {#each children as child}
         <svelte:self {...child} {active} {onClick} indent={indent + 20} />
       {/each}

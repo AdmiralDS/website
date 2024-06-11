@@ -1,0 +1,16 @@
+.customizing__info {
+    color: var(--Grey, #7a8190);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.switcher-wrapper {
+    display: grid;
+    grid-template-columns: 50% 5px 50%;
+    column-gap: 10px;
+    position: relative;
+}

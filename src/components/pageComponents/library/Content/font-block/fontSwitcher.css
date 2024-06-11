@@ -1,0 +1,24 @@
+.lib-font-block__font-tile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+    background: var(--Light_grey);
+    padding: 20px;
+}
+
+.lib-font-block__font-tile {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 12px;
+    background: var(--Light_blue, #f5f9fd);
+    padding: 20px;
+}
+
+.lib-font-block__font-buttons-container {
+    display: flex;
+    gap: 5px;
+}

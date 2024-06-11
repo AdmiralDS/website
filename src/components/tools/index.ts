@@ -1,2 +1,2 @@
-export * from './createEventForwarder.ts';
-export * from './joinAbsoluteUrlPath.ts';
+export * from './createEventForwarder';
+export * from './joinAbsoluteUrlPath';

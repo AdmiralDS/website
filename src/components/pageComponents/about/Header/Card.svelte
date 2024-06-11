@@ -1,0 +1,38 @@
+<script lang="ts">
+  import type { SvelteElement } from 'svelte/compiler';
+
+  export let text: string;
+  export let icon: SvelteElement | undefined = undefined
+</script>
+
+
+<div class="header__card">
+  {#if icon}
+    <svelte:component this={icon} />
+  {/if}
+  <span class="card-text">{text}</span>
+</div>
+<style>
+  .header__card {
+    flex: 0 0 calc(33% - 10px);
+    padding: 20px 0 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .header__card svg {
+    width: 50px;
+    height: 50px;
+  }
+  .card-text {
+    color: var(--White, #fff);
+    font-variant-numeric: lining-nums tabular-nums;
+
+    /* 20/25 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
+  }
+</style>

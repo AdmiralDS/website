@@ -1,0 +1,61 @@
+:global(.about-header) {
+    flex: 0 0 812px;
+    min-height: 812px;
+}
+
+img,
+video {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.header-text {
+    color: var(--White, #fff);
+    font-variant-numeric: lining-nums tabular-nums;
+    /* 80/75 */
+    font-family: 'CoFo Kak';
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 75px; /* 93.75% */
+    text-transform: uppercase;
+    width: 871px;
+    /* grid-column: 1 / span 12; */
+    margin-top: 39px;
+    margin-bottom: 20px;
+}
+
+.header__subtext {
+    color: #fff;
+    font-variant-numeric: lining-nums tabular-nums;
+
+    /* 20/25 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
+    /* grid-column: 1 / span 8; */
+    width: 975px;
+    margin-bottom: auto;
+}
+
+.cards-wrapper {
+    height: 216px;
+    grid-column: 1 / span 12;
+    display: flex;
+    column-gap: 10px;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 100%;
+    background-color: var(--White, #fff);
+    opacity: 0.2;
+}

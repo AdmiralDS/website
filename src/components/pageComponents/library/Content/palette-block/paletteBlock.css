@@ -1,0 +1,34 @@
+.palette-block__colors-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px 20px;
+    width: 100%;
+}
+
+.palette-tile {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.palette-tile__color-name {
+    color: var(--White, #fff);
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 22px;
+}
+
+.palette-tile__color-code {
+    color: var(--White, #fff);
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+}
+.tags-wrapper-colors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
