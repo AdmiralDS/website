@@ -28,7 +28,7 @@ jobs:
       #    node-version: 20
       #    cache: npm
       - name: Install dependencies
-      - run: bun install
+        run: bun install
       #- run: bun index.ts
       
       #  run: npm i
