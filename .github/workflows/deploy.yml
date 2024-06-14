@@ -32,11 +32,12 @@ jobs:
       #- run: bun index.ts
       
       #  run: npm i
-      - name: build
+      - name: Build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
-        run: bun run build      
-        # touch build/.nojekyll
+        run: |
+          bun run build      
+          touch build/.nojekyll
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
