@@ -2,14 +2,13 @@
   import { IconArrowLeft, IconArrowRight } from '@components/atoms';
   import './footer.css';
   import { onMount } from 'svelte';
-  import { joinAbsoluteUrlPath } from '@components/tools';
   import { base as BASE_URL } from '$app/paths'
 
   const currentYear = new Date().getFullYear();
   let currentLocation: string;
 
   onMount(() => {
-    currentLocation = window.location.pathname;
+    currentLocation = window.location.pathname.replace(BASE_URL, '');
   });
 
   let nextPage: string;
@@ -19,18 +18,18 @@
   $: switch (currentLocation) {
     case '/users':
       nextPage = 'Библиотека';
-      nextPageLink = joinAbsoluteUrlPath(BASE_URL, 'library#library');
-      prevPageLink = joinAbsoluteUrlPath(BASE_URL, '//#ds-info');
+      nextPageLink = 'library#library';
+      prevPageLink = '/#ds-info';
       break;
     case '/library':
       nextPage = 'Дизайн-система';
-      nextPageLink = joinAbsoluteUrlPath(BASE_URL, '//#ds-info');
-      prevPageLink = joinAbsoluteUrlPath(BASE_URL, 'users#users');
+      nextPageLink = '/#ds-info';
+      prevPageLink = 'users#users';
       break;
     default:
       nextPage = 'Пользователи';
-      nextPageLink = joinAbsoluteUrlPath(BASE_URL, 'users#users');
-      prevPageLink = joinAbsoluteUrlPath(BASE_URL, 'library#library');
+      nextPageLink = 'users#users';
+      prevPageLink = 'library#library';
       break;
   }
 </script>
