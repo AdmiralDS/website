@@ -34,7 +34,7 @@ jobs:
       #  run: npm i
       - name: Build
         env:
-          BASE_PATH: '/${{ github.event.repository.name }}/website/'
+          BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           bun run build      
           touch build/.nojekyll

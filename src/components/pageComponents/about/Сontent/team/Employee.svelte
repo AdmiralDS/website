@@ -2,10 +2,13 @@
   export let name: string;
   export let role: string;
   export let avatar: string;
+  import { base } from '$app/paths'
+
+  const srcUrl = `${base}/images/employee/${avatar}`;
 </script>
 
 <div class="stream-employee">
-  <img class="avatar" src={`/images/employee/${avatar}`} alt={name} />
+  <img class="avatar" src={srcUrl} alt={name} />
   <div class="name">{name}</div>
   <div class="role">{role}</div>
 </div>

@@ -3,11 +3,10 @@
   import './footer.css';
   import { onMount } from 'svelte';
   import { joinAbsoluteUrlPath } from '@components/tools';
+  import { base as BASE_URL } from '$app/paths'
 
   const currentYear = new Date().getFullYear();
   let currentLocation: string;
-
-  const BASE_URL = import.meta.env.BASE_URL;
 
   onMount(() => {
     currentLocation = window.location.pathname;

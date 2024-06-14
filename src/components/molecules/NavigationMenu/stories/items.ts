@@ -1,7 +1,6 @@
 import type { NavigationItem } from '../types.ts';
 import { joinAbsoluteUrlPath } from '@components/tools';
-
-const BASE_URL = import.meta.env.BASE_URL;
+import { base as BASE_URL } from '$app/paths'
 
 export const navItems: Array<NavigationItem> = [
   {

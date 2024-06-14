@@ -5,6 +5,7 @@
   import { joinAbsoluteUrlPath } from '@components/tools';
   import { type Page } from './types';
   import { goto } from '$app/navigation';
+  import { base as BASE_URL } from '$app/paths'
 
   export let items: Array<NavigationItem>;
   export let active: string | undefined;
@@ -46,8 +47,6 @@
     active = page;
     currentPage = page;
   });
-
-  const BASE_URL = import.meta.env.BASE_URL;
 
   const onItemClick = (key: string, item: NavigationItem) => {
     const newPage = getPageRoot(`/${item.href}`);
