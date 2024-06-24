@@ -1,6 +1,6 @@
 <script lang="ts">
   import { type NavigationItem, NavigationPane } from '@components/molecules';
-  import { fade, blur } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
   import { cubicIn, cubicOut } from 'svelte/easing';
 
   export let data;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Timeline } from '@components/ui-kit/Svelte';
+  import { Timeline } from '@components/molecules';
   import history from './history.json';
 </script>
 
