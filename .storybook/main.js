@@ -6,15 +6,13 @@ const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx|svelte)'],
   addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
   framework: {
-    name: '@storybook/svelte-vite',
+    name: '@storybook/sveltekit',
     options: {},
   },
   docs: {
     autodocs: 'tag',
   },
-  core: {
-    builder: '@storybook/builder-vite',
-  },
+  core: {},
   async viteFinal(config, options) {
     const mergedConfig = mergeConfig(config, {
       // Add dependencies to pre-optimization
@@ -23,9 +21,14 @@ const config = {
           '@components': path.resolve(__dirname, '../src/components'),
         },
       },
+      server: {
+        fs: {
+          // Allow serving files from one level up to the project root
+          allow: ['..'],
+        },
+      },
     });
 
-    console.log(mergedConfig);
     return mergedConfig;
   },
 };
