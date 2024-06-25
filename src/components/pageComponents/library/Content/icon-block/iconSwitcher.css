@@ -78,6 +78,6 @@
     height: 24px;
 }
 
-:global(.icons-block__icon g path) {
+:global(.icons-block__icon path) {
     fill: #0d42ff !important;
 }
