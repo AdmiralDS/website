@@ -19,11 +19,11 @@
     case '/users':
       nextPage = 'Библиотека';
       nextPageLink = 'library#library';
-      prevPageLink = '/#ds-info';
+      prevPageLink = `${BASE_URL}/#ds-info`;
       break;
     case '/library':
       nextPage = 'Дизайн-система';
-      nextPageLink = '/#ds-info';
+      nextPageLink = `${BASE_URL}/#ds-info`;
       prevPageLink = 'users#users';
       break;
     default:

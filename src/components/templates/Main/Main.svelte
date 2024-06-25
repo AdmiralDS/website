@@ -6,7 +6,7 @@
   <slot name="header" >
     Header Slot
   </slot>
-  <ContentWrapper className="content">
+  <ContentWrapper>
     <slot name="content">
       Content Slot
     </slot>
