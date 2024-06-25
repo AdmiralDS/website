@@ -32,10 +32,13 @@
 
   $: {
     afterNavigate(() => {
-      const page = getPageRoot(window.location.pathname);
+      const path = window.location.pathname.replace(BASE_URL, '');
+      const page = getPageRoot(path);
 
-      active = page;
-      currentPage = page;
+      if (currentPage !== page) {
+        active = page;
+        currentPage = page;
+      }
     });
 
     if (prevActive !== active) {
