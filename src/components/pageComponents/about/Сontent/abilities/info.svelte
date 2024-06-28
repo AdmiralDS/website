@@ -1,10 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import Theme from './icons/theme.svelte';
-  import Accessability from './icons/accessability.svelte';
-  import Global from './icons/global.svelte';
-  import Mobile from './icons/mobile.svelte';
-  // import text from './text.json';
+  import themeIcon from '@assets/theme.gif';
+  import accessibilityIcon from '@assets/accessability.gif';
+  import globalIcon from '@assets/global.gif';
+  import mobileIcon from '@assets/mobile.gif';
 
   export let name: string;
   // export let Icon;
@@ -30,16 +29,16 @@
     },
   };
 
-  const getIcon = () => {
+  $: getIcon = () => {
     switch (name) {
       case 'theme':
-        return Theme;
+        return themeIcon;
       case 'accessibility':
-        return Accessability;
+        return accessibilityIcon;
       case 'global':
-        return Global;
+        return globalIcon;
       case 'mobile':
-        return Mobile;
+        return mobileIcon;
     }
   };
 
@@ -49,7 +48,7 @@
 </script>
 
 <div class="ability-info" >
-  <svelte:component this={getIcon()} />
+  <img class="ability-info__img" alt="The project logo" src={getIcon()} />
   <div class="main-text">{@html TEXT[name].mainText}</div>
   <div class="info-text">{@html TEXT[name].infoText}</div>
 </div>
@@ -66,6 +65,11 @@
         flex-direction: column;
         box-sizing: border-box;
         align-items: center;
+    }
+
+    .ability-info__img {
+      width: 100px;
+      height: 100px;
     }
 
     .main-text {
