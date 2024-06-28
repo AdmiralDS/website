@@ -28,6 +28,7 @@ const config = {
       alias: {
       '@components': 'src/components',
       '@store': 'src/store',
+      '@assets': 'src/assets'
     },
     paths: {
       base: '/website',
