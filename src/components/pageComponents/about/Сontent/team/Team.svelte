@@ -13,7 +13,7 @@
     { name: 'Анастасия Журавлева', role: 'Дизайнер ОДС Aдмирал', avatar: 'AZhuravleva.png' },
     { name: 'Пётр Басин', role: 'Лидер команды UX исследований', avatar: 'PBasin.png' },
     { name: 'Никита Маслов', role: 'Менеджер проекта', avatar: 'NMaslov.png' },
-    { name: 'Дарья Проценко', role: 'Менеджер проекта', avatar: 'DProcenko.png' },
+    { name: 'Хочу в команду', role: 'Мы оставили это место для тебя', avatar: '', customAvatar: true },
   ];
 </script>
 
