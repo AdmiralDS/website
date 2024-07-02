@@ -2,13 +2,21 @@
   export let name: string;
   export let role: string;
   export let avatar: string;
-  import { base } from '$app/paths'
+  export let customAvatar: boolean;
+  import { base } from '$app/paths';
+  import PlusIcon from './plus.svelte';
 
   const srcUrl = `${base}/images/employee/${avatar}`;
 </script>
 
 <div class="stream-employee">
-  <img class="avatar" src={srcUrl} alt={name} />
+  {#if customAvatar}
+    <div class="apply-for-role" on:click={() => window.open('mailto:Admiral@inno.tech')}>
+      <PlusIcon />
+    </div>
+  {:else}
+    <img class="avatar" src={srcUrl} alt={name} />
+  {/if}
   <div class="name">{name}</div>
   <div class="role">{role}</div>
 </div>
@@ -16,6 +24,9 @@
 <style>
   .stream-employee {
     max-width: 145px;
+  }
+  .apply-for-role {
+    cursor: pointer;
   }
   .stream-employee .avatar {
     width: 80px;
@@ -31,7 +42,7 @@
     font-weight: 500;
     line-height: 20px; /* 125% */
     margin-bottom: 4px;
-    width: 10px;
+    width: 55px;
   }
   .stream-employee .role {
     color: var(--Grey, #7a8190);
