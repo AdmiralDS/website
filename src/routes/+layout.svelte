@@ -93,7 +93,7 @@
   ];
 </script>
 
-<NavigationPane items={navItems} />
+<!-- <NavigationPane items={navItems} /> -->
 
   <div class="main-container-wrapper" >
     {#key data.pathname}

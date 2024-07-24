@@ -85,4 +85,18 @@
     width: 100%;
     height: 100%;
   }
+
+  @media (max-width: 1024px) {
+    .user-card__info-main {
+      color: var(--White, #fff);
+      font-family: CoFo Kak;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 40px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      width: 540px;
+  }
+}
+
 </style>
