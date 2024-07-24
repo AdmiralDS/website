@@ -15,6 +15,6 @@
 
 .tablet-pane-container--open {
   display: flex;
-  margin-left: -10px;
+  margin-left: -25px;
   gap: 20px;
 }
