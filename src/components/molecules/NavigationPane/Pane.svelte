@@ -51,7 +51,8 @@
   }
 
   onMount(() => {
-    const page = getPageRoot(window.location.pathname);
+    const path = window.location.pathname.replace(BASE_URL, '');
+    const page = getPageRoot(path);
 
     active = page;
     currentPage = page;

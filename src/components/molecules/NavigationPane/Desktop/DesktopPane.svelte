@@ -1,6 +1,6 @@
 <script>
-  import Pane from './Pane.svelte';
-  import Logo from './admiral.svg';
+  import Pane from '../Pane.svelte';
+  import Logo from '../admiral.svg';
   import { base as BASE_URL } from '$app/paths';
 </script>
 
