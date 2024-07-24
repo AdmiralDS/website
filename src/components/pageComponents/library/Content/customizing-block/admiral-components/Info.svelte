@@ -76,7 +76,6 @@
       prevBorderRadius = borderRadius;
       prevColor = color;
       prevColorPickerValueHex = colorPickerValueHex;
-      console.log(theme);
       unmountReactComponent();
       mountReactComponent();
     }

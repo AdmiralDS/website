@@ -13,7 +13,6 @@
 
   const onItemClick = (key: string, item: NavigationItem) => {
     if (item.children && item.children) {
-      console.log(key);
       opened = new Array(1).fill(key);
     }
   };

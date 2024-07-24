@@ -71,8 +71,10 @@ code {
 }
 
 .main-container-wrapper {
-  /* flex: 1 0 auto;
-  position: relative; */
+    @media (min-width: 1025px) {
+      flex: 1 0 auto;
+      position: relative;
+  }
 }
 
 .main-container {
