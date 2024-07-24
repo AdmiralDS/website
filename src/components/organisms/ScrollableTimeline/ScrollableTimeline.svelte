@@ -60,7 +60,17 @@
     startX = e.pageX;
   };
 
+  const touchDownHandler = (e: TouchEvent) => {
+    isMousePressed = true;
+    startX = e.changedTouches[0].pageX;
+  };
+
   const mouseUpHandler = () => {
+    isMousePressed = false;
+    calcButtonsDisabled();
+  };
+
+  const touchUpHandler = () => {
     isMousePressed = false;
     calcButtonsDisabled();
   };
@@ -81,11 +91,34 @@
       if (scrolledToRight) scrolledToRight = false;
       left = left + delta < 0 ? 0 : left + delta;
     }
-    // console.log();
+  };
+
+  const touchMoveHandler = (e: TouchEvent) => {
+    if (!isMousePressed) return;
+
+    const delta = startX - e.changedTouches[0].pageX;
+    startX = e.changedTouches[0].pageX;
+
+    if (delta > 0) {
+      const parent = scrollingContainer.parentElement as HTMLDivElement;
+      const newValue = left + delta;
+      const maxValue = scrollingContainer.clientWidth - parent.clientWidth;
+
+      left = newValue > maxValue ? maxValue : newValue;
+    } else {
+      if (scrolledToRight) scrolledToRight = false;
+      left = left + delta < 0 ? 0 : left + delta;
+    }
   };
 </script>
 
-<svelte:window on:resize={calcButtonsDisabled} on:mouseup={mouseUpHandler} on:mousemove={mouseMoveHandler} />
+<svelte:window 
+  on:resize={calcButtonsDisabled} 
+  on:mouseup={mouseUpHandler} 
+  on:mousemove={mouseMoveHandler}
+  on:touchend={touchUpHandler}
+  on:touchmove={touchMoveHandler}
+/>
 <div class="timeline-container" bind:this={container}>
   <div
     class="scrolling-container"
@@ -94,6 +127,7 @@
     {style}
     on:transitionend={calcButtonsDisabled}
     on:mousedown={mouseDownHandler}
+    on:touchstart={touchDownHandler}
   >
     <Timeline {items} {container} />
   </div>
