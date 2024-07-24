@@ -1,6 +1,7 @@
 <script>
   import Logo from './admiral.svg';
   import Lines from './lines.svg';
+  import { base as BASE_URL } from '$app/paths';
 
   const handleClickOnMenuControl = () => {
     const clickEvent = new CustomEvent('clickHeaderTabletButton');
@@ -9,9 +10,13 @@
   };
 </script>
 
-<div class="header__tablet-button" on:click={handleClickOnMenuControl}>
-  <Lines />
-  <Logo fill="var(--White, rgb(255, 255, 255))" />
+<div class="header__tablet-button">
+  <div class="header__tablet-icon-wrapper" on:click={handleClickOnMenuControl}>
+    <Lines />
+  </div>
+  <a href={BASE_URL}>
+    <Logo fill="var(--White, rgb(255, 255, 255))" />
+  </a>
 </div>
 
 <style>
@@ -19,8 +24,11 @@
     position: absolute;
     top: 36px;
     left: 30px;
-    /*z-index: 98;*/
     display: flex;
     gap: 20px;
+  }
+
+  .header__tablet-icon-wrapper {
+    display: flex;
   }
 </style>
