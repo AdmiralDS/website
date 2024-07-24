@@ -1,6 +1,6 @@
 .pane-wrapper{
   display: block;
-  z-index: 1;
+  z-index: 10;
 }
 
 .background {
@@ -16,5 +16,5 @@
 .tablet-pane-container--open {
   display: flex;
   margin-left: -25px;
-  gap: 20px;
+  gap: 18px;
 }
