@@ -93,12 +93,16 @@
   ];
 </script>
 
-<!-- <NavigationPane items={navItems} /> -->
+<NavigationPane items={navItems} />
 
-  <div class="main-container-wrapper" >
-    {#key data.pathname}
-    <div class="main-container" in:fade={{ easing: cubicOut, duration: 300, delay: 400 }} out:fade={{ easing: cubicIn, duration: 300 }}>
+<div class="main-container-wrapper">
+  {#key data.pathname}
+    <div
+      class="main-container"
+      in:fade={{ easing: cubicOut, duration: 300, delay: 400 }}
+      out:fade={{ easing: cubicIn, duration: 300 }}
+    >
       <slot />
     </div>
-    {/key}
-  </div>
+  {/key}
+</div>
