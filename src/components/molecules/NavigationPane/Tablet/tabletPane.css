@@ -13,7 +13,7 @@
   z-index: 1;
 }
 
-.tablet-pane-container--open {
+.tablet-pane-container {
   display: flex;
   margin-left: -25px;
   gap: 18px;

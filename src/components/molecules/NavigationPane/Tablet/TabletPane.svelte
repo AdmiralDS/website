@@ -32,7 +32,7 @@
     transition:slide={{ duration: 250, easing: linear, axis: 'x' }}
   >
     <Pane {...$$props}>
-      <div class="tablet-pane-container--open">
+      <div class="tablet-pane-container">
         <div on:click={handleClickOnMenuControl}>
           <Cross />
         </div>
