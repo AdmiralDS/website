@@ -8,8 +8,13 @@
     padding: 0 60px;
     background: var(--White, #fff);
 
+
     @media (max-width: 1600px) {
         padding: 0 40px;
+    }
+
+    @media (max-width: 430px) {
+        padding: 0 16px;
     }
 }
 .content-wrapper::before{

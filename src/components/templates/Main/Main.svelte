@@ -1,5 +1,6 @@
 <script>
   import { ContentWrapper } from '../ContentWrapper';
+  import { Footer } from '@components/organisms';
 </script>
 
 <main  >
@@ -10,6 +11,7 @@
     <slot name="content">
       Content Slot
     </slot>
+    <Footer />
   </ContentWrapper>
 </main>
 
