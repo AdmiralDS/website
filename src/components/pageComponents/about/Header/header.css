@@ -3,6 +3,11 @@
     min-height: 812px;
 }
 
+.about-header__content {
+    display: flex;
+    flex-direction: column;
+}
+
 img,
 video {
     position: absolute;
@@ -18,7 +23,6 @@ video {
 .header-text {
     color: var(--White, #fff);
     font-variant-numeric: lining-nums tabular-nums;
-    /* 80/75 */
     font-family: 'CoFo Kak';
     font-size: 80px;
     font-style: normal;
@@ -26,7 +30,6 @@ video {
     line-height: 75px; /* 93.75% */
     text-transform: uppercase;
     width: 871px;
-    /* grid-column: 1 / span 12; */
     margin-top: 39px;
     margin-bottom: 20px;
 }
@@ -35,15 +38,21 @@ video {
     color: #fff;
     font-variant-numeric: lining-nums tabular-nums;
 
-    /* 20/25 */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
     line-height: 25px; /* 125% */
-    /* grid-column: 1 / span 8; */
     width: 975px;
     margin-bottom: auto;
+
+    @media (max-width: 1600px) {
+        width: 788px;
+    }
+
+    @media (max-width: 1365px) {
+        width: 617px;
+    }
 }
 
 .cards-wrapper {
@@ -51,11 +60,10 @@ video {
     grid-column: 1 / span 12;
     display: flex;
     column-gap: 10px;
-}
+    border-top: 1px solid rgb(255, 255, 255, 0.2);
+    margin-top: 130px;
 
-.vertical-divider {
-    width: 1px;
-    height: 100%;
-    background-color: var(--White, #fff);
-    opacity: 0.2;
+    @media (max-width: 1365px) {
+        margin-top: 80px;
+    }
 }
