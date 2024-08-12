@@ -1,0 +1,11 @@
+.tablet-button {
+  position: absolute;
+  top: 36px;
+  left: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.tablet-icon-wrapper {
+  display: flex;
+}

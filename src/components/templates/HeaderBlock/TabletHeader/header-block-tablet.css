@@ -1,0 +1,11 @@
+.header-block-template__tablet {
+    padding: 0 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .header-block-template__tablet-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }

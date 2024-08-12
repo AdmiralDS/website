@@ -1,0 +1,28 @@
+.header-block-template__mobile {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-header-template__heading {
+    display: flex;
+    padding: 24px;
+    justify-content: center;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.mobile-header-template__icon-wrapper {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+}
+
+.mobile-header-template__logo-wrapper {
+    display: flex;
+    margin-top: 6px;
+}
+
+.mobile-header-template__content {
+    display: flex;
+    border-radius: 12px 12px 0px 0px;
+}

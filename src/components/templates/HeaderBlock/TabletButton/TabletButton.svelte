@@ -1,6 +1,5 @@
 <script>
-  import Logo from './admiral.svg';
-  import Lines from './lines.svg';
+  import { Burger, Logo } from '@assets/icons';
   import { base as BASE_URL } from '$app/paths';
 
   const handleClickOnMenuControl = () => {
@@ -10,9 +9,9 @@
   };
 </script>
 
-<div class="header__tablet-button">
-  <div class="header__tablet-icon-wrapper" on:click={handleClickOnMenuControl}>
-    <Lines />
+<div class="tablet-button">
+  <div class="tablet-icon-wrapper" on:click={handleClickOnMenuControl}>
+    <Burger fill="var(--White, rgb(255, 255, 255))" />
   </div>
   <a href={BASE_URL}>
     <Logo fill="var(--White, rgb(255, 255, 255))" />
@@ -20,15 +19,5 @@
 </div>
 
 <style>
-  .header__tablet-button {
-    position: absolute;
-    top: 36px;
-    left: 30px;
-    display: flex;
-    gap: 20px;
-  }
-
-  .header__tablet-icon-wrapper {
-    display: flex;
-  }
+ @import './tablet-button.css';
 </style>

@@ -2,12 +2,10 @@
   import Cover from './image.png';
 
   import { HeaderBlock } from '@components/templates';
-  import { Divider } from '@components/atoms';
 </script>
 
 <HeaderBlock id={'users'} class="users-header-image" style="background: url({Cover})">
-  <Divider />
-  <div class="header__wrapper">
+  <div class="header__wrapper" slot="content">
     <span class="header-text">
       С адмирал <br />
       все говорят <br />
