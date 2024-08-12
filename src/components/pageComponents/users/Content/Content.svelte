@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { Footer } from '@components/organisms';
     import { Description } from './Description';
     import { UserList} from './UserList';
   </script>
@@ -8,4 +7,3 @@
     <Description />
     <UserList />
   </div>
-  <Footer />

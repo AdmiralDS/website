@@ -6,7 +6,6 @@
   import { AccessibilityBlock } from './accessibility-block';
   import { ReleaseBlock } from './release-block';
   import { CustomizingBlock } from './customizing-block';
-  import { Footer } from '@components/organisms';
 </script>
 
 <div class="wrapper">
@@ -18,4 +17,3 @@
   <CustomizingBlock />
   <ReleaseBlock />
 </div>
-<Footer />
