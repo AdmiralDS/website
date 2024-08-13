@@ -4,10 +4,18 @@
   padding-bottom: 100px;
   border-bottom: 1px solid #e6eaf0;
   position: relative;
+
+  @media (max-width: 430px) {
+    padding: 20px 0 48px;
+  }
 }
 
 .block-container:first-child {
   padding-top: 6px;
+
+  @media (max-width: 430px) {
+    padding-top: 20px;
+  }
 }
 
 :global(.block-title) {
@@ -21,6 +29,11 @@
   line-height: 40px; /* 100% */
   text-transform: uppercase;
   margin: 0;
+
+  @media (max-width: 430px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
 }
 
 :global(.block-title.dark) {

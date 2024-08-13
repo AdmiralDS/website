@@ -13,9 +13,11 @@
 
     document.dispatchEvent(clickEvent);
   };
+
+  const {id} = $$props;
 </script>
 
-<div class="mobile-header-template">
+<div class="mobile-header-template" id={id}>
     <div class="mobile-header-template__heading">
       <div class="mobile-header-template__icon-wrapper" on:click={handleClickOnMenuControl}>
         <Burger fill="var(--Dark_grey, rgb(53, 56, 58))" />

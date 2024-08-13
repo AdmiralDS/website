@@ -1,0 +1,119 @@
+.user-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: var(--Dark_blue_gradient);
+  padding: 20px 20px 40px 20px;
+}
+
+.user-card__first-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 20px;
+  word-spacing: 20px;
+
+  color: var(--Light_grey, #e6eaf0);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.user-card__last-row {
+  display: grid;
+  grid-template-columns: 67% auto;
+}
+
+.user-card__info-column {
+  display: flex;
+  flex-direction: column;
+  padding-top: 45px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-card__info-main {
+  color: var(--White, #fff);
+  font-family: CoFo Kak;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.user-card__info-sub {
+  color: var(--Light_grey, #e6eaf0);
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+.user-card__icon-wrapper {
+  margin: 40px auto 0;
+  width: 120px;
+  height: 120px;
+}
+
+:global(.user-card__icon) {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .user-card__info-main {
+    color: var(--White, #fff);
+    font-family: CoFo Kak;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    width: 540px;
+  }
+}
+
+@media (max-width: 430px) {
+  .user-card {
+    padding: 16px 20px;
+  }
+
+  .user-card__first-row {
+    border-bottom: none;
+    padding-bottom: 0;
+    word-spacing: 0;
+  }
+
+  .user-card__last-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-card__info-column {
+    order: 2;
+    border-right: none;
+    padding-top: none;
+  }
+
+  .user-card__info-main {
+    font-size: 22px;
+    line-height: 22px;
+    max-width: 296px;
+  }
+
+  .user-card__info-sub {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .user-card__icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    order: 1;
+    margin: 0 !important;
+    width: auto !important;
+  }
+
+  :global(.user-card__icon) {
+    width: 123px;
+  }
+}
