@@ -1,9 +1,14 @@
 <script>
   import { ContentWrapper } from '../ContentWrapper';
   import { Footer } from '@components/organisms';
+  import { MOBILE_WIDTH } from '@components/const.ts';
+
+  $: innerWidth = 0;
 </script>
 
-<main  >
+<svelte:window bind:innerWidth />
+
+<main>
   <slot name="header" >
     Header Slot
   </slot>
@@ -11,7 +16,9 @@
     <slot name="content">
       Content Slot
     </slot>
-    <Footer />
+    {#if innerWidth > MOBILE_WIDTH}
+      <Footer />
+    {/if}
   </ContentWrapper>
 </main>
 

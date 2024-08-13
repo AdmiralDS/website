@@ -11,12 +11,5 @@
 </ContentBlock>
 
 <style>
-    .users-description__info {
-    color: var(--Grey, #7a8190);
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 25px;
-    margin-top: 20px;
-}
+ @import './description.css';
 </style>
