@@ -9,6 +9,7 @@
     justify-content: center;
     margin-bottom: 4px;
     position: relative;
+    background-color: var(--White, #fff);
 }
 
 .mobile-header-template__icon-wrapper {
