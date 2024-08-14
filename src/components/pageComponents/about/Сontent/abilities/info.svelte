@@ -6,6 +6,8 @@
   import mobileIcon from '@assets/mobile.gif';
 
   export let name: string;
+
+  $: currentName = name;
   // export let Icon;
   // export let mainText: string;
   // export let infoText: string;
@@ -30,7 +32,7 @@
   };
 
   $: getIcon = () => {
-    switch (name) {
+    switch (currentName) {
       case 'theme':
         return themeIcon;
       case 'accessibility':
