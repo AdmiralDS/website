@@ -39,7 +39,15 @@
       rgba(0, 0, 255, 1) 100%
     ),
     rgb(3, 1, 37);
+
+    --Dark_blue_gradient--mobile: radial-gradient(
+      298.40% 141.42% at 99% 100%,
+      rgba(0, 0, 255, 0.35),
+      rgba(6, 6, 114, 0.35) 29.735%,
+      rgba(6, 6, 114, 0) 64.241%),
+      rgb(3, 1, 37);
 }
+
 
 html {
   font-family: system-ui, sans-serif;
