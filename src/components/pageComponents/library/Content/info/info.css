@@ -1,0 +1,14 @@
+.library-description__info {
+  color: var(--Grey, #7a8190);
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  padding-top: 20px;
+
+	@media (max-width: 430px) {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0px;
+  }
+}

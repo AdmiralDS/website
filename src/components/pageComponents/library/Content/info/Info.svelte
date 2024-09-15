@@ -1,5 +1,5 @@
 <script>
-import { ContentBlock } from '@components/templates';
+  import { ContentBlock } from '@components/templates';
 </script>
 
 <ContentBlock id="" title="Библиотека">
@@ -10,12 +10,5 @@ import { ContentBlock } from '@components/templates';
 </ContentBlock>
 
 <style>
-  .library-description__info {
-    color: var(--Grey, #7a8190);
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 25px;
-    padding-top: 20px;
-  }
+  @import './info.css';
 </style>
