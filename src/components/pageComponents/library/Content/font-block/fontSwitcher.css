@@ -21,4 +21,8 @@
 .lib-font-block__font-buttons-container {
     display: flex;
     gap: 5px;
+
+    @media (max-width: 430px) {
+        margin: 48px 0 0;
+      }
 }
