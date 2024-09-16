@@ -3,6 +3,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px 20px;
     width: 100%;
+
+    @media (max-width: 430px) {
+        gap: 0;
+        border-radius: 12px 12px 0 0 !important;
+    }
 }
 
 .palette-tile {
@@ -10,6 +15,11 @@
     flex-direction: column;
     border-radius: 12px;
     padding: 10px;
+
+    @media (max-width: 430px) {
+        padding: 20px;
+        border-radius: 0;
+    }
 }
 
 .palette-tile__color-name {
@@ -19,6 +29,10 @@
     font-weight: 500;
     line-height: 20px;
     margin-bottom: 22px;
+
+    @media (max-width: 430px) {
+        align-self: center;
+    }
 }
 
 .palette-tile__color-code {
@@ -27,7 +41,12 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 15px;
+
+    @media (max-width: 430px) {
+        align-self: center;
+    }
 }
+
 .tags-wrapper-colors {
     display: grid;
     grid-template-columns: 1fr 1fr;
