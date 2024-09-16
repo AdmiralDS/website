@@ -16,6 +16,10 @@
   display: flex;
   gap: 10px;
   margin-bottom: 40px;
+
+  @media (max-width: 430px) {
+    flex-wrap: wrap;
+  }
 }
 
 .component-wrapper {
