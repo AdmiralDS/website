@@ -5,6 +5,9 @@
   import Eye from './eye.svg';
   import Scan from './scan.svg';
   import Shield from './shield.svg';
+  import { MOBILE_WIDTH } from '@components/const.ts';
+
+  $: innerWidth = 0;
 
   const getComponent = (name: string) => {
     switch (name) {
@@ -16,10 +19,18 @@
 
 </script>
 
+<svelte:window bind:innerWidth />
+
 <ContentBlock id="accessibility" title="Доступность">
   <div class="accessibility__info">
-    Все компоненты соответствуют стандарту доступности <br />
-    WCAG AA и отлично отрабатывают в режимах VoiceOver <br />
+    Все компоненты соответствуют стандарту доступности
+    {#if innerWidth > MOBILE_WIDTH}
+      <br />
+    {/if}
+    WCAG AA и отлично отрабатывают в режимах VoiceOver
+    {#if innerWidth > MOBILE_WIDTH}
+      <br />
+    {/if}
     и Talkback для людей с нарушением зрения
   </div>
   <div class="accessibility__descr-wrapper">
