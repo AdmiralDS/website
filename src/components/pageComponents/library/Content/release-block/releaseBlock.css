@@ -9,4 +9,14 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
+
+  @media (max-width: 430px) {
+    margin-bottom: 24px;
+  }
+}
+
+.releases-block__buttons-wrapper {
+  @media (max-width: 430px) {
+    display: none;
+  }
 }

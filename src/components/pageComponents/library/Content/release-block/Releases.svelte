@@ -124,7 +124,9 @@
     {/if}
   </div>
 </div>
-<ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+<div class="releases-block__buttons-wrapper">
+  <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+</div>
 <Button
   style="width: fit-content; margin-top: 40px"
   variant="primary"
@@ -134,24 +136,5 @@
 </Button>
 
 <style lang="css">
-  .releases-wrapper {
-    margin-bottom: 20px;
-    display: flex;
-    gap: 20px;
-  }
-
-  .releases-block__cards-wrapper {
-    overflow: hidden;
-    flex: 1 0 75%;
-    box-sizing: border-box;
-  }
-
-  .releases-block__scrolling-container {
-    position: relative;
-    width: fit-content;
-    display: grid;
-    gap: 20px;
-    justify-content: space-between;
-    transition: transform 300ms ease-in-out;
-  }
+ @import './releases.css';
 </style>
