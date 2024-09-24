@@ -1,7 +1,7 @@
 <script>
   import './paletteBlock.css';
   import { SubcontentBlock } from '@components/templates';
-  import { Tag } from '@components/atoms';
+  import { Tag, MobilePlug } from '@components/atoms';
 
   const colorTypeList = ['Основные цвета', 'Дополнительные цвета'];
   const colorsList = [
@@ -43,12 +43,17 @@
     {/each}
   </svelte:fragment>
 
-  <div class="palette-block__colors-wrapper" slot="subcontent">
-    {#each colorsList as item}
-      <div class="palette-tile" style="background: {item.code}">
-        <div class="palette-tile__color-name">{item.name}</div>
-        <div class="palette-tile__color-code">HEX {item.code}</div>
-      </div>
-    {/each}
+  <div class="palette-block__colors-container" slot="subcontent">
+    <div class="palette-block__colors-wrapper">
+      {#each colorsList as item}
+        <div class="palette-tile" style="background: {item.code}">
+          <div class="palette-tile__color-name">{item.name}</div>
+          <div class="palette-tile__color-code">HEX {item.code}</div>
+        </div>
+      {/each}
+    </div>
+    <div class="palette-block__plug-wrapper">
+      <MobilePlug isTransparent />
+    </div>
   </div>
 </SubcontentBlock>

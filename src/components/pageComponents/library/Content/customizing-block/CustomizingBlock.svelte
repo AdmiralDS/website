@@ -5,6 +5,7 @@ import Switcher from './switcher/Switcher.svelte';  import { MOBILE_WIDTH } from
 $: innerWidth = 0;
 
 import './customizingBlock.css';
+  import MobilePlug from '@components/atoms/MobilePlug/MobilePlug.svelte';
 </script>
 
 <svelte:window bind:innerWidth />
@@ -23,5 +24,8 @@ import './customizingBlock.css';
   </div>
   <div class="switcher-wrapper">
     <Switcher />
+    <div class="customizing-block__plug-wrapper">
+      <MobilePlug isTransparent />
+    </div>
   </div>
 </ContentBlock>

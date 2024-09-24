@@ -1,0 +1,1 @@
+export { default as MobilePlug } from './MobilePlug.svelte';
