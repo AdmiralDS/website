@@ -10,16 +10,28 @@
   flex-direction: column;
   justify-content: flex-start;
   box-sizing: border-box;
+
+  @media (max-width: 430px) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 .components-control-wrapper {
   display: flex;
   gap: 10px;
   margin-bottom: 40px;
+
+  @media (max-width: 430px) {
+    flex-wrap: wrap;
+  }
 }
 
 .component-wrapper {
   display: flex;
   justify-content: center;
-  /*margin: auto;*/
+  
+  @media (max-width: 430px) {
+    margin-bottom: 30px;
+  }
 }

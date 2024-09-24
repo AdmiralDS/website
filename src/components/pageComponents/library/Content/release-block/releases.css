@@ -1,0 +1,24 @@
+.releases-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 430px) {
+        flex-direction: column;
+    }
+  }
+
+  .releases-block__cards-wrapper {
+    overflow: hidden;
+    flex: 1 0 75%;
+    box-sizing: border-box;
+  }
+
+  .releases-block__scrolling-container {
+    position: relative;
+    width: fit-content;
+    display: grid;
+    gap: 20px;
+    justify-content: space-between;
+    transition: transform 300ms ease-in-out;
+  }

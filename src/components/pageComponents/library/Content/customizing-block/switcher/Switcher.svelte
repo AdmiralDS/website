@@ -30,7 +30,7 @@
 </script>
 
 <div>
-  <div>
+  <div class="customization-menu">
     <div class="customization-items">
       {#each Object.entries(NamesArray) as [name, entry], i}
         <Item {name} number={i} {...entry} active={activeItem === name} onClick={handleClick} />

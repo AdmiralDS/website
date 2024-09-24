@@ -7,11 +7,11 @@
   background: var(--Light_blue, #f5f9fd);
   cursor: pointer;
 }
+
 .release-card:hover .release-card__header:not(.skeleton) {
   transition-property: color;
   transition-duration: var(--transition-duration-base, 300ms);
   transition-timing-function: var(--transition-easing-base, ease-in-out);
-
   color: var(--Blue, #0d42ff);
 }
 
@@ -49,6 +49,7 @@
   width: 1px;
   height: 12px;
 }
+
 .release-card__info-separator:not(.skeletonSeparator) {
   background: var(--Light_grey, #e6eaf0);
 }

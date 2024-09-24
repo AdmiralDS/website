@@ -68,6 +68,7 @@
   import WifiSolid from '@admiral-ds/icons/build/communication/WifiSolid.svg';
 
   import { fade } from 'svelte/transition';
+  import { MobilePlug } from '@components/atoms';
 
   let scrollingContainer: HTMLDivElement;
   let left: number = 0;
@@ -221,8 +222,12 @@
       </div>
     </div>
   </div>
-
-  <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+  <div class="icons-block__arrows-wrapper">
+    <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+  </div>
+  <div class="icon-switcher__plug-wrapper">
+    <MobilePlug />
+  </div>
 </div>
 
 <style lang="css">

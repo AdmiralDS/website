@@ -1,13 +1,4 @@
 .lib-font-block__font-tile {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-radius: 20px;
-    background: var(--Light_grey);
-    padding: 20px;
-}
-
-.lib-font-block__font-tile {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -16,9 +7,24 @@
     border-radius: 12px;
     background: var(--Light_blue, #f5f9fd);
     padding: 20px;
+
+    @media (max-width: 430px) {
+        border-radius: 12px 12px 0 0;
+    }
+}
+
+.lib-font-block__font-tile-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .lib-font-block__font-buttons-container {
     display: flex;
+    margin: 54px 0 0;
     gap: 5px;
+
+    @media (max-width: 430px) {
+        margin: 48px 0 0;
+      }
 }
