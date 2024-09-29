@@ -6,6 +6,11 @@
   border: none;
   background: var(--Light_blue, #f5f9fd);
   cursor: pointer;
+
+  @media (max-width: 430px) {
+    height: 96px;
+    padding: 20px 16px;
+  }
 }
 
 .release-card:hover .release-card__header:not(.skeleton) {
