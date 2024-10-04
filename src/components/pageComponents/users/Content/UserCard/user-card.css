@@ -50,8 +50,8 @@
 
 .user-card__icon-wrapper {
   margin: 40px auto 0;
-  width: 120px;
-  height: 120px;
+  width: 123px;
+  height: 123px;
 }
 
 :global(.user-card__icon) {

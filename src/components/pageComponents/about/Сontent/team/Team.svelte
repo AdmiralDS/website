@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { default as Employee } from './Employee.svelte';
+  import { Employee } from './Employee';
   import { ContentBlock } from '@components/templates';
   import { Tag } from '@components/atoms';
 
