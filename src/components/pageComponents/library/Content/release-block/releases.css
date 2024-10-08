@@ -21,4 +21,8 @@
     gap: 20px;
     justify-content: space-between;
     transition: transform 300ms ease-in-out;
+
+    @media (max-width: 430px) {
+      gap: 8px;
+    }
   }

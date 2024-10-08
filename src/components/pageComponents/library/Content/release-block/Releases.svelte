@@ -4,11 +4,15 @@
   import { ArrowButtons } from '@components/molecules';
   import ReleaseCard from './ReleaseCard.svelte';
   import ReleaseTitleCard from './ReleaseTitleCard.svelte';
+  import { MOBILE_WIDTH } from '@components/const';
+
+  $: innerWidth = 0;
 
   let timer: number;
 
-  const gapWidth = 20;
-  const maxVisibleCardsOnPage = 3;
+  $: gapWidth = innerWidth <= MOBILE_WIDTH ? 8: 20;
+  $: maxVisibleCardsOnPage = innerWidth <= MOBILE_WIDTH ? 1.5 : 3;
+  $: stepDivider = innerWidth <= MOBILE_WIDTH ? maxVisibleCardsOnPage : 1;
   let firstVisibleRelease: number = 0;
 
   const blankRelease = { tag: '', date: '', link: 'https://github.com/AdmiralDS/react-ui/releases' };
@@ -28,7 +32,7 @@
   $: releasesArray = loading ? blankReleases : releasesInfo;
   $: cardWidth = Math.floor(((cardsWrapperWidth || 0) - gapWidth * 2) / maxVisibleCardsOnPage);
   $: step = cardWidth + gapWidth;
-  $: left = firstVisibleRelease * step;
+  $: left = firstVisibleRelease * (step / stepDivider);
 
   const checkButtonsEnable = () => {
     if (!scrollingContainer) return;
@@ -97,9 +101,66 @@
       cardsWrapperWidth = cardsWrapper.clientWidth;
     }, 300);
   };
+
+  let touchstartX = 0;
+
+const handleTouchStart = (event) => {
+  touchstartX = event.changedTouches[0].screenX;
+};
+
+const handleTouchEnd = (event) => {
+  const touchendX = event.changedTouches[0].screenX;
+  
+  if (touchendX < touchstartX) {
+      handleNextClick();
+    }
+    if (touchendX > touchstartX) {
+      handlePrevClick();
+  }
+}
 </script>
 
-<svelte:window on:resize={handleResize} />
+<svelte:window bind:innerWidth on:resize={handleResize} />
+{#if innerWidth <= MOBILE_WIDTH}
+  <div class="releases-wrapper">
+    <ReleaseTitleCard />
+    <div class="releases-block__cards-wrapper" 
+    bind:this={cardsWrapper}
+    on:touchstart={handleTouchStart} 
+    on:touchend={handleTouchEnd}
+    >
+      {#if cardsWrapperWidth}
+        <div
+          class="releases-block__scrolling-container"
+          bind:this={scrollingContainer}
+          {style}
+          on:transitionend={checkButtonsEnable}
+        >
+          {#each releasesArray as release}
+            <ReleaseCard
+              {loading}
+              version={release.tag}
+              date={release.date}
+              info="Релиз"
+              link={release.link}
+              style="grid-row: 1"
+            />
+          {/each}
+        </div>
+      {/if}
+    </div>
+  </div>
+  <div class="releases-block__buttons-wrapper">
+    <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+  </div>
+  <Button
+    style="width: fit-content; margin-top: 40px"
+    variant="primary"
+    on:click={() => window.open('https://github.com/AdmiralDS/react-ui/releases', '_blank')}
+  >
+    История обновлений
+  </Button>
+{:else}
 <div class="releases-wrapper">
   <ReleaseTitleCard />
   <div class="releases-block__cards-wrapper" bind:this={cardsWrapper}>
@@ -134,6 +195,7 @@
 >
   История обновлений
 </Button>
+{/if}
 
 <style lang="css">
  @import './releases.css';
