@@ -8,8 +8,12 @@
     ];
   }
 
-  export let value: number = 24;
+  export let value: number = 20;
   $: tagCaption = `${value} ${declOfNum(value, names)}`;
 </script>
 
-<NamedSlider bind:value {tagCaption} title="Количество продуктов" ticks={[0, 10, 20, 30, 40, 50]} min={0} max={50} />
+<NamedSlider 
+  bind:value {tagCaption} 
+  title="Количество продуктов" 
+  ticks={[0, 10, 20, 30, 40, 50]} min={0} max={50} step={10}
+/>

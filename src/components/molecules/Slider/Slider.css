@@ -102,4 +102,5 @@
   letter-spacing: 0;
   text-align: center;
   color: var(--Grey);
+  text-wrap: nowrap;
 }
