@@ -33,6 +33,9 @@
   /** Text placed after the slider's value tooltip. */
   export let suffix = '';
 
+    /** Text placed after the slider's value tooltip. */
+  export let tickNameHandler = undefined;
+
   /** Determines if the slider's fill track will be visible or not. */
   export let track = true;
 
@@ -252,7 +255,7 @@ A slider is a control that lets the user select from a range of values by moving
           class:isFirst={index === 0}
           class:isLast={index === ticks.length - 1}
           style="--fds-slider-tick-percentage: {valueToPercentage(tick)}%"
-          data-value="{prefix}{numberToString(tick, thousand)}{suffix}"
+          data-value={tickNameHandler ? tickNameHandler(tick) : `${prefix}${numberToString(tick, thousand)}${suffix}`}
         ></div>
       {/each}
     </div>
