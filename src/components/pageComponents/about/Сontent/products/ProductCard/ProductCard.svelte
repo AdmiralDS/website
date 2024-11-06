@@ -1,5 +1,9 @@
 <script>
   import { IconArrowRight } from '@components/atoms';
+  import { ThemeToggle}  from './../ThemeToggle';
+  import { MOBILE_WIDTH } from '@components/const';
+  
+  $: innerWidth = 0;
 
   export let product;
   export let isDark = false;
@@ -7,17 +11,26 @@
   $: imgSrc = isDark ? product.imgDark : product.imgLight;
 </script>
 
+<svelte:window bind:innerWidth />
 <div class="products-block_card-container">
   <div class="products-block_card-content">
     <div class="products-block_card-items">
       <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
       <div class="products-block_card-title" on:click={() => window.open(product.link, '_blank')}>
         <span>{product.title}</span>
-        <IconArrowRight width="16" height="16" />
+        <div class="products-block__icon-wrapper">
+          <IconArrowRight width="16" height="16" />
+        </div>
       </div>
       {#each product.description as text}
         <div class="products-block_card-description">{text}</div>
       {/each}
+      {#if innerWidth <= MOBILE_WIDTH}
+        <div class="products-block__mobile-description">
+          <div>Тёмная тема</div>
+          <ThemeToggle bind:checked={isDark} />
+        </div>
+      {/if}
     </div>
     <div class="products-block_card-items-controls">
       <slot name="ext-controls" />
@@ -32,5 +45,5 @@
 </div>
 
 <style>
-  @import 'product-card.css';
+  @import 'ProductCard.css';
 </style>

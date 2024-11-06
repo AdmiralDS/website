@@ -1,0 +1,38 @@
+.abilities-items {
+  display: flex;
+  flex: 0 1 33%;
+  flex-direction: column;
+  min-width: 33%;
+
+  @media (max-width: 430px) {
+    flex: 0 1 100%;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  }
+
+  .divider {
+    width: 1px;
+
+    @media (max-width: 430px) {
+      display: none;
+    }
+  }
+
+  .separator {
+    width: 1px;
+    position: absolute;
+    height: 100%;
+    background-color: #e6eaf0;
+
+    @media (max-width: 430px) {
+      display: none;
+    }
+  }
+
+  .abilities-info {
+    flex: 1 1 auto;
+  }
