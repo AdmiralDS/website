@@ -1,11 +1,11 @@
 <script lang="ts">
   import Cover from './cover.png';
   import { ContentBlock } from '@components/templates';
-  import { Button } from '@components/atoms';
+  import { Button, MobilePlug } from '@components/atoms';
 </script>
 
 <ContentBlock>
-  <div class="platforms-wrapper">
+  <div class="platforms-wrapper" style={"overflow: visible;"}>
     <div class="platforms-container">
       <h2 class="block-title light" id="platforms">Платформы</h2>
       <div class="content">
@@ -20,6 +20,9 @@
       >
     </div>
     <img class="platforms-cover" src={Cover} alt="cover" />
+    <div class="platforms-block__plug-wrapper">
+      <MobilePlug isTransparent />
+    </div>
   </div>
 </ContentBlock>
 

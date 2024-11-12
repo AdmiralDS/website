@@ -7,8 +7,10 @@
 <ContentBlock id="abilities" title="Возможности" class="abilities-block">
   <div class="abilities-container">
     <Switcher />
+    <div class="abilities-block__plug-wrapper">
+      <MobilePlug isTransparent />
+    </div>
   </div>
-  <MobilePlug isTransparent />
 </ContentBlock>
 
 <style>

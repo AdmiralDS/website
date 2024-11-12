@@ -1,6 +1,6 @@
 <script lang="ts">
   import { EmployeeSlider, PriceSlider, ProductSlider } from './NamedSlider';
-  import { Toggle } from '@components/atoms';
+  import { Toggle, MobilePlug } from '@components/atoms';
   import Arrow from './Arrow.svelte';
   import { ContentBlock } from '@components/templates';
 
@@ -79,6 +79,9 @@
           >ХОЧУ ПОПРОБОВАТЬ</button
         >
       </div>
+    </div>
+    <div class="calculator-block__plug-wrapper">
+      <MobilePlug isTransparent />
     </div>
   </div>
 </ContentBlock>

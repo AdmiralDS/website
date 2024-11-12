@@ -16,39 +16,37 @@
   </video>
   <div class="about-header__content" slot="content">
     <div class="header-text"> АДМИРАЛ — 
-      {#if innerWidth >= MOBILE_WIDTH}
         <br />
-      {/if}
       это дизайн система</div>
     <div class="header__subtext">
       Цель дизайн-системы — создать 
-      {#if innerWidth >= MOBILE_WIDTH}
+      {#if innerWidth <= MOBILE_WIDTH}
         <br />
       {/if}
       единообразный и узнаваемый 
-      {#if innerWidth >= MOBILE_WIDTH}
+      {#if innerWidth <= MOBILE_WIDTH}
         <br />
       {/if}
       визуальный стиль, который будет 
-      {#if innerWidth >= MOBILE_WIDTH}
+      {#if innerWidth <= MOBILE_WIDTH}
         <br />
       {/if}
       использоваться во всех
       продуктах и 
-      {#if innerWidth >= MOBILE_WIDTH}
+      {#if innerWidth <= MOBILE_WIDTH}
         <br />
       {/if}
       сервисах компании. Это поможет 
-      {#if innerWidth >= MOBILE_WIDTH}
+      {#if innerWidth <= MOBILE_WIDTH}
         <br />
       {/if}
       клиентам и партнерам быстрее узнавать 
-      {#if innerWidth >= MOBILE_WIDTH}
+      {#if innerWidth <= MOBILE_WIDTH}
         <br />
       {/if}
       продукты компании, а также
       привлекать 
-      {#if innerWidth >= MOBILE_WIDTH}
+      {#if innerWidth <= MOBILE_WIDTH}
         <br />
       {/if}
       новых пользователей и удерживать старых

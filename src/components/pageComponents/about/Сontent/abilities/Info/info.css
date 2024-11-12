@@ -13,6 +13,7 @@
     @media (max-width: 430px) {
       padding: 32px 16px;
       height: 290px;
+      border-radius: 12px 12px 0 0;
     }
   }
 

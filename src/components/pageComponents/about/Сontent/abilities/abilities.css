@@ -6,7 +6,19 @@
 
   @media (max-width: 430px) {
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 10px;
     gap: 20px;
+    margin: 0 -16px;
+  }
+}
+
+.abilities-block__plug-wrapper {
+  display: none;
+
+  @media (max-width: 430px) {
+      display: block;
+      position: absolute;
+      width: 100%;
+      bottom: -2px;
   }
 }

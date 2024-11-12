@@ -95,6 +95,8 @@
 
   @media (max-width: 430px) {
     padding: 32px 16px;
+    margin: 0 -15px;
+    border-radius: 12px 12px 0 0;
   }
 }
 
@@ -157,5 +159,17 @@
 
   @media (max-width: 430px) {
     width: 100%;
+  }
+}
+
+.calculator-block__plug-wrapper {
+  display: none;
+
+  @media (max-width: 430px) {
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    margin: 0 -15px;
+    width: 100vw;
   }
 }

@@ -7,12 +7,10 @@
   import { History } from './history';
 </script>
 
-<!-- <div class="wrapper"> -->
-  <Abilities />
-  <Calculator />
-  <Team />
-  <Products />
-  <Platforms />
-  <History />
-<!-- </div> -->
+<Abilities />
+<Calculator />
+<Team />
+<Products />
+<Platforms />
+<History />
 
