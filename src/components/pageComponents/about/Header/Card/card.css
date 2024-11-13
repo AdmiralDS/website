@@ -5,6 +5,13 @@
     flex-direction: column;
     justify-content: space-between;
     border-right: 1px solid rgb(255, 255, 255, 0.2);
+
+    @media (max-width: 430px) {
+      flex: 0 0 calc(59% - 10px);
+      justify-content: flex-start;
+      padding: 0 10px 0 0;
+      height: 150px;
+    }
   }
 
   .card:last-of-type {
@@ -26,4 +33,10 @@
     font-style: normal;
     font-weight: 500;
     line-height: 25px; /* 125% */
+
+    @media (max-width: 430px) {
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 32px;
+    }
   }

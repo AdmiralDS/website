@@ -28,7 +28,6 @@
         font-size: 20px;
         line-height: 1.6;
         flex: 1 1 auto;
-        overflow: auto;
         width: 100%;
         scroll-behavior: smooth;
 

@@ -1,19 +1,18 @@
 <script lang="ts">
-  import Switcher from './switcher.svelte';
+  import { Switcher } from './Switcher';
   import { ContentBlock } from '@components/templates';
+  import { MobilePlug } from '@components/atoms';
 </script>
 
 <ContentBlock id="abilities" title="Возможности" class="abilities-block">
   <div class="abilities-container">
     <Switcher />
+    <div class="abilities-block__plug-wrapper">
+      <MobilePlug isTransparent />
+    </div>
   </div>
 </ContentBlock>
 
 <style>
-  .abilities-container {
-    display: flex;
-    column-gap: 10px;
-    margin-top: 37px;
-    position: relative;
-  }
+  @import 'abilities.css';
 </style>

@@ -1,7 +1,7 @@
 <script>
-  import ThemeToggle from './ThemeToggle.svelte';
+  import { ProductCard } from './../ProductCard';
+  import { ThemeToggle}  from './../ThemeToggle';
   import { ArrowButtons } from '@components/molecules';
-  import ProductCard from './ProductCard.svelte';
 
   export let products = [];
 
@@ -27,7 +27,9 @@
   <div class="products-block_header-text">
     Ниже приведены несколько примеров проектов, в которых используется дизайн-система Адмирал
   </div>
-  <ThemeToggle bind:checked />
+  <div class="products-block_header-theme-wrapper">
+    <ThemeToggle bind:checked />
+  </div>
 </div>
 <ProductCard product={currentProduct} isDark={checked}>
   <ArrowButtons
@@ -40,23 +42,5 @@
 </ProductCard>
 
 <style>
-  .products-block_header {
-    margin: 20px 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .products-block_header-text {
-    width: 50%;
-
-    color: var(--Grey);
-    font-variant-numeric: lining-nums tabular-nums;
-
-    /* 20/25 */
-    font-family: Inter, sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 25px; /* 125% */
-  }
+  @import 'ProductsBlock.css';
 </style>

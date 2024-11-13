@@ -14,8 +14,12 @@
   padding-top: 6px;
 
   @media (max-width: 430px) {
-    padding-top: 20px;
+    padding-top: 10px;
   }
+}
+
+.block-container:last-of-type {
+  border-bottom: none;
 }
 
 :global(.block-title) {

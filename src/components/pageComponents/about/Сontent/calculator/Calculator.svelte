@@ -1,9 +1,8 @@
 <script lang="ts">
   import { EmployeeSlider, PriceSlider, ProductSlider } from './NamedSlider';
-  import { Toggle } from '@components/atoms';
+  import { Toggle, MobilePlug } from '@components/atoms';
   import Arrow from './Arrow.svelte';
   import { ContentBlock } from '@components/templates';
-  import Main from '@components/templates/Main/Main.svelte';
 
   const minResult = 30;
   const maxResult = 49;
@@ -62,7 +61,7 @@
       <PriceSlider bind:value={priceCounter} />
       <ProductSlider bind:value={productCounter} />
       <div class="calculator-multichannel-switcher">
-        Вывод продукта сразу в несколько каналов
+        <div class="calculator-multichannel-switcher-text">Вывод продукта сразу в несколько каналов</div>
         <Toggle isChecked={isMultiChannel} on:click={handleToggleClick} />
       </div>
     </div>
@@ -80,6 +79,9 @@
           >ХОЧУ ПОПРОБОВАТЬ</button
         >
       </div>
+    </div>
+    <div class="calculator-block__plug-wrapper">
+      <MobilePlug isTransparent />
     </div>
   </div>
 </ContentBlock>

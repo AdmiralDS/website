@@ -132,31 +132,10 @@
     <Timeline {items} {container} />
   </div>
 </div>
-<ArrowButtons {prevDisabled} {nextDisabled} onNextClick={handleNextClick} onPrevClick={handlePrevClick} />
+<div class="timeline-container__arrows-wrapper">
+  <ArrowButtons {prevDisabled} {nextDisabled} onNextClick={handleNextClick} onPrevClick={handlePrevClick} />
+</div>
 
 <style>
-  .timeline-container {
-    width: 100%;
-    overflow: hidden;
-    user-select: none;
-  }
-
-  .scrolling-container {
-    position: relative;
-    width: fit-content;
-    padding: 80px 0 135px;
-    margin-bottom: 40px;
-    transition: transform 300ms ease-in-out;
-    cursor: grab;
-  }
-
-  .scrolling-container.grabbing {
-    cursor: grabbing;
-  }
-
-  .timeline-container :global(.line) {
-    width: 30vw;
-    min-width: 250px;
-    max-width: 500px;
-  }
+  @import 'ScrollableTimeline.css';
 </style>
