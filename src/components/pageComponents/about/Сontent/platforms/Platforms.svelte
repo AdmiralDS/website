@@ -5,7 +5,7 @@
 </script>
 
 <ContentBlock>
-  <div class="platforms-wrapper" style={"overflow: visible;"}>
+  <div class="platforms-wrapper">
     <div class="platforms-container">
       <h2 class="block-title light" id="platforms">Платформы</h2>
       <div class="content">

@@ -5,5 +5,11 @@
 </script>
 
 <ContentBlock title="история развития">
-  <ScrollableTimeline items={history} />
+  <div class="history-wrapper">
+    <ScrollableTimeline items={history} />
+  </div>
 </ContentBlock>
+
+<style>
+  @import 'History.css';
+</style>

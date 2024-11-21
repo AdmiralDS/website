@@ -6,7 +6,7 @@
 
   @media (max-width: 430px) {
     height: 371px;
-    margin: 0 -15px;
+    margin: -40px -15px -20px;
     border-radius: 12px 12px 0 0;
   }
 }
