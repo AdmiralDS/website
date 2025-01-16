@@ -73,7 +73,6 @@
 
   let scrollingContainer: HTMLDivElement;
   let left: number = 0;
-  let step = 67 * 4;
   let scrolledToRight: boolean = false;
   let style: string = '';
 
@@ -175,7 +174,7 @@
     if (!scrollingContainer) return;
     const parent = scrollingContainer.parentElement as HTMLDivElement;
 
-    const newValue = left + step;
+    const newValue = left + parent.clientWidth;
 
     const maxValue = scrollingContainer.clientWidth - parent.clientWidth;
 
@@ -184,8 +183,10 @@
 
   const handlePrevClick = () => {
     if (scrolledToRight) scrolledToRight = false;
+    if (!scrollingContainer) return;
+    const parent = scrollingContainer.parentElement as HTMLDivElement;
 
-    left = left - step < 0 ? 0 : left - step;
+    left = left - parent.clientWidth < 0 ? 0 : left - parent.clientWidth;
   };
 
   $: {
@@ -204,7 +205,7 @@ const handleTouchStart = (event) => {
 
 const handleTouchEnd = (event) => {
   const touchendX = event.changedTouches[0].screenX;
-  
+
   if (touchendX < touchstartX) {
       handleNextClick();
     }
@@ -217,8 +218,8 @@ const handleTouchEnd = (event) => {
 <svelte:window bind:innerWidth />
 
 {#if innerWidth <= MOBILE_WIDTH}
-<div class="icons-block__icon-tile" 
-  on:touchstart={handleTouchStart} 
+<div class="icons-block__icon-tile"
+  on:touchstart={handleTouchStart}
   on:touchend={handleTouchEnd}
 >
   <div class="icons-block__tile-header">
