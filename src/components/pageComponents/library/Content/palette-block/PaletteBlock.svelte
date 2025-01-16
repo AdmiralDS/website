@@ -7,27 +7,27 @@
   const colorsList = [
     {
       name: 'Primary',
-      code: '#0062FF',
+      code: '0062FF',
     },
     {
       name: 'Neutral',
-      code: '#23262D',
+      code: '23262D',
     },
     {
       name: 'Error',
-      code: '#D92020',
+      code: 'D92020',
     },
     {
       name: 'Success',
-      code: '#1BA049',
+      code: '1BA049',
     },
     {
       name: 'Warning',
-      code: '#FF5C22',
+      code: 'FF5C22',
     },
     {
       name: 'Attention',
-      code: '#FFC400',
+      code: 'FFC400',
     },
   ];
 </script>
@@ -46,7 +46,7 @@
   <div class="palette-block__colors-container" slot="subcontent">
     <div class="palette-block__colors-wrapper">
       {#each colorsList as item}
-        <div class="palette-tile" style="background: {item.code}">
+        <div class="palette-tile" style="background: #{item.code}">
           <div class="palette-tile__color-name">{item.name}</div>
           <div class="palette-tile__color-code">HEX {item.code}</div>
         </div>

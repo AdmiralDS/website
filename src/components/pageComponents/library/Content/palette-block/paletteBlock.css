@@ -10,7 +10,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px 20px;
     width: 100%;
-    
+
     @media (max-width: 430px) {
         overflow: hidden;
         border-radius: 12px 12px 0 0;
@@ -30,6 +30,7 @@
 }
 
 .palette-tile {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
@@ -39,10 +40,6 @@
         padding: 20px;
         border-radius: 0;
     }
-}
-
-.palette-tile:nth-of-type(n + 3) {
-    padding-bottom: 32px;
 }
 
 .palette-tile__color-name {
