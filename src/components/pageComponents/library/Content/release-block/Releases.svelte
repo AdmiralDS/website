@@ -155,7 +155,7 @@
     <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
   </div>
   <Button
-    style="width: fit-content; margin-top: 40px"
+    class="releases-block__button"
     variant="primary"
     on:click={() => window.open('https://github.com/AdmiralDS/react-ui/releases', '_blank')}
   >
@@ -186,11 +186,11 @@
       {/if}
     </div>
   </div>
-  style="width: fit-content; margin-top: 40px"
   <div class="releases-block__buttons-wrapper">
     <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
   </div>
   <Button
+    class="releases-block__button"
     variant="primary"
     on:click={() => window.open('https://github.com/AdmiralDS/react-ui/releases', '_blank')}
   >
