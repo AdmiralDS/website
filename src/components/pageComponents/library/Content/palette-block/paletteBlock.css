@@ -42,6 +42,13 @@
     }
 }
 
+.palette-tile:nth-of-type(n + 3) {
+  @media (max-width: 430px) {
+      padding-bottom: 32px;
+  }
+}
+
+
 .palette-tile__color-name {
     color: var(--White, #fff);
     font-family: Inter, sans-serif;
