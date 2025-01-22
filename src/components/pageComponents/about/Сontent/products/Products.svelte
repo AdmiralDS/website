@@ -5,7 +5,7 @@
   const products = [
     {
       title: 'Платформа производства «Сфера»',
-      link: 'https://www.sferaplatform.ru/sfera-metodologiya',
+      //link: 'https://www.sferaplatform.ru/sfera-metodologiya',
       imgLight: 'images/sfera-light.png',
       imgDark: 'images/sfera-dark.png',
       description: ['Адаптивный веб и мобильная версия', 'Геометрический стиль'],

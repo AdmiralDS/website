@@ -1,28 +1,37 @@
 .releases-wrapper {
-    margin-bottom: 20px;
-    display: flex;
-    gap: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
 
-    @media (max-width: 430px) {
-        flex-direction: column;
-    }
+  @media (max-width: 430px) {
+    flex-direction: column;
   }
+}
 
-  .releases-block__cards-wrapper {
-    overflow: hidden;
-    flex: 1 0 75%;
-    box-sizing: border-box;
+.releases-block__cards-wrapper {
+  overflow: hidden;
+  flex: 1 0 75%;
+  box-sizing: border-box;
+}
+
+.releases-block__scrolling-container {
+  position: relative;
+  width: fit-content;
+  display: grid;
+  gap: 20px;
+  justify-content: space-between;
+  transition: transform 300ms ease-in-out;
+
+  @media (max-width: 430px) {
+    gap: 8px;
   }
+}
 
-  .releases-block__scrolling-container {
-    position: relative;
-    width: fit-content;
-    display: grid;
-    gap: 20px;
-    justify-content: space-between;
-    transition: transform 300ms ease-in-out;
+:global(.releases-block__button) {
+  width: fit-content;
+  margin-top: 40px;
 
-    @media (max-width: 430px) {
-      gap: 8px;
-    }
+  @media (max-width: 430px) {
+    margin-top: 12px;
   }
+}

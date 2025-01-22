@@ -22,8 +22,9 @@
 
 <div class="lib-font-block__font-tile-wrapper">
   <div class="lib-font-block__font-tile">
-    <AdmiralT isDarkTheme={false} textType={currentFontType} text={currentText} />
-    <!--<div style="color: #35383a; overflow: hidden; text-overflow: ellipsis">{currentText}</div>-->
+    <div class="lib-font-block__font-text-wrapper">
+      <AdmiralT isDarkTheme={false} textType={currentFontType} text={currentText} />
+    </div>
     <div class="lib-font-block__font-buttons-container">
       {#each textTypeList as item, i}
         <Chips on:click={() => handleTypeClick(i)} appearance="primary" selected={item === currentFontType}>

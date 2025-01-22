@@ -17,6 +17,12 @@
     font-weight: 500;
     line-height: 25px;
     margin-bottom: 10px;
+
+    @media (max-width: 430px) {
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0px;
+    }
   }
   .release-title-card__info {
     color: var(--Grey);

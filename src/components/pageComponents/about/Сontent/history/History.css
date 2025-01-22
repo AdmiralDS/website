@@ -1,0 +1,8 @@
+.history-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 430px) {
+    margin: 0 0 -50px;
+  }
+}

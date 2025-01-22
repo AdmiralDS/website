@@ -10,7 +10,7 @@
 
   let timer: number;
 
-  $: gapWidth = innerWidth <= MOBILE_WIDTH ? 8: 20;
+  $: gapWidth = innerWidth <= MOBILE_WIDTH ? 8 : 20;
   $: maxVisibleCardsOnPage = innerWidth <= MOBILE_WIDTH ? 1.5 : 3;
   $: stepDivider = innerWidth <= MOBILE_WIDTH ? maxVisibleCardsOnPage : 1;
   let firstVisibleRelease: number = 0;
@@ -104,66 +104,31 @@
 
   let touchstartX = 0;
 
-const handleTouchStart = (event) => {
-  touchstartX = event.changedTouches[0].screenX;
-};
+  const handleTouchStart = (event) => {
+    touchstartX = event.changedTouches[0].screenX;
+  };
 
-const handleTouchEnd = (event) => {
-  const touchendX = event.changedTouches[0].screenX;
-  
-  if (touchendX < touchstartX) {
+  const handleTouchEnd = (event) => {
+    const touchendX = event.changedTouches[0].screenX;
+
+    if (touchendX < touchstartX) {
       handleNextClick();
     }
     if (touchendX > touchstartX) {
       handlePrevClick();
-  }
-}
+    }
+  };
 </script>
 
 <svelte:window bind:innerWidth on:resize={handleResize} />
-{#if innerWidth <= MOBILE_WIDTH}
-  <div class="releases-wrapper">
-    <ReleaseTitleCard />
-    <div class="releases-block__cards-wrapper" 
-    bind:this={cardsWrapper}
-    on:touchstart={handleTouchStart} 
-    on:touchend={handleTouchEnd}
-    >
-      {#if cardsWrapperWidth}
-        <div
-          class="releases-block__scrolling-container"
-          bind:this={scrollingContainer}
-          {style}
-          on:transitionend={checkButtonsEnable}
-        >
-          {#each releasesArray as release}
-            <ReleaseCard
-              {loading}
-              version={release.tag}
-              date={release.date}
-              info="Релиз"
-              link={release.link}
-              style="grid-row: 1"
-            />
-          {/each}
-        </div>
-      {/if}
-    </div>
-  </div>
-  <div class="releases-block__buttons-wrapper">
-    <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
-  </div>
-  <Button
-    style="width: fit-content; margin-top: 40px"
-    variant="primary"
-    on:click={() => window.open('https://github.com/AdmiralDS/react-ui/releases', '_blank')}
-  >
-    История обновлений
-  </Button>
-{:else}
 <div class="releases-wrapper">
   <ReleaseTitleCard />
-  <div class="releases-block__cards-wrapper" bind:this={cardsWrapper}>
+  <div
+    class="releases-block__cards-wrapper"
+    bind:this={cardsWrapper}
+    on:touchstart={innerWidth <= MOBILE_WIDTH ? handleTouchStart : undefined}
+    on:touchend={innerWidth <= MOBILE_WIDTH ? handleTouchEnd : undefined}
+  >
     {#if cardsWrapperWidth}
       <div
         class="releases-block__scrolling-container"
@@ -185,18 +150,19 @@ const handleTouchEnd = (event) => {
     {/if}
   </div>
 </div>
-<div class="releases-block__buttons-wrapper">
-  <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
-</div>
+{#if innerWidth > MOBILE_WIDTH}
+  <div class="releases-block__buttons-wrapper">
+    <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+  </div>
+{/if}
 <Button
-  style="width: fit-content; margin-top: 40px"
+  class="releases-block__button"
   variant="primary"
   on:click={() => window.open('https://github.com/AdmiralDS/react-ui/releases', '_blank')}
 >
   История обновлений
 </Button>
-{/if}
 
 <style lang="css">
- @import './releases.css';
+  @import './releases.css';
 </style>
