@@ -2,12 +2,11 @@
   import { onMount } from 'svelte';
   import { NavigationMenu, type NavigationItem } from '@components/molecules';
   import { joinAbsoluteUrlPath } from '@components/tools';
-  import { type Page } from './types';
   import { goto, afterNavigate } from '$app/navigation';
   import { base as BASE_URL } from '$app/paths';
 
   export let items: Array<NavigationItem>;
-  export let active: string | undefined;
+  export let active: string | undefined = undefined;
   let prevActive: string | undefined;
 
   let opened: Array<string> = [];
@@ -15,7 +14,7 @@
   let currentPage: string = 'about';
   let previousPage: string;
 
-  const getPageRoot = (page: Page) => {
+  const getPageRoot = (page: string) => {
     switch (page) {
       case '/':
         return '#ds-info';
@@ -72,13 +71,15 @@
     const url = new URL(basePath + '/' + item.href);
     if (item.anchor) url.hash = item.anchor;
     goto(url);
+    $$restProps.onItemClick?.(key, item);
   };
 </script>
 
-<nav class="side-nav">
+<nav class={`side-nav${$$restProps.class ? ` ${$$restProps.class}` : ''}`}>
   <NavigationMenu {items} bind:active {opened} {onItemClick}>
     <slot slot="logo" />
   </NavigationMenu>
+  <slot name="ext-info" />
 </nav>
 
 <style>

@@ -15,6 +15,7 @@
 
   const handleClickOnMenuControl = () => (isPaneOpened = !isPaneOpened);
   const handleCloseMenu = () => (isPaneOpened = false);
+  const handleItemClick = () => (isPaneOpened = false);
 
   onMount(function () {
     document.addEventListener('clickHeaderTabletButton', handleClickOnMenuControl);
@@ -29,22 +30,25 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="background" transition:fade={{ duration: 250, easing: quintOut }} on:click={handleCloseMenu} />
-  <div id="tablet-pane" class="pane-wrapper" transition:slide={{ duration: 250, easing: linear, axis: 'x' }}>
-    <Pane {items} {active} {...$$restProps} class="side-nav-tablet-view">
-      <div class="tablet-pane-container">
+  <div class="pane-wrapper" transition:slide={{ duration: 250, easing: linear, axis: 'y' }}>
+    <Pane {items} {active} {...$$restProps} class="side-nav-mobile-view" onItemClick={handleItemClick}>
+      <div class="mobile-pane-container">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-no-static-element-interactions -->
-        <div on:click={handleClickOnMenuControl}>
+        <div on:click={handleClickOnMenuControl} class="close-icon">
           <Cross />
         </div>
         <a href={BASE_URL}>
           <Logo fill="var(--Dark_grey, rgb(53, 56, 58))" />
         </a>
       </div>
+      <button class="email-button" slot="ext-info" on:click={() => window.open('mailto:Admiral@inno.tech')}
+        >Связаться с нами</button
+      >
     </Pane>
   </div>
 {/if}
 
 <style>
-  @import './tabletPane.css';
+  @import './mobilePane.css';
 </style>

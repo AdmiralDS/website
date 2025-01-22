@@ -1,29 +1,26 @@
 .header-block-template__mobile {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-header-template__heading {
-    display: flex;
-    padding: 24px;
-    justify-content: center;
-    margin-bottom: 4px;
-    position: relative;
-    background-color: var(--White, #fff);
+  margin-bottom: 4px;
+  position: relative;
+  height: 70px;
 }
 
 .mobile-header-template__icon-wrapper {
-    position: absolute;
-    top: 24px;
-    left: 24px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
 }
 
 .mobile-header-template__logo-wrapper {
-    display: flex;
-    margin-top: 6px;
+  display: flex;
+  margin-top: 6px;
 }
 
 .mobile-header-template__content {
-    display: flex;
-    border-radius: 12px 12px 0px 0px;
+  display: flex;
+  border-radius: 12px 12px 0px 0px;
 }

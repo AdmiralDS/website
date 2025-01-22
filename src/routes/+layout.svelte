@@ -2,10 +2,15 @@
   import { type NavigationItem, NavigationPane } from '@components/molecules';
   import { fade } from 'svelte/transition';
   import { cubicIn, cubicOut } from 'svelte/easing';
+  import { MOBILE_WIDTH } from '@components/const';
+  import { MobileHeaderMenu } from '@components/organisms/MobileHeader';
 
   export let data;
+  let currentScrollTop = 0;
 
-  const navItems: Array<NavigationItem> = [
+  $: innerWidth = 0;
+
+  const desktopNavItems: Array<NavigationItem> = [
     {
       page: 'about',
       href: '',
@@ -91,16 +96,57 @@
       ],
     },
   ];
+
+  const mobileNavItems: Array<NavigationItem> = [
+    {
+      page: 'about',
+      href: '',
+      anchor: 'ds-info',
+      label: 'Дизайн-система',
+    },
+    {
+      page: 'users',
+      href: `users`,
+      anchor: `users`,
+      label: 'Пользователи',
+    },
+    {
+      page: 'library',
+      href: `library`,
+      anchor: `library`,
+      label: 'Библиотека',
+    },
+  ];
+
+  $: navItems = innerWidth <= MOBILE_WIDTH ? mobileNavItems : desktopNavItems;
+
+  const handleScroll = (e) => {
+    const scrollTop = (e.target as HTMLDivElement).scrollTop;
+    if (currentScrollTop > scrollTop) {
+      const event = new CustomEvent('maincontainerscroll', { detail: { direction: 'top' } });
+      document.dispatchEvent(event);
+    } else {
+      const event = new CustomEvent('maincontainerscroll', { detail: { direction: 'down' } });
+      document.dispatchEvent(event);
+    }
+
+    currentScrollTop = scrollTop;
+  };
 </script>
 
-<NavigationPane items={navItems} />
+<svelte:window bind:innerWidth />
 
+{#if innerWidth && innerWidth <= MOBILE_WIDTH}
+  <MobileHeaderMenu />
+{/if}
+<NavigationPane items={navItems} />
 <div class="main-container-wrapper">
   {#key data.pathname}
     <div
       class="main-container"
       in:fade={{ easing: cubicOut, duration: 300, delay: 400 }}
       out:fade={{ easing: cubicIn, duration: 300 }}
+      on:scroll={handleScroll}
     >
       <slot />
     </div>
