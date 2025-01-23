@@ -8,7 +8,7 @@
     height: 371px;
     margin: -40px 0 -20px;
     border-radius: 12px 12px 0 0;
-    width: calc(100% + 33px);
+    width: 100vw;
     left: -16px;
   }
 }

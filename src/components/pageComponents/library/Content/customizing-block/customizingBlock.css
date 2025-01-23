@@ -26,7 +26,7 @@
 
   @media (max-width: 430px) {
     display: block;
-    width: calc(100% + 33px);
+    width: 100vw;
     left: -16px;
   }
 }
