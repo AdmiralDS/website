@@ -12,6 +12,12 @@
   overflow: hidden;
   flex: 1 0 75%;
   box-sizing: border-box;
+  @media (max-width: 430px) {
+    width: 100vw;
+    left: -16px;
+    position: relative;
+    padding-left: 16px;
+  }
 }
 
 .releases-block__scrolling-container {

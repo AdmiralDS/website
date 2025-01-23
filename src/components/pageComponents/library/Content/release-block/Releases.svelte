@@ -8,7 +8,7 @@
 
   $: innerWidth = 0;
 
-  let timer: number;
+  let timer: NodeJS.Timeout;
 
   $: gapWidth = innerWidth <= MOBILE_WIDTH ? 8 : 20;
   $: maxVisibleCardsOnPage = innerWidth <= MOBILE_WIDTH ? 1.5 : 3;
