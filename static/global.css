@@ -78,8 +78,11 @@ code {
   width: 100%;
 
   @media (max-width: 1024px) {
-    display: block;
     height: 100%;
+  }
+
+  @media (max-width: 430px) {
+    display: block;
   }
 }
 
@@ -105,12 +108,4 @@ code {
   overflow: auto;
   scroll-behavior: smooth;
   min-width: 100%;
-
-  @media (max-width: 1024px) {
-    position: relative;
-  }
-
-  /* @media (max-width: 430px) {
-    padding-top: 74px;
-  } */
 }

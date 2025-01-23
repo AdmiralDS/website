@@ -7,7 +7,7 @@
   import { onMount } from 'svelte';
   import { base as BASE_URL } from '$app/paths';
   import type { NavigationItem } from '@components/molecules';
-  import { afterNavigate } from '$app/navigation';
+  import { beforeNavigate } from '$app/navigation';
 
   export let items: Array<NavigationItem>;
   export let active: string | undefined = undefined;
@@ -25,7 +25,7 @@
     };
   });
 
-  afterNavigate(() => {
+  beforeNavigate(() => {
     isPaneOpened = false;
   });
 </script>
