@@ -1,5 +1,4 @@
-<script>
-  import './paletteBlock.css';
+<script lang="ts">
   import { SubcontentBlock } from '@components/templates';
   import { Tag, MobilePlug } from '@components/atoms';
 
@@ -57,3 +56,7 @@
     </div>
   </div>
 </SubcontentBlock>
+
+<style>
+  @import './paletteBlock.css';
+</style>

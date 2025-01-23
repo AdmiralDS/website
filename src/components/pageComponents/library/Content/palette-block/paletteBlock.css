@@ -1,80 +1,79 @@
 .palette-block__colors-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
 }
 
 .palette-block__colors-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px 20px;
-    width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px 20px;
+  width: 100%;
 
-    @media (max-width: 430px) {
-        overflow: hidden;
-        border-radius: 12px 12px 0 0;
-        gap: 0;
-    }
+  @media (max-width: 430px) {
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    gap: 0;
+  }
 }
 
 .palette-block__plug-wrapper {
-    display: none;
+  display: none;
 
-    @media (max-width: 430px) {
-        display: block;
-        position: absolute;
-        bottom: -1px;
-        width: 100%;
-    }
+  @media (max-width: 430px) {
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+  }
 }
 
 .palette-tile {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 10px;
 
-    @media (max-width: 430px) {
-        padding: 20px;
-        border-radius: 0;
-    }
+  @media (max-width: 430px) {
+    padding: 20px;
+    border-radius: 0;
+  }
 }
 
 .palette-tile:nth-of-type(n + 3) {
   @media (max-width: 430px) {
-      padding-bottom: 32px;
+    padding-bottom: 32px;
   }
 }
 
-
 .palette-tile__color-name {
-    color: var(--White, #fff);
-    font-family: Inter, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    margin-bottom: 22px;
+  color: var(--White, #fff);
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 22px;
 
-    @media (max-width: 430px) {
-        align-self: center;
-    }
+  @media (max-width: 430px) {
+    align-self: center;
+  }
 }
 
 .palette-tile__color-code {
-    color: var(--White, #fff);
-    font-family: Inter, sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 15px;
+  color: var(--White, #fff);
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
 
-    @media (max-width: 430px) {
-        align-self: center;
-    }
+  @media (max-width: 430px) {
+    align-self: center;
+  }
 }
 
 .tags-wrapper-colors {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
