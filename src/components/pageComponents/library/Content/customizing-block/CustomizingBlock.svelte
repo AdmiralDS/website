@@ -1,11 +1,10 @@
 <script>
-import { ContentBlock } from '@components/templates';
-import Switcher from './switcher/Switcher.svelte';  import { MOBILE_WIDTH } from '@components/const.ts';
-
-$: innerWidth = 0;
-
-import './customizingBlock.css';
+  import { ContentBlock } from '@components/templates';
+  import Switcher from './switcher/Switcher.svelte';
+  import { MOBILE_WIDTH } from '@components/const.ts';
   import MobilePlug from '@components/atoms/MobilePlug/MobilePlug.svelte';
+
+  $: innerWidth = 0;
 </script>
 
 <svelte:window bind:innerWidth />
@@ -29,3 +28,7 @@ import './customizingBlock.css';
     </div>
   </div>
 </ContentBlock>
+
+<style>
+  @import './customizingBlock.css';
+</style>

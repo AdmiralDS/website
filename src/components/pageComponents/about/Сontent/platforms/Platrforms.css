@@ -6,8 +6,10 @@
 
   @media (max-width: 430px) {
     height: 371px;
-    margin: -40px -15px -20px;
+    margin: -40px 0 -20px;
     border-radius: 12px 12px 0 0;
+    width: calc(100% + 33px);
+    left: -16px;
   }
 }
 
@@ -46,7 +48,7 @@
 .platforms-cover {
   position: absolute;
   right: 0;
-  top: 0;
+  top: -1px;
   height: 100%;
   width: 100%;
   object-fit: cover;
