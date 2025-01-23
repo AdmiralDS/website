@@ -15,6 +15,7 @@
 
   const handleClickOnMenuControl = () => (isPaneOpened = !isPaneOpened);
   const handleCloseMenu = () => (isPaneOpened = false);
+  const handleItemClick = () => (isPaneOpened = false);
 
   onMount(function () {
     document.addEventListener('clickHeaderTabletButton', handleClickOnMenuControl);
@@ -30,7 +31,7 @@
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div class="background" transition:fade={{ duration: 250, easing: quintOut }} on:click={handleCloseMenu} />
   <div id="tablet-pane" class="pane-wrapper" transition:slide={{ duration: 250, easing: linear, axis: 'x' }}>
-    <Pane {items} {active} {...$$restProps} class="side-nav-tablet-view">
+    <Pane {items} {active} {...$$restProps} class="side-nav-tablet-view" onItemClick={handleItemClick}>
       <div class="tablet-pane-container">
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <!-- svelte-ignore a11y-no-static-element-interactions -->
