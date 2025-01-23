@@ -42,6 +42,8 @@
       <div class="customization-item">
         Основной цвет
         <div class="colors-container">
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <!-- svelte-ignore a11y-no-static-element-interactions -->
           <div style="margin-top: -1px" on:click={() => handleClickOnColor('custom')}>
             <ColorPicker
               isAlpha={false}
@@ -61,7 +63,7 @@
       </div>
     </div>
     <div class="customization-links">
-      <Button variant="primary">Figma components</Button>
+      <Button variant="primary">Pixso components</Button>
       <Button variant="primary" on:click={() => window.open('https://admiralds.github.io/react-ui/', '_blank')}>
         Storybook
       </Button>
