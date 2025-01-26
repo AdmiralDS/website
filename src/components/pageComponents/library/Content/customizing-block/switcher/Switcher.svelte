@@ -5,6 +5,7 @@
   import Info from '../admiral-components/Info.svelte';
   import { ColorItem, ColorPickerInputItem, ColorPickerTextInputItem } from '../color-picker';
   import { activeColor, colorPickerValueHex, colorPickerValueHsv } from '../stores.js';
+  import { LINKS } from '@components/const';
 
   const NamesArray = {
     geometrical: { label: 'Геометрический стиль', radius: 4 },
@@ -62,10 +63,8 @@
     </div>
   </div>
   <div class="customization-links">
-    <Button variant="primary">Pixso components</Button>
-    <Button variant="primary" on:click={() => window.open('https://admiralds.github.io/react-ui/', '_blank')}>
-      Storybook
-    </Button>
+    <Button variant="primary" on:click={() => window.open(LINKS.PIXSO, '_blank')}>Pixso components</Button>
+    <Button variant="primary" on:click={() => window.open(LINKS.STORYBOOK, '_blank')}>Storybook</Button>
   </div>
 </div>
 <div class="divider">

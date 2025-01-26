@@ -1,8 +1,8 @@
 <script>
   import { ContentBlock } from '@components/templates';
   import Switcher from './switcher/Switcher.svelte';
-  import { MOBILE_WIDTH } from '@components/const.ts';
-  import MobilePlug from '@components/atoms/MobilePlug/MobilePlug.svelte';
+  import { LINKS, MOBILE_WIDTH } from '@components/const';
+  import { Button, MobilePlug } from '@components/atoms';
 
   $: innerWidth = 0;
 </script>
@@ -23,9 +23,15 @@
   </div>
   <div class="switcher-wrapper">
     <Switcher />
-    <div class="customizing-block__plug-wrapper">
-      <MobilePlug isTransparent />
-    </div>
+    {#if innerWidth <= MOBILE_WIDTH}
+      <div class="customizing-block__plug-wrapper">
+        <MobilePlug isTransparent />
+      </div>
+      <div class="customization-links">
+        <Button variant="primary" on:click={() => window.open(LINKS.PIXSO, '_blank')}>Pixso components</Button>
+        <Button variant="primary" on:click={() => window.open(LINKS.STORYBOOK, '_blank')}>Storybook</Button>
+      </div>
+    {/if}
   </div>
 </ContentBlock>
 
