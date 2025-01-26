@@ -1,12 +1,8 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import { WrappedReactComponent } from './WrappedReactComponent';
   import { Chips } from '@components/atoms';
   import { renderer } from './Renderer';
 
-  export let styleName: string;
   export let isDarkTheme: boolean;
   let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
   export let color: string = 'blue';
@@ -14,7 +10,6 @@
   export let colorPickerValueHex: string = '#ff00bb';
   let prevColorPickerValueHex = colorPickerValueHex;
   export let colorPickerValueHsv: { h: number; s: number; v: number; a: number } = { h: 316, s: 100, v: 100, a: 1 };
-  let prevColorPickerValueHsv = colorPickerValueHsv;
   export let borderRadius: 0 | 2 | 4 | 6 | 8 | 10 = 4;
   let prevBorderRadius = borderRadius;
 
@@ -36,23 +31,11 @@
         colorPickerValueHex,
         colorPickerValueHsv,
       });
-    // ReactDOM.render(
-    //   React.createElement(WrappedReactComponent, {
-    //     component: activeComponent,
-    //     theme,
-    //     borderRadius,
-    //     color,
-    //     colorPickerValueHex,
-    //     colorPickerValueHsv,
-    //   }),
-    //   container,
-    // );
   };
 
   const unmountReactComponent = () => {
     try {
       if (root) root.unmount();
-      // ReactDOM.unmountComponentAtNode(container);
     } catch (err) {
       console.warn(`react-adapter failed to unmount.`, { err });
     }

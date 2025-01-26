@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { MOBILE_WIDTH } from '@components/const.ts';
+  import { MOBILE_WIDTH } from '@components/const';
   export let isTransparent: boolean = false;
   $: innerWidth = 0;
 </script>
