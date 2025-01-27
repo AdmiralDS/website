@@ -2,6 +2,9 @@
   import { onDestroy, onMount } from 'svelte';
   import { Chips } from '@components/atoms';
   import { renderer } from './Renderer';
+  import { MOBILE_WIDTH } from '@components/const';
+  import ToolsIcon from './tools.svg?component';
+  import { MobileToolsPane } from '@components/pageComponents/library/Content/customizing-block/mobile-tools-pane';
 
   export let isDarkTheme: boolean;
   let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
@@ -20,6 +23,8 @@
 
   let container;
   let root;
+
+  let isToolsPaneOpened = false;
 
   const mountReactComponent = () => {
     if (container)
@@ -63,7 +68,19 @@
       mountReactComponent();
     }
   }
+
+  $: innerWidth = 0;
+
+  const handleClickToolsButon = () => {
+    isToolsPaneOpened = true;
+  };
+
+  const handleToolsPaneClose = () => {
+    isToolsPaneOpened = false;
+  };
 </script>
+
+<svelte:window bind:innerWidth />
 
 <div class="custom-info">
   <div class="components-control-wrapper">
@@ -76,8 +93,16 @@
         {component}
       </Chips>
     {/each}
+    {#if innerWidth <= MOBILE_WIDTH}
+      <button class="customizing-tools__button" on:click={handleClickToolsButon}>
+        <ToolsIcon />
+      </button>
+    {/if}
   </div>
   <div class="component-wrapper" bind:this={container} />
+  {#if isToolsPaneOpened}
+    <MobileToolsPane onClose={handleToolsPaneClose} />
+  {/if}
 </div>
 
 <style>
