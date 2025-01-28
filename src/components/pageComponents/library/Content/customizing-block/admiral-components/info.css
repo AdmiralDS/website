@@ -18,20 +18,38 @@
 }
 
 .components-control-wrapper {
+  position: relative;
   display: flex;
   gap: 10px;
   margin-bottom: 40px;
 
   @media (max-width: 430px) {
     flex-wrap: wrap;
+    padding-right: 48px;
   }
 }
 
 .component-wrapper {
   display: flex;
   justify-content: center;
-  
+
   @media (max-width: 430px) {
     margin-bottom: 30px;
   }
+}
+
+.customizing-tools__button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background: var(--Blue, #0d42ff);
+  cursor: pointer;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: -5px;
 }

@@ -1,12 +1,10 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import { WrappedReactComponent } from './WrappedReactComponent';
   import { Chips } from '@components/atoms';
   import { renderer } from './Renderer';
+  import { MOBILE_WIDTH } from '@components/const';
+  import ToolsIcon from './tools.svg?component';
 
-  export let styleName: string;
   export let isDarkTheme: boolean;
   let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
   export let color: string = 'blue';
@@ -14,9 +12,10 @@
   export let colorPickerValueHex: string = '#ff00bb';
   let prevColorPickerValueHex = colorPickerValueHex;
   export let colorPickerValueHsv: { h: number; s: number; v: number; a: number } = { h: 316, s: 100, v: 100, a: 1 };
-  let prevColorPickerValueHsv = colorPickerValueHsv;
   export let borderRadius: 0 | 2 | 4 | 6 | 8 | 10 = 4;
   let prevBorderRadius = borderRadius;
+
+  export let onMobileToolsButtonClick: () => void;
 
   const components = ['Calendar', 'Dropdown Menu', 'Notifications'];
   let activeComponent = 'Calendar';
@@ -36,23 +35,11 @@
         colorPickerValueHex,
         colorPickerValueHsv,
       });
-    // ReactDOM.render(
-    //   React.createElement(WrappedReactComponent, {
-    //     component: activeComponent,
-    //     theme,
-    //     borderRadius,
-    //     color,
-    //     colorPickerValueHex,
-    //     colorPickerValueHsv,
-    //   }),
-    //   container,
-    // );
   };
 
   const unmountReactComponent = () => {
     try {
       if (root) root.unmount();
-      // ReactDOM.unmountComponentAtNode(container);
     } catch (err) {
       console.warn(`react-adapter failed to unmount.`, { err });
     }
@@ -80,7 +67,11 @@
       mountReactComponent();
     }
   }
+
+  $: innerWidth = 0;
 </script>
+
+<svelte:window bind:innerWidth />
 
 <div class="custom-info">
   <div class="components-control-wrapper">
@@ -93,6 +84,11 @@
         {component}
       </Chips>
     {/each}
+    {#if innerWidth <= MOBILE_WIDTH}
+      <button class="customizing-tools__button" on:click={onMobileToolsButtonClick}>
+        <ToolsIcon />
+      </button>
+    {/if}
   </div>
   <div class="component-wrapper" bind:this={container} />
 </div>

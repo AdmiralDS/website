@@ -32,12 +32,16 @@
 }
 
 .customizing-block__plug-wrapper {
-  display: none;
-
   @media (max-width: 430px) {
     display: block;
     position: absolute;
     width: 100%;
-    bottom: -1px;
+    bottom: 49px;
   }
+}
+
+.customization-links {
+  display: flex;
+  gap: 8px;
+  padding: 20px 16px 0;
 }
