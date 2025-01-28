@@ -2,9 +2,8 @@
   import { slide, fade } from 'svelte/transition';
   import { linear, quintOut } from 'svelte/easing';
   import { onMount } from 'svelte';
-  import { Chips, Toggle } from '@components/atoms';
+  import { Chips, Toggle, Button } from '@components/atoms';
   import { AdmiralBorderRadius } from '@components/const';
-  import Button from '@components/atoms/Button/Button.svelte';
   import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';
   import {
     ColorItem,
@@ -12,15 +11,23 @@
     ColorPickerTextInputItem,
   } from '@components/pageComponents/library/Content/customizing-block/color-picker';
   import {
-    activeColor,
     colorPickerValueHex,
     colorPickerValueHsv,
   } from '@components/pageComponents/library/Content/customizing-block/stores';
+  import type { ItemColor } from '../color-picker/types';
+  import type { AdmiralThemeProps } from './types';
+  import type { AdmiralRadiusValue } from '@components/types';
 
   export let onClose: () => void;
-  export let onApply: () => void;
-  let isDarkTheme: boolean = false;
-  let currentRadiusIndex: number = 0;
+  export let onApply: (value: AdmiralThemeProps) => void;
+
+  export let dark: boolean = false;
+  export let borderRadius: AdmiralRadiusValue = 4;
+  export let color: ItemColor = 'blue';
+
+  $: isDarkTheme = dark;
+  $: currentRadius = borderRadius;
+  $: currentColor = color;
 
   $: isPaneOpened = false;
 
@@ -35,14 +42,19 @@
     isDarkTheme = !isDarkTheme;
   };
 
-  const handleRoundChipClick = (index: number) => (currentRadiusIndex = index);
+  const handleRoundChipClick = (value: AdmiralRadiusValue) => (currentRadius = value);
 
   const handleApplyClick = () => {
-    onApply();
+    onApply({
+      isDarkTheme,
+      radius: currentRadius,
+      color: currentColor,
+    });
+    handleCloseMenu();
   };
 
-  const colors = ['yellow', 'blue', 'orange', 'violet'];
-  const handleClickOnColor = (colorName: string) => activeColor.set(colorName);
+  const colors: Array<ItemColor> = ['yellow', 'blue', 'orange', 'violet'];
+  const handleClickOnColor = (colorName: ItemColor) => (currentColor = colorName);
 </script>
 
 {#if isPaneOpened}
@@ -57,8 +69,12 @@
     <div class="radius-selector pane-item">
       Стиль
       <div class="radius-chips-wrapper">
-        {#each Object.entries(AdmiralBorderRadius) as [name, entry], i}
-          <Chips on:click={() => handleRoundChipClick(i)} appearance="primary" selected={i === currentRadiusIndex}>
+        {#each Object.values(AdmiralBorderRadius) as entry}
+          <Chips
+            appearance="primary"
+            selected={entry.radius === currentRadius}
+            on:click={() => handleRoundChipClick(entry.radius)}
+          >
             {`${entry.radius} px`}
           </Chips>
         {/each}
@@ -83,7 +99,7 @@
           />
         </div>
         {#each colors as color}
-          <ColorItem current={$activeColor === color} {color} on:click={() => handleClickOnColor(color)} />
+          <ColorItem current={currentColor === color} {color} size={'l'} on:click={() => handleClickOnColor(color)} />
         {/each}
       </div>
     </div>

@@ -7,8 +7,11 @@
   import { activeColor, colorPickerValueHex, colorPickerValueHsv } from '../stores.js';
   import { AdmiralBorderRadius, LINKS } from '@components/const';
   import type { AdmiralRadiusStyleName } from '@components/types';
+  import type { ItemColor } from '../color-picker/types';
+  import { MobileToolsPane, type AdmiralThemeProps } from '../mobile-tools-pane';
 
   let activeItem: AdmiralRadiusStyleName = 'geometrical';
+  let isToolsPaneOpened: boolean = false;
 
   const handleClick = (key: string) => {
     activeItem = key as AdmiralRadiusStyleName;
@@ -18,9 +21,25 @@
   $: isDarkTheme = false;
   const handleClickOnTheme = () => (isDarkTheme = !isDarkTheme);
 
+  $: borderRadius = AdmiralBorderRadius[activeItem].radius;
+
   // управление цветом
-  const colors = ['yellow', 'blue', 'orange', 'violet'];
-  const handleClickOnColor = (colorName: string) => activeColor.set(colorName);
+  const colors: Array<ItemColor> = ['yellow', 'blue', 'orange', 'violet'];
+  const handleClickOnColor = (colorName: ItemColor) => activeColor.set(colorName);
+
+  const handleToolsPaneClose = () => {
+    isToolsPaneOpened = false;
+  };
+
+  const handleApplyMobileSetting = ({ isDarkTheme: isDark, radius, color }: AdmiralThemeProps) => {
+    isDarkTheme = isDark;
+    borderRadius = radius;
+    activeColor.set(color);
+  };
+
+  const handleMobileToolsButtonClick = () => {
+    isToolsPaneOpened = true;
+  };
 </script>
 
 <div class="customization-menu">
@@ -47,6 +66,7 @@
             bind:hsv={$colorPickerValueHsv}
             --focus-color="#E6EAF0"
             --cp-border-color="#E6EAF0"
+            position="responsive"
           />
         </div>
         {#each colors as color}
@@ -69,9 +89,19 @@
     color={$activeColor}
     colorPickerValueHex={$colorPickerValueHex}
     colorPickerValueHsv={$colorPickerValueHsv}
-    borderRadius={AdmiralBorderRadius[activeItem].radius}
+    {borderRadius}
+    onMobileToolsButtonClick={handleMobileToolsButtonClick}
   />
 </div>
+{#if isToolsPaneOpened}
+  <MobileToolsPane
+    dark={isDarkTheme}
+    {borderRadius}
+    color={$activeColor}
+    onApply={handleApplyMobileSetting}
+    onClose={handleToolsPaneClose}
+  />
+{/if}
 
 <style>
   @import 'switcher.css';

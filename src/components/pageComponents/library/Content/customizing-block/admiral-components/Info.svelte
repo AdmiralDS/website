@@ -4,7 +4,6 @@
   import { renderer } from './Renderer';
   import { MOBILE_WIDTH } from '@components/const';
   import ToolsIcon from './tools.svg?component';
-  import { MobileToolsPane } from '@components/pageComponents/library/Content/customizing-block/mobile-tools-pane';
 
   export let isDarkTheme: boolean;
   let theme: 'dark' | 'light' = isDarkTheme ? 'dark' : 'light';
@@ -16,6 +15,8 @@
   export let borderRadius: 0 | 2 | 4 | 6 | 8 | 10 = 4;
   let prevBorderRadius = borderRadius;
 
+  export let onMobileToolsButtonClick: () => void;
+
   const components = ['Calendar', 'Dropdown Menu', 'Notifications'];
   let activeComponent = 'Calendar';
   let prevActiveComponent = activeComponent;
@@ -23,8 +24,6 @@
 
   let container;
   let root;
-
-  let isToolsPaneOpened = false;
 
   const mountReactComponent = () => {
     if (container)
@@ -70,16 +69,6 @@
   }
 
   $: innerWidth = 0;
-
-  const handleClickToolsButon = () => {
-    isToolsPaneOpened = true;
-  };
-
-  const handleToolsPaneClose = () => {
-    isToolsPaneOpened = false;
-  };
-
-  const handleApplyMobileSetting = () => {}
 </script>
 
 <svelte:window bind:innerWidth />
@@ -96,15 +85,12 @@
       </Chips>
     {/each}
     {#if innerWidth <= MOBILE_WIDTH}
-      <button class="customizing-tools__button" on:click={handleClickToolsButon}>
+      <button class="customizing-tools__button" on:click={onMobileToolsButtonClick}>
         <ToolsIcon />
       </button>
     {/if}
   </div>
   <div class="component-wrapper" bind:this={container} />
-  {#if isToolsPaneOpened}
-    <MobileToolsPane onClose={handleToolsPaneClose} />
-  {/if}
 </div>
 
 <style>
