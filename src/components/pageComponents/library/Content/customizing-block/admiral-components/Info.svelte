@@ -78,6 +78,8 @@
   const handleToolsPaneClose = () => {
     isToolsPaneOpened = false;
   };
+
+  const handleApplyMobileSetting = () => {}
 </script>
 
 <svelte:window bind:innerWidth />

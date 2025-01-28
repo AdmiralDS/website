@@ -5,20 +5,13 @@
   import Info from '../admiral-components/Info.svelte';
   import { ColorItem, ColorPickerInputItem, ColorPickerTextInputItem } from '../color-picker';
   import { activeColor, colorPickerValueHex, colorPickerValueHsv } from '../stores.js';
-  import { LINKS } from '@components/const';
+  import { AdmiralBorderRadius, LINKS } from '@components/const';
+  import type { AdmiralRadiusStyleName } from '@components/types';
 
-  const NamesArray = {
-    geometrical: { label: 'Геометрический стиль', radius: 4 },
-    rounded: { label: 'Скругленный стиль', radius: 8 },
-    fullRounded: { label: 'Круглый стиль', radius: 10 },
-  } as const;
-
-  type StyleName = keyof typeof NamesArray;
-
-  let activeItem: StyleName = 'geometrical';
+  let activeItem: AdmiralRadiusStyleName = 'geometrical';
 
   const handleClick = (key: string) => {
-    activeItem = key as StyleName;
+    activeItem = key as AdmiralRadiusStyleName;
   };
 
   // управление состоянием темы
@@ -32,7 +25,7 @@
 
 <div class="customization-menu">
   <div class="customization-items">
-    {#each Object.entries(NamesArray) as [name, entry], i}
+    {#each Object.entries(AdmiralBorderRadius) as [name, entry], i}
       <Item {name} number={i} {...entry} active={activeItem === name} onClick={handleClick} />
     {/each}
     <div class="customization-item">
@@ -76,7 +69,7 @@
     color={$activeColor}
     colorPickerValueHex={$colorPickerValueHex}
     colorPickerValueHsv={$colorPickerValueHsv}
-    borderRadius={NamesArray[activeItem].radius}
+    borderRadius={AdmiralBorderRadius[activeItem].radius}
   />
 </div>
 
