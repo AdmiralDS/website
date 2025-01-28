@@ -51,7 +51,7 @@ div.toggle-switch-container {
 .toggle-switch:not(:checked) {
   background-color: #35383a;
 }
-.toggle-switch:checked:before {
+.toggle-switch:checked::before {
   transform: translate(14px);
 
   @media (max-width: 430px) {
