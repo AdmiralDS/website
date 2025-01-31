@@ -1,5 +1,5 @@
 <script>
-  import { ThemeToggle}  from './../ThemeToggle';
+  import { ThemeToggle } from './../ThemeToggle';
   import { MOBILE_WIDTH } from '@components/const';
 
   $: innerWidth = 0;
@@ -19,9 +19,6 @@
       <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-static-element-interactions -->
       <div class="products-block_card-title" on:click={handleTitleClick}>
         <span>{product.title}</span>
-        <!-- <div class="products-block__icon-wrapper">
-          <IconArrowRight width="16" height="16" />
-        </div> -->
       </div>
       {#each product.description as text}
         <div class="products-block_card-description">{text}</div>

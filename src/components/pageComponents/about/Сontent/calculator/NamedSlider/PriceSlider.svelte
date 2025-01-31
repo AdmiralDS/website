@@ -25,10 +25,9 @@
   bind:value
   {tagCaption}
   title="Стоимость команды в год"
-  ticks={[0, 10000000, 50000000, 130000000, 170000000]}
+  ticks={[0, 20000000, 60000000, 120000000, 180000000]}
   min={0}
   max={180000000}
   step={10000000}
-  tickNameAlign="start"
   tickNameHandler={prefixHandler(innerWidth <= MOBILE_WIDTH ? ' млн' : ' 000 000')}
 />
