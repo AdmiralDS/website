@@ -1,26 +1,35 @@
 <script lang="ts">
+  import { MOBILE_WIDTH, TABLET_WIDTH } from '@components/const';
   import NamedSlider from './NamedSlider.svelte';
 
   export let value: number = 50;
   $: tagCaption = `${value.toLocaleString()} ₽`;
 
-  const prefixHandler = (tick: number, suffix: string) => {
-    if (tick > 130) {
-      return 'страшно считать'
-    }
+  $: innerWidth = 0;
 
-    return `${tick}`;
-  }
+  const prefixHandler = (suffix: string) => {
+    return (tick: number) => {
+      if (tick > 130000000) {
+        return '∞';
+      } else if (tick === 0) {
+        return '0';
+      }
+
+      return `${tick / 1000000}${suffix}`;
+    };
+  };
 </script>
+
+<svelte:window bind:innerWidth />
 
 <NamedSlider
   bind:value
   {tagCaption}
   title="Стоимость команды в год"
-  ticks={[0, 10, 50, 130, 170]}
+  ticks={[0, 10000000, 50000000, 130000000, 170000000]}
   min={0}
-  max={180}
-  step={10}
+  max={180000000}
+  step={10000000}
   suffix=" млн, ₽"
-  tickNameHandler={prefixHandler}
+  tickNameHandler={prefixHandler(innerWidth <= MOBILE_WIDTH ? ' млн' : ' 000 000')}
 />

@@ -11,7 +11,7 @@
   const minEmployeeCounter = 10;
   const maxEmployeeCounter = 1000;
 
-  $: priceCounter =  50;
+  $: priceCounter = 50;
   const minPriceCounter = 10;
   const maxPriceCounter = 180;
 
@@ -23,9 +23,9 @@
 
   let result: number = 30;
 
-  const handleToggleClick = () => isMultiChannel = !isMultiChannel;
+  const handleToggleClick = () => (isMultiChannel = !isMultiChannel);
   const getTenPercentFromNumber = (num: number) => Math.ceil(num * 0.1);
-  
+
   const makeCounting = (...args) => {
     const range = maxResult - minResult;
     const employeeRange = maxEmployeeCounter - minEmployeeCounter;
@@ -36,17 +36,19 @@
     const currentEmployeeRangePoint = (currentEmployeeCounter - minEmployeeCounter) / employeeRange;
 
     const currentPriceCounter = Math.max(priceCounter, minPriceCounter);
-    const currentPriceRangePoint = (currentPriceCounter - minPriceCounter)  / priceRange;
+    const currentPriceRangePoint = (currentPriceCounter / 1000000 - minPriceCounter) / priceRange;
 
     const currentProductCounter = Math.max(productCounter, minProductCounter);
     const currentProductRangePoint = (currentProductCounter - minProductCounter) / productRange;
 
-    result = Math.ceil(minResult + (currentEmployeeRangePoint / 3 + currentPriceRangePoint / 3 + currentProductRangePoint / 3) * range);
+    result = Math.ceil(
+      minResult + (currentEmployeeRangePoint / 3 + currentPriceRangePoint / 3 + currentProductRangePoint / 3) * range,
+    );
 
     if (isMultiChannel) {
       result = getTenPercentFromNumber(result) + result;
     }
-  }
+  };
 
   $: makeCounting(employeeCounter, priceCounter, productCounter, isMultiChannel);
 </script>
