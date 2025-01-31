@@ -80,6 +80,12 @@
 .slider-tick.isFirst {
   align-items: flex-start;
 }
+.slider-tick.alignStart {
+  align-items: flex-start;
+}
+.slider-tick.alignEnd {
+  align-items: flex-end;
+}
 .slider-tick.isLast {
   align-items: flex-end;
 }
