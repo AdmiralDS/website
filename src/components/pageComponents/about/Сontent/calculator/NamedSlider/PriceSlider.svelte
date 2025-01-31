@@ -2,9 +2,8 @@
   import { MOBILE_WIDTH, TABLET_WIDTH } from '@components/const';
   import NamedSlider from './NamedSlider.svelte';
 
-  export let value: number = 50;
+  export let value: number = 50000000;
   $: tagCaption = `${value.toLocaleString()} ₽`;
-
   $: innerWidth = 0;
 
   const prefixHandler = (suffix: string) => {
@@ -30,6 +29,6 @@
   min={0}
   max={180000000}
   step={10000000}
-  suffix=" млн, ₽"
+  tickNameAlign="start"
   tickNameHandler={prefixHandler(innerWidth <= MOBILE_WIDTH ? ' млн' : ' 000 000')}
 />

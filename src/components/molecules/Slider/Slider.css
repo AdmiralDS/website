@@ -67,7 +67,7 @@
   z-index: -1;
 }
 .slider-tick {
-  align-items: flex-start;
+  align-items: center;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -79,6 +79,12 @@
 }
 .slider-tick.isFirst {
   align-items: flex-start;
+}
+.slider-tick.alignStart {
+  align-items: flex-start;
+}
+.slider-tick.alignEnd {
+  align-items: flex-end;
 }
 .slider-tick.isLast {
   align-items: flex-end;

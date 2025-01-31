@@ -11,9 +11,9 @@
   const minEmployeeCounter = 10;
   const maxEmployeeCounter = 1000;
 
-  $: priceCounter = 50;
-  const minPriceCounter = 10;
-  const maxPriceCounter = 180;
+  $: priceCounter = 50000000;
+  const minPriceCounter = 10000000;
+  const maxPriceCounter = 180000000;
 
   $: productCounter = 20;
   const minProductCounter = 10;
@@ -29,14 +29,14 @@
   const makeCounting = (...args) => {
     const range = maxResult - minResult;
     const employeeRange = maxEmployeeCounter - minEmployeeCounter;
-    const priceRange = maxPriceCounter - minPriceCounter;
+    const priceRange = (maxPriceCounter - minPriceCounter) / 1000000;
     const productRange = maxProductCounter - minProductCounter;
 
     const currentEmployeeCounter = Math.max(employeeCounter, minEmployeeCounter);
     const currentEmployeeRangePoint = (currentEmployeeCounter - minEmployeeCounter) / employeeRange;
 
     const currentPriceCounter = Math.max(priceCounter, minPriceCounter);
-    const currentPriceRangePoint = (currentPriceCounter / 1000000 - minPriceCounter) / priceRange;
+    const currentPriceRangePoint = (currentPriceCounter / 1000000 - minPriceCounter / 1000000) / priceRange;
 
     const currentProductCounter = Math.max(productCounter, minProductCounter);
     const currentProductRangePoint = (currentProductCounter - minProductCounter) / productRange;
