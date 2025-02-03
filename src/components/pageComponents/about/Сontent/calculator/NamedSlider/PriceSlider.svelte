@@ -8,9 +8,7 @@
 
   const prefixHandler = (suffix: string) => {
     return (tick: number) => {
-      if (tick > 130000000) {
-        return '∞';
-      } else if (tick === 0) {
+      if (tick === 0) {
         return '0';
       }
 

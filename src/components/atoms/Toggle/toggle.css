@@ -22,11 +22,6 @@ div.toggle-switch-container {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  @media (max-width: 430px) {
-    block-size: 28px;
-    inline-size: 52px;
-  }
 }
 .toggle-switch::before {
   background-color: white;
@@ -49,6 +44,11 @@ div.toggle-switch-container {
 }
 
 @media (max-width: 430px) {
+  .toggle-switch {
+    block-size: 28px;
+    inline-size: 52px;
+  }
+
   .toggle-switch::before {
     block-size: 21px;
     inline-size: 22px;
