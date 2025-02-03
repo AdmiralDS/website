@@ -11,7 +11,7 @@
   const minEmployeeCounter = 10;
   const maxEmployeeCounter = 1000;
 
-  $: priceCounter = 50000000;
+  $: priceCounter = 60000000;
   const minPriceCounter = 10000000;
   const maxPriceCounter = 180000000;
 

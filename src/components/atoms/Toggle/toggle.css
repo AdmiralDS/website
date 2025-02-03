@@ -37,13 +37,6 @@ div.toggle-switch-container {
   inset-inline-start: 3px;
   position: absolute;
   transition: 200ms ease-in-out transform;
-
-  @media (max-width: 430px) {
-    block-size: 21px;
-    inline-size: 22px;
-    border-radius: 11px;
-    inset-inline-start: 4px;
-  }
 }
 .toggle-switch:checked {
   background-color: #0d42ff;
@@ -53,8 +46,17 @@ div.toggle-switch-container {
 }
 .toggle-switch:checked::before {
   transform: translate(14px);
+}
 
-  @media (max-width: 430px) {
+@media (max-width: 430px) {
+  .toggle-switch::before {
+    block-size: 21px;
+    inline-size: 22px;
+    border-radius: 11px;
+    inset-inline-start: 4px;
+  }
+
+  .toggle-switch:checked::before {
     transform: translate(22px);
   }
 }
