@@ -27,8 +27,8 @@
   /** Determines the placement of slider ticks around the track. */
   export let tickNameAlign: 'start' | 'end' | 'center' = 'center';
 
-  /** Determines if the slider's value tooltip will be shown. */
-  export let tooltip = true;
+  ///** Determines if the slider's value tooltip will be shown. */
+  //export let tooltip = true;
 
   /** Text placed before the slider's value tooltip. */
   export let prefix = '';
