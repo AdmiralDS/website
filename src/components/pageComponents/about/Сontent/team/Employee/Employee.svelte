@@ -11,6 +11,7 @@
 
 <div class="stream-employee">
   {#if customAvatar}
+    <!-- svelte-ignore a11y-no-static-element-interactions a11y-click-events-have-key-events -->
     <div class="apply-for-role" on:click={() => window.open('mailto:Admiral@inno.tech')}>
       <PlusIcon />
     </div>
