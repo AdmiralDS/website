@@ -1,14 +1,3 @@
-.about-header {
-    box-sizing: border-box;
-    flex: 0 0 812px;
-    min-height: 812px;
-
-    @media (max-width: 430px) {
-        flex: 0 0 430px;
-        max-height: 544px;
-    }
-}
-
 .about-header__content {
     display: flex;
     flex-direction: column;
@@ -20,7 +9,6 @@
     }
 }
 
-img,
 video {
     position: absolute;
     right: 0;
