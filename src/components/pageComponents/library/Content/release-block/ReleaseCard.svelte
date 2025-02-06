@@ -8,6 +8,7 @@
   export let loading: boolean = false;
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="release-card" on:click={() => window.open(link, '_blank')} {...$$restProps}>
   <div class="release-card__header" class:skeleton={loading}>{version}</div>
   <div class="release-card__info" class:skeleton={loading}>

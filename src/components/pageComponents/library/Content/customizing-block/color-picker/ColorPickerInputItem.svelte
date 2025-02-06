@@ -15,9 +15,6 @@
   /** input name, useful in a native form */
   export let name: string | undefined = undefined;
 
-  /** indicator of the popup state */
-  export let isOpen: boolean;
-
   function noop() {
     /* prevent browser color picker from opening unless javascript is broken */
   }

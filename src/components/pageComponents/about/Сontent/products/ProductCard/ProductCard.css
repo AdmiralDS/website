@@ -48,14 +48,6 @@
   }
 }
 
-.products-block__icon-wrapper {
-  display: flex;
-
-  @media (max-width: 430px) {
-    display: none;
-  }
-}
-
 .products-block_card-description {
   padding: 20px 0;
 

@@ -29,6 +29,7 @@
   };
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="event-point" on:mouseenter={calcPosition} bind:this={pointDiv}>
   <div
     class="text-block"

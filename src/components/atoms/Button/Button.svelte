@@ -22,7 +22,6 @@
 <button
   bind:this={element}
   use:forwardEvents
-  role="button"
   class="button style-{variant} {className}"
   class:disabled
   {...$$restProps}

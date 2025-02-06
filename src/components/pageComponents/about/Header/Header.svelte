@@ -10,7 +10,7 @@
 
 <svelte:window bind:innerWidth />
 
-<HeaderBlock id="ds-info" class="about-header">
+<HeaderBlock id="ds-info">
   <video autoplay loop poster={Cover} id="cover" muted slot="video">
     <source src="Admiral_animation_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
   </video>
