@@ -1,63 +1,60 @@
 .abilities-item {
-	cursor: pointer;
-	height: 30px;
-	padding: 0 0 20px 0;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	column-gap: 19px;
+  cursor: pointer;
+  height: 30px;
+  padding: 0 0 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 19px;
 
-	color: var(--Grey, #7a8190);
-	font-variant-numeric: lining-nums tabular-nums;
-	font-family: Inter;
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 25px;
+  color: var(--Grey, #7a8190);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
 
-	transition-property: color;
-	transition-duration: var(--transition-duration-base, 300ms);
-	transition-timing-function: var(--transition-easing-base, ease-in-out);
+  transition-property: color;
+  transition-duration: var(--transition-duration-base, 300ms);
+  transition-timing-function: var(--transition-easing-base, ease-in-out);
 
-	&:hover {
-		color: var(--Blue, #0d42ff);
-	}
+  &:hover {
+    color: var(--Blue, #0d42ff);
+  }
 
-	@media (max-width: 430px) {
-		font-size: 16px;
-		line-height: 20px;
-		text-wrap: nowrap;
+  @media (max-width: 576px) {
+    font-size: 16px;
+    line-height: 20px;
+    text-wrap: nowrap;
 
-		column-gap: 10px;
-		padding: 0;
-	}
+    column-gap: 10px;
+    padding: 0;
+  }
 }
 
 .abilities-item:last-of-type {
-	@media (max-width: 430px) {
-		padding-right: 15px;
-	}
+  @media (max-width: 576px) {
+    padding-right: 15px;
+  }
 }
 
 .abilities-item:not(:first-child) {
   padding-top: 20px;
 
-	@media (max-width: 430px) {
-		padding-top: 0;
-	}
+  @media (max-width: 576px) {
+    padding-top: 0;
+  }
 }
 
 .abilities-item:not(:last-child) {
-	border-bottom: 1px solid #e6eaf0;
-		
+  border-bottom: 1px solid #e6eaf0;
 
-	@media (max-width: 430px) {
-		border-bottom: none;
-	}
+  @media (max-width: 576px) {
+    border-bottom: none;
+  }
 }
 
 .active {
   color: var(--Blue, #0d42ff);
-
-
 }

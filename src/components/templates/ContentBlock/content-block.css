@@ -5,7 +5,7 @@
   border-bottom: 1px solid #e6eaf0;
   position: relative;
 
-  @media (max-width: 430px) {
+  @media (max-width: 576px) {
     padding: 20px 0 48px;
   }
 }
@@ -13,7 +13,7 @@
 .block-container:first-child {
   padding-top: 6px;
 
-  @media (max-width: 430px) {
+  @media (max-width: 576px) {
     padding-top: 10px;
   }
 }
@@ -34,7 +34,7 @@
   text-transform: uppercase;
   margin: 0;
 
-  @media (max-width: 430px) {
+  @media (max-width: 576px) {
     font-size: 22px;
     line-height: 22px;
   }
