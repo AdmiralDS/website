@@ -81,7 +81,7 @@ code {
     height: 100%;
   }
 
-  @media (max-width: 430px) {
+  @media (max-width: 576px) {
     display: block;
   }
 }

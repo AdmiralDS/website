@@ -1,7 +1,7 @@
 import type { BorderRadiusInfo } from '@components/types';
 
 export const TABLET_WIDTH = 1024;
-export const MOBILE_WIDTH = 430;
+export const MOBILE_WIDTH = 576;
 
 export const LINKS = {
   STORYBOOK: 'https://admiralds.github.io/react-ui/',

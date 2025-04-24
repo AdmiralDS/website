@@ -72,7 +72,7 @@
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 576px) {
   .user-card {
     padding: 16px 20px;
     background: var(--Dark_blue_gradient--mobile);

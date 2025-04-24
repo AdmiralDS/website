@@ -11,7 +11,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
 
-  @media (max-width: 430px) {
+  @media (max-width: 576px) {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -23,7 +23,7 @@
   gap: 10px;
   margin-bottom: 40px;
 
-  @media (max-width: 430px) {
+  @media (max-width: 576px) {
     flex-wrap: wrap;
     padding-right: 48px;
   }
@@ -33,7 +33,7 @@
   display: flex;
   justify-content: center;
 
-  @media (max-width: 430px) {
+  @media (max-width: 576px) {
     margin-bottom: 30px;
   }
 }
