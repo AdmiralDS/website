@@ -108,4 +108,5 @@ code {
   overflow: auto;
   scroll-behavior: smooth;
   min-width: 100%;
+  overscroll-behavior: none;
 }
