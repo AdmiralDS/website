@@ -43,7 +43,7 @@ div.toggle-switch-container {
   transform: translate(14px);
 }
 
-@media (max-width: 430px) {
+@media (max-width: 576px) {
   .toggle-switch {
     block-size: 28px;
     inline-size: 52px;
