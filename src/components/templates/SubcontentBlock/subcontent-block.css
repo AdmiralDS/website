@@ -22,7 +22,6 @@
   padding-right: 10px;
   border-right: 1px solid var(--Light_grey, #e6eaf0);
   flex: 50%;
-  height: 185px;
 
   @media (max-width: 576px) {
     border-right: none;
@@ -74,12 +73,9 @@
   display: flex;
   margin-left: 10px;
   padding-top: 20px;
-  height: 185px;
 
   @media (max-width: 576px) {
     margin: 0;
     height: auto;
-    width: 100vw;
-    left: -16px;
   }
 }

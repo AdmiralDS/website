@@ -27,6 +27,7 @@
     color: var(--Blue, #0d42ff);
   }
 }
+
 .chips.style-primary-selected {
   border-color: var(--Blue, #0d42ff);
   background: var(--Blue, #0d42ff);
