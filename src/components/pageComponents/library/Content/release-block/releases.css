@@ -10,7 +10,7 @@
 
 .releases-block__cards-wrapper {
   overflow: hidden;
-  flex: 1 0 75%;
+  flex: 1 1 auto;
   box-sizing: border-box;
   @media (max-width: 576px) {
     position: relative;

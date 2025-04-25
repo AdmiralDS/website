@@ -60,6 +60,7 @@
 
 .subcontent-block__tags-wrapper {
   display: flex;
+  height: 28px;
   gap: 5px;
 
   @media (max-width: 576px) {
