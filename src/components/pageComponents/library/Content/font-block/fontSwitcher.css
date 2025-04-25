@@ -25,6 +25,7 @@
     overflow: hidden;
     flex-wrap: wrap;
     gap: 5px;
+    height: 30px;
 
   @media (max-width: 576px) {
     margin: 48px 0 0;

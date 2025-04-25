@@ -6,16 +6,19 @@
 }
 
 .palette-block__colors-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
   gap: 10px 20px;
-  width: 100%;
-
+  
   @media (max-width: 576px) {
-    overflow: hidden;
     border-radius: 12px 12px 0 0;
     gap: 0;
   }
+}
+
+.palette-block__colors-wrapper > *{
+  flex: 1 1 30%
 }
 
 .palette-block__plug-wrapper {
