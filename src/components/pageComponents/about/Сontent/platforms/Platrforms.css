@@ -69,6 +69,6 @@
     display: block;
     position: absolute;
     bottom: -1px;
-    width: 100vw;
+    width: 100%;
   }
 }
