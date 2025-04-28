@@ -4,7 +4,7 @@
   padding-bottom: 100px;
   border-bottom: 1px solid var(--Light_grey, #e6eaf0);
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     border-bottom: 1px solid var(--Light_grey, #e6eaf0);
     grid-template-columns: none;
     padding-bottom: 36px;
@@ -23,7 +23,7 @@
   border-right: 1px solid var(--Light_grey, #e6eaf0);
   flex: 50%;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     border-right: none;
     padding-right: 0;
     height: auto;
@@ -43,7 +43,7 @@
   line-height: 25px;
   margin-bottom: 10px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0px;
@@ -63,7 +63,7 @@
   height: 28px;
   gap: 5px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     display: none;
   }
 }
@@ -75,7 +75,7 @@
   margin-left: 10px;
   padding-top: 20px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     margin: 0;
     height: auto;
   }

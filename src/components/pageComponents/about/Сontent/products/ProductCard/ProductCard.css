@@ -4,7 +4,7 @@
   column-gap: 10px;
   margin-top: 40px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     flex-direction: column;
     margin-top: 0;
   }
@@ -41,7 +41,7 @@
   font-weight: 500;
   line-height: 25px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     font-size: 16px;
     line-height: 20px;
     padding: 10px 0;
@@ -61,7 +61,7 @@
   line-height: 25px;
   border-top: 1px solid #e6eaf0;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     font-size: 16px;
     line-height: 20px;
     padding: 10px 0;
@@ -90,7 +90,7 @@
 .products-block_card-items-controls {
   margin-top: 40px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     display: none;
   }
 }
@@ -98,7 +98,7 @@
 .divider {
   width: 1px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     display: none;
   }
 }
@@ -117,7 +117,7 @@
   max-height: 577px;
   margin: auto;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     margin-top: 22px;
     max-height: 248px;
   }

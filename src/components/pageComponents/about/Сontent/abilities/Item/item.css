@@ -23,7 +23,7 @@
     color: var(--Blue, #0d42ff);
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     font-size: 16px;
     line-height: 20px;
     text-wrap: nowrap;
@@ -34,7 +34,7 @@
 }
 
 .abilities-item:last-of-type {
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     padding-right: 15px;
   }
 }
@@ -42,7 +42,7 @@
 .abilities-item:not(:first-child) {
   padding-top: 20px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     padding-top: 0;
   }
 }
@@ -50,11 +50,17 @@
 .abilities-item:not(:last-child) {
   border-bottom: 1px solid #e6eaf0;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     border-bottom: none;
   }
 }
 
 .active {
   color: var(--Blue, #0d42ff);
+}
+
+.abilities-item__title {
+  word-wrap: break-word;
+  text-wrap-mode: nowrap;
+  flex: 1 1 auto;
 }

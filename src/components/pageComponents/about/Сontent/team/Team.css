@@ -5,7 +5,7 @@
   column-gap: 16px;
   row-gap: 20px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     grid-template-columns: repeat(3, 1fr);
     padding: 20px 0 32px;
     column-gap: 31px;

@@ -27,7 +27,7 @@
     <div>
       {number}
     </div>
-    <div style="margin-right: auto;">
+    <div class="abilities-item__title">
       {label}
     </div>
     {#if innerWidth > MOBILE_WIDTH}
