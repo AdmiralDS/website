@@ -18,7 +18,7 @@
     line-height: 25px;
     margin-bottom: 10px;
 
-    @media (max-width: 576px) {
+    @media (max-width: 767px) {
       font-size: 16px;
       line-height: 20px;
       letter-spacing: 0px;

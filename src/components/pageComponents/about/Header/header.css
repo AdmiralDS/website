@@ -3,7 +3,7 @@
   flex-direction: column;
   box-sizing: border-box;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     padding: 0 0 0 16px;
     overflow-x: hidden;
   }
@@ -19,7 +19,7 @@ video {
   pointer-events: none;
   z-index: -1;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     top: 75px;
     border-radius: 12px 12px 0 0;
     max-width: 100vw;
@@ -39,7 +39,7 @@ video {
   margin-top: 39px;
   margin-bottom: 20px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     font-size: 30px;
     line-height: 30px;
     letter-spacing: 0%;
@@ -70,7 +70,7 @@ video {
     width: 617px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     margin-bottom: 32px;
     max-width: 95%;
 
@@ -92,7 +92,7 @@ video {
     margin-top: 80px;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     height: fit-content;
     overflow: scroll;
     -ms-overflow-style: none;

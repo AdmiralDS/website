@@ -59,7 +59,7 @@
   height: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   .user-card__info-main {
     color: var(--White, #fff);
     font-family: CoFo Kak;
@@ -72,7 +72,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .user-card {
     padding: 16px 20px;
     background: var(--Dark_blue_gradient--mobile);

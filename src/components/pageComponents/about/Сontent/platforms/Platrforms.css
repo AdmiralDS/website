@@ -4,7 +4,7 @@
   border-radius: 12px;
   overflow: hidden;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     height: 371px;
     margin: -40px 0 -20px;
     border-radius: 12px 12px 0 0;
@@ -35,7 +35,7 @@
     max-width: 64%;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     font-size: 16px;
     line-height: 20px;
 
@@ -57,7 +57,7 @@
   left: 20px;
   position: absolute;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     bottom: 32px;
   }
 }
@@ -65,7 +65,7 @@
 .platforms-block__plug-wrapper {
   display: none;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     display: block;
     position: absolute;
     bottom: -1px;

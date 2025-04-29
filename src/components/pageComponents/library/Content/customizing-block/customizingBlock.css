@@ -7,7 +7,7 @@
   padding-top: 20px;
   padding-bottom: 40px;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
@@ -24,13 +24,13 @@
   left: 0;
   width: 100%;
 
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     display: block;
   }
 }
 
 .customizing-block__plug-wrapper {
-  @media (max-width: 576px) {
+  @media (max-width: 767px) {
     display: block;
     position: absolute;
     width: 100%;
