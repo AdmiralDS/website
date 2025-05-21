@@ -112,14 +112,15 @@
   };
 </script>
 
-<svelte:window 
-  on:resize={calcButtonsDisabled} 
-  on:mouseup={mouseUpHandler} 
+<svelte:window
+  on:resize={calcButtonsDisabled}
+  on:mouseup={mouseUpHandler}
   on:mousemove={mouseMoveHandler}
   on:touchend={touchUpHandler}
   on:touchmove={touchMoveHandler}
 />
 <div class="timeline-container" bind:this={container}>
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     class="scrolling-container"
     class:grabbing={isMousePressed}

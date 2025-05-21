@@ -20,8 +20,8 @@
   <div class="line">
     {#if item.eventPoints}
       <div class="events-wrapper">
-        {#each item.eventPoints as item}
-          <EventItem {item} {container} />
+        {#each item.eventPoints as point}
+          <EventItem item={point} {container} />
         {/each}
       </div>
     {/if}

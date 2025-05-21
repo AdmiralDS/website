@@ -48,10 +48,6 @@
     }
   };
 
-  onMount(async () => {
-    // Icon = (await import(`./${name}.svelte`)).default;
-  });
-
   const handleImageLoad = () => {
     imageLoading = false;
   };

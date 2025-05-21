@@ -4,7 +4,7 @@
   column-gap: 10px;
   align-items: center;
 
-  @media (max-width: 430px) {
+  @media (max-width: 767px) {
     margin-top: 0;
   }
 }
@@ -14,7 +14,7 @@
   width: 1px;
   background-color: var(--Light_grey);
 
-  @media (max-width: 430px) {
+  @media (max-width: 767px) {
     display: none;
   }
 }

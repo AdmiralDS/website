@@ -1,6 +1,7 @@
 <script lang="ts">
   import ColorItem from './ColorItem.svelte';
   import { activeColor } from '../stores.js';
+  import { MOBILE_WIDTH } from '@components/const';
 
   /** DOM element of the label wrapper */
   export let labelElement: HTMLLabelElement;
@@ -14,13 +15,13 @@
   /** input name, useful in a native form */
   export let name: string | undefined = undefined;
 
-  /** indicator of the popup state */
-  export let isOpen: boolean;
-
   function noop() {
     /* prevent browser color picker from opening unless javascript is broken */
   }
+  $: innerWidth = 0;
 </script>
+
+<svelte:window bind:innerWidth />
 
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions a11y-click-events-have-key-events -->
 <label bind:this={labelElement} on:click|preventDefault={noop} on:mousedown|preventDefault={noop}>
@@ -33,9 +34,13 @@
       on:mousedown|preventDefault={noop}
       aria-haspopup="dialog"
     />
-    <div style="margin-top: -12px">
-      <ColorItem color="custom" current={$activeColor === 'custom'} />
-    </div>
+    {#if innerWidth <= MOBILE_WIDTH}
+      <ColorItem color="custom" size={'l'} current={$activeColor === 'custom'} />
+    {:else}
+      <div style={'margin-top: -12px'}>
+        <ColorItem color="custom" size={'s'} current={$activeColor === 'custom'} />
+      </div>
+    {/if}
   </div>
   {label}
 </label>

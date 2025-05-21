@@ -1,10 +1,12 @@
 .event-point {
   width: 8px;
   height: 8px;
-  background: var(--White, #ffffff);
+  background: 'red';
+  /* background: var(--White, #ffffff); */
   border: 2px solid var(--Grey, #7a8190);
   position: relative;
   border-radius: 50%;
+  z-index: 1;
 }
 
 .event-point:hover {
@@ -12,31 +14,17 @@
 }
 
 .text-block {
-  position: absolute;
-  text-align: start;
-
+  width: 180px;
+  padding: 10px;
+  background: var(--White, rgb(255, 255, 255));
   color: var(--Grey, #7a8190);
   font-family: Inter;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 15px; /* 125% */
-  letter-spacing: -0.1px;
-
-  width: 180px;
-  padding: 10px;
+  line-height: 15px;
   border: 1px solid var(--Light_grey, rgb(230, 234, 240));
   border-radius: 4px;
-  height: fit-content;
-
-  background: var(--White, rgb(255, 255, 255));
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   pointer-events: none;
-
-  bottom: 20px;
-}
-
-.event-point:hover .text-block {
-  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
 }

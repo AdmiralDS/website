@@ -10,6 +10,7 @@
 </script>
 
 <div class="tablet-button">
+  <!-- svelte-ignore a11y-no-static-element-interactions a11y-click-events-have-key-events -->
   <div class="tablet-icon-wrapper" on:click={handleClickOnMenuControl}>
     <Burger fill="var(--White, rgb(255, 255, 255))" />
   </div>
@@ -19,5 +20,5 @@
 </div>
 
 <style>
- @import './tablet-button.css';
+  @import './tablet-button.css';
 </style>
