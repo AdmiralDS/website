@@ -4,7 +4,7 @@ import svgr from 'vite-plugin-svelte-svgr';
 
 export default defineConfig({
   build: {
-    target: ['es2015'],
+    target: ['safari15', 'chrome58'],
   },
   ssr: {
     // Example: Force a broken package to skip SSR processing, if needed
