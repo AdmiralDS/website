@@ -60,6 +60,7 @@
   });
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="event-point" on:mouseenter={calcPosition} on:mouseleave={hide} bind:this={pointDiv}></div>
 
 {#if visible}
