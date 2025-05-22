@@ -4,24 +4,24 @@
   position: relative;
   padding-top: 20px;
   border-bottom: 1px solid #e6eaf0;
-
-  @media (max-width: 767px) {
-    border-bottom: none;
-  }
 }
 
 .releases-block__content {
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
-
-  @media (max-width: 767px) {
-    margin-bottom: 24px;
-  }
 }
 
-.releases-block__buttons-wrapper {
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .releases-block {
+    border-bottom: none;
+  }
+
+  .releases-block__content {
+    margin-bottom: 24px;
+  }
+
+  .releases-block__buttons-wrapper {
     display: none;
   }
 }

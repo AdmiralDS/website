@@ -17,12 +17,6 @@
     font-weight: 500;
     line-height: 25px;
     margin-bottom: 10px;
-
-    @media (max-width: 767px) {
-      font-size: 16px;
-      line-height: 20px;
-      letter-spacing: 0px;
-    }
   }
   .release-title-card__info {
     color: var(--Grey);
@@ -34,5 +28,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  @media (max-width: 767px) {
+    .release-title-card__header {
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0px;
+    }
   }
 </style>

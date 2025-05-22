@@ -2,20 +2,12 @@
   margin-bottom: 20px;
   display: flex;
   gap: 20px;
-
-  @media (max-width: 767px) {
-    flex-direction: column;
-  }
 }
 
 .releases-block__cards-wrapper {
   overflow: hidden;
   flex: 1 1 auto;
   box-sizing: border-box;
-  @media (max-width: 767px) {
-    position: relative;
-    padding-left: 16px;
-  }
 }
 
 .releases-block__scrolling-container {
@@ -25,17 +17,28 @@
   gap: 20px;
   justify-content: space-between;
   transition: transform 300ms ease-in-out;
-
-  @media (max-width: 767px) {
-    gap: 8px;
-  }
 }
 
 :global(.releases-block__button) {
   width: fit-content;
   margin-top: 40px;
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .releases-wrapper {
+    flex-direction: column;
+  }
+
+  .releases-block__cards-wrapper {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .releases-block__scrolling-container {
+    gap: 8px;
+  }
+
+  :global(.releases-block__button) {
     margin-top: 12px;
   }
 }
