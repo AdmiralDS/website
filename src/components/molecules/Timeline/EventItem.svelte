@@ -13,7 +13,6 @@
   let visible = false;
 
   function calcPosition() {
-    console.log('mouseenter: calcPosition вызван');
     if (!pointDiv) return;
 
     const pointRect = pointDiv.getBoundingClientRect();
