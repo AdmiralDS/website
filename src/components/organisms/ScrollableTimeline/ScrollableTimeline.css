@@ -11,10 +11,6 @@
   margin-bottom: 40px;
   transition: transform 300ms ease-in-out;
   cursor: grab;
-
-  @media (max-width: 767px) {
-    padding: 40px 0 100px;
-  }
 }
 
 .scrolling-container.grabbing {
@@ -29,8 +25,14 @@
 
 .timeline-container__arrows-wrapper {
   display: flex;
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .scrolling-container {
+    padding: 40px 0 100px;
+  }
+
+  .timeline-container__arrows-wrapper {
     display: none;
   }
 }

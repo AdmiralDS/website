@@ -3,7 +3,6 @@
   import { Card } from './Card';
   import { Arrow, Square, Eye } from '@assets/icons';
   import Cover from './image.png';
-  import { MOBILE_WIDTH } from '@components/const';
 
   $: innerWidth = 0;
 </script>
@@ -12,7 +11,7 @@
 
 <HeaderBlock id="ds-info">
   <video autoplay loop poster={Cover} id="cover" muted slot="video" playsinline>
-    <source src="Admiral_animation_video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+    <source src="Admiral_animation_video.mp4" type={"video/mp4; codecs='avc1.42E01E, mp4a.40.2'"} />
   </video>
   <div class="about-header__content" slot="content">
     <div class="header-text">
@@ -33,6 +32,6 @@
   </div>
 </HeaderBlock>
 
-<style>
-  @import 'header.css';
+<style lang="css">
+  @import './header.css';
 </style>
