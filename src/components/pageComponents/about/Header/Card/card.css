@@ -5,13 +5,6 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid rgb(255, 255, 255, 0.2);
-
-  @media (max-width: 767px) {
-    flex: 0 0 calc(59% - 10px);
-    justify-content: flex-start;
-    padding: 0 10px 0 0;
-    height: fit-content;
-  }
 }
 
 .card:last-of-type {
@@ -28,8 +21,17 @@
   font-style: normal;
   font-weight: 500;
   line-height: 25px; /* 125% */
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .card {
+    flex: 0 0 calc(59% - 10px);
+    justify-content: flex-start;
+    padding: 0 10px 0 0;
+    height: fit-content;
+  }
+
+  .card__text {
     font-size: 16px;
     line-height: 20px;
     margin-top: 20px;

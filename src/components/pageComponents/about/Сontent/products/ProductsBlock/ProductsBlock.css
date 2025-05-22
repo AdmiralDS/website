@@ -3,10 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media (max-width: 767px) {
-    margin: 20px 0;
-  }
 }
 
 .products-block_header-text {
@@ -20,18 +16,24 @@
   font-style: normal;
   font-weight: 500;
   line-height: 25px;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-    line-height: 20px;
-    width: 100%;
-  }
 }
 
 .products-block_header-theme-wrapper {
   display: flex;
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .products-block_header {
+    margin: 20px 0;
+  }
+
+  .products-block_header-text {
+    font-size: 16px;
+    line-height: 20px;
+    width: 100%;
+  }
+
+  .products-block_header-theme-wrapper {
     display: none;
   }
 }
