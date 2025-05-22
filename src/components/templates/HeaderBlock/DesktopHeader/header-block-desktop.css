@@ -1,15 +1,17 @@
 .header-block-template__desktop {
-    padding: 0 60px;
-    position: relative;
-    overflow: hidden;
-  
-    @media (max-width: 1600px) {
-      padding: 0 40px;
-    }
+  padding: 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-block-template__desktop-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (max-width: 1600px) {
+  .header-block-template__desktop {
+    padding: 0 40px;
   }
-  
-  .header-block-template__desktop-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+}

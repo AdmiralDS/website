@@ -4,18 +4,10 @@
   padding-bottom: 100px;
   border-bottom: 1px solid #e6eaf0;
   position: relative;
-
-  @media (max-width: 767px) {
-    padding: 20px 0 48px;
-  }
 }
 
 .block-container:first-child {
   padding-top: 6px;
-
-  @media (max-width: 767px) {
-    padding-top: 10px;
-  }
 }
 
 .block-container:last-of-type {
@@ -33,11 +25,6 @@
   line-height: 40px; /* 100% */
   text-transform: uppercase;
   margin: 0;
-
-  @media (max-width: 767px) {
-    font-size: 22px;
-    line-height: 22px;
-  }
 }
 
 :global(.block-title.dark) {
@@ -45,4 +32,19 @@
 }
 :global(.block-title.light) {
   color: var(--White, #fff);
+}
+
+@media (max-width: 767px) {
+  .block-container {
+    padding: 20px 0 48px;
+  }
+
+  .block-container:first-child {
+    padding-top: 10px;
+  }
+
+  :global(.block-title) {
+    font-size: 22px;
+    line-height: 22px;
+  }
 }

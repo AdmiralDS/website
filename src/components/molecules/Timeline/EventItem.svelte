@@ -13,7 +13,6 @@
   let visible = false;
 
   function calcPosition() {
-    console.log('mouseenter: calcPosition вызван');
     if (!pointDiv) return;
 
     const pointRect = pointDiv.getBoundingClientRect();
@@ -61,6 +60,7 @@
   });
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="event-point" on:mouseenter={calcPosition} on:mouseleave={hide} bind:this={pointDiv}></div>
 
 {#if visible}

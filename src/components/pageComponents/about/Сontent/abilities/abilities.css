@@ -5,20 +5,22 @@
   row-gap: 20px;
   margin-top: 37px;
   flex-wrap: wrap;
+}
 
-  @media (max-width: 767px) {
+.abilities-block__plug-wrapper {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .abilities-container {
     flex-direction: column;
     margin-top: 10px;
     gap: 20px;
     margin: 0 -16px;
     flex-wrap: nowrap;
   }
-}
 
-.abilities-block__plug-wrapper {
-  display: none;
-
-  @media (max-width: 767px) {
+  .abilities-block__plug-wrapper {
     display: block;
     position: absolute;
     width: 100%;

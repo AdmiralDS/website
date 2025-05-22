@@ -6,11 +6,6 @@
   border: none;
   background: var(--Light_blue, #f5f9fd);
   cursor: pointer;
-
-  @media (max-width: 767px) {
-    height: 96px;
-    padding: 20px 16px;
-  }
 }
 
 .release-card:hover .release-card__header:not(.skeleton) {
@@ -64,4 +59,11 @@
   color: transparent;
   background: var(--Skeleton_background, #f3f4f6);
   animation: var(--skeleton_animation);
+}
+
+@media (max-width: 767px) {
+  .release-card {
+    height: 96px;
+    padding: 20px 16px;
+  }
 }

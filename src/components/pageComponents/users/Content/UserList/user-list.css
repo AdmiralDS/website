@@ -5,8 +5,10 @@
   padding-bottom: 100px;
   border-bottom: 1px solid var(--Light_grey, #e6eaf0);
   gap: 10px;
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .users-list {
     padding-bottom: 0;
     border-bottom: none;
     gap: 8px;

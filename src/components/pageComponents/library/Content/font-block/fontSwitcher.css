@@ -7,10 +7,6 @@
   border-radius: 12px;
   background: var(--Light_blue, #f5f9fd);
   padding: 16px 20px 20px 20px;
-
-  @media (max-width: 767px) {
-    border-radius: 12px 12px 0 0;
-  }
 }
 
 .lib-font-block__font-tile-wrapper {
@@ -26,10 +22,6 @@
   flex-wrap: wrap;
   gap: 5px;
   height: 30px;
-
-  @media (max-width: 767px) {
-    margin: 48px 0 0;
-  }
 }
 
 .lib-font-block__font-buttons-container > * {
@@ -38,4 +30,14 @@
 
 .lib-font-block__font-text-wrapper {
   width: 100%;
+}
+
+@media (max-width: 767px) {
+  .lib-font-block__font-tile {
+    border-radius: 12px 12px 0 0;
+  }
+
+  .lib-font-block__font-buttons-container {
+    margin: 48px 0 0;
+  }
 }

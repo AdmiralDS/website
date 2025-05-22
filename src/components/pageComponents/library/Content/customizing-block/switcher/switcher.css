@@ -3,18 +3,8 @@
   flex-direction: column;
 }
 
-.customization-menu {
-  @media (max-width: 767px) {
-    display: none;
-  }
-}
-
 .divider {
   width: 1px;
-
-  @media (max-width: 767px) {
-    display: none;
-  }
 }
 .separator {
   width: 1px;
@@ -64,4 +54,14 @@
 .colors-container {
   display: flex;
   gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .customization-menu {
+    display: none;
+  }
+
+  .divider {
+    display: none;
+  }
 }

@@ -10,11 +10,6 @@
   flex-direction: column;
   justify-content: flex-start;
   box-sizing: border-box;
-
-  @media (max-width: 767px) {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
 }
 
 .components-control-wrapper {
@@ -24,20 +19,11 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 40px;
-
-  @media (max-width: 767px) {
-    flex-wrap: wrap;
-    padding-right: 48px;
-  }
 }
 
 .component-wrapper {
   display: flex;
   justify-content: center;
-
-  @media (max-width: 767px) {
-    margin-bottom: 30px;
-  }
 }
 
 .customizing-tools__button {
@@ -54,4 +40,20 @@
   position: absolute;
   right: 0;
   top: -5px;
+}
+
+@media (max-width: 767px) {
+  .custom-info {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .components-control-wrapper {
+    flex-wrap: wrap;
+    padding-right: 48px;
+  }
+
+  .component-wrapper {
+    margin-bottom: 30px;
+  }
 }

@@ -7,14 +7,6 @@
   position: relative;
   padding: 0 60px;
   background: var(--White, #fff);
-
-  @media (max-width: 1600px) {
-    padding: 0 40px;
-  }
-
-  @media (max-width: 767px) {
-    padding: 0 16px 16px;
-  }
 }
 .content-wrapper::before {
   content: '';
@@ -26,4 +18,15 @@
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   background: var(--White, #fff);
+}
+@media (max-width: 1600px) {
+  .content-wrapper {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-wrapper {
+    padding: 0 16px 16px;
+  }
 }

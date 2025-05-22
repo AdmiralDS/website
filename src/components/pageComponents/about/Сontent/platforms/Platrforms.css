@@ -3,12 +3,6 @@
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-
-  @media (max-width: 767px) {
-    height: 371px;
-    margin: -40px 0 -20px;
-    border-radius: 12px 12px 0 0;
-  }
 }
 
 .platforms-container {
@@ -30,17 +24,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: 25px;
-
-  @media (max-width: 1280px) {
-    max-width: 64%;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-    line-height: 20px;
-
-    max-width: 100%;
-  }
 }
 
 .platforms-cover {
@@ -56,19 +39,40 @@
   bottom: 20px;
   left: 20px;
   position: absolute;
-
-  @media (max-width: 767px) {
-    bottom: 32px;
-  }
 }
 
 .platforms-block__plug-wrapper {
   display: none;
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .platforms-wrapper {
+    height: 371px;
+    margin: -40px 0 -20px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .content {
+    font-size: 16px;
+    line-height: 20px;
+
+    max-width: 100%;
+  }
+
+  :global(.platforms-container .bottom-button) {
+    bottom: 32px;
+  }
+
+  .platforms-block__plug-wrapper {
     display: block;
     position: absolute;
     bottom: -1px;
     width: 100%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .content {
+    max-width: 64%;
   }
 }
