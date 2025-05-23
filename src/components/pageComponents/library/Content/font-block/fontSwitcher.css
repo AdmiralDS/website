@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
   border-radius: 12px;
   background: var(--Light_blue, #f5f9fd);
   padding: 16px 20px 20px 20px;
+  height: 100%;
 }
 
 .lib-font-block__font-tile-wrapper {
@@ -14,6 +14,7 @@
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
+  height: 164px;
 }
 
 .lib-font-block__font-buttons-container {
@@ -32,12 +33,18 @@
   width: 100%;
 }
 
+@media (max-width: 1023px) {
+  .lib-font-block__font-tile-wrapper {
+    height: 205px;
+  }
+}
+
+
 @media (max-width: 767px) {
   .lib-font-block__font-tile {
     border-radius: 12px 12px 0 0;
   }
-
-  .lib-font-block__font-buttons-container {
-    margin: 48px 0 0;
+  .lib-font-block__font-tile-wrapper {
+    height: 210px;
   }
 }
