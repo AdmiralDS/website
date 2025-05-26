@@ -8,7 +8,7 @@ export default defineConfig({
   },
   ssr: {
     // Example: Force a broken package to skip SSR processing, if needed
-    noExternal: ['@admiral-ds/*', 'styled-components'],
+    noExternal: ['@admiral-ds/*', 'styled-components', 'svelte-system-info'],
   },
   plugins: [sveltekit(), svgr()],
 });
