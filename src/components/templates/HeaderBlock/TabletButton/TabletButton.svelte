@@ -14,7 +14,7 @@
   <div class="tablet-icon-wrapper" on:click={handleClickOnMenuControl}>
     <Burger fill="var(--White, rgb(255, 255, 255))" />
   </div>
-  <a href={BASE_URL}>
+  <a class="tablet-link" href={BASE_URL}>
     <Logo fill="var(--White, rgb(255, 255, 255))" />
   </a>
 </div>
