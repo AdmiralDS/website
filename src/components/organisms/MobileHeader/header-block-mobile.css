@@ -12,8 +12,8 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--Light_blue, #fff);
-  
+  background-color: var(--White, #fff);
+
   box-sizing: border-box;
   transition: transform 500ms ease-in-out;
 }
@@ -28,9 +28,13 @@
 
 .mobile-header-template__icon-wrapper {
   position: absolute;
-  top: 24px;
+  top: 13px;
   left: 24px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
 }
 
 .mobile-header-template__logo-wrapper {
