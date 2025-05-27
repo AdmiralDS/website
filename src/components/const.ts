@@ -1,6 +1,7 @@
 import type { BorderRadiusInfo } from '@components/types';
 
 export const TABLET_WIDTH = 1279;
+export const TABLET_MEDIUM_WIDTH = 1023;
 export const MOBILE_WIDTH = 767;
 
 export const LINKS = {
