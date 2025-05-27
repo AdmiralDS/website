@@ -50,8 +50,13 @@
 
 .close-icon {
   position: absolute;
-  left: 10px;
-  top: -2px;
+  left: -2px;
+  top: -13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
 }
 
 .email-button {
