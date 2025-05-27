@@ -1,8 +1,13 @@
 <script lang="ts">
   import { SubcontentBlock } from '@components/templates';
   import { Tag, MobilePlug } from '@components/atoms';
+  import { TABLET_MEDIUM_WIDTH } from '@components/const.ts';
 
-  const colorTypeList = ['Основные цвета', 'Дополнительные цвета'];
+  $: innerWidth = 0;
+
+  const MainColorsText = 'Основные цвета';
+  const AdditionalColorsText = 'Дополнительные цвета';
+  const AdditionalColorsShortText = 'Дополнительные';
   const colorsList = [
     {
       name: 'Primary',
@@ -31,15 +36,20 @@
   ];
 </script>
 
+<svelte:window bind:innerWidth />
+
 <SubcontentBlock heading={'Палитра'} id="palette">
   <svelte:fragment slot="description">
     Для настройки цветовой палитры дизайн-системы Aдмирал используются токены. Это позволяет изменять цвета элементов в
     зависимости от требований продукта
   </svelte:fragment>
   <svelte:fragment slot="tags">
-    {#each colorTypeList as item}
-      <Tag text={item} />
-    {/each}
+    <Tag text={MainColorsText} />
+    {#if innerWidth <= TABLET_MEDIUM_WIDTH}
+      <Tag text={AdditionalColorsShortText} />
+    {:else}
+      <Tag text={AdditionalColorsText} />
+    {/if}
   </svelte:fragment>
 
   <div class="palette-block__colors-container" slot="subcontent">

@@ -1,11 +1,22 @@
 .tablet-button {
   position: absolute;
-  top: 36px;
+  top: 23px;
   left: 30px;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 10px;
 }
 
 .tablet-icon-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+}
+
+.tablet-link {
+  box-sizing: border-box;
+  height: 44px;
+  padding-top: 12px;
 }

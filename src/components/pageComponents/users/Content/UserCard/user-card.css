@@ -72,6 +72,23 @@
   }
 }
 
+@media (max-width: 1023px) {
+  .user-card__first-row {
+    border-bottom: none;
+    padding-bottom: 0;
+    word-spacing: 0;
+  }
+
+  .user-card__info-column {
+    border-right: none;
+    padding-top: none;
+  }
+
+  .user-card__icon-wrapper {
+    margin: 0 auto 0;
+  }
+}
+
 @media (max-width: 767px) {
   .user-card {
     padding: 16px 20px;
