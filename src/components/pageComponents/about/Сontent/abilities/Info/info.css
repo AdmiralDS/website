@@ -3,7 +3,7 @@
   height: 380px;
   border-radius: 12px;
   background: var(--Dark_blue_gradient);
-  padding: 40px 44px;
+  padding: 40px;
 
   display: flex;
   flex-direction: column;
