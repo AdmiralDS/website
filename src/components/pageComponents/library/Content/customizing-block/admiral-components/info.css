@@ -46,11 +46,19 @@
   .custom-info {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    padding-top: 15px;
   }
 
   .components-control-wrapper {
     flex-wrap: wrap;
     padding-right: 48px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 35px;
+  }
+
+  .customizing-tools__button {
+    top: 0px;
   }
 
   .component-wrapper {
