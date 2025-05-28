@@ -165,6 +165,7 @@
     nextDisabled = left + parent.clientWidth >= scrollingContainer.clientWidth;
     scrolledToRight = nextDisabled;
   };
+  $: handleTransitionEnd = innerWidth > MOBILE_WIDTH ? checkButtonsEnable : undefined;
 
   onMount(() => {
     checkButtonsEnable();
@@ -193,79 +194,48 @@
     const floatValue = scrolledToRight ? 'inline-end' : 'inline-start';
     const translateXValue = `-${left}px`;
     const leftValue = scrolledToRight ? `${left}px` : 0;
-    style = `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`;
+    style = innerWidth > MOBILE_WIDTH ? `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}` : '';
   }
 </script>
 
 <svelte:window bind:innerWidth />
 
-{#if innerWidth <= MOBILE_WIDTH}
-  <div class="icons-block__icon-tile">
-    <div class="icons-block__tile-header">
-      <div class="icons-block__tile-heading">Actions</div>
-      <div class="icons-block__switcher-wrapper">
-        <Toggle on:click={handleClickOnSolid} />
-        <div class="icons-block__switcher-title">Solid</div>
-      </div>
-    </div>
-
-    <div class="icons-block__icons-container">
-      <div class="icons-block__icons-wrapper">
-        <div class="icons-block__scrolling-container" bind:this={scrollingContainer}>
-          {#each iconsArray as { name, icon }}
-            <div class="icons-block__icon-container">
-              <!--            todo: Вынести в отдельный компонент для transition -->
-              <div class="icons-block__icon-wrapper" transition:fade={{ duration: 3000 }}>
-                <svelte:component this={icon} class="icons-block__icon"></svelte:component>
-              </div>
-              {name}
-            </div>
-          {/each}
-        </div>
-      </div>
-    </div>
-    <div class="icon-switcher__plug-wrapper">
-      <MobilePlug />
+<div class="icons-block__icon-tile">
+  <div class="icons-block__tile-header">
+    <div class="icons-block__tile-heading">Actions</div>
+    <div class="icons-block__switcher-wrapper">
+      <Toggle on:click={handleClickOnSolid} />
+      <div class="icons-block__switcher-title">Solid</div>
     </div>
   </div>
-{:else}
-  <div class="icons-block__icon-tile">
-    <div class="icons-block__tile-header">
-      <div class="icons-block__tile-heading">Actions</div>
-      <div class="icons-block__switcher-wrapper">
-        <Toggle on:click={handleClickOnSolid} />
-        <div class="icons-block__switcher-title">Solid</div>
-      </div>
-    </div>
 
-    <div class="icons-block__icons-container">
-      <div class="icons-block__icons-wrapper">
-        <div
-          class="icons-block__scrolling-container"
-          bind:this={scrollingContainer}
-          {style}
-          on:transitionend={checkButtonsEnable}
-        >
-          {#each iconsArray as { name, icon }}
-            <div class="icons-block__icon-container">
-              <!--            todo: Вынести в отдельный компонент для transition -->
-              <div class="icons-block__icon-wrapper" transition:fade={{ duration: 3000 }}>
-                <svelte:component this={icon} class="icons-block__icon"></svelte:component>
-              </div>
-              {name}
+  <div class="icons-block__icons-container">
+    <div class="icons-block__icons-wrapper">
+      <div
+        class="icons-block__scrolling-container"
+        bind:this={scrollingContainer}
+        {style}
+        on:transitionend={handleTransitionEnd}
+      >
+        {#each iconsArray as { name, icon }}
+          <div class="icons-block__icon-container">
+            <!--            todo: Вынести в отдельный компонент для transition -->
+            <div class="icons-block__icon-wrapper" transition:fade={{ duration: 3000 }}>
+              <svelte:component this={icon} class="icons-block__icon"></svelte:component>
             </div>
-          {/each}
-        </div>
+            {name}
+          </div>
+        {/each}
       </div>
-    </div>
-    <div class="icons-block__arrows-wrapper">
-      <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
-    </div>
-    <div class="icon-switcher__plug-wrapper">
-      <MobilePlug />
     </div>
   </div>
-{/if}
+  <div class="icons-block__arrows-wrapper">
+    <ArrowButtons onPrevClick={handlePrevClick} onNextClick={handleNextClick} {prevDisabled} {nextDisabled} />
+  </div>
+  <div class="icon-switcher__plug-wrapper">
+    <MobilePlug />
+  </div>
+</div>
 
 <style lang="css">
   @import 'iconSwitcher.css';
