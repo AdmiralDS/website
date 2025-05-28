@@ -147,10 +147,6 @@
 </script>
 
 <svelte:window bind:innerWidth />
-<p style="line-height:150%">
-  <!-- {System.BrowserName}
-  {System.BrowserVersion} -->
-</p>
 
 {#if innerWidth && innerWidth <= MOBILE_WIDTH}
   <MobileHeaderMenu />
