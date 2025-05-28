@@ -165,7 +165,6 @@
     nextDisabled = left + parent.clientWidth >= scrollingContainer.clientWidth;
     scrolledToRight = nextDisabled;
   };
-  $: handleTransitionEnd = innerWidth > MOBILE_WIDTH ? checkButtonsEnable : undefined;
 
   onMount(() => {
     checkButtonsEnable();
@@ -215,7 +214,7 @@
         class="icons-block__scrolling-container"
         bind:this={scrollingContainer}
         {style}
-        on:transitionend={handleTransitionEnd}
+        on:transitionend={innerWidth > MOBILE_WIDTH ? checkButtonsEnable : undefined}
       >
         {#each iconsArray as { name, icon }}
           <div class="icons-block__icon-container">
