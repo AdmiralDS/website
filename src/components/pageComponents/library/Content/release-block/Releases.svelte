@@ -25,6 +25,7 @@
   let scrollingContainer: HTMLDivElement;
   let scrolledToRight: boolean = false;
   let style: string = '';
+  let cardStyle: string = '';
 
   // управление промоткой карточек релизов
   $: prevDisabled = true;
@@ -88,9 +89,9 @@
     const floatValue = scrolledToRight ? 'inline-end' : 'inline-start';
     const translateXValue = `-${left}px`;
     const leftValue = scrolledToRight ? `${left}px` : 0;
-    style = `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`;
+    style = innerWidth > MOBILE_WIDTH ? `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}` : '';
     if (cardsWrapperWidth) {
-      style = `${style}; grid-auto-columns: ${cardWidth}px`;
+      cardStyle = `width: ${cardWidth}px`;
     }
     checkButtonsEnable();
   }
@@ -111,11 +112,12 @@
   const handleTouchEnd = (event) => {
     const touchendX = event.changedTouches[0].screenX;
 
+      //обработчики
     if (touchendX < touchstartX) {
-      handleNextClick();
+      //обработчик
     }
     if (touchendX > touchstartX) {
-      handlePrevClick();
+      //обработчик
     }
   };
 </script>
@@ -134,7 +136,7 @@
         class="releases-block__scrolling-container"
         bind:this={scrollingContainer}
         {style}
-        on:transitionend={checkButtonsEnable}
+        on:transitionend={innerWidth > MOBILE_WIDTH ? checkButtonsEnable : undefined}
       >
         {#each releasesArray as release}
           <ReleaseCard
@@ -143,7 +145,7 @@
             date={release.date}
             info="Релиз"
             link={release.link}
-            style="grid-row: 1"
+            style={cardStyle}
           />
         {/each}
       </div>

@@ -13,7 +13,7 @@
 .releases-block__scrolling-container {
   position: relative;
   width: fit-content;
-  display: grid;
+  display: flex;
   gap: 20px;
   justify-content: space-between;
   transition: transform 300ms ease-in-out;
@@ -36,6 +36,7 @@
 
   .releases-block__scrolling-container {
     gap: 8px;
+    overflow: auto;
   }
 
   :global(.releases-block__button) {
