@@ -4,6 +4,18 @@
   import { cubicIn, cubicOut } from 'svelte/easing';
   import { MOBILE_WIDTH } from '@components/const';
   import { MobileHeaderMenu } from '@components/organisms/MobileHeader';
+  import { onMount } from 'svelte';
+
+  import System from 'svelte-system-info';
+  import { checkBrowserVersion } from '../tools/checkBrowserVersion.js';
+
+  onMount(() => {
+    if (!checkBrowserVersion(System.BrowserName, System.BrowserVersion)) {
+      setTimeout(() =>
+        alert('Необходимо обновить браузер.\nВ текущей версия некоторые элементы могут отображаться некорректно.'),
+      );
+    }
+  });
 
   export let data;
   let currentScrollTop = 0;

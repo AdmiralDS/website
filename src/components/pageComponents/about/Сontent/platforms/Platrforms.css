@@ -76,3 +76,9 @@
     max-width: 64%;
   }
 }
+
+@media (max-width: 599px) {
+  .content {
+    max-width: none;
+  }
+}
