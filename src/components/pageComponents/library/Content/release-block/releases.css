@@ -34,6 +34,10 @@
     padding-left: 16px;
   }
 
+  .releases-block__cards-wrapper.isMobile {
+    overflow-x: auto;
+  }
+
   .releases-block__scrolling-container {
     gap: 8px;
     overflow: auto;

@@ -4,6 +4,7 @@
 
   export let item: YearPoint;
   export let container: HTMLElement = null;
+  export let last: boolean = false;
 </script>
 
 <div class="year-item">
@@ -20,8 +21,8 @@
   <div class="line">
     {#if item.eventPoints}
       <div class="events-wrapper">
-        {#each item.eventPoints as point}
-          <EventItem item={point} {container} />
+        {#each item.eventPoints as point, index}
+          <EventItem item={point} {container} last={last && index >= item.eventPoints.length - 2} />
         {/each}
       </div>
     {/if}

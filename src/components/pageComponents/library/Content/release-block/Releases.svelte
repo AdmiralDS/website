@@ -5,6 +5,7 @@
   import ReleaseCard from './ReleaseCard.svelte';
   import ReleaseTitleCard from './ReleaseTitleCard.svelte';
   import { MOBILE_WIDTH } from '@components/const';
+  import Device from 'svelte-device-info';
 
   $: innerWidth = 0;
 
@@ -34,6 +35,10 @@
   $: cardWidth = Math.floor(((cardsWrapperWidth || 0) - gapWidth * 2) / maxVisibleCardsOnPage);
   $: step = cardWidth + gapWidth;
   $: left = firstVisibleRelease * (step / stepDivider);
+
+  const wrapperClassList = ['releases-block__cards-wrapper'];
+
+  if (Device.isMobile) wrapperClassList.push('isMobile');
 
   const checkButtonsEnable = () => {
     if (!scrollingContainer) return;
@@ -89,7 +94,10 @@
     const floatValue = scrolledToRight ? 'inline-end' : 'inline-start';
     const translateXValue = `-${left}px`;
     const leftValue = scrolledToRight ? `${left}px` : 0;
-    style = innerWidth > MOBILE_WIDTH ? `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}` : '';
+    style =
+      innerWidth > MOBILE_WIDTH
+        ? `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`
+        : '';
     if (cardsWrapperWidth) {
       cardStyle = `width: ${cardWidth}px`;
     }
@@ -103,33 +111,31 @@
     }, 300);
   };
 
-  let touchstartX = 0;
+  // let touchstartX = 0;
 
-  const handleTouchStart = (event) => {
-    touchstartX = event.changedTouches[0].screenX;
-  };
+  // const handleTouchStart = (event) => {
+  //   touchstartX = event.changedTouches[0].screenX;
+  // };
 
-  const handleTouchEnd = (event) => {
-    const touchendX = event.changedTouches[0].screenX;
+  // const handleTouchEnd = (event) => {
+  //   const touchendX = event.changedTouches[0].screenX;
 
-      //обработчики
-    if (touchendX < touchstartX) {
-      //обработчик
-    }
-    if (touchendX > touchstartX) {
-      //обработчик
-    }
-  };
+  //   //обработчики
+  //   if (touchendX < touchstartX) {
+  //     //обработчик
+  //   }
+  //   if (touchendX > touchstartX) {
+  //     //обработчик
+  //   }
+  // };
 </script>
 
 <svelte:window bind:innerWidth on:resize={handleResize} />
 <div class="releases-wrapper">
   <ReleaseTitleCard />
   <div
-    class="releases-block__cards-wrapper"
+    class={wrapperClassList.join(' ')}
     bind:this={cardsWrapper}
-    on:touchstart={innerWidth <= MOBILE_WIDTH ? handleTouchStart : undefined}
-    on:touchend={innerWidth <= MOBILE_WIDTH ? handleTouchEnd : undefined}
   >
     {#if cardsWrapperWidth}
       <div

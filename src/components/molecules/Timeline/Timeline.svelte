@@ -13,8 +13,8 @@
 </script>
 
 <div class="timeline" bind:this={element}>
-  {#each items as item}
-    <YearItem {item} {container} />
+  {#each items as item, index}
+    <YearItem {item} {container} last={index === items.length - 1} />
   {/each}
 </div>
 

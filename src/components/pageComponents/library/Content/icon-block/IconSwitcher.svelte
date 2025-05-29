@@ -70,11 +70,16 @@
   import { fade } from 'svelte/transition';
   import { MobilePlug } from '@components/atoms';
   import { MOBILE_WIDTH } from '@components/const';
+  import Device from 'svelte-device-info';
 
   let scrollingContainer: HTMLDivElement;
   let left: number = 0;
   let scrolledToRight: boolean = false;
   let style: string = '';
+
+  const wrapperClassList = ['icons-block__icons-wrapper'];
+
+  if (Device.isMobile) wrapperClassList.push('isMobile');
 
   $: innerWidth = 0;
 
@@ -193,7 +198,10 @@
     const floatValue = scrolledToRight ? 'inline-end' : 'inline-start';
     const translateXValue = `-${left}px`;
     const leftValue = scrolledToRight ? `${left}px` : 0;
-    style = innerWidth > MOBILE_WIDTH ? `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}` : '';
+    style =
+      innerWidth > MOBILE_WIDTH
+        ? `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`
+        : '';
   }
 </script>
 
@@ -209,7 +217,7 @@
   </div>
 
   <div class="icons-block__icons-container">
-    <div class="icons-block__icons-wrapper">
+    <div class={wrapperClassList.join(' ')}>
       <div
         class="icons-block__scrolling-container"
         bind:this={scrollingContainer}
