@@ -60,20 +60,20 @@
     startX = e.pageX;
   };
 
-  const touchDownHandler = (e: TouchEvent) => {
-    isMousePressed = true;
-    startX = e.changedTouches[0].pageX;
-  };
+  // const touchDownHandler = (e: TouchEvent) => {
+  //   isMousePressed = true;
+  //   startX = e.changedTouches[0].pageX;
+  // };
 
   const mouseUpHandler = () => {
     isMousePressed = false;
     calcButtonsDisabled();
   };
 
-  const touchUpHandler = () => {
-    isMousePressed = false;
-    calcButtonsDisabled();
-  };
+  // const touchUpHandler = () => {
+  //   isMousePressed = false;
+  //   calcButtonsDisabled();
+  // };
 
   const mouseMoveHandler = (e: MouseEvent) => {
     if (!isMousePressed) return;
@@ -116,7 +116,6 @@
   on:resize={calcButtonsDisabled}
   on:mouseup={mouseUpHandler}
   on:mousemove={mouseMoveHandler}
-  on:touchend={touchUpHandler}
   on:touchmove={touchMoveHandler}
 />
 <div class="timeline-container" bind:this={container}>
@@ -128,7 +127,6 @@
     {style}
     on:transitionend={calcButtonsDisabled}
     on:mousedown={mouseDownHandler}
-    on:touchstart={touchDownHandler}
   >
     <Timeline {items} {container} />
   </div>

@@ -5,6 +5,7 @@
   import ReleaseCard from './ReleaseCard.svelte';
   import ReleaseTitleCard from './ReleaseTitleCard.svelte';
   import { MOBILE_WIDTH } from '@components/const';
+  import Device from 'svelte-device-info';
 
   $: innerWidth = 0;
 
@@ -25,6 +26,7 @@
   let scrollingContainer: HTMLDivElement;
   let scrolledToRight: boolean = false;
   let style: string = '';
+  let cardStyle: string = '';
 
   // управление промоткой карточек релизов
   $: prevDisabled = true;
@@ -33,6 +35,10 @@
   $: cardWidth = Math.floor(((cardsWrapperWidth || 0) - gapWidth * 2) / maxVisibleCardsOnPage);
   $: step = cardWidth + gapWidth;
   $: left = firstVisibleRelease * (step / stepDivider);
+
+  const wrapperClassList = ['releases-block__cards-wrapper'];
+
+  if (Device.isMobile) wrapperClassList.push('isMobile');
 
   const checkButtonsEnable = () => {
     if (!scrollingContainer) return;
@@ -88,9 +94,12 @@
     const floatValue = scrolledToRight ? 'inline-end' : 'inline-start';
     const translateXValue = `-${left}px`;
     const leftValue = scrolledToRight ? `${left}px` : 0;
-    style = `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`;
+    style =
+      innerWidth > MOBILE_WIDTH
+        ? `float: ${floatValue}; transform: translateX(${translateXValue}); left: ${leftValue}`
+        : '';
     if (cardsWrapperWidth) {
-      style = `${style}; grid-auto-columns: ${cardWidth}px`;
+      cardStyle = `width: ${cardWidth}px`;
     }
     checkButtonsEnable();
   }
@@ -102,39 +111,38 @@
     }, 300);
   };
 
-  let touchstartX = 0;
+  // let touchstartX = 0;
 
-  const handleTouchStart = (event) => {
-    touchstartX = event.changedTouches[0].screenX;
-  };
+  // const handleTouchStart = (event) => {
+  //   touchstartX = event.changedTouches[0].screenX;
+  // };
 
-  const handleTouchEnd = (event) => {
-    const touchendX = event.changedTouches[0].screenX;
+  // const handleTouchEnd = (event) => {
+  //   const touchendX = event.changedTouches[0].screenX;
 
-    if (touchendX < touchstartX) {
-      handleNextClick();
-    }
-    if (touchendX > touchstartX) {
-      handlePrevClick();
-    }
-  };
+  //   //обработчики
+  //   if (touchendX < touchstartX) {
+  //     //обработчик
+  //   }
+  //   if (touchendX > touchstartX) {
+  //     //обработчик
+  //   }
+  // };
 </script>
 
 <svelte:window bind:innerWidth on:resize={handleResize} />
 <div class="releases-wrapper">
   <ReleaseTitleCard />
   <div
-    class="releases-block__cards-wrapper"
+    class={wrapperClassList.join(' ')}
     bind:this={cardsWrapper}
-    on:touchstart={innerWidth <= MOBILE_WIDTH ? handleTouchStart : undefined}
-    on:touchend={innerWidth <= MOBILE_WIDTH ? handleTouchEnd : undefined}
   >
     {#if cardsWrapperWidth}
       <div
         class="releases-block__scrolling-container"
         bind:this={scrollingContainer}
         {style}
-        on:transitionend={checkButtonsEnable}
+        on:transitionend={innerWidth > MOBILE_WIDTH ? checkButtonsEnable : undefined}
       >
         {#each releasesArray as release}
           <ReleaseCard
@@ -143,7 +151,7 @@
             date={release.date}
             info="Релиз"
             link={release.link}
-            style="grid-row: 1"
+            style={cardStyle}
           />
         {/each}
       </div>

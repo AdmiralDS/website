@@ -4,14 +4,15 @@
 
   export let item: EventPoint;
   export let container: HTMLElement = null;
+  export let last: boolean = false;
 
   let textBlock: HTMLDivElement;
   let pointDiv: HTMLDivElement;
 
-  let position: 'left' | 'right' = 'left';
+  let position: 'left' | 'right' = last ? 'right' : 'left';
 
   function calcPosition() {
-    if (container && textBlock) {
+    if (container && textBlock && !last) {
       const textRect: DOMRect = textBlock.getBoundingClientRect();
       const containerRect: DOMRect = container.getBoundingClientRect();
 
@@ -26,7 +27,7 @@
   });
 
   const resetPosition = () => {
-    if (pointDiv && !pointDiv.matches(':hover')) position = 'left';
+    if (pointDiv && !pointDiv.matches(':hover')) position = last ? 'right' : 'left';
   };
 </script>
 

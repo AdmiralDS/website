@@ -29,10 +29,15 @@
 
 @media (max-width: 767px) {
   .scrolling-container {
-    padding: 80px 0 100px;
+    padding: 80px 0 140px;
+    margin: 0;
   }
 
   .timeline-container__arrows-wrapper {
     display: none;
+  }
+
+  .timeline-container {
+    overflow-x: auto;
   }
 }
