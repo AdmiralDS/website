@@ -52,6 +52,7 @@
     "@admiral-ds/fonts": "^2.0.0",
     "@admiral-ds/icons": "^4.3.0",
     "@admiral-ds/react-ui": "^8.4.1",
+    "svelte-system-info": "^1.0.3",
     "svelte-device-info": "^1.0.6"
   }
 }
